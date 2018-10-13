@@ -29,8 +29,9 @@ end
 %Run GECKO pipeline:
 cd GECKO
 GECKOver = git('describe --tags');
-cd geckomat
-%updateDatabases
+cd geckomat/get_enzyme_data
+updateDatabases;
+cd ..
 enhanceGEM(model,'COBRA');
 cd ../..
 
