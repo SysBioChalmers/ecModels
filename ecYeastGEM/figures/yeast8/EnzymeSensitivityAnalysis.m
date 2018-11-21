@@ -19,11 +19,15 @@ load('ecYeastGEM_batch.mat')
 %Carbon sources and media types
 Csources   = {'D-glucose' 'acetate' 'ethanol' 'glycerol' 'D-glucitol' 'D-galactose' 'D-ribose' 'D-xylose'};
 MediaTypes = {'Min' 'MAA' 'YEP'};
-%Get enzyme usage rxn indexes
+%Get enzymes indexes (mets)
 enzIndxs = find(contains(ecModel_batch.mets,'prot_'));
 %Avoid protein pool
 enzIndxs = enzIndxs(1:end-1);
-proteins = strrep(ecModel_batch.mets(enzIndxs),'prot_','');
+%Map proteins to gene IDs
+proteins     = strrep(ecModel_batch.mets(enzIndxs),'prot_','');
+[~,geneIndx] = ismember(proteins,ecModel_batch.enzymes);
+genes        = ecModel_batch.enzGenes(geneIndx);
+
 objIndex = find(ecModel_batch.c);
 cd (current)
 for media = MediaTypes
@@ -75,7 +79,7 @@ for media = MediaTypes
     end
     %Write the results for all the carbon sources in a given media type in
     %tab separated file
-    MediaTable = table(sensitivities,'RowNames',proteins);
+    MediaTable = table(sensitivities,'RowNames',genes);
     fileName   = ['KcatSensitivities_' media{1}, '.txt'];
     cd ([current '/results'])
     writetable(MediaTable, fileName,'Delimiter','\t','QuoteStrings',true,'WriteRowNames',true);
