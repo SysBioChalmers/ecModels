@@ -44,3 +44,7 @@ Thumbs.db
 *.mlappinstall 
 *.mltbx
 helpsearch*/
+
+# Figures #
+###########
+*.pdf
