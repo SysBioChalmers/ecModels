@@ -10,20 +10,20 @@ function FluxRange = MAXmin_Optimizer(model,indexes,FixedValues,tol)
     FluxRange = [];
     %Index is a 2 cells array when the rxn is a splitted reversible rxn
     for i=1:length(indexes)
-        %%% Maximization %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        % Set objective function
+        %%% Maximization 
+        %Set objective function to maximization of the desired flux
         model.c             = zeros(length(model.c),1);
         model.c(indexes(i)) = 1;
         %Fixes the flux for the backward rxn for irrev models
         Temp_model = fixFluxValue(model,indexes,1,FixedValues);
         solution   = solveLP(Temp_model);
-        %%% If Maximization was feasible, then proceed to minimization %%%%
+        %If Maximization was feasible, then proceed to minimization %%%%
         if ~isempty(solution.f)
             maxFlux             = solution.x(indexes(i));
             model.c             = zeros(length(model.c),1);
             model.c(indexes(1)) = -1;
             %Fixes the flux for the forward rxn for irrev models
-            Temp_model = fixFluxValue(model,indexes,-1,FixedValues);
+            Temp_model = fixFluxValue(model,indexes,-1,maxFlux);
             solution   = solveLP(Temp_model);
             if ~isempty(solution.f)
                 minFlux   = solution.x(indexes(i));
@@ -44,11 +44,15 @@ end
 function model = fixFluxValue(model,indexes,coeff,FixedValues)
     if length(indexes)>1
         if coeff == 1
+            %Fix basal flux level for backward reaction to avoid
+            %artificially high variability
             model.ub(indexes(2)) = FixedValues(2);
-            model.lb(indexes(2)) = 0.9999*FixedValues(2);
+            %model.lb(indexes(2)) = 0.9999*FixedValues(2);
         else
-            model.ub(indexes(1)) = FixedValues(1);
-            model.lb(indexes(1)) = 0.9999*FixedValues(1);
+            %Fix basal flux level for forward reaction with the maximum flux 
+            %obtained in the previous stepto avoid artificially high variability
+            model.ub(indexes(1)) = FixedValues;
+            %model.lb(indexes(1)) = 0.9999*FixedValues(1);
         end
     end
 end
