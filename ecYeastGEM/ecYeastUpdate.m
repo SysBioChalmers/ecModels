@@ -32,7 +32,7 @@ GECKOver = git('describe --tags');
 cd geckomat/get_enzyme_data
 updateDatabases;
 cd ..
-enhanceGEM(model,'COBRA');
+[ecModel,ecModel_batch] = enhanceGEM(model,'COBRA');
 cd ../..
 
 %Move model files:
