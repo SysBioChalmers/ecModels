@@ -66,29 +66,27 @@ protResults.fluxfree  = cell(1,M);
 protResults.fluxwMC   = cell(1,M);
 protResults.fluxwProt = cell(1,M);
 protResults.protPools = NaN(M,m);
+if createModels
+    protResults.mModels        = cell(M,m);
+    protResults.ecModels_wMC   = cell(M,m);
+    protResults.ecModels_wProt = cell(M,m);
+end
 
 %Manual curation to ecModel:
 cd ./solveProblems
 ecModel = manualCuration(ecModel);
 cd ./..
 
-%Initialize variables in the case of no previous models:
-if createModels
-    protResults.mModels        = cell(M,m);
-    protResults.ecModels_wMC   = cell(M,m);
-    protResults.ecModels_wProt = cell(M,m);
-    
-    %Changes to original model:
-    model       = ravenCobraWrapper(model);
-    [model,~,~] = preprocessModel(model,'','');
-    model       = convertToIrrev(model);
-    
-    %Create model with single enzyme mass constraint:
-    cd ./GECKO/geckomat/limit_proteins
-    Pbase = sumProtein(ecModel);
-    [ecModel_general,~,~] = constrainEnzymes(ecModel,Pbase,sigma);
-    cd ./../../..
-end
+%Changes to original model:
+model       = ravenCobraWrapper(model);
+[model,~,~] = preprocessModel(model,'','');
+model       = convertToIrrev(model);
+
+%Create model with single enzyme mass constraint:
+cd ./GECKO/geckomat/limit_proteins
+Pbase = sumProtein(ecModel);
+[ecModel_general,~,~] = constrainEnzymes(ecModel,Pbase,sigma);
+cd ./../../..
 
 %For loop for each stress type [i] and each level [j]:
 for i = 1:M
@@ -112,9 +110,9 @@ for i = 1:M
                 ecModel_wProt = limitModel(ecModel,ids{i,j},Ptot(i,j),sigma,GAM);
             else
                 %Load models:
-                mModel        = protResults.mModels{i};
-                ecModel_wMC   = protResults.mcModels{i};
-                ecModel_wProt = protResults.ecModels{i};
+                mModel        = protResults.mModels{i,j};
+                ecModel_wMC   = protResults.ecModels_wMC{i,j};
+                ecModel_wProt = protResults.ecModels_wProt{i,j};
             end
             
             %Fit NGAM to exp data:
