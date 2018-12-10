@@ -41,7 +41,7 @@ pIDs(nan_pos,:) = [];
 %Calculate values to use:
 data_1    = nanmean(data,2);
 dataStds  = nanstd(data,0,2);
-data_2    = data_1 + dataStds;
+data_2    = data_1 + 1.96*dataStds;
 data_3    = data_2;
 prev_pIDs = pIDs;
 
