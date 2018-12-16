@@ -52,8 +52,8 @@ ids = {'REF','Temp33' ,'Temp36' ,'Temp38' ,''       ,''       ,''       ,''     
 
 %Protein content:
 Ptot  = [0.46 0.51 0.52 0.60 NaN  NaN  NaN  NaN  NaN
-         NaN  0.63 0.62 0.64 0.62 0.64 0.65 0.64 NaN
-         NaN  0.45 0.55 0.52 NaN  NaN  NaN  NaN  NaN];
+         0.46 0.63 0.62 0.64 0.62 0.64 0.65 0.64 NaN
+         0.46 0.45 0.55 0.52 NaN  NaN  NaN  NaN  NaN];
 %TODO: R content + lipids + carbs
 
 %Initialize variables:
@@ -67,7 +67,6 @@ protResults.fluxwMC   = cell(1,M);
 protResults.fluxwProt = cell(1,M);
 protResults.protPools = NaN(M,m);
 if createModels
-    protResults.mModels        = cell(M,m);
     protResults.ecModels_wMC   = cell(M,m);
     protResults.ecModels_wProt = cell(M,m);
 end
@@ -81,6 +80,7 @@ cd ./..
 model       = ravenCobraWrapper(model);
 [model,~,~] = preprocessModel(model,'','');
 model       = convertToIrrev(model);
+protResults.mModel = model;
 
 %Create model with single enzyme mass constraint:
 cd ./GECKO/geckomat/limit_proteins
@@ -98,10 +98,12 @@ for i = 1:M
     protResults.fluxwProt{i} = NaN(length(ecModel_general.rxns),m);
     for j = 1:m
         if ~isnan(Ptot(i,j))
+            %Changes to original model
+            cd ./GECKO/geckomat/limit_proteins
+            mModel = scaleBioMass(model,Ptot(i,j));
+            
             if createModels
-                %Changes to both original model & general ecModel:
-                cd ./GECKO/geckomat/limit_proteins
-                mModel      = scaleBioMass(model,Ptot(i,j));
+                %Changes to general ecModel:
                 ecModel_wMC = scaleBioMass(ecModel_general,Ptot(i,j));
                 GAM         = fitGAM(ecModel_wMC);
                 cd ./../../..
@@ -110,13 +112,14 @@ for i = 1:M
                 ecModel_wProt = limitModel(ecModel,ids{i,j},Ptot(i,j),sigma,GAM);
             else
                 %Load models:
-                mModel        = protResults.mModels{i,j};
                 ecModel_wMC   = protResults.ecModels_wMC{i,j};
                 ecModel_wProt = protResults.ecModels_wProt{i,j};
+                cd ./../../..
             end
             
+            
             %Fit NGAM to exp data:
-            [res_free,flux_free,mModel]  = iterateNGAM(mModel,exp_data,i,j);
+            [res_free,flux_free,~]       = iterateNGAM(mModel,exp_data,i,j);
             protResults.free{i}(j,:)     = res_free;
             protResults.fluxfree{i}(:,j) = flux_free;
             
@@ -131,7 +134,6 @@ for i = 1:M
             disp(['Ready with optimization ' num2str(i) ' - ' num2str(j)])
             
             %Store variables:
-            protResults.mModels{i,j}        = mModel;
             protResults.ecModels_wMC{i,j}   = ecModel_wMC;
             protResults.ecModels_wProt{i,j} = ecModel_wProt;
             P_pos = strcmp(ecModel_wProt.rxns,'prot_pool_exchange');
@@ -160,11 +162,14 @@ end
 
 function [res,fluxes,model] = iterateNGAM(model,exp_data,i,j)
 
-NGAMspan           = 0:1:10;
+NGAMspan           = 0:5:50;
 [res,~,~]          = optimNGAM(model,exp_data,NGAMspan,i,j);
 minNGAM            = max([0,res(end-1)-1]);
-NGAMspan_2         = minNGAM:0.1:minNGAM+2;
-[res,fluxes,model] = optimNGAM(model,exp_data,NGAMspan_2,i,j);
+NGAMspan_2         = (minNGAM):1:(minNGAM+20);
+[res,~,~]          = optimNGAM(model,exp_data,NGAMspan_2,i,j);
+minNGAM            = max([0,res(end-1)-1]);
+NGAMspan_3         = (minNGAM):0.1:(minNGAM+2);
+[res,fluxes,model] = optimNGAM(model,exp_data,NGAMspan_3,i,j);
 
 end
 
