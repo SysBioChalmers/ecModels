@@ -2,14 +2,6 @@
 
 function [protResults,list] = flexibilizeModels(protResults)
 
-%Exp data:
-cd ./../exp_data
-exp_data{1} = xlsread('Sce_stress_chemostats_merged.xlsx',1,'B2:G5');     %Temp
-exp_data{2} = xlsread('Sce_stress_chemostats_merged.xlsx',1,'B7:G15');    %Osmotic Stress
-exp_data{3} = xlsread('Sce_stress_chemostats_merged.xlsx',1,'B17:G20');   %Ethanol
-cd ./../solveProblems
-
-ecModels_wMC   = protResults.ecModels_wMC;
 ecModels_wProt = protResults.ecModels_wProt;
 list   = cell(size(ecModels_wProt));
 [m,n]  = size(ecModels_wProt);
@@ -17,18 +9,17 @@ for i = 1:m
     for j = 1:n
         if ~isempty(ecModels_wProt{i,j})
             disp(['Model ' num2str(i) ' - ' num2str(j) ':'])
-            vgluc = exp_data{i}(j,1);
+            vgluc = +100;
             if i == 3
-                veth = exp_data{i}(j,4);
+                veth = +100;
             else
                 veth = -1;
             end
-            model = changeConditions(ecModels_wMC{i,j},vgluc,veth);
-            sol   = optimizeCbModel(model);
             model = changeConditions(ecModels_wProt{i,j},vgluc,veth);
-            %Solve model problems (so it can grow at least like wMC):
-            [protResults.ecModels_wProt{i,j},list{i,j}] = flexibilizeModel(model,sol.f);
+            %Solve model problems (so it can grow at least at 0.1 1/h):
+            [protResults.ecModels_wProt{i,j},list{i,j}] = flexibilizeModel(model,0.1);
             save('list.mat','list')
+            save('../protResults_solved.mat','protResults')
         end
     end
 end
