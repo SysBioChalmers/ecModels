@@ -10,7 +10,6 @@ end
 
 %Set parameters:
 sigma = 0.5;	%Standard value
-initCobraToolbox
 
 %Get GECKO:
 git clone --depth=1 https://github.com/SysBioChalmers/GECKO.git
@@ -30,13 +29,6 @@ model    = load('./ModelFiles/mat/yeastGEM.mat');
 model    = model.model;
 cd ./..
 
-%Get enzyme-constrained model:
-git clone --depth=1 https://github.com/SysBioChalmers/ecModels.git
-ecModel = load('./ecModels/ecYeastGEM/model/ecYeastGEM.mat');
-ecModel = ecModel.ecModel;
-if ~contains(ecModel.id,modelVer)
-    error('model and ecModel do not match!');
-end
 
 %Load and process flux data:
 %TODO: switch to csv. [flux_data,samples] = loadFluxData;
@@ -56,6 +48,28 @@ Ptot  = [0.46 0.51 0.52 0.60 NaN  NaN  NaN  NaN  NaN
          0.46 0.45 0.55 0.52 NaN  NaN  NaN  NaN  NaN];
 %TODO: R content + lipids + carbs
 
+%Get enzyme-constrained model:
+if createModels
+    cd ./GECKO/geckomat
+    [ecModel,~] = enhanceGEM(model,'COBRA');
+    cd ./../../solveProblems
+    ecModel = manualCuration(ecModel);
+    cd ./../GECKO/geckomat/limit_proteins
+    %model with single enzyme mass constraint:
+    Pbase = sumProtein(ecModel);
+    [ecModel_general,~,~] = constrainEnzymes(ecModel,Pbase,sigma);
+    cd ./../../..
+else
+    initCobraToolbox
+    ecModel_general = protResults.ecModels_wMC{1,1};
+end
+
+%Changes to original model:
+model       = ravenCobraWrapper(model);
+[model,~,~] = preprocessModel(model,'ecYeastGEM','8.0.0');
+model       = convertToIrrev(model);
+protResults.mModel = model;
+
 %Initialize variables:
 M     = length(exp_data);
 [m,n] = size(exp_data{2});
@@ -70,23 +84,6 @@ if createModels
     protResults.ecModels_wMC   = cell(M,m);
     protResults.ecModels_wProt = cell(M,m);
 end
-
-%Manual curation to ecModel:
-cd ./solveProblems
-ecModel = manualCuration(ecModel);
-cd ./..
-
-%Changes to original model:
-model       = ravenCobraWrapper(model);
-[model,~,~] = preprocessModel(model,'','');
-model       = convertToIrrev(model);
-protResults.mModel = model;
-
-%Create model with single enzyme mass constraint:
-cd ./GECKO/geckomat/limit_proteins
-Pbase = sumProtein(ecModel);
-[ecModel_general,~,~] = constrainEnzymes(ecModel,Pbase,sigma);
-cd ./../../..
 
 %For loop for each stress type [i] and each level [j]:
 for i = 1:M
@@ -153,7 +150,6 @@ fclose(fid);
 rmpath(genpath(folder));
 rmdir('./GECKO','s')
 rmdir('./yeast-GEM','s')
-rmdir('./ecModels','s')
 delete(get(0,'Children'))   %deletes any present plot
 
 end
