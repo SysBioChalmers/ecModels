@@ -79,10 +79,15 @@ protResults.wProt     = cell(1,M);
 protResults.fluxfree  = cell(1,M);
 protResults.fluxwMC   = cell(1,M);
 protResults.fluxwProt = cell(1,M);
-protResults.protPools = NaN(M,m);
 if createModels
     protResults.ecModels_wMC   = cell(M,m);
     protResults.ecModels_wProt = cell(M,m);
+    protResults.Nmatched       = NaN(M,m);
+    protResults.Pmatched       = NaN(M,m);
+    protResults.Pstds          = NaN(M,m);
+    protResults.Pcomplex       = NaN(M,m);
+    protResults.Ppool          = NaN(M,m);
+    protResults.Ptot           = Ptot;
 end
 
 %For loop for each stress type [i] and each level [j]:
@@ -106,7 +111,12 @@ for i = 1:M
                 cd ./../../..
                 
                 %Create specific ecModel:
-                ecModel_wProt = limitModel(ecModel,ids{i,j},Ptot(i,j),sigma,GAM);
+                [ecModel_wProt,misc_res]  = limitModel(ecModel,ids{i,j},Ptot(i,j),sigma,GAM);
+                protResults.Nmatched(i,j) = misc_res.Nmatched;
+                protResults.Pmatched(i,j) = misc_res.Pmatched;
+                protResults.Pstds(i,j)    = misc_res.Pstds;
+                protResults.Pcomplex(i,j) = misc_res.Pcomplex;
+                protResults.Ppool(i,j)    = misc_res.Ppool;
             else
                 %Load models:
                 ecModel_wMC   = protResults.ecModels_wMC{i,j};
@@ -133,8 +143,6 @@ for i = 1:M
             %Store variables:
             protResults.ecModels_wMC{i,j}   = ecModel_wMC;
             protResults.ecModels_wProt{i,j} = ecModel_wProt;
-            P_pos = strcmp(ecModel_wProt.rxns,'prot_pool_exchange');
-            protResults.protPools(i,j) = ecModel_wProt.ub(P_pos);
             save('protResults.mat','protResults')
         end
     end
