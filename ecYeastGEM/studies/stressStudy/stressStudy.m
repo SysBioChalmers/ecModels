@@ -177,7 +177,7 @@ f        = ones(size(NGAM))*1e6;
 xS       = cell(size(NGAM));
 flux     = cell(size(NGAM));
 models   = cell(size(NGAM));
-exp_data = exp_data{i}(j,:);
+exp_data = exp_data{i}(j,1:4);  %glucose-O2-CO2-etOH
 
 for k = 1:length(NGAM)
     %Change NGAM:
@@ -188,12 +188,12 @@ for k = 1:length(NGAM)
     %Simulate growth and calculate f:
     try
         [xS{k},flux{k}] = simulateGrowth(model,i);
-        R    = abs(xS{k}(2:end-1)-exp_data);
-        f(k) = mean(abs(R));
-        disp(['NGAM = ' num2str(NGAM(k)) ' mmol/gDWh -> Error = ' num2str(f(k)) ' mmol/gDWh'])
+        R    = (xS{k}(2:5)-exp_data)./exp_data;
+        f(k) = sqrt(nansum(R.^2));
+        disp(['NGAM = ' num2str(NGAM(k)) ' mmol/gDWh -> Error = ' num2str(f(k))])
     catch
         disp('Unfeasible Problem')
-        xS{k}   = NaN(1,length(exp_data)+2);
+        xS{k}   = NaN(1,8);
         flux{k} = NaN(length(model.rxns),1);
     end
     models{k} = model;
@@ -202,8 +202,9 @@ end
 %Choose best:
 [~,best] = min(f);
 NGAM     = NGAM(best(1));
-f        = f(best(1));
 xS       = xS{best(1)};
+R        = (xS(2:5)-exp_data)./exp_data;
+f        = nanmean(abs(R))*100;
 results  = [xS NGAM f];
 flux     = flux{best(1)};
 model    = models{best(1)};
