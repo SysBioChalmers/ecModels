@@ -47,8 +47,8 @@ if veth > 0
     model = changeRxnBounds(model,Eout_id,0,'u');
 end
 
-%Relax NGAM:
-model = changeRxnBounds(model,N_id,0,'l');
+%Relax NGAM to observed maintenance in ref conditions (http://dx.doi.org/10.1038/srep22264):
+model = changeRxnBounds(model,N_id,0.7,'l');
 model = changeRxnBounds(model,N_id,1000,'u');
 
 %Optimize for biomass:
