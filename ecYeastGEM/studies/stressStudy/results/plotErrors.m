@@ -2,8 +2,9 @@
 
 function plotErrors(results)
 
-%Calculate errors:
-errors  = zeros(14,3);
+%Calculate NGAM & errors:
+errors = zeros(14,3);
+NGAM   = zeros(14,3);
 for i = 1:3
     for j = 1:9
         pos = 0;
@@ -38,8 +39,10 @@ for i = 1:3
                 pos = 14;
             end
             
-            %Retrieve error:
             if pos > 0
+                NGAM(pos,1)   = results.free{i}(j,end-1);
+                NGAM(pos,2)   = results.wMC{i}(j,end-1);
+                NGAM(pos,3)   = results.wProt{i}(j,end-1);
                 errors(pos,1) = results.free{i}(j,end);
                 errors(pos,2) = results.wMC{i}(j,end);
                 errors(pos,3) = results.wProt{i}(j,end);
@@ -53,9 +56,9 @@ figure('position', [50,50,1400,600])
 colors = sampleCVDmap(6);
 hold on
 for i = 1:14
-    b1 = bar(i-0.25,errors(i,1),'BarWidth',0.25);
-    b2 = bar(i,errors(i,2),'BarWidth',0.25);
-    b3 = bar(i+0.25,errors(i,3),'BarWidth',0.25);
+    b1 = bar(i-0.25,NGAM(i,1),'BarWidth',0.25);
+    b2 = bar(i,NGAM(i,2),'BarWidth',0.25);
+    b3 = bar(i+0.25,NGAM(i,3),'BarWidth',0.25);
     if i == 1
         colors_i = [0,0,0];
     elseif i <= 4
@@ -74,7 +77,7 @@ for i = 1:14
 end
 
 %Plot separation lines:
-max_e = ceil(max(max(errors))/10)*10;
+max_e = ceil(max(max(NGAM))/10)*10;
 plot([1.5,1.5],[0,max_e],'--k','LineWidth',1)
 plot([4.5,4.5],[0,max_e],'--k','LineWidth',1)
 plot([11.5,11.5],[0,max_e],'--k','LineWidth',1)
@@ -87,7 +90,7 @@ stress_names = {'Reference','33°C','36°C','38°C','0.2 M','0.4 M','0.6 M', ...
                 '0.8 M','1.0 M','1.2 M','1.3 M','20 g/L','40 g/L','60 g/L'};
 set(gca,'XTick',1:14,'XTickLabel',stress_names)
 set(gca,'YTick',0:10:max_e)
-ylabel('Average error in fitting [%]','FontSize',text_size);
+ylabel('Fitted NGAM [mmol/gDWh]','FontSize',text_size);
 legend([b1 b2 b3],'Yeast7','ecYeast7 - no proteomic data', ...
        'ecYeast7 - with proteomic data','Location','north')
 legend('boxoff')
@@ -102,7 +105,7 @@ cd spider
 figure('units', 'normalized', 'outerposition', [0 0.05 1 0.95]);
 stress_names = {'  Reference',' 33°C','36°C','38°C','0.2 M','0.4 M','0.6 M ', ...
                 '0.8 M ','1.0 M ','1.2 M','1.3 M','20 g/L','40 g/L',' 60 g/L'};
-spider_plot(errors',stress_names',3,'LineStyle','-','LineWidth',2)
+spider_plot(errors',stress_names',4,'LineStyle','-','LineWidth',2)
 legend('Yeast7','ecYeast7 - no proteomic data', ...
        'ecYeast7 - with proteomic data','Location', 'southoutside');
 legend('boxoff')
