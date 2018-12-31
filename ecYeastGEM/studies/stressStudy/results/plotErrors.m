@@ -7,7 +7,7 @@ errors  = zeros(14,3);
 for i = 1:3
     for j = 1:9
         pos = 0;
-        if ~isempty(results.ecModels{i,j})
+        if ~isempty(results.ecModels_wProt{i,j})
             if i == 1 && j == 1
                 pos = 1;
             elseif i == 1 && j == 2
@@ -50,29 +50,27 @@ end
 
 %Plot data:
 figure('position', [50,50,1400,600])
+colors = sampleCVDmap(6);
 hold on
 for i = 1:14
     b1 = bar(i-0.25,errors(i,1),'BarWidth',0.25);
     b2 = bar(i,errors(i,2),'BarWidth',0.25);
     b3 = bar(i+0.25,errors(i,3),'BarWidth',0.25);
     if i == 1
-        set(b1,'FaceColor',[210 209 212]/255) %Model
-        set(b2,'FaceColor',[115 115 119]/255) %ecModel_general
-        set(b3,'FaceColor',[35  31  32 ]/255) %ecModel_specific
+        colors_i = [0,0,0];
     elseif i <= 4
-        set(b1,'FaceColor',[252 211 193]/255) %Model
-        set(b2,'FaceColor',[245 132 102]/255) %ecModel_general
-        set(b3,'FaceColor',[237 31  36 ]/255) %ecModel_specific
+        colors_i = colors(6,:);
     elseif i <= 11
-        set(b1,'FaceColor',[205 206 232]/255) %Model
-        set(b2,'FaceColor',[128 134 193]/255) %ecModel_general
-        set(b3,'FaceColor',[57  83  164]/255) %ecModel_specific
+        colors_i = colors(2,:);
     else
-        set(b1,'FaceColor',[204 216 200]/255) %Model
-        set(b2,'FaceColor',[122 165 122]/255) %ecModel_general
-        set(b3,'FaceColor',[13  129 64 ]/255) %ecModel_specific
+        colors_i = colors(4,:);
     end
-    
+    color(:,1) = linspace(1,colors_i(1),4)';
+    color(:,2) = linspace(1,colors_i(2),4)';
+    color(:,3) = linspace(1,colors_i(3),4)';
+    set(b1,'FaceColor',color(2,:)) %Model
+    set(b2,'FaceColor',color(3,:)) %ecModel_general
+    set(b3,'FaceColor',color(4,:)) %ecModel_specific
 end
 
 %Plot separation lines:
@@ -104,7 +102,7 @@ cd spider
 figure('units', 'normalized', 'outerposition', [0 0.05 1 0.95]);
 stress_names = {'  Reference',' 33°C','36°C','38°C','0.2 M','0.4 M','0.6 M ', ...
                 '0.8 M ','1.0 M ','1.2 M','1.3 M','20 g/L','40 g/L',' 60 g/L'};
-spider_plot(log(errors'),stress_names',4,'LineStyle','-','LineWidth',2)
+spider_plot(errors',stress_names',3,'LineStyle','-','LineWidth',2)
 legend('Yeast7','ecYeast7 - no proteomic data', ...
        'ecYeast7 - with proteomic data','Location', 'southoutside');
 legend('boxoff')

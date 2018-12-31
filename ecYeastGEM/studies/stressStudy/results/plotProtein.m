@@ -22,62 +22,54 @@ protein_names{3} = 'Complex III';
 proteins{4} = {'P37298','P33421'};      %Cytosolic one: Q00711 + P21801
 protein_names{4} = 'Complex II';
 
-% %NDI1/NDE1/NDE2:
-% proteins{5} = {'P40215','Q07500','P32340'};
-% protein_names{5} = 'NADH dehydrogenase';
-
 %Settings depending on the condition:
-if strfind(condition,'ref') > 0
-    color  = [35  31  32        %Experimental
-              115 115 119       %ecModel_general
-              255 255 255]/255; %ecModel_specific
+colors  = sampleCVDmap(6);
+if startsWith(condition,'REF')
+    colors = [0,0,0];
     text   = '';
     cond   = [1,1];
-elseif strfind(condition,'temp') > 0
-    color  = [237 31  36        %Experimental
-              245 132 102       %ecModel_general
-              255 255 255]/255; %ecModel_specific
+elseif startsWith(condition,'Temp')
+    colors = colors(6,:);
     text   = [' - ' condition(5:end) '°C'];
-    if strfind(text,'33') > 0
-        cond   = [1,2];
-    elseif strfind(text,'36') > 0
-        cond   = [1,3];
-    elseif strfind(text,'38') > 0
-        cond   = [1,4];
+    if endsWith(condition,'33')
+        cond = [1,2];
+    elseif endsWith(condition,'36')
+        cond = [1,3];
+    elseif endsWith(condition,'38')
+        cond = [1,4];
     end
-elseif strfind(condition,'osmo') > 0
-    color  = [57  83  164       %Experimental
-              128 134 193       %ecModel_general
-              255 255 255]/255; %ecModel_specific
-    text   = [' - ' condition(5:end) ' M'];
-    if strfind(text,'0.2') > 0
-        cond   = [2,2];
-    elseif strfind(text,'0.4') > 0
-        cond   = [2,3];
-    elseif strfind(text,'0.6') > 0
-        cond   = [2,4];
-    elseif strfind(text,'0.8') > 0
-        cond   = [2,5];
-    elseif strfind(text,'1.0') > 0
-        cond   = [2,6];
-    elseif strfind(text,'1.2') > 0
-        cond   = [2,7];
-    elseif strfind(text,'1.3') > 0
-        cond   = [2,8];
+elseif startsWith(condition,'Osmo')
+    colors = colors(2,:);
+    text  = [' - ' condition(5:end) ' M'];
+    if endsWith(condition,'0.2')
+        cond = [2,2];
+    elseif endsWith(condition,'0.4')
+        cond = [2,3];
+    elseif endsWith(condition,'0.6')
+        cond = [2,4];
+    elseif endsWith(condition,'0.8')
+        cond = [2,5];
+    elseif endsWith(condition,'1.0')
+        cond = [2,6];
+    elseif endsWith(condition,'1.2')
+        cond = [2,7];
+    elseif endsWith(condition,'1.3')
+        cond = [2,8];
     end
-elseif strfind(condition,'etoh') > 0
-    color  = [13  129 64        %Experimental
-              122 165 122       %ecModel_general
-              255 255 255]/255; %ecModel_specific
+elseif startsWith(condition,'EtOH')
+    colors  = colors(4,:);
     text    = [' - ' condition(5:end) ' g/L'];
-    if strfind(text,'20') > 0
-        cond   = [3,2];
-    elseif strfind(text,'40') > 0
-        cond   = [3,3];
-    elseif strfind(text,'60') > 0
-        cond   = [3,4];
+    if endsWith(condition,'20')
+        cond = [3,2];
+    elseif endsWith(condition,'40')
+        cond = [3,3];
+    elseif endsWith(condition,'60')
+        cond = [3,4];
     end
 end
+color(:,1) = linspace(1,colors(1),4)';
+color(:,2) = linspace(1,colors(2),4)';
+color(:,3) = linspace(1,colors(3),4)';
 
 fluxeswMC   = results.fluxwMC{cond(1)}(:,cond(2));
 fluxeswProt = results.fluxwProt{cond(1)}(:,cond(2));
@@ -85,11 +77,11 @@ values      = zeros(length(proteins),3);
 for i = 1:length(proteins)
     for j = 1:length(proteins{i})
         %Usage in generic model:
-        [usage,~]   = getUsage(results.ecModel,proteins{i}{j},fluxeswMC);
+        [usage,~]   = getUsage(results.ecModels_wMC{cond(1),cond(2)},proteins{i}{j},fluxeswMC);
         values(i,2) = values(i,2) + usage;
         
         %Usage + concentration in specific model:
-        [usage,ub]  = getUsage(results.ecModels{cond(1),cond(2)},proteins{i}{j},fluxeswProt);
+        [usage,ub]  = getUsage(results.ecModels_wProt{cond(1),cond(2)},proteins{i}{j},fluxeswProt);
         values(i,3) = values(i,3) + ub;
         values(i,1) = values(i,1) + usage;
     end
@@ -101,9 +93,9 @@ for i = 1:length(proteins)
     b1 = barh(i - 0.25,values(i,1),'BarWidth',0.25);
     b2 = barh(i,values(i,2),'BarWidth',0.25);
     b3 = barh(i + 0.25,values(i,3),'BarWidth',0.25);
-    set(b1,'FaceColor',color(1,:)) %ecModel_specific
-    set(b2,'FaceColor',color(2,:)) %ecModel_general
-    set(b3,'FaceColor',color(3,:)) %Experimental
+    set(b1,'FaceColor',color(4,:)) %ecModel_specific
+    set(b2,'FaceColor',color(3,:)) %ecModel_general
+    set(b3,'FaceColor',color(1,:)) %Experimental
 end
 
 %Various options:
