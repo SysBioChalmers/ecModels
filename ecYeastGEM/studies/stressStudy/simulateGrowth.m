@@ -25,23 +25,16 @@ if i == 3   %Ethanol as substrate
 end
 x = optimizeCbModel(model);
 
-%Afterwards, fix substrates and minimize protein usage:
+%Afterwards, fix substrates and minimize total flux:
 model.lb(pos_G) = x.x(pos_G);
 model.ub(pos_G) = x.x(pos_G)*1.001;
 if i == 3   %Ethanol as substrate
     model.lb(pos_Ein) = x.x(pos_Ein);
     model.ub(pos_Ein) = x.x(pos_Ein)*1.001;
 end
-if isempty(pos_P)   %Minimize fluxes
-    model.c = -ones(size(model.rxns));
-    x       = optimizeCbModel(model);
-else                %Minimize enzymes
-    model.c        = zeros(size(model.rxns));
-    model.c(pos_P) = -1;
-    x              = optimizeCbModel(model);
-end
-
-flux = x.x;
+model.c = -ones(size(model.rxns));
+x       = optimizeCbModel(model);
+flux    = x.x;
 
 %xS:
 xS(1) = flux(pos_X);
