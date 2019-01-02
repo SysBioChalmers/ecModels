@@ -7,7 +7,7 @@ if isempty(means)
 end
 
 %Show only one ATPsynt value:
-ATP_pos = ~cellfun(@isempty,strfind(names,'ATP')) + strcmp(names,'OLI1') + strcmp(names,'TIM11') == 1;
+ATP_pos = contains(names,'ATP') + strcmp(names,'OLI1') + strcmp(names,'TIM11') == 1;
 if sum(ATP_pos) > 1
     names{find(ATP_pos,1)}   = 'ATPsynt';
     ATP_pos(find(ATP_pos,1)) = false;

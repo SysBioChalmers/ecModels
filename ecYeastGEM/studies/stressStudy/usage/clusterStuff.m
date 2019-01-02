@@ -52,11 +52,6 @@ xlim([0.5,14.5])
 axis off
 
 %Heatmap:
-% grad = 1000;
-% red  = (0:grad)'/grad;
-% blue = (grad:-1:0)'/grad;
-% map  = [red zeros(grad+1,1) blue];
-% colormap(map)
 colormap redbluecmap
 subplot(M,N,pos_hm)
 data = data(end:-1:1,order);

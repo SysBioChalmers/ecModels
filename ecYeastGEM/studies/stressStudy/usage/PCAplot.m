@@ -17,7 +17,7 @@ if nargin == 3
             end
         end
     end
-    cd ./../Usage
+    cd ./../usage
     name = 'proteins';
     figure('position', [50,50,500,500]);
 end

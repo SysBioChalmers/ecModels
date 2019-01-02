@@ -9,12 +9,12 @@ prot.conc = log10(prot.conc);
 prot.useP = log10(prot.useP);
 prot.flux = log10(fluxes);
 
-[path.names,EPmat,~,RPmat] = getPathways(protResults.ecModel);
+[path.names,EPmat,~,RPmat] = getPathways(protResults.ecModels_wMC{1,1});
 
 %Adapt EPmat to fewer data:
 EPmat_new = zeros(length(prot.codes),length(path.names));
 for i = 1:length(prot.codes)
-    pos = strcmp(protResults.ecModel.enzymes,prot.codes{i});
+    pos = strcmp(protResults.ecModels_wMC{1,1}.enzymes,prot.codes{i});
     EPmat_new(i,:) = EPmat(pos,:);
 end
 EPmat = EPmat_new;

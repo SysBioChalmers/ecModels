@@ -4,16 +4,18 @@ function [prot,fluxes,singleCorr,loadings] = checkUsage(protResults)
 
 delete(get(0,'Children'))   %deletes any present plot
 
-REF_model = protResults.ecModel;
+REF_model = protResults.ecModels_wMC{1,1};
 prot.use  = NaN(length(REF_model.enzymes),14);
 prot.conc = NaN(length(REF_model.enzymes),14);
 prot.useP = NaN(length(REF_model.enzymes),14);
-not_prot  = cellfun(@isempty,strfind(REF_model.rxns,'prot'));
+not_prot  = ~contains(REF_model.rxns,'prot');
 fluxes    = zeros(sum(not_prot),14);
 cond      = 0;
-for i = 1:length(protResults.ecModels(:,1))
-    for j = 1:length(protResults.ecModels(1,:))
-        ecModel = protResults.ecModels{i,j};
+protResults.ecModels_wProt{2,1} = '';
+protResults.ecModels_wProt{3,1} = '';
+for i = 1:length(protResults.ecModels_wProt(:,1))
+    for j = 1:length(protResults.ecModels_wProt(1,:))
+        ecModel = protResults.ecModels_wProt{i,j};
         if ~isempty(ecModel)
             cond = cond + 1;
             flux = protResults.fluxwProt{i}(:,j);
@@ -38,14 +40,14 @@ end
 %Construct table with enzyme properties: [kcat MW activity]
 cd ..
 kcats      = getKcats(REF_model);   %1/s
-cd Usage
+cd usage
 MWs        = REF_model.MWs;         %kDa = g/mmol
 activs     = kcats./MWs*60;         %umol/mg/min
 prot.props = [kcats MWs activs];
 
 %Use gene names for any plot:
 prot.codes = REF_model.enzymes;
-prot.names = REF_model.geneNames;
+prot.names = REF_model.enzNames;
 for i = 1:length(prot.names)
     if strcmp(prot.names{i},'-')
         prot.names{i} = REF_model.enzymes{i};  %Change with UNIPROT code
@@ -101,17 +103,10 @@ x_T = ones(size(prot.names))*Tlevels;
 plotCorr(x_T,prot.useP(:,1:4),'Temperature stress [°C]',Tlevels)
 subplot(1,3,2)
 x_O = ones(size(prot.names))*Olevels;
-plotCorr(x_O,prot.useP(:,[1 5:11]),'NaCl stress [M]',Olevels)
+plotCorr(x_O,prot.useP(:,[1,5:11]),'NaCl stress [M]',Olevels)
 subplot(1,3,3)
 x_E = ones(size(prot.names))*Elevels;
-plotCorr(x_E,prot.useP(:,[1 12:14]),'Ethanol stress [g/L]',Elevels)
-%2 small examples:
-%figure('position', [0,0,400,400])
-%pos = strcmp(prot.names,'ERG8');
-%plotCorr(Tlevels,prot.useP(pos,1:4),'Temperature stress [°C]',Tlevels)
-%figure('position', [0,0,400,400])
-%pos = strcmp(prot.names,'TPS2');
-%plotCorr(Tlevels,prot.useP(pos,1:4),'Temperature stress [°C]',Tlevels)
+plotCorr(x_E,prot.useP(:,[1,12:14]),'Ethanol stress [g/L]',Elevels)
 
 %Specific correlation usage/conditions:
 corrCond(Tlevels,prot.useP(:,1:4),prot.names)
@@ -121,10 +116,6 @@ corrCond(Elevels,prot.useP(:,[1 12:14]),prot.names)
 %Correlation usage/concentrations:
 figure('position', [0,0,600,600])
 plotCorr(prot.conc,prot.use,'Enzyme concentration [nmol/gDW]',10.^(-2:3))
-%Small example:
-%figure('position', [0,0,400,400])
-%pos = strcmp(prot.names,'GCV2');
-%plotCorr(prot.conc(pos,:),prot.use(pos,:),'Enzyme X',10.^(-2:3:5))
 
 %Correlation usage/conc among conditions for each enzyme:
 singleCorr = NaN(N,3);
@@ -221,7 +212,7 @@ if isempty(N)
 end
 
 [counts,centers] = hist(data,N);
-if ~isempty(strfind(x_lab,'slope'))
+if contains(x_lab,'slope')
     bar(centers(counts > 0),counts(counts > 0),'c','BaseValue',0.7)
     set(gca,'yscale','log')
     y_lim   = [0.7 1e3];
@@ -237,7 +228,7 @@ if N > 50
     set(get(gca,'child'),'EdgeColor','none');
 end
 setOptions(x_lab,x_lim,[],['Number of ' y_lab],y_lim,y_ticks)
-if ~isempty(strfind(x_lab,'slope'))
+if contains(x_lab,'slope')
     set(gca,'YTickLabel',{'1','10','100','1000'});
 end
 axis square
@@ -251,7 +242,7 @@ function plotCorr(x,y,x_lab,x_tick)
 %Replace any zero with NaN:
 [m,n] = size(x);
 for i = 1:n
-    if isempty(strfind(x_lab,'stress'))
+    if ~contains(x_lab,'stress')
         pos = (x(:,i) == 0) + (y(:,i) == 0) > 0;
     else
         pos = (y(:,i) == 0) > 0;
@@ -262,7 +253,7 @@ end
 
 %Plot unfeasible region:
 hold on
-if max(max(y)) ~= 100 && m > 1
+if max(max(y)) > 101 && m > 1
     patch([x_tick(1),x_tick(end),x_tick(1)], ...
           [x_tick(1),x_tick(end),x_tick(end)],[0.7 0.7 0.7]);
     text(x_tick(1)*2,x_tick(end-1),'Unfeasible region','FontSize',15)
@@ -274,12 +265,13 @@ if n == 1
 elseif n == 14
     colors = getColors;
 else
-    if ~isempty(strfind(x_lab,'Temperature'))
-        colors = [0 0 0;1 0 0;1 0 0;1 0 0];                         %red - temperature
-    elseif ~isempty(strfind(x_lab,'NaCl'))
-        colors = [0 0 0;0 0 1;0 0 1;0 0 1;0 0 1;0 0 1;0 0 1;0 0 1];	%blue - osmolarity
+    colors = sampleCVDmap(6);
+    if contains(x_lab,'Temperature')
+        colors = [[0 0 0]; repmat(colors(6,:),3,1)];
+    elseif contains(x_lab,'NaCl')
+        colors = [[0 0 0]; repmat(colors(2,:),7,1)];
     else
-        colors = [0 0 0;0 128 0;0 128 0;0 128 0]./255;              %forest green - ethanol
+        colors = [[0 0 0]; repmat(colors(4,:),3,1)];
     end
 end
 x_r = [];
@@ -311,7 +303,7 @@ end
 
 %Log scales and trendlines:
 set(gca,'yscale','log')
-if isempty(strfind(x_lab,'MW')) && isempty(strfind(x_lab,'stress'))
+if ~contains(x_lab,'MW') && ~contains(x_lab,'stress')
     set(gca,'xscale','log')
     lmodel = fitlm(log10(x_r),log10(y_r));
     plot(x_tick',10.^predict(lmodel,log10(x_tick')),'-m','LineWidth',lw)
@@ -330,7 +322,7 @@ if max(max(y)) == 100
         y_lab  = 'Enzyme usage [%]';
     end
 elseif m == 1
-    if ~isempty(strfind(x_lab,'stress'))
+    if contains(x_lab,'stress')
         if lmodel.Coefficients{2,1} > 0
             y_lab  = 'Enzyme X usage [%]';
             y_tick = ceil(10.^(1.4:0.05:1.55));
@@ -357,20 +349,9 @@ end
 
 function colors = getColors
 
-colors = [0    0    0               %black        - reference
-          255  0    0               %red          - temperature
-          255  0    0               %red          - temperature
-          255  0    0               %red          - temperature
-          0    0    255             %blue         - osmolarity
-          0    0    255             %blue         - osmolarity
-          0    0    255             %blue         - osmolarity
-          0    0    255             %blue         - osmolarity
-          0    0    255             %blue         - osmolarity
-          0    0    255             %blue         - osmolarity
-          0    0    255             %blue         - osmolarity
-          0    128  0               %forest green - ethanol
-          0    128  0               %forest green - ethanol
-          0    128  0]./255;        %forest green - ethanol
+colors = sampleCVDmap(6);
+colors = [[0 0 0]; repmat(colors(6,:),3,1); repmat(colors(2,:),7,1); ...
+          repmat(colors(4,:),3,1)];
       
 end
 
