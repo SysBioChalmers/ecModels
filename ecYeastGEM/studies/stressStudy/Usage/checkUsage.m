@@ -162,7 +162,7 @@ topPlot(singleCorr(filter,2),[],prot.names(filter),10, ...
 singleCorr(filter,2)
 
 %PCA for conditions - logarithm:
-loadings = PCAfigure(log10(prot.conc),log10(prot.useP),log10(fluxes));
+loadings = PCAfigure(prot.conc,prot.useP,fluxes);
 
 %Clustering + dendrograms + heat maps:
 figure('position', [0,0,1500,800])
@@ -212,60 +212,6 @@ histPlot(all_flux,[],'log10(flux [mmol/gDWh])','reactions')
 
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function [all,loadings] = PCAplot(data,name)
-
-%Remove any row with NaN, -Inf or only zeros:
-nan_rows  = sum(isnan(data),2) > 0;
-inf_rows  = sum(isinf(data),2) > 0;
-zero_rows = sum(abs(data),2) == 0;
-to_remove = nan_rows + inf_rows + zero_rows > 0;
-data      = data(~to_remove,:);
-
-disp(['Number of ' name ' considered in PCA: ' num2str(length(data(:,1)))])
-
-%Return all data (ordered):
-[m,n] = size(data);
-all   = reshape(data,m*n,1);
-all   = sort(all);
-
-%Perform PCA:
-[loadings,scores,~,~,explained] = pca(data');
-
-%Reformat loadings matrix:
-loadings_ori = zeros(length(to_remove),length(explained));
-loadings_ori(~to_remove,:) = loadings;
-loadings = loadings_ori;
-
-sizes = [13,13:6:25,13:2:25,13:6:25];
-%Plot:
-hold on
-colors = getColors;
-for i = length(sizes):-1:1
-    plot(scores(i,1),scores(i,2),'o','MarkerEdgeColor','k', ...
-         'MarkerFaceColor',colors(i,:),'MarkerSize',sizes(i))
-end
-sepx  = 3;
-sepy  = 1;
-minx  = min(min(scores(:,1)));
-maxx  = max(max(scores(:,1)));
-miny  = min(min(scores(:,2)));
-maxy  = max(max(scores(:,2)));
-x_min = sepx*floor((minx-(maxx-minx)/5)/sepx);
-x_max = sepx*ceil((maxx+(maxx-minx)/10)/sepx);
-y_min = sepy*floor((miny-(maxy-miny)/10)/sepy);
-y_max = sepy*ceil((maxy+(maxy-miny)/10)/sepy);
-setOptions(['PC1: ' num2str(explained(1),3) '% of variation'], ...
-            [x_min x_max],x_min:sepx:x_max, ...
-            ['PC2: ' num2str(explained(2),3) '% of variation'], ...
-            [y_min y_max],y_min:sepy:y_max)
-set(gca,'YTickLabel',[]);
-set(gca,'XTickLabel',[]);
-axis square
-hold off
-
-end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function histPlot(data,N,x_lab,y_lab)
