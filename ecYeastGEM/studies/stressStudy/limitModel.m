@@ -2,41 +2,10 @@
 
 function [ecModel_lim,misc_res] = limitModel(ecModel,id,Ptot,sigma,GAM)
 
-%TODO: Load and process proteomics data:
-%[protIDs,conds,protLevels] = loadProteomics(Ptot);
-
-%Read data and transform to correct units:
-disp('Reading exp. data files...')
-%Merged data (molecules/pgDW):
-cd exp_data
-[~,pIDs]  = xlsread('20170426_merged_proteomic_data.csv',1,'B2:B2319');
-[~,conds] = xlsread('20170426_merged_proteomic_data.csv',1,'C1:AT1');
-[data,~]  = xlsread('20170426_merged_proteomic_data.csv',1,'C2:AT2319');
-
-%Conversion of units:
-data = data*1e12;       %molecules/gDW
-data = data/6.02e23;    %mol/gDW
-data = data*1e3;        %mmol/gDW
-cd ..
-
-disp('Pre-processing...')
-%Replace zeros/negative values by NaN (2015-11-09 after Petri's comment):
-disp(['NaN values = ' num2str(sum(sum(isnan(data))))])
-disp(['Zero values = ' num2str(sum(sum(data == 0)))])
-disp(['Negative values = ' num2str(sum(sum(data < 0)))])
-data(data <= 0) = NaN;
-
-%Find specific condition and remove any entry with less than 2 measurements:
-pos_cond = contains(conds,id);
-data     = data(:,pos_cond);
-nan_pos  = false(length(data),1);
-for i = 1:length(data)
-    if sum(~isnan(data(i,:))) < 2
-        nan_pos(i) = true;
-    end
-end
-data(nan_pos,:) = [];
-pIDs(nan_pos,:) = [];
+%Load and process proteomics data:
+cd ./exp_data
+[pIDs,data] = loadProteomics(id,true);
+cd ./..
 
 %Calculate values to use:
 data_1    = nanmean(data,2);
