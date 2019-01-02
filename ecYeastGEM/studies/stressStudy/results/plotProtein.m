@@ -6,7 +6,7 @@ function plotProtein(results,condition)
 proteins{1} = {'P07251','P00830','P38077','Q12165','P21306','P05626', ...
                'P30902','Q12349','P61829','P00854','P00856','Q06405', ...
                'P09457','P81450','P81451','Q12233','P81449'};
-protein_names{1} = 'ATP synthase';
+protein_names{1} = 'Complex V';
 
 %Complex IV:
 proteins{2} = {'P00401','Q01519','P32799','P00410','P00420','P04037', ...
@@ -87,7 +87,7 @@ for i = 1:length(proteins)
     end
 end
 %Plot data:
-figure('position', [50,50,700,300])
+figure('position', [50,50,600,500])
 hold on
 for i = 1:length(proteins)
     b1 = barh(i - 0.25,values(i,1),'BarWidth',0.25);
@@ -103,9 +103,9 @@ text_size = 15;
 ylim([0.5,length(proteins) + 0.5])
 set(gca,'YTick',1:length(proteins),'YTickLabel',protein_names)
 xlabel('mg/gDW','FontSize',text_size);
-legend([b3 b2 b1],['Protein concentration (0.1 1/h' text ')'], ...
-                   'Protein usage - no proteomics', ...
-                   'Protein usage - with proteomics', ...
+legend([b3 b2 b1],['Complex concentration (0.1 1/h' text ')'], ...
+                   'Complex usage - no proteomics', ...
+                   'Complex usage - with proteomics', ...
                    'Location','northeast')
 legend('boxoff')
 set(gca,'FontSize',text_size)
