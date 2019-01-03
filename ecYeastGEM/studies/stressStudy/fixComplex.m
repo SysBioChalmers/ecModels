@@ -48,7 +48,7 @@ end
 
 %Replace missing data to be proportional to the average measured subunit:
 prot_prop = prot_values;
-new_value = mean(prot_values(prot_values > 0)./prot_stoich(prot_values > 0));
+new_value = median(prot_values(prot_values > 0)./prot_stoich(prot_values > 0));
 for i = 1:length(prot_values)
     prot_prop(i) = prot_stoich(i)*new_value;
 end
