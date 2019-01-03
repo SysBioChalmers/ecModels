@@ -118,8 +118,8 @@ figure('position', [0,0,600,600])
 plotCorr(prot.conc,prot.use,'Enzyme concentration [nmol/gDW]',10.^(-2:3))
 corrProts = corrCond(prot.conc,prot.use,prot.names);
 
-%PCA for conditions - logarithm:
-loadings = PCAfigure(prot.conc,prot.useP,fluxes);
+%PCA for conditions:
+loadings = PCAfigure(prot.conc,prot.use,fluxes);
 
 %Clustering + dendrograms + heat maps:
 figure('position', [0,0,1500,800])

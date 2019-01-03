@@ -22,7 +22,7 @@ if nargin == 3
     figure('position', [50,50,500,500]);
 end
 
-data = log(data);
+data = log10(data);
 
 %Remove any row with NaN, -Inf or only zeros:
 nan_rows  = sum(isnan(data),2) > 0;
