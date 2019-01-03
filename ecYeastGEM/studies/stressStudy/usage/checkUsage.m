@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [prot,fluxes,corrProts,loadings] = checkUsage(protResults)
+function [prot,fluxes,loadings] = checkUsage(protResults)
 
 delete(get(0,'Children'))   %deletes any present plot
 
@@ -116,7 +116,7 @@ corrCond(Elevels,prot.useP(:,[1 12:14]),prot.names);
 %Correlation usage/concentrations:
 figure('position', [0,0,600,600])
 plotCorr(prot.conc,prot.use,'Enzyme concentration [nmol/gDW]',10.^(-2:3))
-corrProts = corrCond(prot.conc,prot.use,prot.names);
+prot.corrProts = corrCond(prot.conc,prot.use,prot.names);
 
 %PCA for conditions:
 loadings = PCAfigure(prot.conc,prot.use,fluxes);
