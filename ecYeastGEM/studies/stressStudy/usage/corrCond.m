@@ -1,39 +1,75 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function corrCond(stress,useP,names)
+function corrProts = corrCond(var,usage,names)
 
-x = stress;
-fit = zeros(length(names),2);
+[m,n] = size(var);
+if m == 1 || n == 1
+    percUsage = true;
+else
+    percUsage = false;
+end
+
+fit = NaN(length(names),2);
 for i = 1:length(names)
-    y   = useP(i,:);
+    y = usage(i,:);
+    if percUsage
+        x = var;
+    else
+        x = var(i,:);
+        x = log10(x);
+        y = log10(y);
+        y(isinf(y)) = NaN;
+    end
     pos = ~isnan(y);
-    if sum(pos) > 2
+    % At least 3 data points for constructing linear fit:
+    if sum(pos) >= 3
         lmodel   = fitlm(x(pos),y(pos));
         fit(i,1) = lmodel.Coefficients{2,1};
-        fit(i,2) = sign(fit(i,1))*sqrt(lmodel.Rsquared.Ordinary);
+        fit(i,2) = lmodel.Rsquared.Ordinary;
     end
 end
 
-%Order from higher to lower and plot top 10:
+%Order from higher to lower slope:
 [~,order] = sort(fit(:,1),'descend');
-useP      = useP(order,:);
+usage     = usage(order,:);
 fit       = fit(order,:);
 names     = names(order,:);
+
+%Filters:
 if length(names) > 100
-    t     = 0.95;
+    t     = 0.9;
     y_lab = 'm (slope of fit)';
 else
-    t     = 0.90;
+    t     = 0.8;
     y_lab = 'Average slope of fit';
 end
+filter1 = fit(:,2) > t;             % R^2 > threshold
+filter2 = ~isnan(sum(fit,2));       % No NaN values
+if percUsage
+    filter3 = max(usage,[],2) > 1;      % At least one value over 1% (for percentages)
+    filter4 = abs(fit(:,1)) > 0.01;     % |slope| of at least > 0.01 (for percentages)
+    pos     = filter1.*filter2.*filter3.*filter4 == 1;    
+    %Distinguish between increasing usage and decreasing usage:
+    pos_inc = pos.*(fit(:,1) > 0) == 1;
+    pos_dec = pos.*(fit(:,1) < 0) == 1;
+    %Plot top:
+    plotTopChanges(var,fit,usage,'increasing',names,pos_inc,y_lab)
+    plotTopChanges(var,fit,usage,'decreasing',names,pos_dec,y_lab)
+    
+else
+    pos = filter1.*filter2 == 1;
+    %Plot correlations, slopes and top:
+    figure('position', [0,0,800,800])
+    subplot(2,2,1)
+    r = sign(fit(:,1)).*sqrt(fit(:,2));
+    histPlot(r(filter2),30,'r (Pearson correlation)','enzymes')
+    subplot(2,2,2)
+    histPlot(fit(filter2,1),30,'m (slope of fit)','enzymes')
+    subplot(2,2,3:4)
+    topPlot(fit(pos,1),[],names(pos),10,'m (slope of fit)',[],'yellow',false)
+end
 
-%Filter out if corr < t (in case of increase) of corr > -t (in case of
-%decrease), and also if |slope| < 1e-3:
-pos_inc = boolean((fit(:,2) >  t).*(abs(fit(:,1)) > 0.01));
-pos_dec = boolean((fit(:,2) < -t).*(abs(fit(:,1)) > 0.01));
-
-plotTopChanges(stress,fit,useP,'increasing',names,pos_inc,y_lab)
-plotTopChanges(stress,fit,useP,'decreasing',names,pos_dec,y_lab)
+corrProts = names(pos);
 
 end
 
@@ -41,14 +77,15 @@ end
 
 function plotTopChanges(stress,fit,useP,direction,names,pos,y_lab)
 
+colors = sampleCVDmap(6);
 if stress(4) == 38
-    color = 'r';
+    color = colors(6,:);
     sname = 'temperature';
 elseif stress(4) == 0.6
-    color = 'b';
+    color = colors(2,:);
     sname = 'osmotic';
 else
-    color = [0 128 0]./255;
+    color = colors(4,:);
     sname = 'ethanol';
 end
 
@@ -85,10 +122,10 @@ if length(names) > 100
     %Show only selection:
     n     = min(10,sum(pos));
     pos_x = 1:n;
-    pos_y = pos_y(1:n)+maxy/40;
+    pos_y = pos_y(1:n)+maxy/30;
     txt   = num2str(txt(1:n));
     txt   = strcat(txt,{'%'});
-    text(pos_x,pos_y,txt,'HorizontalAlignment','center')
+    text(pos_x,pos_y,txt,'HorizontalAlignment','center','FontSize',14)
 end
 
 end

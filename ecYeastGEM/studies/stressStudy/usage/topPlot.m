@@ -30,7 +30,7 @@ maxx = min(N,length(names));
 
 %Plot top 10:
 if new
-    figure('position', [0,0,1400*(maxx+5)/20,600])
+    figure('position', [50,50,1400*(maxx+5)/20,300])
 end
 hold on
 bar(means(1:maxx),'FaceColor',color,'BarWidth',0.7);

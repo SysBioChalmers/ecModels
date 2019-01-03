@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [prot,fluxes,singleCorr,loadings] = checkUsage(protResults)
+function [prot,fluxes,corrProts,loadings] = checkUsage(protResults)
 
 delete(get(0,'Children'))   %deletes any present plot
 
@@ -109,48 +109,14 @@ x_E = ones(size(prot.names))*Elevels;
 plotCorr(x_E,prot.useP(:,[1,12:14]),'Ethanol stress [g/L]',Elevels)
 
 %Specific correlation usage/conditions:
-corrCond(Tlevels,prot.useP(:,1:4),prot.names)
-corrCond(Olevels,prot.useP(:,[1 5:11]),prot.names)
-corrCond(Elevels,prot.useP(:,[1 12:14]),prot.names)
+corrCond(Tlevels,prot.useP(:,1:4),prot.names);
+corrCond(Olevels,prot.useP(:,[1 5:11]),prot.names);
+corrCond(Elevels,prot.useP(:,[1 12:14]),prot.names);
 
 %Correlation usage/concentrations:
 figure('position', [0,0,600,600])
 plotCorr(prot.conc,prot.use,'Enzyme concentration [nmol/gDW]',10.^(-2:3))
-
-%Correlation usage/conc among conditions for each enzyme:
-singleCorr = NaN(N,3);
-for i = 1:N
-    x = prot.conc(i,:);
-    y = prot.use(i,:);
-    x(isnan(x)) = 0;
-    x = log10(x);
-    y = log10(y);
-    pos_x = ~isinf(x);
-    pos_y = ~isinf(y);
-    pos   = boolean(pos_x.*pos_y);
-    if sum(pos_x) == 0 && sum(pos_y) > 0    %No usage in model of measured enzyme
-        singleCorr(i,1) = 0;    %code
-        singleCorr(i,2) = 0;    %slope
-        singleCorr(i,3) = NaN;  %Pearson
-    elseif sum(pos) > 2
-        lmodel          = fitlm(x(pos),y(pos));
-        singleCorr(i,1) = 1;
-        singleCorr(i,2) = lmodel.Coefficients{2,1};
-        singleCorr(i,3) = sign(singleCorr(i,2))*sqrt(lmodel.Rsquared.Ordinary);
-    end
-end
-figure('position', [0,0,800,800])
-subplot(2,2,1)
-pos = ~isnan(singleCorr(:,3));
-histPlot(singleCorr(pos,3),30,'r (Pearson correlation)','enzymes')
-subplot(2,2,2)
-pos = abs(singleCorr(:,2)) < 10;
-histPlot(singleCorr(pos,2),30,'m (slope of fit)','enzymes')
-subplot(2,2,3:4)
-filter = boolean((singleCorr(:,3) > 0.95).*(singleCorr(:,2)<10));
-topPlot(singleCorr(filter,2),[],prot.names(filter),10, ...
-      'm (slope of fit)',[],yellow,false)
-singleCorr(filter,2)
+corrProts = corrCond(prot.conc,prot.use,prot.names);
 
 %PCA for conditions - logarithm:
 loadings = PCAfigure(prot.conc,prot.useP,fluxes);
@@ -201,158 +167,6 @@ histPlot(all_useP,[],'log10(usage [%])','enzymes')
 subplot(1,3,3);
 histPlot(all_flux,[],'log10(flux [mmol/gDWh])','reactions')
 
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function histPlot(data,N,x_lab,y_lab)
-
-if isempty(N)
-    N = ceil(length(data)/20);
-end
-
-[counts,centers] = hist(data,N);
-if contains(x_lab,'slope')
-    bar(centers(counts > 0),counts(counts > 0),'c','BaseValue',0.7)
-    set(gca,'yscale','log')
-    y_lim   = [0.7 1e3];
-    x_lim   = [-10,10];
-    y_ticks = 10.^(0:3);
-else
-    bar(centers,counts,'c','BarWidth',1)
-    y_lim   = [];
-    x_lim   = [];
-    y_ticks = [];
-end
-if N > 50
-    set(get(gca,'child'),'EdgeColor','none');
-end
-setOptions(x_lab,x_lim,[],['Number of ' y_lab],y_lim,y_ticks)
-if contains(x_lab,'slope')
-    set(gca,'YTickLabel',{'1','10','100','1000'});
-end
-axis square
-
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function plotCorr(x,y,x_lab,x_tick)
-
-%Replace any zero with NaN:
-[m,n] = size(x);
-for i = 1:n
-    if ~contains(x_lab,'stress')
-        pos = (x(:,i) == 0) + (y(:,i) == 0) > 0;
-    else
-        pos = (y(:,i) == 0) > 0;
-    end
-    x(pos,i) = NaN;
-    y(pos,i) = NaN;
-end
-
-%Plot unfeasible region:
-hold on
-if max(max(y)) > 101 && m > 1
-    patch([x_tick(1),x_tick(end),x_tick(1)], ...
-          [x_tick(1),x_tick(end),x_tick(end)],[0.7 0.7 0.7]);
-    text(x_tick(1)*2,x_tick(end-1),'Unfeasible region','FontSize',15)
-end
-
-%Plot data:
-if n == 1
-    colors = 'c';
-elseif n == 14
-    colors = getColors;
-else
-    colors = sampleCVDmap(6);
-    if contains(x_lab,'Temperature')
-        colors = [[0 0 0]; repmat(colors(6,:),3,1)];
-    elseif contains(x_lab,'NaCl')
-        colors = [[0 0 0]; repmat(colors(2,:),7,1)];
-    else
-        colors = [[0 0 0]; repmat(colors(4,:),3,1)];
-    end
-end
-x_r = [];
-y_r = [];
-if m == 1
-    ms = 10;
-    lw = 2;
-else
-    ms = 4;
-    lw = 0.35;
-end
-if n == 14
-    for i = [5:11 1 2 12 3 13 4 14]
-        pos = isnan(x(:,i)+y(:,i)) == 0;
-        plot(x(pos,i),y(pos,i),'o','MarkerEdgeColor',colors(i,:),'MarkerSize',ms,...
-            'LineWidth',lw)
-        x_r = [x_r;x(pos,i)];
-        y_r = [y_r;y(pos,i)];
-    end
-else
-    for i = 1:n
-        pos = isnan(x(:,i)+y(:,i)) == 0;
-        plot(x(pos,i),y(pos,i),'o','MarkerEdgeColor',colors(i,:),'MarkerSize',ms,...
-            'LineWidth',lw)
-        x_r = [x_r;x(pos,i)];
-        y_r = [y_r;y(pos,i)];
-    end
-end
-
-%Log scales and trendlines:
-set(gca,'yscale','log')
-if ~contains(x_lab,'MW') && ~contains(x_lab,'stress')
-    set(gca,'xscale','log')
-    lmodel = fitlm(log10(x_r),log10(y_r));
-    plot(x_tick',10.^predict(lmodel,log10(x_tick')),'-m','LineWidth',lw)
-else
-    lmodel = fitlm(x_r,log10(y_r));
-    plot(x_tick',10.^predict(lmodel,x_tick'),'-m','LineWidth',lw)
-end
-disp(['Fit for ' x_lab ': R^2 = ' num2str(lmodel.Rsquared.Ordinary)])
-
-%Other options:
-if max(max(y)) == 100
-    y_tick = 10.^(-6:2:2);
-    if n == 1
-        y_lab  = 'Average usage [%]';
-    else
-        y_lab  = 'Enzyme usage [%]';
-    end
-elseif m == 1
-    if contains(x_lab,'stress')
-        if lmodel.Coefficients{2,1} > 0
-            y_lab  = 'Enzyme X usage [%]';
-            y_tick = ceil(10.^(1.4:0.05:1.55));
-        else
-            y_lab  = 'Enzyme Y usage [%]';
-            y_tick = ceil(10.^(0.6:0.15:1.05));
-        end
-    else
-        y_lab  = [];
-        y_tick = 10.^(-2:3:5);
-    end
-else
-    y_lab  = 'Enzyme usage [nmol/gDW]';
-    y_tick = 10.^(-7:2:3);
-end
-setOptions(x_lab,[x_tick(1) x_tick(end)],x_tick, ...
-            y_lab,[y_tick(1) y_tick(end)],y_tick)
-axis square
-hold off
-
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function colors = getColors
-
-colors = sampleCVDmap(6);
-colors = [[0 0 0]; repmat(colors(6,:),3,1); repmat(colors(2,:),7,1); ...
-          repmat(colors(4,:),3,1)];
-      
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
