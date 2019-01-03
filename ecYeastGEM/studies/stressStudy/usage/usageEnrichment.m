@@ -107,7 +107,7 @@ for i = 1:length(path.corrPath)
 end
 limit = length(prot.corrProts)/length(prot.names);
 plot([limit limit],[0,length(path.corrPath)]+0.5,'k','LineWidth',2)
-setOptions('Fraction of correlated enzymes in pathway',[0,0.6],[],[],[0,length(path.corrPath)]+0.5,1:length(path.corrPath))
+setOptions('Fraction of correlated enzymes in pathway',[0,0.4],[],[],[0,length(path.corrPath)]+0.5,1:length(path.corrPath))
 set(gca,'YTickLabel',path.corrPath,'FontSize',10)
 hold off
 

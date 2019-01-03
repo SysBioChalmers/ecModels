@@ -16,9 +16,6 @@ for i = 1:length(names)
         x = var;
     else
         x = var(i,:);
-        x = log10(x);
-        y = log10(y);
-        y(isinf(y)) = NaN;
     end
     pos = ~isnan(y);
     % At least 3 data points for constructing linear fit:
@@ -38,17 +35,18 @@ names     = names(order,:);
 %Filters:
 if length(names) > 100
     t     = 0.9;
-    y_lab = 'm (slope of fit)';
+    y_lab = 'Slope of fit';
 else
     t     = 0.8;
     y_lab = 'Average slope of fit';
 end
 filter1 = fit(:,2) > t;             % R^2 > threshold
 filter2 = ~isnan(sum(fit,2));       % No NaN values
+filter3 = abs(fit(:,1)) > 1e-3;    % |slope| of at least > 1e-3
+pos     = filter1.*filter2.*filter3 == 1;
 if percUsage
-    filter3 = max(usage,[],2) > 1;      % At least one value over 1% (for percentages)
-    filter4 = abs(fit(:,1)) > 0.01;     % |slope| of at least > 0.01 (for percentages)
-    pos     = filter1.*filter2.*filter3.*filter4 == 1;    
+    filter4 = max(usage,[],2) > 1;      % At least one value over 1% (for percentages)
+    pos     = pos.*filter4 == 1;    
     %Distinguish between increasing usage and decreasing usage:
     pos_inc = pos.*(fit(:,1) > 0) == 1;
     pos_dec = pos.*(fit(:,1) < 0) == 1;
@@ -57,16 +55,24 @@ if percUsage
     plotTopChanges(var,fit,usage,'decreasing',names,pos_dec,y_lab)
     
 else
-    pos = filter1.*filter2 == 1;
-    %Plot correlations, slopes and top:
-    figure('position', [0,0,800,800])
-    subplot(2,2,1)
-    r = sign(fit(:,1)).*sqrt(fit(:,2));
-    histPlot(r(filter2),30,'r (Pearson correlation)','enzymes')
-    subplot(2,2,2)
-    histPlot(fit(filter2,1),30,'m (slope of fit)','enzymes')
-    subplot(2,2,3:4)
-    topPlot(fit(pos,1),[],names(pos),10,'m (slope of fit)',[],'yellow',false)
+    %"Volcano" plot:
+    figure('position', [50,50,550,400])
+    hold on
+    hold all
+    slope   = fit(filter2,1);
+    R2      = fit(filter2,2);
+    filter3 = filter3(filter2);
+    plot(slope(filter3),R2(filter3),'o','MarkerEdgeColor','k', ...
+         'MarkerFaceColor','r','MarkerSize',6,'LineWidth',0.5)
+    plot(slope(~filter3),R2(~filter3),'o','MarkerEdgeColor','k', ...
+         'MarkerFaceColor','k','MarkerSize',6,'LineWidth',0.5)
+    limit_x = [-2,+2];
+    limit_y = [t,t];
+    plot(limit_x,limit_y,'--k','LineWidth',1)
+    setOptions('Slope of fit',limit_x,[],'R^{2} of fit',[0 1],[])
+    legend('Slope > 0.001','Slope < 0.001','Location','west')
+    legend('boxoff')
+    hold off
 end
 
 corrProts = names(pos);
