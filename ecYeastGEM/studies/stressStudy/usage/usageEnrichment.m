@@ -1,8 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [path,std] = usageEnrichment(protResults,prot,fluxes,loadings)
+function [path,std] = usageEnrichment(protResults,prot,fluxes)
 
 delete(get(0,'Children'))   %deletes any present plot
+
+%Filter only non-zero usages:
+non_zero   = sum(prot.use,2) > 0;
+prot.use   = prot.use(non_zero,:);
+prot.conc  = prot.conc(non_zero,:);
+prot.useP  = prot.useP(non_zero,:);
+prot.props = prot.props(non_zero,:);
+prot.codes = prot.codes(non_zero,:);
+prot.names = prot.names(non_zero);
 
 %Apply logarithm to data:
 prot.conc = log10(prot.conc);
@@ -58,10 +67,6 @@ clusterStuff(path.useP(~pos,:),'useP','Pathways',10,4,1,path.names(~pos))
 figure('position', [0,0,1000,600])
 clusterStuff(path.flux,'flux','Pathways',10,4,1,path.names)
 
-%Analyze principal components:
-path.PC1 = analyzePC(loadings.useP,1,path.names,EPmat);
-path.PC2 = analyzePC(loadings.useP,2,path.names,EPmat);
-
 %Over-representation analysis:
 path.corrPath  = path.names;
 path.corrRatio = zeros(length(path.names),4);
@@ -93,7 +98,7 @@ path.corrPath  = path.corrPath(overRep);
 path.corrRatio = path.corrRatio(overRep,:);
 path.corrPath  = path.corrPath(sum(path.corrRatio(:,1:2),2) > 5);
 path.corrRatio = path.corrRatio(sum(path.corrRatio(:,1:2),2) > 5,:);
-figure('position',[50,50,1000,250])
+figure('position',[50,50,1000,150])
 hold on
 for i = 1:length(path.corrPath)
     score = min(abs(log10(path.corrRatio(i,4)))/log10(20),1);
@@ -107,7 +112,7 @@ for i = 1:length(path.corrPath)
 end
 limit = length(prot.corrProts)/length(prot.names);
 plot([limit limit],[0,length(path.corrPath)]+0.5,'k','LineWidth',2)
-setOptions('Fraction of correlated enzymes in pathway',[0,0.4],[],[],[0,length(path.corrPath)]+0.5,1:length(path.corrPath))
+setOptions('Fraction of correlated enzymes in pathway',[0,0.6],[],[],[0,length(path.corrPath)]+0.5,1:length(path.corrPath))
 set(gca,'YTickLabel',path.corrPath,'FontSize',10)
 hold off
 
@@ -132,35 +137,6 @@ for i = 1:length(pathways)
         std_path(i,j)  = std(data(pos,j));
     end
 end
-
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function ranking = analyzePC(loadings,comp,pathways,EPmat)
-
-loadings     = loadings(:,comp);
-ranking      = cell(length(pathways),4);
-ranking(:,1) = pathways;
-for i = 1:length(pathways)
-    ranking{i,2} = 0;
-    ranking{i,3} = 0;
-    for j = 1:length(loadings)
-        if EPmat(j,i)
-            ranking{i,2} = ranking{i,2} + abs(loadings(j));
-            ranking{i,3} = ranking{i,3} + 1;
-        end
-    end
-    if ranking{i,2} > 0
-        ranking{i,4} = ranking{i,2}/ranking{i,3};
-    else
-        ranking{i,4} = 0;
-    end
-end
-
-%Order results from largest to lowest loading:
-[~,order] = sort(cell2mat(ranking(:,2)),'descend');
-ranking   = ranking(order,:);
 
 end
 

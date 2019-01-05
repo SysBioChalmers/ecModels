@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [prot,fluxes,loadings] = checkUsage(protResults)
+function [prot,fluxes] = checkUsage(protResults)
 
 delete(get(0,'Children'))   %deletes any present plot
 
@@ -119,7 +119,7 @@ plotCorr(prot.conc,prot.use,'Enzyme concentration [nmol/gDW]',10.^(-2:3))
 prot.corrProts = corrCond(prot.conc,prot.use,prot.names);
 
 %PCA for conditions:
-loadings = PCAfigure(prot.conc,prot.use,fluxes);
+PCAfigure(prot.conc,prot.use,fluxes);
 
 %Clustering + dendrograms + heat maps:
 figure('position', [0,0,1500,800])
