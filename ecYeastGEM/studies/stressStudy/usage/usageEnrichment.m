@@ -71,9 +71,10 @@ clusterStuff(path.flux,'flux','Pathways',10,4,1,path.names)
 path.corrPath  = path.names;
 path.corrRatio = zeros(length(path.names),4);
 overRep        = false(size(path.names));
+corrProts      = prot.corrProts(:,1);
 for i = 1:length(path.names)
     for j = 1:length(prot.names)
-        if sum(strcmp(prot.corrProts,prot.names{j})) > 0
+        if sum(strcmp(corrProts,prot.names{j})) > 0
             path.corrRatio(i,1) = path.corrRatio(i,1) + EPmat(j,i);
         else
             path.corrRatio(i,2) = path.corrRatio(i,2) + EPmat(j,i);
@@ -82,8 +83,8 @@ for i = 1:length(path.names)
     path.corrRatio(i,3) = path.corrRatio(i,1)/(path.corrRatio(i,1) + path.corrRatio(i,2));
     in_corr  = path.corrRatio(i,1);
     in_not   = path.corrRatio(i,2);
-    out_corr = length(prot.corrProts) - path.corrRatio(i,1);
-    out_not  = length(prot.names) - length(prot.corrProts) - path.corrRatio(i,2);
+    out_corr = length(corrProts) - path.corrRatio(i,1);
+    out_not  = length(prot.names) - length(corrProts) - path.corrRatio(i,2);
     path.corrRatio(i,3) = in_corr/(in_corr+in_not);
     if in_corr/(in_corr+in_not) > out_corr/(out_corr+out_not)
         overRep(i) = true;
@@ -100,9 +101,10 @@ path.corrPath  = path.corrPath(sum(path.corrRatio(:,1:2),2) > 5);
 path.corrRatio = path.corrRatio(sum(path.corrRatio(:,1:2),2) > 5,:);
 figure('position',[50,50,1000,150])
 hold on
+colors = flipud(sampleCVDmap(101));
 for i = 1:length(path.corrPath)
-    score = min(abs(log10(path.corrRatio(i,4)))/log10(20),1);
-    barh(i,path.corrRatio(i,3),1,'FaceColor',[score,0,1-score])
+    pos = (0:0.01:1) == round(path.corrRatio(i,4),2);
+    barh(i,path.corrRatio(i,3),1,'FaceColor',colors(pos,:))
     if path.corrRatio(i,4) < 0.01
         pval = ' p < 0.01';
     else

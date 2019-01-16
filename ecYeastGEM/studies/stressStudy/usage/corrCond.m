@@ -75,7 +75,7 @@ else
     hold off
 end
 
-corrProts = names(pos);
+corrProts = [names(pos) num2cell(round(fit(pos,:),2))];
 
 end
 
