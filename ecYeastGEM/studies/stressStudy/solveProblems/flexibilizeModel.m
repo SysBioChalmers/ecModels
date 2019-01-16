@@ -60,6 +60,9 @@ new_concs = max([sol.x(flex_pos) cell2mat(list(:,2))],[],2);
 model     = setConcentration(model,list(:,1),new_concs);
 list(:,3) = getConcentration(model,list(:,1));
 
+%Get normal names instead of uniprot codes:
+list(:,1) = getNames(model,list(:,1));
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,6 +166,18 @@ for i = 1:length(enzymes)
     values{i} = model.ub(pos);
 end
 	
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function names = getNames(model,enzymes)
+
+names = cell(size(enzymes));
+for i = 1:length(enzymes)
+    pos      = strcmp(model.enzymes,enzymes{i});
+    names{i} = model.enzNames(pos);
+end
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
