@@ -4,7 +4,7 @@ function [ecModel_lim,misc_res] = limitModel(ecModel,id,Ptot,sigma,GAM)
 
 %Load and process proteomics data:
 cd ./exp_data
-[pIDs,data] = loadProteomics(id,true);
+[pIDs,data] = loadProteomics(id,true,Ptot);
 cd ./..
 
 %Calculate values to use:

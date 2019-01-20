@@ -1,18 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [protIDs,protLevels] = loadProteomics(id,filterProts)
+function [protIDs,protLevels] = loadProteomics(id,filterProts,Ptot)
 
 %Read data and transform to correct units:
 disp('Reading exp. data files...')
-%Merged data (molecules/pgDW):
-[~,protIDs]    = xlsread('20170426_merged_proteomic_data.csv',1,'B2:B2319');
-[~,conds]      = xlsread('20170426_merged_proteomic_data.csv',1,'C1:AT1');
-[protLevels,~] = xlsread('20170426_merged_proteomic_data.csv',1,'C2:AT2319');
-
-%Conversion of units:
-protLevels = protLevels*1e12;       %molecules/gDW
-protLevels = protLevels/6.02e23;    %mol/gDW
-protLevels = protLevels*1e3;        %mmol/gDW
+%Merged data:
+[~,protIDs]    = xlsread('merged_proteomic_data.csv',1,'B2:B6000');
+[~,conds]      = xlsread('merged_proteomic_data.csv',1,'E1:BZ1');
+[protLevels,~] = xlsread('merged_proteomic_data.csv',1,'E2:BZ6000');    %g/g detected
+[MWs,~]        = xlsread('merged_proteomic_data.csv',1,'D2:D6000');     %kDa = g/mmol
 
 disp('Pre-processing...')
 %Replace zeros/negative values by NaN (2015-11-09 after Petri's comment):
@@ -35,7 +31,18 @@ if filterProts
     end
     protLevels(nan_pos,:) = [];
     protIDs(nan_pos,:)    = [];
+    MWs(nan_pos,:)        = [];
+    %Rescale again to 1:
+    protLevels = protLevels./nansum(protLevels);
 end
+
+%Conversion of units:
+cd ./../GECKO/geckomat/limit_proteins
+[f,~] = measureAbundance(protIDs);  %Fraction of proteins detected
+cd ./../../../exp_data
+protLevels = protLevels*f;          %g/g protein
+protLevels = protLevels*Ptot;       %g/gDW
+protLevels = protLevels./MWs;       %mmol/gDW
 
 end
 

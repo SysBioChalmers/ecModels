@@ -2,3 +2,9 @@
 ############
 *.mat
 *.xlsx
+
+# R stuff #
+###########
+*.Rproj.user
+*.Rhistory
+*.RData

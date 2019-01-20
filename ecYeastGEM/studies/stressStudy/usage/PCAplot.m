@@ -1,14 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [all,loadings] = PCAplot(data,name,ecModel)
+function [all,loadings] = PCAplot(data,name,protResults)
 
 if nargin == 3
     cd ./../exp_data
     ids  = {'REF','Temp33','Temp36','Temp38','Osmo0.2','Osmo0.4','Osmo0.6', ...
             'Osmo0.8','Osmo1.0','Osmo1.2','Osmo1.3','EtOH20' ,'EtOH40','EtOH60'};
+    Ptot = [0.46,0.51,0.52,0.6,0.63,0.62,0.64,0.62,0.64,0.65,0.64,0.45,0.55,0.52];
+    ecModel = protResults.ecModels_wMC{1,1};
     data = NaN(length(ecModel.enzymes),length(ids));
     for i = 1:length(ids)
-        [pIDs,data_i] = loadProteomics(ids{i},false);
+        [pIDs,data_i] = loadProteomics(ids{i},false,Ptot(i));
         data_i = nanmean(data_i,2);
         for j = 1:length(ecModel.enzymes)
             pos = strcmp(pIDs,ecModel.enzymes{j});
