@@ -1,4 +1,4 @@
-function model = changeMediaCN(model,C_source,N_source)
+function model = changeMediaCN(model,C_source,N_source,C_value,N_value)
 % changeMedia
 %   
 %   Usage: model = changeMediaCN(model,C_source,N_source)
@@ -7,13 +7,8 @@ function model = changeMediaCN(model,C_source,N_source)
 %
 
 %Open substrate uptake rates:
-model = openUptake(model,C_source);
-model = openUptake(model,N_source);
-
-%Lactate: also open optical isomer:
-if strcmp(C_source,'(R)-lactate')
-    model = openUptake(model,'(L)-lactate');
-end
+model = openUptake(model,C_source,C_value);
+model = openUptake(model,N_source,N_value);
 
 %Changes to transporters of fructose and mannose: Facilitated instead of
 %active (equal to glucose), as concluded from:
@@ -28,14 +23,25 @@ end
 
 end
 
-function model = openUptake(model,source)
+function model = openUptake(model,source,value)
+
+%Lactate: also open optical isomer:
+if strcmp(source,'(R)-lactate')
+    model = openUptake(model,'(S)-lactate',value(2));
+    value = value(1);
+end
+
+posB = strcmp(model.rxnNames,[source ' exchange (reversible)']);
+posF = strcmp(model.rxnNames,[source ' exchange']);
 
 %Open uptake:
-pos   = strcmp(model.rxnNames,[source ' exchange (reversible)']);
-model = setParam(model,'ub',model.rxns(pos),+Inf);
+if sum(posB) == 0
+    model = setParam(model,'lb',model.rxns(posF),-value);
+else
+    model = setParam(model,'ub',model.rxns(posB),value);
+end
 
 %Close oposite direction:
-pos   = strcmp(model.rxnNames,[source ' exchange']);
-model = setParam(model,'ub',model.rxns(pos),0);
+model = setParam(model,'ub',model.rxns(posF),0);
 
 end
