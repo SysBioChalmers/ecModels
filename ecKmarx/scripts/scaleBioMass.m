@@ -5,8 +5,11 @@
 % Ivan Domenzain.   Last update: 2019-02-06
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = scaleBioMass(model,Ptot,scale_comp)
+function model = scaleBioMass(model,Ptot,GAM,scale_comp)
 
+if nargin < 3
+    GAM = [];
+end
 %Option for changing composition & GAM (=true, default) or only GAM (=false):
 if nargin < 4
     scale_comp = true;
@@ -31,22 +34,37 @@ if scale_comp
     model = rescalePseudoReaction(model,'lipid',fL);
 end
 
+%Fit GAM if not available:
+if isempty(GAM)
+    GAM = fitGAM(model);
+end
+
+%Change GAM:
+xr_pos = strcmp(model.rxnNames,'biomass pseudoreaction');
+for i = 1:length(model.mets)
+    S_ix  = model.S(i,xr_pos);
+    isGAM = sum(strcmp({'ATP','ADP','H2O','phosphate'},model.metNames{i})) == 1;
+    if S_ix ~= 0 && isGAM
+        model.S(i,xr_pos) = sign(S_ix)*(GAM);
+    end
+end
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = rescalePseudoReaction(model,metName,f)
-
 rxnName = [metName ' pseudoreaction'];
 rxnPos  = strcmp(model.rxnNames,rxnName);
-for i = 1:length(model.mets)
-    S_ir   = model.S(i,rxnPos);
-    isProd = strcmp(model.metNames{i},metName);
-    if S_ir ~= 0 && ~isProd
-        model.S(i,rxnPos) = f*S_ir;
+if sum(rxnPos) == 1
+    for i = 1:length(model.mets)
+        S_ir   = model.S(i,rxnPos);
+        isProd = strcmp(model.metNames{i},metName);
+        if S_ir ~= 0 && ~isProd
+            model.S(i,rxnPos) = f*S_ir;
+        end
     end
 end
-
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

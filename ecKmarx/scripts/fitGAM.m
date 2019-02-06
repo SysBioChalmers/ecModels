@@ -10,7 +10,7 @@ function GAM = fitGAM(model)
 %Load chemostat data:
 fid = fopen('../../databases/chemostatData.tsv','r');
 exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
-exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
+exp_data = [exp_data{1} exp_data{2}];
 fclose(fid);
 % 
 %Remove limitation on enzymes (if any):
@@ -18,7 +18,7 @@ model = setParam(model,'ub','prot_pool_exchange',+1000);
 % 
 %GAMs to span:
 disp('Estimating GAM:')
-GAM = 50:5:150;
+GAM = 50:5:120;
 
 %1st iteration:
 GAM = iteration(model,GAM,exp_data); 
@@ -40,7 +40,7 @@ title('GAM fitting for growth on glucose minimal media')
 xlabel('Dilution rate [1/h]')
 ylabel('Exchange fluxes [mmol/gDWh]')
 legend(b,'Glucose consumption','O2 consumption','CO2 production','Location','northwest')
-Xhold off
+hold off
 
 end
 
@@ -70,12 +70,15 @@ end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function mod_data = simulateChemostat(model,exp_data)
+function mod_data = simulateChemostat(model,exp_data,GAM)
+%Modify GAM withouth changing the protein content:
+Pbase = sumProtein(model);
+model = scaleBioMass(model,Pbase,GAM,false);
 %Relevant positions:
 pos(1) = find(strcmp(model.rxnNames,'biomass exchange'));
 pos(2) = find(strcmp(model.rxnNames,'D-glucose exchange (reversible)'));
-pos(3) = find(strcmp(model.rxnNames,'oxygen exchange (reversible)'));
-pos(4) = find(strcmp(model.rxnNames,'carbon dioxide exchange'));
+%pos(3) = find(strcmp(model.rxnNames,'oxygen exchange (reversible)'));
+%pos(4) = find(strcmp(model.rxnNames,'carbon dioxide exchange'));
 %Simulate chemostats:
 mod_data = zeros(size(exp_data));
 for i = 1:length(exp_data(:,1))
@@ -85,7 +88,11 @@ for i = 1:length(exp_data(:,1))
     model = setParam(model,'obj',model.rxns(pos(2)),-1);
     sol   = solveLP(model,1);
     %Store relevant variables:
-    mod_data(i,:) = sol.x(pos)';
+    if ~isempty(sol.x)
+        mod_data(i,:) = sol.x(pos)';
+    else
+        mod_data(i,:) = zeros(1,length(pos));
+    end
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
