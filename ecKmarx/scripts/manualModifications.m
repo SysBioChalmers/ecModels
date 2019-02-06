@@ -5,8 +5,8 @@
 % Ivan Domenzain.      Last edited: 2018-01-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [model,modifications] = manualModificationsKma(model)
-
+function [model,modifications] = manualModifications(model)
+ model            = removeRxns(model,'r_1913_REV');
  modifications{1} = [];
  modifications{2} = [];
 
@@ -96,12 +96,14 @@ end
 % Remove saved arm reactions:
 model = removeRxns(model,model.rxns(arm_pos(1:p)));
 %Change gene rules:
-for i = 1:length(model.rules)
-    if ~isempty(model.rules{i})
-        %Change gene ids:
-        model.rules{i} = strrep(model.rules{i},'x(','');
-        model.rules{i} = strrep(model.rules{i},')','');
-        model.rules{i} = model.genes{str2double(model.rules{i})};
+if isfield(model,'rules')
+    for i = 1:length(model.rules)
+        if ~isempty(model.rules{i})
+            %Change gene ids:
+            model.rules{i} = strrep(model.rules{i},'x(','');
+            model.rules{i} = strrep(model.rules{i},')','');
+            model.rules{i} = model.genes{str2double(model.rules{i})};
+        end
     end
 end
 % Remove unused enzymes after manual curation (2017-01-16):

@@ -26,6 +26,13 @@ for i = 1:length(model.rxns)
     end
 end
 
+%Open all exchange rxns
+[~, exchange] = getExchangeRxns(model);
+%Exclude biomass exchange reaction
+exchange      = exchange(1:end-1); 
+model.ub(exchange) = +1000;
+model.lb(exchange) = -1000;
+
 %Swap direction of only reactions that are defined to only carry negative flux
 to_swap=model.lb < 0 & model.ub == 0;
 model.S(:,to_swap)=-model.S(:,to_swap);
@@ -48,7 +55,7 @@ end
 for i=1:length(model.subSystems)
     str     = model.subSystems{i};
     cellStr = strsplit(str,' / ');
-    model.subSystems(i) = cellStr;
+    model.subSystems{i} = cellStr;
 end
 
 if isempty(name) && isempty(version) && isfield(model,'id')
