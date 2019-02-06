@@ -17,7 +17,7 @@ org_name = 'kluyveromyces marxianus';
 mkdir (['../models/' name])
 %Convert model to RAVEN for easier visualization later on:
 format short e
-if isfield(model,'rules')
+if strcmpi(toolbox,'COBRA')
     initCobraToolbox
     model = ravenCobraWrapper(model);
 end
