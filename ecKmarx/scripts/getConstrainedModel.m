@@ -55,10 +55,12 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         currentEnzymeUB   = ecModel_batch.ub(enzymePos);
         ecModel_batch     = setParam(ecModel_batch,'ub','prot_pool_exchange', ...
                                      currentEnzymeUB*OptSigma/sigma);
-        %Fit GAM and rescale biomass according to provided chemostat data                        
+        %Fit GAM and rescale biomass according to provided chemostat data 
+        cd ../limit_proteins
         ecModel_batch     = scaleBioMass(ecModel_batch,Ptot,[],true);
         %Simulate growth on minimal media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
+        cd ../kcat_sensitivity_analysis
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
         topUsedEnzymes(solution.x,ecModel_batch,'Min_glucose',name);

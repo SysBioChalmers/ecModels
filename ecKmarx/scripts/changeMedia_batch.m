@@ -81,6 +81,8 @@ model = setParam(model, 'ub', 'r_1736_REV',Inf);  %'4-aminobenzoate'
 model = setParam(model, 'ub', 'r_1734_REV',Inf);  %'thiamine exchange'
 model = setParam(model, 'ub', 'r_1735_REV',Inf);  %'(R)-pantothenate
 model = setParam(model, 'ub', 'r_1877_REV',Inf);  %Pyridoxal
+model = setParam(model, 'ub', 'r_1771',0);  %Block bicarbonate exchange
+
 
 end
 

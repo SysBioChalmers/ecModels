@@ -193,9 +193,9 @@ end
 %3-hydroxy-3-methylglutaryl coenzyme A synthase [W0TFZ8/2.3.3.10]
 % No Kcat for K. marxianus, values reported for eukaryotes are very low,
 % therefoere a value for acetyl-coa	brassica juncea//*//*	0.415 is
-% used instead
+% used instead (haloferax volcanii 4.6)
 if strcmpi('prot_W0TFZ8',enzName)  && (contains(reaction,'acetyl-CoA:acetoacetyl-CoA C-acetyltransferase'))
-    newValue         = -(0.415*3600)^-1;
+    newValue         = -(4.6*3600)^-1;
     modifications{1} = [modifications{1}; string('W0TFZ8')];
     modifications{2} = [modifications{2}; reaction];
 end

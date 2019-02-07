@@ -17,7 +17,7 @@ replaceFiles('databases','GECKO/databases/');
 %Remove unecessary files 
 delete('GECKO/databases/prot_abundance.txt') 
 %Run GECKO pipeline:
-cd GECKO
+cd GECKO/geckomat
 GECKOver = git('describe --tags');
 [ecModel,ecModel_batch] = enhanceGEM(model,'COBRA','ecKmarx');
 cd ../..
@@ -26,7 +26,7 @@ cd ../..
 rmdir('model', 's')
 movefile GECKO/models/ecKmarx model
 save('model/ecKmarx.mat','ecModel')
-save('model/ecKmarxGEM_batch.mat','ecModel_batch')
+save('model/ecKmarx_batch.mat','ecModel_batch')
 
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
