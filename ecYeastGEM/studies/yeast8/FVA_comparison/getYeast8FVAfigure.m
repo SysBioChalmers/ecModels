@@ -1,6 +1,6 @@
 % getYeast8FVAfigure
 %   
-%   Ivan Domenzain, 2018-12-11
+%   Ivan Domenzain, 2019-02-08
 %
 current = pwd;
 c_source = 'r_1714';
@@ -11,6 +11,8 @@ git('clone https://github.com/SysBioChalmers/yeast-GEM.git')
 %Load yeastGEM and constrain it with Y6 media
 cd yeast-GEM/ModelFiles/mat
 load ('yeastGEM.mat')
+%Convert to RAVEN format
+model = ravenCobraWrapper(model);
 cd ../../ComplementaryScripts/modelCuration
 model = minimal_Y6(model);
 %Load ecYeastGEM
@@ -30,13 +32,16 @@ legends       = {'model-chemostat', 'ecModel-chemostat','model-batch', 'ecModel-
 titleStr      = 'Flux variability cumulative distribution';
 [~, ~]        = plotCumDist(distributions,legends,titleStr);
 %Remove the cloned repos:
+cd (current)
 rmdir('GECKO', 's')
 rmdir('yeast-GEM', 's')
 
-function filterDistributions(distribution,treshold)
+function newDist = filterDistributions(distribution,treshold)
+newDist = [];
 for i=1:length(distribution)
     dist = distribution{i};
     dist(dist<treshold) =treshold;
-    dist(find(dist==1E-10,1)) = treshold/10; 
+    dist(find(dist==1E-10,1)) = treshold/10;
+    newDist = [newDist,{dist}];
 end
 end
