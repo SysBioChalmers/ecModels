@@ -43,7 +43,7 @@ end
 xr_pos = strcmp(model.rxnNames,'Biomass production');
 for i = 1:length(model.mets)
     S_ix  = model.S(i,xr_pos);
-    isGAM = sum(strcmp({'ATP','ADP','H2O','phosphate'},model.metNames{i})) == 1;
+    isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
     if S_ix ~= 0 && isGAM
         model.S(i,xr_pos) = sign(S_ix)*(GAM);
     end

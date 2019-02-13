@@ -1,5 +1,5 @@
 function [model,pos] = changeMedia_batch(model,c_source,media,flux)
-% Kma_changeMedia_batch
+% changeMedia_batch
 %
 % function that modifies the ecModel and makes it suitable for batch growth
 % simulations on different carbon sources.
@@ -11,9 +11,9 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
 % model: a constrained ecModel
 %
-% usage: [model,pos] = Kma_changeMedia_batch(model,c_source,media,flux)
+% usage: [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
-% Ivan Domenzain        2019-02-11
+% Ivan Domenzain        2019-02-13
 
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange (reversible)'
@@ -21,8 +21,8 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %first block any uptake
 [rxnIDs,exchange]  = getExchangeRxns(model);
 %Exclude protein pool from exchange reactions list
-protIndex = find(contains(model.rxnNames,'prot_pool'));
-exchange  = exchange(find(exchange~=protIndex));
+protIndex = find(contains(model.rxnNames,'prot_'));
+exchange  = setdiff(exchange,protIndex);
 %First allow any exchange (uptakes and secretions)
 model.ub(exchange) = Inf;
 %Then block all uptakes
@@ -63,9 +63,7 @@ end
 for i = 1:N
     model.ub(pos(i)) = flux(i);
 end
-gIndex = find(model.c);
-gIndex = find(model.c);
-model.ub(gIndex) = Inf;
+model.ub(find(model.c)) = Inf;
 %Allow uptake of essential components
 model = setParam(model, 'ub', 'y001654_REV', Inf); % 'ammonium exchange';
 model = setParam(model, 'ub', 'y002100_REV', Inf); % 'water exchange' ;
@@ -74,6 +72,13 @@ model = setParam(model, 'ub', 'y001992_REV', Inf); % 'oxygen exchange';
 model = setParam(model, 'ub', 'y002005_REV', Inf); % 'phosphate exchange';
 model = setParam(model, 'ub', 'y002060_REV', Inf); % 'sulphate exchange';
 model = setParam(model, 'ub', 'y001832_REV', Inf); % 'H+ exchange' ;
+model = setParam(model, 'ub', 'y001671_REV', Inf); % Biotin . exchange
+model = setParam(model, 'ub', 'y001548_REV', Inf); % pantothenate exchange
+model = setParam(model, 'ub', 'y001967_REV', Inf); % Niconitate exchange
+model = setParam(model, 'ub', 'y001947_REV', Inf); % Myo-inositol
+model = setParam(model, 'ub', 'y002067_REV', Inf); % Thiamin (1+) exchange
+model = setParam(model, 'ub', 'y002028_REV', Inf); % Pyridoxine exchange
+model = setParam(model, 'ub', 'y001604_REV', Inf); % Aminobenzoic acid
 %Block bicarbonate uptake
 model = setParam(model, 'ub', 'y001663', 0); % 'bicarbonate uptake' ;
 
