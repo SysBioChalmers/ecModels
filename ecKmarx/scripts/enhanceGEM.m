@@ -38,8 +38,8 @@ ecModel                 = readKcatData(model_data,kcats);
 
 %Constrain model to batch conditions:
 sigma    = 0.5;      
-Ptot     = 0.3993;   %Assumed constant
-gR_exp   = 0.44;     %[g/gDw h] Max batch gRate on minimal glucose media
+Ptot     = 0.546;   %Assumed constant
+gR_exp   = 0.56;     %[g/gDw h] Max batch gRate on minimal glucose media
 c_source = 'D-glucose exchange (reversible)'; %Rxn name for the glucose uptake reaction
 cd ../limit_proteins
 [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gR_exp,modifications,name);
