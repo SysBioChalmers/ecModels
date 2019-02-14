@@ -8,7 +8,7 @@
 % D -> DNA fraction [g/gDW]
 % L -> Lipid fraction [g/gDW]
 %
-% Benjamin Sanchez. Last update: 2018-10-23
+% Ivan Domenzain. Last update: 2019-02-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [X,P,C,R,D,L] = sumBioMass(model)
@@ -51,8 +51,16 @@ comps = {'s_0955'	89.09       'P'     % A     Alanine         ala
          's_0649'   322.21      'D'     % dTMP
          's_3714'   852.83      'N'     % heme a
          's_1405'   376.36      'N'     % riboflavin
-         's_1467'   96.06       'N'};   % sulphate
-
+         's_1467'   96.06       'N'     % sulphate
+         's_0089'   470.213     'L'     % 1-phosphatidyl-1D-myo-inositol 
+         's_0672'   423.65      'L'     % ergosterol ester
+         's_0666'   396.65      'L'     % Ergosterol
+         's_0694'   259.406     'L'     % fatty acid (average in Yeast; %https://genome.cshlp.org/content/suppl/2003/02/03/13.2.244.DC1/3.pdf)
+         's_5125'   226.07      'L'     % phosphatidate
+         's_1337'   385.306     'L'     % phosphatidyl-L-serine
+         's_1346'   312.085     'L'     % phosphatidylcholine
+         's_1351'   269.146     'L'     % phosphatidylethanolamine
+         's_1524'   867.22      'L'};   % triglyceride (average in Yeast; %https://genome.cshlp.org/content/suppl/2003/02/03/13.2.244.DC1/3.pdf)
 %Get main fractions:
 [P,X] = getFraction(model,comps,'P',0);
 [C,X] = getFraction(model,comps,'C',X);
