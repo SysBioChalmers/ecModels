@@ -2,7 +2,7 @@
 % model = manualModifications(model)
 %
 % Benjamin J. Sanchez. Last edited: 2017-10-29
-% Ivan Domenzain.      Last edited: 2018-01-24
+% Ivan Domenzain.      Last edited: 2019-02-14
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,modifications] = manualModifications(model)
@@ -42,12 +42,6 @@ for i = 1:length(model.rxns)
             [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications);
             if ~isempty(newValue)
                 model.S(int_pos(j),i) = newValue;
-                %else
-                %%%%%%%%%%%%%%% MANUAL CURATION FOR TOP USED ENZYMES:
-                %                  [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_set,modifications);
-                %                  if ~isempty(newValue)
-                %                      model.S(int_pos(j),i) = newValue;
-                %                  end
             end
         end
     end
@@ -164,6 +158,16 @@ end
 if strcmpi('prot_W0T4F1',enzName)  && (contains(reaction,'S-adenosyltransferase'))
     newValue         = -(1.5*3600)^-1;
     modifications{1} = [modifications{1}; string('W0T4F1')];
+    modifications{2} = [modifications{2}; reaction];
+end
+%Tryptophan synthase [W0T8T6/EC4.2.1.20]
+%Enzyme consumed 20% of the total protein mass. All kcats reported for
+%Eukaryotes are many orders of magnitude that the ones for microorganisms.
+%The highest value for the same substrate (l-serine) is used instead (48.21
+%1/s, for mycobacterium tuberculosis) 
+if strcmpi('prot_W0T8T6',enzName) 
+    newValue         = -(48.21*3600)^-1;
+    modifications{1} = [modifications{1}; string('W0T8T6')];
     modifications{2} = [modifications{2}; reaction];
 end
 end

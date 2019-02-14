@@ -6,7 +6,7 @@
 %Clone the necessary repos:
 git('clone https://github.com/SysBioChalmers/GECKO.git')
 git('clone https://github.com/SysBioChalmers/Kluyveromyces_marxianus-GEM.git')
-% 
+
 %Load kmar model:
 model = load('Kluyveromyces_marxianus-GEM/ModelFiles/mat/kmar.mat');
 model = model.model;
@@ -24,7 +24,7 @@ cd ../..
 
 %Move model files:
 rmdir('model', 's')
-movefile GECKO/models/ecKmarx model
+movefile (['GECKO/models/' name ' model'])
 save('model/ecKmarx.mat','ecModel')
 save('model/ecKmarx_batch.mat','ecModel_batch')
 
