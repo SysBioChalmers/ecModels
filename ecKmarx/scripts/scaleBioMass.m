@@ -2,7 +2,7 @@
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
 % Benjamin Sanchez. Last update: 2018-10-23
-% Ivan Domenzain.   Last update: 2019-02-06
+% Ivan Domenzain.   Last update: 2019-02-14
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
@@ -43,7 +43,7 @@ end
 xr_pos = strcmp(model.rxnNames,'biomass pseudoreaction');
 for i = 1:length(model.mets)
     S_ix  = model.S(i,xr_pos);
-    isGAM = sum(strcmp({'ATP','ADP','H2O','phosphate'},model.metNames{i})) == 1;
+    isGAM = sum(strcmp({'ATP','ADP','H+','H2O','phosphate'},model.metNames{i})) == 1;
     if S_ix ~= 0 && isGAM
         model.S(i,xr_pos) = sign(S_ix)*(GAM);
     end

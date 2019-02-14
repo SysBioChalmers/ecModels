@@ -13,7 +13,7 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
 % usage: [model,pos] = Kma_changeMedia_batch(model,c_source,media,flux)
 %
-% Ivan Domenzain        2019-01-31
+% Ivan Domenzain        2019-02-14
 
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange (reversible)'
@@ -21,8 +21,8 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %first block any uptake
 [rxnIDs,exchange]  = getExchangeRxns(model);
 %Exclude protein pool from exchange reactions list
-protIndex = find(contains(model.rxnNames,'prot_pool'));
-exchange  = exchange(find(exchange~=protIndex));
+protIndex = find(contains(model.rxnNames,'prot_'));
+exchange  = setdiff(exchange,protIndex);
 %First allow any exchange (uptakes and secretions)
 model.ub(exchange) = Inf;
 %Then block all uptakes
@@ -82,10 +82,7 @@ model = setParam(model, 'ub', 'r_1734_REV',Inf);  %'thiamine exchange'
 model = setParam(model, 'ub', 'r_1735_REV',Inf);  %'(R)-pantothenate
 model = setParam(model, 'ub', 'r_1877_REV',Inf);  %Pyridoxal
 model = setParam(model, 'ub', 'r_1771',0);  %Block bicarbonate exchange
-
-
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos = getComponentIndexes(model,c_source)
     pos(1)  = find(strcmpi(model.rxnNames,c_source));

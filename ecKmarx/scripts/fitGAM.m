@@ -3,14 +3,14 @@
 % Returns a fitted GAM for the Kmar model.
 % 
 % Benjamin Sanchez. Last update: 2018-10-27
-% Ivan Domenzain.   Last update: 2019-02-06
+% Ivan Domenzain.   Last update: 2019-02-14
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function GAM = fitGAM(model)
 %Load chemostat data:
 fid = fopen('../../databases/chemostatData.tsv','r');
 exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
-exp_data = [exp_data{1} exp_data{2}];
+exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
 fclose(fid);
 % 
 %Remove limitation on enzymes (if any):
@@ -18,7 +18,7 @@ model = setParam(model,'ub','prot_pool_exchange',+1000);
 % 
 %GAMs to span:
 disp('Estimating GAM:')
-GAM = 50:5:120;
+GAM = 20:5:150;
 
 %1st iteration:
 GAM = iteration(model,GAM,exp_data); 
@@ -77,8 +77,8 @@ model = scaleBioMass(model,Pbase,GAM,false);
 %Relevant positions:
 pos(1) = find(strcmp(model.rxnNames,'biomass exchange'));
 pos(2) = find(strcmp(model.rxnNames,'D-glucose exchange (reversible)'));
-%pos(3) = find(strcmp(model.rxnNames,'oxygen exchange (reversible)'));
-%pos(4) = find(strcmp(model.rxnNames,'carbon dioxide exchange'));
+pos(3) = find(strcmp(model.rxnNames,'oxygen exchange (reversible)'));
+pos(4) = find(strcmp(model.rxnNames,'carbon dioxide exchange'));
 %Simulate chemostats:
 mod_data = zeros(size(exp_data));
 for i = 1:length(exp_data(:,1))
