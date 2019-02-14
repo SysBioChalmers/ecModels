@@ -1,2 +1,4 @@
-Drate	GlucoseUptake	O2uptake	CO2production
-0.1	1.4305	2.0962	3.2483
+Drate	Glucose Uptake [mmol/gDw h]	O2 uptake  [mmol/gDw h]	CO2 production  [mmol/gDw h]
+0.1	1.22	2.67	2.69
+0.25	2.89	6.65	7.3
+0.5	5.83	11.09	11.5
