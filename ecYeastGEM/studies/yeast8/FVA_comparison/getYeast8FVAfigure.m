@@ -1,11 +1,15 @@
 % getYeast8FVAfigure
 %   
-%   Ivan Domenzain, 2019-02-08
+%   Ivan Domenzain, 2019-03-04
 %
 current = pwd;
 c_source = 'r_1714';
 %Clone the GECKO repository
 git('clone https://github.com/SysBioChalmers/GECKO.git')
+cd GECKO
+git ('checkout fix/comparativeFVA')
+git pull
+cd ..
 %Clone the yeast-GEM repository
 git('clone https://github.com/SysBioChalmers/yeast-GEM.git')
 %Load yeastGEM and constrain it with Y6 media
