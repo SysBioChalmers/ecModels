@@ -2,7 +2,7 @@
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
 % Benjamin Sanchez. Last update: 2018-10-23
-% Ivan Domenzain.   Last update: 2019-02-14
+% Ivan Domenzain.   Last update: 2019-04-12
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
@@ -59,8 +59,8 @@ rxnPos  = strcmp(model.rxnNames,rxnName);
 if sum(rxnPos) == 1
     for i = 1:length(model.mets)
         S_ir   = model.S(i,rxnPos);
-        isProd = strcmp(model.metNames{i},metName);
-        if S_ir ~= 0 && ~isProd
+        isPrec = strcmp(model.metNames{i},metName);
+        if S_ir ~= 0 && isPrec
             model.S(i,rxnPos) = f*S_ir;
         end
     end

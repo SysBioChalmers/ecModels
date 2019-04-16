@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [X,P,C,R,D,L] = sumBioMass(model)
-% Calculates breakdown of biomass for the yeast model:
+% Calculates breakdown of biomass for the Kmarx model:
 % X -> Biomass fraction without lipids [g/gDW]
 % P -> Protein fraction [g/gDW]
 % C -> Carbohydrate fraction [g/gDW]
@@ -62,55 +62,22 @@ comps = {'s_0955'	89.09       'P'     % A     Alanine         ala
          's_1351'   269.146     'L'     % phosphatidylethanolamine
          's_1524'   867.22      'L'};   % triglyceride (average in Yeast; %https://genome.cshlp.org/content/suppl/2003/02/03/13.2.244.DC1/3.pdf)
 %Get main fractions:
-[P,X] = getFraction(model,comps,'P',0);
-[C,X] = getFraction(model,comps,'C',X);
-[R,X] = getFraction(model,comps,'R',X);
-[D,X] = getFraction(model,comps,'D',X);
-[L,X] = getFraction(model,comps,'L',X);
-
-%Add up any remaining components:
-bioPos = strcmp(model.rxns,'r_1912');
-for i = 1:length(model.mets)
-    pos = strcmp(comps(:,1),model.mets{i});
-    if sum(pos) == 1
-        abundance = -model.S(i,bioPos)*comps{pos,2}/1000;
-        X         = X + abundance;
-    end
-end
+[P,X] = getFraction(model,'protein',0);
+[C,X] = getFraction(model,'carbohydrate',X);
+[R,X] = getFraction(model,'RNA',X);
+[D,X] = getFraction(model,'DNA',X);
+[L,X] = getFraction(model,'lipid',X);
 
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [F,X] = getFraction(model,comps,compType,X)
-
-%Define pseudoreaction name:
-rxnName = [compType ' pseudoreaction'];
-rxnName = strrep(rxnName,'P','protein');
-rxnName = strrep(rxnName,'C','carbohydrate');
-rxnName = strrep(rxnName,'R','RNA');
-rxnName = strrep(rxnName,'D','DNA');
-rxnName = strrep(rxnName,'L','lipid');
-
-%Add up fraction:
-fractionPos = strcmp(model.rxnNames,rxnName);
-if contains(rxnName,'lipid')
-    subs = model.S(:,fractionPos) < 0;        %substrates in pseudo-rxn
-    F    = -sum(model.S(subs,fractionPos));   %g/gDW
-else
-    comps = comps(strcmp(comps(:,3),compType),:);
-    F = 0;
-    %Add up all components:
-    for i = 1:length(model.mets)
-        pos = strcmp(comps(:,1),model.mets{i});
-        if sum(pos) == 1
-            abundance = -model.S(i,fractionPos)*(comps{pos,2}-18)/1000;
-            F         = F + abundance;
-        end
-    end
-end
-X = X + F;
-
+function [F,X] = getFraction(model,compType,X)
+bioPos     = strcmp(model.rxns,'r_1912');
+precursors = model.metNames(find(model.S(:,bioPos)));
+precIndex  = find(strcmpi(model.metNames,compType));
+F          = abs(model.S(precIndex,bioPos));
+X           = X + F;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
