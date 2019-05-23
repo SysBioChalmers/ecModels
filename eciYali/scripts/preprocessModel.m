@@ -13,10 +13,15 @@
 % version   The resulting version of the model (if not specified before)
 %
 % Benjamin J. Sanchez. Last edited: 2018-09-01
-% Ivan Domenzain.      Last edited: 2019-02-08
+% Ivan Domenzain.      Last edited: 2019-05-23
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function [model,name,version] = preprocessModel(model,name,version)
+if nargin< 3
+    version = [];
+    if nargin <2
+        name = [];
+    end
+end
 %Convert biomass reaction to a modular type
 model = createPoolsForBiomass(model);
 %Remove gene rules from pseudoreactions (if any):
@@ -50,6 +55,12 @@ for i = 1:length(model.rxns)
     end
 end
 
+if isfield(model,'name')
+    name = model.name;
+end
+if isfield(model,'version')
+    version = model.version;
+end
 if isempty(name) && isempty(version) && isfield(model,'id')
     try
         id = strsplit(model.id,'_v');
@@ -94,7 +105,7 @@ poolComponents{3} = [{'dAMP'},{'dCMP'},{'dGMP'},{'dTMP'}];
 index                 = find(strcmpi(model.rxnNames,'Amino acid composition'));
 model.rxnNames{index} = 'protein pseudoreaction';
 index                 = find(strcmpi(model.rxnNames,'Lipids pool'));
-model.rxnNames{index} = 'lipid pseudoreaction';
+model.rxnNames{index} = 'lipids pseudoreaction';
 
 %Add pools as pseudometabolites
 metsToAdd.metNames     = Pseudometabolites;
@@ -130,5 +141,5 @@ for i=1:length(Pseudometabolites)
     rxnsToAdd.c            = 0;
     model = addRxns(model,rxnsToAdd,1,'',false);
 end
-%model.S = sparse(model.S);
+model.S = sparse(model.S);
 end
