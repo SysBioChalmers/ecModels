@@ -2,10 +2,10 @@
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
 % Benjamin Sanchez. Last update: 2018-10-23
-% Ivan Domenzain.   Last update: 2019-04-12
+% Ivan Domenzain.   Last update: 2019-04-22
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = scaleBioMass(model,Ptot,GAM,scale_comp)
+function [model,GAM] = scaleBioMass(model,Ptot,GAM,scale_comp)
 
 if nargin < 3
     GAM = [];
@@ -18,7 +18,7 @@ end
 %Compute carbohydrate and lipid new amounts, based on:
 %1. Total mass remains constant, i.e. Pbase+Cbase+Lbase = Ptot+Ctot+Ltot
 %2. Difference in mass is distributed proportionally, i.e. Ctot/Ltot = Cbase/Lbase
-[~,Pbase,Cbase,~,~,Lbase] = sumBioMass(model);
+[f,Pbase,Cbase,~,~,Lbase] = sumBioMass(model);
 Ctot = Cbase + (Pbase - Ptot)*Cbase/(Lbase+Cbase);
 Ltot = Lbase + (Pbase - Ptot)*Lbase/(Lbase+Cbase);
 
@@ -60,7 +60,9 @@ if sum(rxnPos) == 1
     for i = 1:length(model.mets)
         S_ir   = model.S(i,rxnPos);
         isPrec = strcmp(model.metNames{i},metName);
-        if S_ir ~= 0 && isPrec
+        if S_ir ~= 0 && ~isPrec
+            disp(f)
+            disp(model.metNames(i));
             model.S(i,rxnPos) = f*S_ir;
         end
     end
