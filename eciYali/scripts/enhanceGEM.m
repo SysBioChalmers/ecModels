@@ -11,6 +11,8 @@ end
 if nargin < 4
     version = '';
 end
+%Set lb for NGAM to 0.7 mmol ATP/gDw h (from S. cerevisiae)
+model.lb(4) = 0.7;
 
 %Provide your organism scientific name
 org_name = 'yarrowia lipolytica';
@@ -18,7 +20,7 @@ mkdir (['../models/' name])
 
 %Remove blocked rxns + correct model.rev:
 cd change_model
-[model,name,version] = preprocessModel(model,name,version);
+[model,name,version] = preprocessModel(model);
 
 %Retrieve kcats & MWs for each rxn in model:
 cd ../get_enzyme_data
