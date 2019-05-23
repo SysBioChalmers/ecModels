@@ -13,11 +13,14 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
 % usage: [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
-% Ivan Domenzain        2019-02-13
+% Ivan Domenzain        2019-05-23
 
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange (reversible)'
 
+if nargin<3
+    media = 'Min';
+end
 %first block any uptake
 [rxnIDs,exchange]  = getExchangeRxns(model);
 %Exclude protein pool from exchange reactions list
@@ -50,7 +53,7 @@ b = 0.08;
 %UB parameter (manually optimized for glucose complex media):
 c = 2;
 %Define fluxes in case of ec model:
-if nargin < 5   %Limited protein    
+if nargin < 4   %Limited protein    
     if N>1
        flux    = b*ones(1,N);
        if N>21
@@ -88,25 +91,25 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos = getComponentIndexes(model,c_source)
     pos(1)  = find(strcmpi(model.rxnNames,c_source));
-    pos(2)  = find(strcmpi(model.rxnNames,'L-alanine exchange (reversible)'));
-    pos(3)  = find(strcmpi(model.rxnNames,'L-arginine exchange (reversible)'));
-    pos(4)  = find(strcmpi(model.rxnNames,'L-asparagine exchange (reversible)'));
-    pos(5)  = find(strcmpi(model.rxnNames,'L-aspartate exchange (reversible)'));
-    pos(6)  = find(strcmpi(model.rxnNames,'L-cysteine exchange (reversible)'));
-    pos(7)  = find(strcmpi(model.rxnNames,'L-glutamine exchange (reversible)'));
-    pos(8)  = find(strcmpi(model.rxnNames,'L-glutamate exchange (reversible)'));
-    pos(9)  = find(strcmpi(model.rxnNames,'glycine exchange (reversible)'));
-    pos(10) = find(strcmpi(model.rxnNames,'L-histidine exchange (reversible)'));
-    pos(11) = find(strcmpi(model.rxnNames,'L-isoleucine exchange (reversible)'));
-    pos(12) = find(strcmpi(model.rxnNames,'L-leucine exchange (reversible)'));
-    pos(13) = find(strcmpi(model.rxnNames,'L-lysine exchange (reversible)'));
-    pos(14) = find(strcmpi(model.rxnNames,'L-methionine exchange (reversible)'));
-    pos(15) = find(strcmpi(model.rxnNames,'L-phenylalanine exchange (reversible)'));
-    pos(16) = find(strcmpi(model.rxnNames,'L-proline exchange (reversible)'));
-    pos(17) = find(strcmpi(model.rxnNames,'L-serine exchange (reversible)'));
-    pos(18) = find(strcmpi(model.rxnNames,'L-threonine exchange (reversible)'));
-    pos(19) = find(strcmpi(model.rxnNames,'L-tryptophan exchange (reversible)'));
-    pos(20) = find(strcmpi(model.rxnNames,'L-tyrosine exchange (reversible)'));
-    pos(21) = find(strcmpi(model.rxnNames,'L-valine exchange (reversible)'));
-    pos(22) = find(strcmpi(model.rxnNames,'D-glucose exchange (reversible)'));
+%     pos(2)  = find(strcmpi(model.rxnNames,'alanine exchange (reversible)'));
+%     pos(3)  = find(strcmpi(model.rxnNames,'L-arginine exchange (reversible)'));
+%     pos(4)  = find(strcmpi(model.rxnNames,'L-asparagine exchange (reversible)'));
+%     pos(5)  = find(strcmpi(model.rxnNames,'L-aspartate exchange (reversible)'));
+%     pos(6)  = find(strcmpi(model.rxnNames,'L-cysteine exchange (reversible)'));
+%     pos(7)  = find(strcmpi(model.rxnNames,'L-glutamine exchange (reversible)'));
+%     pos(8)  = find(strcmpi(model.rxnNames,'L-glutamate exchange (reversible)'));
+%     pos(9)  = find(strcmpi(model.rxnNames,'glycine exchange (reversible)'));
+%     pos(10) = find(strcmpi(model.rxnNames,'L-histidine exchange (reversible)'));
+%     pos(11) = find(strcmpi(model.rxnNames,'L-isoleucine exchange (reversible)'));
+%     pos(12) = find(strcmpi(model.rxnNames,'L-leucine exchange (reversible)'));
+%     pos(13) = find(strcmpi(model.rxnNames,'L-lysine exchange (reversible)'));
+%     pos(14) = find(strcmpi(model.rxnNames,'L-methionine exchange (reversible)'));
+%     pos(15) = find(strcmpi(model.rxnNames,'L-phenylalanine exchange (reversible)'));
+%     pos(16) = find(strcmpi(model.rxnNames,'L-proline exchange (reversible)'));
+%     pos(17) = find(strcmpi(model.rxnNames,'L-serine exchange (reversible)'));
+%     pos(18) = find(strcmpi(model.rxnNames,'L-threonine exchange (reversible)'));
+%     pos(19) = find(strcmpi(model.rxnNames,'L-tryptophan exchange (reversible)'));
+%     pos(20) = find(strcmpi(model.rxnNames,'L-tyrosine exchange (reversible)'));
+%     pos(21) = find(strcmpi(model.rxnNames,'L-valine exchange (reversible)'));
+%     pos(22) = find(strcmpi(model.rxnNames,'D-glucose exchange (reversible)'));
 end
