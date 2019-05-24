@@ -24,7 +24,7 @@ cd ../..
 
 %Move model files:
 rmdir('model', 's')
-movefile (['GECKO/models/' name ' model'])
+movefile GECKO/models/ecKmarx model
 save('model/ecKmarx.mat','ecModel')
 save('model/ecKmarx_batch.mat','ecModel_batch')
 
