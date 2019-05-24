@@ -61,8 +61,6 @@ if sum(rxnPos) == 1
         S_ir   = model.S(i,rxnPos);
         isPrec = strcmp(model.metNames{i},metName);
         if S_ir ~= 0 && ~isPrec
-            disp(f)
-            disp(model.metNames(i));
             model.S(i,rxnPos) = f*S_ir;
         end
     end
