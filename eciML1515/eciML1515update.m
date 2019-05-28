@@ -1,18 +1,14 @@
-% ecYeastUpdate
+% eciML1515Update
 %
-%   Benjamin J. Sanchez, 2018-10-08
+%  Ivan Domenzain.  2019-05-28
 %
 
 %Clone the necessary repos:
 git('clone https://github.com/SysBioChalmers/GECKO.git')
-git('clone https://github.com/SysBioChalmers/yeast-GEM.git')
 
-%Load yeast model:
-cd yeast-GEM
-model    = load('ModelFiles/mat/yeastGEM.mat');
-model    = model.model;
-yeastVer = model.modelID(strfind(model.modelID,'_v')+1:end);
-cd ..
+%Load iML1515 model:
+model    = load('model/iML1515.mat');
+model    = model.iML1515;
 
 %Replace scripts in GECKO:
 fileNames = dir('scripts');
