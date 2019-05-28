@@ -170,6 +170,16 @@ if strcmpi('prot_W0T8T6',enzName)
     modifications{1} = [modifications{1}; string('W0T8T6')];
     modifications{2} = [modifications{2}; reaction];
 end
+%Ketol-acid reductoisomerase, mitochondrial [W0TAV6/EC1.1.1.86]
+%Enzyme consumed 15% of the total protein mass. The enzyme participates in 
+%several reactions but the highest value reported in BRENDA for the rxn 
+%substrates is 18.3 [s^1] for 2-acetolactate and salmonella enterica subsp. 
+%enterica serovar typhimurium
+if strcmpi('prot_W0TAV6',enzName) 
+    newValue         = -(18.3*3600)^-1;
+    modifications{1} = [modifications{1}; string('W0TAV6')];
+    modifications{2} = [modifications{2}; reaction];
+end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modify those kcats involved in extreme misspredictions for growth on
