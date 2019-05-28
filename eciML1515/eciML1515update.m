@@ -5,11 +5,10 @@
 
 %Clone the necessary repos:
 git('clone https://github.com/SysBioChalmers/GECKO.git')
-
 %Load iML1515 model:
-model    = load('model/iML1515.mat');
-model    = model.iML1515;
-
+cd model
+model    = importModel('iML1515.xml');
+cd ..
 %Replace scripts in GECKO:
 fileNames = dir('scripts');
 for i = 1:length(fileNames)
