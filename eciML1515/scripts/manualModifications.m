@@ -96,15 +96,6 @@ for i = 1:length(model.rxns)
 end
 % Remove saved arm reactions:
 model = removeRxns(model,model.rxns(arm_pos(1:p)));
-%Change gene rules:
-for i = 1:length(model.rules)
-    if ~isempty(model.rules{i})
-        %Change gene ids:
-        model.rules{i} = strrep(model.rules{i},'x(','');
-        model.rules{i} = strrep(model.rules{i},')','');
-        model.rules{i} = model.genes{str2double(model.rules{i})};
-    end
-end
 % Remove unused enzymes after manual curation (2017-01-16):
 rem_enz = false(size(model.enzymes));
 for i = 1:length(model.enzymes)
@@ -118,10 +109,6 @@ for i = 1:length(rem_enz)
     model = deleteProtein(model,rem_enz{i});
     disp(['Removing unused protein: ' rem_enz{i}])
 end
-% Block O2 and glucose production (for avoiding multiple solutions):
-model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
-model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
-
 modifications = mapModifiedRxns(modifications,model);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
