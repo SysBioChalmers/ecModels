@@ -3,13 +3,10 @@
 %
 % Ivan Domenzain. Last edited: 2019-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
+function [ecModel,ecModel_batch,version] = enhanceGEM(model,toolbox,name)
 
 if nargin < 3
     name    = '';
-end
-if nargin < 4
-    version = '';
 end
 
 %Provide your organism scientific name
@@ -24,7 +21,7 @@ end
 
 %Remove blocked rxns + correct model.rev:
 cd change_model
-[model,name,version] = preprocessModel(model,name,version);
+[model,name,version] = preprocessModel(model,name);
 
 %Retrieve kcats & MWs for each rxn in model:
 cd ../get_enzyme_data
@@ -38,8 +35,8 @@ ecModel                 = readKcatData(model_data,kcats);
 
 %Constrain model to batch conditions:
 sigma    = 0.5;      %Optimized for glucose
-Ptot     = 0.5;      %Assumed constant
-gR_exp   = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
+Ptot     = 0.5793;      %Assumed constant
+gR_exp   = 0.58;     %[g/gDw h] Max batch gRate on minimal glucose media
 c_source = 'D-glucose exchange (reversible)'; %Rxn name for the glucose uptake reaction
 cd ../limit_proteins
 [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gR_exp,modifications,name);
