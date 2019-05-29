@@ -21,6 +21,9 @@ if nargin< 3
         name = [];
     end
 end
+%Modify some metNames for compatibility with substrate names in the BRENDA
+%kinetic data file
+model = modifyMetNames(model);
 %Change biomass pseudoreaction name
 index = find(model.c);
 model.rxnNames{index} = 'biomass pseudoreaction';
@@ -51,7 +54,7 @@ for i = 1:length(model.rxns)
 end
 
 %Open all exchange rxns
-[~, exchange] = getExchangeRxns(model);
+[~, exchange]      = getExchangeRxns(model);
 model.ub(exchange) = +1000;
 model.lb(exchange) = -1000;
 
@@ -176,4 +179,131 @@ rxnsToAdd.ub        = [1000 1000];
 model.c(:)          = 0;
 newModel            = addRxns(model,rxnsToAdd,3);
 rxnIndex            = find(newModel.c);
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function model = modifyMetNames(model)
+%Function that modifies metNames for some detected metabolites in the model
+%in order to make them compatible with substrate names in the BRENDA
+%kinetic data file for the Kcat matching procedure.
+
+index = find(strcmpi(model.metNames,'ADP C10H12N5O10P2'));
+if ~isempty(index)
+    model.metNames{index} = 'ADP';
+end
+
+index = find(strcmpi(model.metNames,'ATP C10H12N5O13P3'));
+if ~isempty(index)
+    model.metNames{index} = 'ATP';
+end
+
+index = find(strcmpi(model.metNames,'CTP C9H12N3O14P3'));
+if ~isempty(index)
+    model.metNames{index} = 'CTP';
+end
+
+index = find(strcmpi(model.metNames,'DATP C10H12N5O12P3'));
+if ~isempty(index)
+    model.metNames{index} = 'DATP';
+end
+
+index = find(strcmpi(model.metNames,'DCTP C9H12N3O13P3'));
+if ~isempty(index)
+    model.metNames{index} = 'DCTP';
+end
+
+index = find(strcmpi(model.metNames,'DGTP C10H12N5O13P3'));
+if ~isempty(index)
+    model.metNames{index} = 'DGTP';
+end
+
+index = find(strcmpi(model.metNames,'DTTP C10H13N2O14P3'));
+if ~isempty(index)
+    model.metNames{index} = 'DTTP';
+end
+
+index = find(strcmpi(model.metNames,'DTTP C10H13N2O14P3'));
+if ~isempty(index)
+    model.metNames{index} = 'DTTP';
+end
+
+index = find(strcmpi(model.metNames,'Fe2+ mitochondria'));
+if ~isempty(index)
+    model.metNames{index} = 'Fe2+';
+end
+
+index = find(strcmpi(model.metNames,'GTP C10H12N5O14P3'));
+if ~isempty(index)
+    model.metNames{index} = 'GTP';
+end
+
+index = find(strcmpi(model.metNames,'H2O H2O'));
+if ~isempty(index)
+    model.metNames{index} = 'H2O';
+end
+
+index = find(strcmpi(model.metNames,'Iron (Fe3+)'));
+if ~isempty(index)
+    model.metNames{index} = 'Fe3+';
+end
+
+index = find(strcmpi(model.metNames,'Nicotinamide adenine dinucleotide'));
+if ~isempty(index)
+    model.metNames{index} = 'NAD+';
+end
+
+index = find(strcmpi(model.metNames,'Nicotinamide adenine dinucleotide phosphate'));
+if ~isempty(index)
+    model.metNames{index} = 'NADP';
+end
+
+index = find(strcmpi(model.metNames,'Nicotinamide adenine dinucleotide phosphate - reduced'));
+if ~isempty(index)
+    model.metNames{index} = 'NADPH';
+end
+
+index = find(strcmpi(model.metNames,'Nicotinamide adenine dinucleotide - reduced'));
+if ~isempty(index)
+    model.metNames{index} = 'NADH';
+end
+
+index = find(strcmpi(model.metNames,'Flavin adenine dinucleotide reduced'));
+if ~isempty(index)
+    model.metNames{index} = 'FADH2';
+end
+
+index = find(strcmpi(model.metNames,'Flavin adenine dinucleotide oxidized'));
+if ~isempty(index)
+    model.metNames{index} = 'FAD';
+end
+
+index = find(strcmpi(model.metNames,'Phosphatidylethanolamine (dihexadec-9enoyl, n-C16:1)'));
+if ~isempty(index)
+    model.metNames{index} = 'Phosphatidylethanolamine';
+end
+
+index = find(strcmpi(model.metNames,'Phosphatidylethanolamine (dihexadecanoyl, n-C16:0)'));
+if ~isempty(index)
+    model.metNames{index} = 'Phosphatidylethanolamine';
+end
+
+index = find(strcmpi(model.metNames,'Protoheme C34H30FeN4O4'));
+if ~isempty(index)
+    model.metNames{index} = 'Protoheme';
+end
+
+index = find(strcmpi(model.metNames,'Riboflavin C17H20N4O6'));
+if ~isempty(index)
+    model.metNames{index} = 'Riboflavin';
+end
+
+index = find(strcmpi(model.metNames,'Siroheme C42H36FeN4O16'));
+if ~isempty(index)
+    model.metNames{index} = 'Siroheme';
+end
+
+index = find(strcmpi(model.metNames,'UTP C9H11N2O15P3'));
+if ~isempty(index)
+    model.metNames{index} = 'UTP';
+end
+
 end
