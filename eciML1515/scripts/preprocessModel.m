@@ -12,7 +12,7 @@
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2019-05-28
+% Ivan Domenzain.      Last edited: 2019-06-02
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [model,name,version] = preprocessModel(model,name,version)
 if nargin< 3
@@ -32,31 +32,31 @@ index = find(strcmpi(model.rxnNames,'O2 exchange'));
 model.rxnNames{index}  = 'oxygen exchange';
 index = find(strcmpi(model.rxnNames,'CO2 exchange'));
 model.rxnNames{index}  = 'carbon dioxide exchange';
-%Introduce biomass pseudometabolite
-pseudoMet              = 'biomass';
-metsToAdd.metNames     = {pseudoMet};
-metsToAdd.mets         = {pseudoMet};
-metsToAdd.compartments = {'c'};
-metsToAdd.b            = 0;
-model                  = addMets(model,metsToAdd,false);
-%Incorporate biomass pseudometabolite into biomass pseudoreaction
-model.S(end,index)     = 1;
-%Introduce exchange reaction for biomass and set as an objective
-[model,bioIndex]       = addExchRxn(model,pseudoMet,true);
-model.c(bioIndex)      = 1;
+% %Introduce biomass pseudometabolite
+% pseudoMet              = 'biomass';
+% metsToAdd.metNames     = {pseudoMet};
+% metsToAdd.mets         = {pseudoMet};
+% metsToAdd.compartments = {'c'};
+% metsToAdd.b            = 0;
+% model                  = addMets(model,metsToAdd,false);
+% %Incorporate biomass pseudometabolite into biomass pseudoreaction
+% model.S(end,index)     = 1;
+% %Introduce exchange reaction for biomass and set as an objective
+% [model,bioIndex]       = addExchRxn(model,pseudoMet,true);
+% model.c(bioIndex)      = 1;
 %standardize gene-rxn associations
 [grRules,rxnGeneMat] = standardizeGrRules(model);
 model.grRules        = grRules;
 model.rxnGeneMat     = rxnGeneMat;
 %Convert biomass reaction to a modular type
-model = createPoolsForBiomass(model);
+%model = createPoolsForBiomass(model);
 %Remove gene rules from pseudoreactions (if any):
-for i = 1:length(model.rxns)
-    if endsWith(model.rxnNames{i},' pseudoreaction')
-        model.grRules{i}      = '';
-        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
-    end
-end
+% for i = 1:length(model.rxns)
+%     if endsWith(model.rxnNames{i},' pseudoreaction')
+%         model.grRules{i}      = '';
+%         model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
+%     end
+% end
 
 %Open all exchange rxns
 [~, exchange]      = getExchangeRxns(model);
