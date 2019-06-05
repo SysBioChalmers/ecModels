@@ -1,6 +1,6 @@
 % eciML1515Update
 %
-%  Ivan Domenzain.  2019-06-02
+%  Ivan Domenzain.  2019-06-05
 %
 
 %Clone the necessary repos:
@@ -10,11 +10,9 @@ cd model
 model    = importModel('iML1515.xml');
 cd ..
 %Replace scripts in GECKO:
- replaceFiles('scripts','GECKO/**/');
+replaceFiles('scripts','GECKO/**/');
 %Replace databases in GECKO:
- replaceFiles('databases','GECKO/databases/');
-%Remove unecessary files
- delete('GECKO/databases/prot_abundance.txt')
+replaceFiles('databases','GECKO/databases/');
 %Run GECKO pipeline:
 cd GECKO/geckomat
 GECKOver = git('describe --tags');
@@ -31,7 +29,7 @@ fprintf(fid,['iML1515\t' version '\n']);
 fclose(fid);
 %Remove the cloned repos:
 rmdir('GECKO', 's')
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function replaceFiles(fileType,path)
 fileNames = dir(fileType);
 for i = 1:length(fileNames)
