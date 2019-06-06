@@ -70,7 +70,7 @@ if ~isempty(changes)
     changes = cell2table(changes,'VariableNames',varNamesTable);
     changes = truncateValues(changes,[7:10]);
     %Write results in a .txt for further exploration.
-    mkdir (['../../' name]);
+    mkdir (['../../models/' name]);
     writetable(changes,['../../models/' name '/' name '_kcatModifications.txt']);
 else
     %If the model is not feasible then the analysis is performed in all the 
