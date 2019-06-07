@@ -1850,7 +1850,7 @@ HCO3ENo2	pmet_HCO3E[c] + 6.3131e-11 prot_P0ABE9[c]  -> h_c[c] + hco3_c[c] 	b0339
 IMPCNo1	imp_c[c] + h2o_c[c] + 3.23e-05 prot_P15639[c]  -> fprica_c[c] 	b4006	  0.00	   Inf	  0.00
 IMPDNo1	nad_c[c] + imp_c[c] + h2o_c[c] + 8.9606e-05 prot_P0ADG7[c]  -> h_c[c] + xmp_c[c] + nadh_c[c] 	b2508	  0.00	   Inf	  0.00
 arm_ECOAH4	3hdcoa_c[c]  -> pmet_ECOAH4[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH4No1	pmet_ECOAH4[c] + 4.0784e-08 prot_P77399[c]  -> dc2coa_c[c] + h2o_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH4No1	pmet_ECOAH4[c] + 3.51339e-08 prot_P77399[c]  -> dc2coa_c[c] + h2o_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH4No2	pmet_ECOAH4[c] + 4.4092e-06 prot_P21177[c]  -> dc2coa_c[c] + h2o_c[c] 	b3846	  0.00	   Inf	  0.00
 GLUTRSNo1	atp_c[c] + glu__L_c[c] + trnaglu_c[c] + 0.00012626 prot_P04805[c]  -> glutrna_c[c] + ppi_c[c] + amp_c[c] 	b2400	  0.00	   Inf	  0.00
 TMPPPNo1	h_c[c] + 2mahmp_c[c] + 4mpetz_c[c] + 0.0014006 prot_P30137[c]  -> ppi_c[c] + thmmp_c[c] 	b3993	  0.00	   Inf	  0.00
@@ -1922,7 +1922,7 @@ CHORMNo2	pmet_CHORM[c] + 7.5896e-10 prot_P07023[c]  -> pphn_c[c] 	b2600	  0.00	 
 CHORSNo1	3psme_c[c] + 5.927e-06 prot_P12008[c]  -> pi_c[c] + chor_c[c] 	b2329	  0.00	   Inf	  0.00
 IGPSNo1	h_c[c] + 2cpr5p_c[c] + 2.9869e-05 prot_P00909[c]  -> 3ig3p_c[c] + h2o_c[c] + co2_c[c] 	b1262	  0.00	   Inf	  0.00
 arm_ECOAH6	3htdcoa_c[c]  -> pmet_ECOAH6[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH6No1	4.0784e-08 prot_P77399[c] + pmet_ECOAH6[c]  -> h2o_c[c] + td2coa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH6No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH6[c]  -> h2o_c[c] + td2coa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH6No2	4.4092e-06 prot_P21177[c] + pmet_ECOAH6[c]  -> h2o_c[c] + td2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 ENONo1	2pg_c[c] + 6.9677e-07 prot_P0A6P9[c]  -> pep_c[c] + h2o_c[c] 	b2779	  0.00	   Inf	  0.00
 arm_FBA	fdp_c[c]  -> pmet_FBA[c] 	b2925 or b2097	  0.00	   Inf	  0.00
@@ -2102,7 +2102,7 @@ DMQMTNo1	amet_c[c] + 2omhmbl_c[c] + 0.00012626 prot_P17993[c]  -> h_c[c] + q8h2_
 ICHORS_copy1No1	chor_c[c] + 9.4805e-05 prot_P0AEJ2[c]  -> ichor_c[c] 	b0593	  0.00	   Inf	  0.00
 arm_HACD5	h_c[c] + 3oddcoa_c[c] + nadh_c[c]  -> pmet_HACD5[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD5No1	0.0014697 prot_P21177[c] + pmet_HACD5[c]  -> nad_c[c] + 3hddcoa_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD5No2	0.0014697 prot_P77399[c] + pmet_HACD5[c]  -> nad_c[c] + 3hddcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD5No2	3.51339e-08 prot_P77399[c] + pmet_HACD5[c]  -> nad_c[c] + 3hddcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 HPPK2No1	atp_c[c] + 6hmhpt_c[c] + 5.291e-05 prot_P26281[c]  -> h_c[c] + 6hmhptpp_c[c] + amp_c[c] 	b0142	  0.00	   Inf	  0.00
 PTPATiNo1	h_c[c] + pan4p_c[c] + atp_c[c] + 5.7238e-05 prot_P0A6I6[c]  -> ppi_c[c] + dpcoa_c[c] 	b3634	  0.00	   Inf	  0.00
 HEX7No1	fru_c[c] + atp_c[c] + 3.1222e-08 prot_P23917[c]  -> h_c[c] + adp_c[c] + f6p_c[c] 	b0394	  0.00	   Inf	  0.00
@@ -2127,8 +2127,8 @@ SERD_LNo5	pmet_SERD_L[c] + 5.1062e-07 prot_P0AGF6[c]  -> nh4_c[c] + pyr_c[c] 	b3
 arm_THRD	thr__L_c[c] + nad_c[c]  -> pmet_THRD[c] 	b3616 or b3589	  0.00	   Inf	  0.00
 THRDNo1	pmet_THRD[c] + 2.0576e-06 prot_P07913[c]  -> h_c[c] + 2aobut_c[c] + nadh_c[c] 	b3616	  0.00	   Inf	  0.00
 THRDNo2	pmet_THRD[c] + 6.269e-07 prot_P37686[c]  -> h_c[c] + 2aobut_c[c] + nadh_c[c] 	b3589	  0.00	   Inf	  0.00
-KARA1No1	23dhmb_c[c] + nadp_c[c] + 1.0684e-05 prot_P05793[c]  -> h_c[c] + alac__S_c[c] + nadph_c[c] 	b3774	  0.00	   Inf	  0.00
-KARA2No1	h_c[c] + 2ahbut_c[c] + nadph_c[c] + 0.0023148 prot_P05793[c]  -> nadp_c[c] + 23dhmp_c[c] 	b3774	  0.00	   Inf	  0.00
+KARA1No1	23dhmb_c[c] + nadp_c[c] + 1.06838e-05 prot_P05793[c]  -> h_c[c] + alac__S_c[c] + nadph_c[c] 	b3774	  0.00	   Inf	  0.00
+KARA2No1	h_c[c] + 2ahbut_c[c] + nadph_c[c] + 1.06838e-05 prot_P05793[c]  -> nadp_c[c] + 23dhmp_c[c] 	b3774	  0.00	   Inf	  0.00
 ACCOACNo1	accoa_c[c] + atp_c[c] + hco3_c[c] + 9.2285e-06 prot_P0A9Q5[c] + 9.2285e-06 prot_P0ABD5[c] + 9.2285e-06 prot_P0ABD8[c] + 9.2285e-06 prot_P24182[c]  -> h_c[c] + adp_c[c] + pi_c[c] + malcoa_c[c] 	b3256 and b2316 and b3255 and b0185	  0.00	   Inf	  0.00
 NADKNo1	nad_c[c] + atp_c[c] + 2.2222e-06 prot_P0A7B3[c]  -> h_c[c] + adp_c[c] + nadp_c[c] 	b2615	  0.00	   Inf	  0.00
 ICHORS_copy2No1	chor_c[c] + 9.4805e-05 prot_P38051[c]  -> ichor_c[c] 	b2265	  0.00	   Inf	  0.00
@@ -2165,15 +2165,15 @@ PYDXPPNo4	3.6695e-07 prot_P0AF24[c] + pmet_PYDXPP[c]  -> pi_c[c] + pydx_c[c] 	b0
 PDXPPNo1	pdx5p_c[c] + h2o_c[c] + 0.00022222 prot_P21829[c]  -> pydxn_c[c] + pi_c[c] 	b0766	  0.00	   Inf	  0.00
 arm_HACD6	h_c[c] + 3otdcoa_c[c] + nadh_c[c]  -> pmet_HACD6[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD6No1	0.0014697 prot_P21177[c] + pmet_HACD6[c]  -> nad_c[c] + 3htdcoa_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD6No2	0.0014697 prot_P77399[c] + pmet_HACD6[c]  -> nad_c[c] + 3htdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD6No2	3.51339e-08 prot_P77399[c] + pmet_HACD6[c]  -> nad_c[c] + 3htdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_ECOAH1	3hbcoa_c[c]  -> pmet_ECOAH1[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH1No1	1.8519e-05 prot_P77399[c] + pmet_ECOAH1[c]  -> h2o_c[c] + b2coa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH1No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH1[c]  -> h2o_c[c] + b2coa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH1No2	1.8519e-05 prot_P21177[c] + pmet_ECOAH1[c]  -> h2o_c[c] + b2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_ECOAH2	3hhcoa_c[c]  -> pmet_ECOAH2[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH2No1	4.0784e-08 prot_P77399[c] + pmet_ECOAH2[c]  -> hx2coa_c[c] + h2o_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH2No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH2[c]  -> hx2coa_c[c] + h2o_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH2No2	4.4092e-06 prot_P21177[c] + pmet_ECOAH2[c]  -> hx2coa_c[c] + h2o_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_ECOAH3	3hocoa_c[c]  -> pmet_ECOAH3[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH3No1	4.0784e-08 prot_P77399[c] + pmet_ECOAH3[c]  -> h2o_c[c] + oc2coa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH3No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH3[c]  -> h2o_c[c] + oc2coa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH3No2	4.4092e-06 prot_P21177[c] + pmet_ECOAH3[c]  -> h2o_c[c] + oc2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 UGLTNo1	gal1p_c[c] + udpg_c[c] + 3.5613e-07 prot_P09148[c]  -> udpgal_c[c] + g1p_c[c] 	b0758	  0.00	   Inf	  0.00
 DXPSNo1	h_c[c] + g3p_c[c] + pyr_c[c] + 0.00010684 prot_P77488[c]  -> dxyl5p_c[c] + co2_c[c] 	b0420	  0.00	   Inf	  0.00
@@ -2230,9 +2230,9 @@ EDTXS4No1	kdo2lipid4p_c[c] + myrsACP_c[c] + 1.7581e-07 prot_P24205[c]  -> lipa_c
 NNDPRNo1	2 h_c[c] + quln_c[c] + prpp_c[c] + 0.0019841 prot_P30011[c]  -> ppi_c[c] + nicrnt_c[c] + co2_c[c] 	b0109	  0.00	   Inf	  0.00
 arm_HACD4	h_c[c] + 3odcoa_c[c] + nadh_c[c]  -> pmet_HACD4[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD4No1	0.0014697 prot_P21177[c] + pmet_HACD4[c]  -> nad_c[c] + 3hdcoa_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD4No2	0.0014697 prot_P77399[c] + pmet_HACD4[c]  -> nad_c[c] + 3hdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD4No2	3.51339e-08 prot_P77399[c] + pmet_HACD4[c]  -> nad_c[c] + 3hdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_HACD7	h_c[c] + 3ohdcoa_c[c] + nadh_c[c]  -> pmet_HACD7[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-HACD7No1	0.0014697 prot_P77399[c] + pmet_HACD7[c]  -> nad_c[c] + 3hhdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD7No1	3.51339e-08 prot_P77399[c] + pmet_HACD7[c]  -> nad_c[c] + 3hhdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 HACD7No2	0.0014697 prot_P21177[c] + pmet_HACD7[c]  -> nad_c[c] + 3hhdcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 AACPS1No1	atp_c[c] + ttdca_c[c] + ACP_c[c] + 0.00015665 prot_P0A6A8[c] + 0.00015665 prot_P31119[c]  -> ppi_c[c] + myrsACP_c[c] + amp_c[c] 	b1094 and b2836	  0.00	   Inf	  0.00
 SDPDSNo1	sl26da_c[c] + h2o_c[c] + 2.4366e-06 prot_P0AED7[c]  -> 26dap_LL_c[c] + succ_c[c] 	b2472	  0.00	   Inf	  0.00
@@ -2285,10 +2285,10 @@ CYTK2No1	atp_c[c] + dcmp_c[c] + 2.5484e-06 prot_P0A6I0[c]  -> adp_c[c] + dcdp_c[
 GK1No1	atp_c[c] + gmp_c[c] + 3.0864e-06 prot_P60546[c]  -> adp_c[c] + gdp_c[c] 	b3648	  0.00	   Inf	  0.00
 arm_HACD1	h_c[c] + aacoa_c[c] + nadh_c[c]  -> pmet_HACD1[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD1No1	6.105e-09 prot_P21177[c] + pmet_HACD1[c]  -> nad_c[c] + 3hbcoa_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD1No2	6.105e-09 prot_P77399[c] + pmet_HACD1[c]  -> nad_c[c] + 3hbcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD1No2	3.51339e-08 prot_P77399[c] + pmet_HACD1[c]  -> nad_c[c] + 3hbcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_HACD2	h_c[c] + 3ohcoa_c[c] + nadh_c[c]  -> pmet_HACD2[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD2No1	0.0014697 prot_P21177[c] + pmet_HACD2[c]  -> nad_c[c] + 3hhcoa_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD2No2	0.0014697 prot_P77399[c] + pmet_HACD2[c]  -> nad_c[c] + 3hhcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD2No2	3.51339e-08 prot_P77399[c] + pmet_HACD2[c]  -> nad_c[c] + 3hhcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_ACACCT	accoa_c[c] + acac_c[c]  -> pmet_ACACCT[c] 	(b2222 and b2221) or b1694	  0.00	   Inf	  0.00
 ACACCTNo1	pmet_ACACCT[c] + 9.5785e-07 prot_P76458[c] + 9.5785e-07 prot_P76459[c]  -> ac_c[c] + aacoa_c[c] 	b2222 and b2221	  0.00	   Inf	  0.00
 ACACCTNo2	pmet_ACACCT[c] + 9.5785e-07 prot_P37766[c]  -> ac_c[c] + aacoa_c[c] 	b1694	  0.00	   Inf	  0.00
@@ -2506,7 +2506,7 @@ IGPDHNo1	eig3p_c[c] + 2.7778e-07 prot_P06987[c]  -> h2o_c[c] + imacp_c[c] 	b2022
 PRPPSNo1	r5p_c[c] + atp_c[c] + 0.00042088 prot_P0A717[c]  -> h_c[c] + prpp_c[c] + amp_c[c] 	b1207	  0.00	   Inf	  0.00
 PRATPPNo1	prbatp_c[c] + h2o_c[c] + 2.8058e-05 prot_P06989[c]  -> prbamp_c[c] + h_c[c] + ppi_c[c] 	b2026	  0.00	   Inf	  0.00
 PRMICINo1	prfp_c[c] + 1.9425e-05 prot_P10371[c]  -> prlp_c[c] 	b2024	  0.00	   Inf	  0.00
-SERATNo1	ser__L_c[c] + accoa_c[c] + 0.004085 prot_P0A9D4[c]  -> acser_c[c] + coa_c[c] 	b3607	  0.00	   Inf	  0.00
+SERATNo1	ser__L_c[c] + accoa_c[c] + 1.38889e-06 prot_P0A9D4[c]  -> acser_c[c] + coa_c[c] 	b3607	  0.00	   Inf	  0.00
 arm_CYSS	h2s_c[c] + acser_c[c]  -> pmet_CYSS[c] 	b2421 or b2414	  0.00	   Inf	  0.00
 CYSSNo1	pmet_CYSS[c] + 1.1574e-05 prot_P16703[c]  -> h_c[c] + ac_c[c] + cys__L_c[c] 	b2421	  0.00	   Inf	  0.00
 CYSSNo2	pmet_CYSS[c] + 1.1574e-05 prot_P0ABK5[c]  -> h_c[c] + ac_c[c] + cys__L_c[c] 	b2414	  0.00	   Inf	  0.00
@@ -2779,7 +2779,7 @@ ATPS4rppNo2	pmet_ATPS4rpp[p] + 1.3889e-05 prot_P0A6E6[c] + 1.3889e-05 prot_P0AB9
 ALLabcppNo1	all__D_p[p] + atp_c[c] + h2o_c[c] + 9.7466e-07 prot_P32720[c] + 9.7466e-07 prot_P32721[c] + 9.7466e-07 prot_P39265[c]  -> h_c[c] + all__D_c[c] + adp_c[c] + pi_c[c] 	b4088 and b4087 and b4086	  0.00	   Inf	  0.00
 ARBabcppNo1	atp_c[c] + h2o_c[c] + arab__L_p[p] + 9.7466e-07 prot_P02924[c] + 9.7466e-07 prot_P0AAF3[c] + 9.7466e-07 prot_P0AE26[c]  -> h_c[c] + adp_c[c] + pi_c[c] + arab__L_c[c] 	b1901 and b4460 and b1900	  0.00	   Inf	  0.00
 arm_ECOAH8	3hodcoa_c[c]  -> pmet_ECOAH8[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH8No1	4.0784e-08 prot_P77399[c] + pmet_ECOAH8[c]  -> od2coa_c[c] + h2o_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH8No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH8[c]  -> od2coa_c[c] + h2o_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH8No2	4.4092e-06 prot_P21177[c] + pmet_ECOAH8[c]  -> od2coa_c[c] + h2o_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_GLCDpp	h2o_p[p] + q8_c[c] + glc__D_p[p]  -> pmet_GLCDpp[p] 	b0124 or b0837	  0.00	   Inf	  0.00
 GLCDppNo1	pmet_GLCDpp[p] + 7.1963e-08 prot_P15877[c]  -> h_p[p] + glcn_p[p] + q8h2_c[c] 	b0124	  0.00	   Inf	  0.00
@@ -2789,7 +2789,7 @@ HYD2ppNo1	pmet_HYD2pp[c] + 7.8616e-06 prot_P0AAM1[c] + 7.8616e-06 prot_P0ACD8[c]
 HYD2ppNo2	pmet_HYD2pp[c] + 7.8616e-06 prot_P0AAJ8[c] + 7.8616e-06 prot_P0ACE0[c] + 7.8616e-06 prot_P37180[c] + 7.8616e-06 prot_P69741[c]  -> 2 h_p[p] + mql8_c[c] 	b2996 and b2994 and b2997 and b2995	  0.00	   Inf	  0.00
 FE3DCITabcppNo1	atp_c[c] + h2o_c[c] + fe3dcit_p[p] + 9.7466e-07 prot_P15028[c] + 9.7466e-07 prot_P15029[c] + 9.7466e-07 prot_P15030[c] + 9.7466e-07 prot_P15031[c]  -> h_c[c] + adp_c[c] + pi_c[c] + fe3_c[c] + 2 cit_c[c] 	b4289 and b4287 and b4288 and b4290	  0.00	   Inf	  0.00
 arm_ECOAH5	3hddcoa_c[c]  -> pmet_ECOAH5[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH5No1	4.0784e-08 prot_P77399[c] + pmet_ECOAH5[c]  -> h2o_c[c] + dd2coa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH5No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH5[c]  -> h2o_c[c] + dd2coa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH5No2	4.4092e-06 prot_P21177[c] + pmet_ECOAH5[c]  -> h2o_c[c] + dd2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 DHFSNo1	atp_c[c] + glu__L_c[c] + dhpt_c[c] + 2.6305e-05 prot_P08192[c]  -> h_c[c] + adp_c[c] + pi_c[c] + dhf_c[c] 	b2315	  0.00	   Inf	  0.00
 CHLabcppNo1	atp_c[c] + chol_p[p] + h2o_c[c] + 9.7466e-07 prot_P33359[c] + 9.7466e-07 prot_P33360[c] + 9.7466e-07 prot_P33361[c] + 9.7466e-07 prot_P33362[c]  -> h_c[c] + chol_c[c] + adp_c[c] + pi_c[c] 	b2131 and b2129 and b2128 and b2130	  0.00	   Inf	  0.00
@@ -3193,7 +3193,7 @@ RNDR2No2	2.1533e-05 prot_P00452[c] + 2.1533e-05 prot_P0AGG4[c] + 2.1533e-05 prot
 XANDNo1	xan_c[c] + nad_c[c] + h2o_c[c] + 2.3148e-06 prot_Q46799[c] + 2.3148e-06 prot_Q46800[c] + 2.3148e-06 prot_Q46801[c]  -> h_c[c] + urate_c[c] + nadh_c[c] 	b2867 and b2866 and b2868	  0.00	   Inf	  0.00
 arm_HACD3	h_c[c] + 3oocoa_c[c] + nadh_c[c]  -> pmet_HACD3[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD3No1	0.0014697 prot_P21177[c] + pmet_HACD3[c]  -> nad_c[c] + 3hocoa_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD3No2	0.0014697 prot_P77399[c] + pmet_HACD3[c]  -> nad_c[c] + 3hocoa_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD3No2	3.51339e-08 prot_P77399[c] + pmet_HACD3[c]  -> nad_c[c] + 3hocoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ARBTNabcppNo1	atp_c[c] + arbtn_fe3_p[p] + h2o_c[c] + 9.7466e-07 prot_P06972[c] + 9.7466e-07 prot_P07821[c] + 9.7466e-07 prot_P07822[c]  -> h_c[c] + adp_c[c] + pi_c[c] + arbtn_fe3_c[c] 	b0153 and b0151 and b0152	  0.00	   Inf	  0.00
 NNDMBRTNo1	dmbzid_c[c] + nicrnt_c[c] + 1.8643e-06 prot_P36562[c]  -> h_c[c] + 5prdmbz_c[c] + nac_c[c] 	b1991	  0.00	   Inf	  0.00
 arm_THRA2	athr__L_c[c]  -> pmet_THRA2[c] 	b2551 or b0870	  0.00	   Inf	  0.00
@@ -3213,7 +3213,7 @@ NTP5No1	ctp_c[c] + h2o_c[c] + 1.0767e-05 prot_P39286[c]  -> h_c[c] + pi_c[c] + c
 MTANNo1	5mta_c[c] + h2o_c[c] + 6.9444e-05 prot_P0AF12[c]  -> 5mtr_c[c] + ade_c[c] 	b0159	  0.00	   Inf	  0.00
 arm_DPR	h_c[c] + 2dhp_c[c] + nadph_c[c]  -> pmet_DPR[c] 	b0425 or b3774	  0.00	   Inf	  0.00
 DPRNo1	pmet_DPR[c] + 1.1111e-05 prot_P0A9J4[c]  -> nadp_c[c] + pant__R_c[c] 	b0425	  0.00	   Inf	  0.00
-DPRNo2	0.0023148 prot_P05793[c] + pmet_DPR[c]  -> nadp_c[c] + pant__R_c[c] 	b3774	  0.00	   Inf	  0.00
+DPRNo2	1.06838e-05 prot_P05793[c] + pmet_DPR[c]  -> nadp_c[c] + pant__R_c[c] 	b3774	  0.00	   Inf	  0.00
 arm_THRD_L	thr__L_c[c]  -> pmet_THRD_L[c] 	b3772 or b3117	  0.00	   Inf	  0.00
 THRD_LNo1	pmet_THRD_L[c] + 4.5545e-10 prot_P04968[c]  -> nh4_c[c] + 2obut_c[c] 	b3772	  0.00	   Inf	  0.00
 THRD_LNo2	2.6455e-05 prot_P0AGF6[c] + pmet_THRD_L[c]  -> nh4_c[c] + 2obut_c[c] 	b3117	  0.00	   Inf	  0.00
@@ -3266,7 +3266,7 @@ arm_NTD11pp	h2o_p[p] + imp_p[p]  -> pmet_NTD11pp[p] 	b0480 or b4055	  0.00	   In
 NTD11ppNo1	1.8618e-07 prot_P07024[c] + pmet_NTD11pp[p]  -> ins_p[p] + pi_p[p] 	b0480	  0.00	   Inf	  0.00
 NTD11ppNo2	2.7503e-06 prot_P0AE22[c] + pmet_NTD11pp[p]  -> ins_p[p] + pi_p[p] 	b4055	  0.00	   Inf	  0.00
 DKGLCNR2xNo1	h_c[c] + 25dkglcn_c[c] + nadh_c[c] + 1.2626e-09 prot_P37666[c]  -> nad_c[c] + 5dglcn_c[c] 	b3553	  0.00	   Inf	  0.00
-ACGSNo1	accoa_c[c] + glu__L_c[c] + 0.0012626 prot_P0A6C5[c]  -> h_c[c] + acglu_c[c] + coa_c[c] 	b2818	  0.00	   Inf	  0.00
+ACGSNo1	accoa_c[c] + glu__L_c[c] + 0.000356125 prot_P0A6C5[c]  -> h_c[c] + acglu_c[c] + coa_c[c] 	b2818	  0.00	   Inf	  0.00
 arm_PDE1	h2o_c[c] + camp_c[c]  -> pmet_PDE1[c] 	b1489 or b3032	  0.00	   Inf	  0.00
 PDE1No1	pmet_PDE1[c] + 4.1459e-05 prot_P76129[c]  -> h_c[c] + amp_c[c] 	b1489	  0.00	   Inf	  0.00
 PDE1No2	pmet_PDE1[c] + 0.28935 prot_P0AEW4[c]  -> h_c[c] + amp_c[c] 	b3032	  0.00	   Inf	  0.00
@@ -3415,7 +3415,7 @@ HXCTNo1	accoa_c[c] + hxa_c[c] + 9.5785e-07 prot_P76458[c] + 9.5785e-07 prot_P764
 2AGPEAT160No1	atp_c[c] + 2agpe160_c[c] + hdca_c[c] + 0.00015665 prot_P31119[c]  -> ppi_c[c] + pe160_c[c] + amp_c[c] 	b2836	  0.00	   Inf	  0.00
 DURADxNo1	nad_c[c] + 56dura_c[c] + 0.00042735 prot_P25889[c] + 0.00042735 prot_P76440[c]  -> h_c[c] + ura_c[c] + nadh_c[c] 	b2147 and b2146	  0.00	   Inf	  0.00
 arm_ECOAH7	3hhdcoa_c[c]  -> pmet_ECOAH7[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH7No1	4.0784e-08 prot_P77399[c] + pmet_ECOAH7[c]  -> h2o_c[c] + hdd2coa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH7No1	3.51339e-08 prot_P77399[c] + pmet_ECOAH7[c]  -> h2o_c[c] + hdd2coa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH7No2	4.4092e-06 prot_P21177[c] + pmet_ECOAH7[c]  -> h2o_c[c] + hdd2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_G1PPpp	h2o_p[p] + g1p_p[p]  -> pmet_G1PPpp[p] 	b1002 or b0383	  0.00	   Inf	  0.00
 G1PPppNo1	2.3742e-06 prot_P19926[c] + pmet_G1PPpp[p]  -> glc__D_p[p] + pi_p[p] 	b1002	  0.00	   Inf	  0.00
@@ -4086,7 +4086,7 @@ POR5No1	pmet_POR5[c] + 2.9551e-06 prot_P52647[c] + 2.9551e-06 prot_P61949[c]  ->
 POR5No2	pmet_POR5[c] + 2.9551e-06 prot_P52647[c] + 2.9551e-06 prot_P0ABY4[c]  -> h_c[c] + 2 flxr_c[c] + accoa_c[c] + co2_c[c] 	b1378 and b2895	  0.00	   Inf	  0.00
 arm_HACD8	h_c[c] + 3ohodcoa_c[c] + nadh_c[c]  -> pmet_HACD8[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD8No1	0.0014697 prot_P21177[c] + pmet_HACD8[c]  -> 3hodcoa_c[c] + nad_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD8No2	0.0014697 prot_P77399[c] + pmet_HACD8[c]  -> 3hodcoa_c[c] + nad_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD8No2	3.51339e-08 prot_P77399[c] + pmet_HACD8[c]  -> 3hodcoa_c[c] + nad_c[c] 	b2341	  0.00	   Inf	  0.00
 CTECOAI8No1	odecoa_c[c] + 4.4092e-06 prot_P21177[c]  -> od2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 CTECOAI6No1	tdecoa_c[c] + 4.4092e-06 prot_P21177[c]  -> td2coa_c[c] 	b3846	  0.00	   Inf	  0.00
 MALCOAMTNo1	amet_c[c] + malcoa_c[c] + 1.6057e-06 prot_P12999[c]  -> malcoame_c[c] + ahcys_c[c] 	b0777	  0.00	   Inf	  0.00
@@ -4390,7 +4390,7 @@ HCO3E_REVNo1	6.3131e-11 prot_P61517[c] + pmet_HCO3E_REV[c]  -> h2o_c[c] + co2_c[
 HCO3E_REVNo2	6.3131e-11 prot_P0ABE9[c] + pmet_HCO3E_REV[c]  -> h2o_c[c] + co2_c[c] 	b0339	  0.00	   Inf	  0.00
 IMPC_REVNo1	fprica_c[c] + 3.23e-05 prot_P15639[c]  -> imp_c[c] + h2o_c[c] 	b4006	  0.00	   Inf	  0.00
 arm_ECOAH4_REV	dc2coa_c[c] + h2o_c[c]  -> pmet_ECOAH4_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH4_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH4_REV[c]  -> 3hdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH4_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH4_REV[c]  -> 3hdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH4_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH4_REV[c]  -> 3hdcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_NDPK5_REV	adp_c[c] + dgtp_c[c]  -> pmet_NDPK5_REV[c] 	b0474 or b2518	  0.00	   Inf	  0.00
 NDPK5_REVNo1	3.5476e-07 prot_P69441[c] + pmet_NDPK5_REV[c]  -> dgdp_c[c] + atp_c[c] 	b0474	  0.00	   Inf	  0.00
@@ -4416,7 +4416,7 @@ A5PISO_REVNo2	1.2742e-06 prot_P17115[c] + pmet_A5PISO_REV[c]  -> ru5p__D_c[c] 	b
 IPPMIb_REVNo1	3c3hmp_c[c] + 3.4875e-09 prot_P0A6A6[c] + 3.4875e-09 prot_P30126[c]  -> h2o_c[c] + 2ippm_c[c] 	b0071 and b0072	  0.00	   Inf	  0.00
 PSCVT_REVNo1	pi_c[c] + 3psme_c[c] + 5.144e-05 prot_P0A6D3[c]  -> pep_c[c] + skm5p_c[c] 	b0908	  0.00	   Inf	  0.00
 arm_ECOAH6_REV	h2o_c[c] + td2coa_c[c]  -> pmet_ECOAH6_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH6_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH6_REV[c]  -> 3htdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH6_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH6_REV[c]  -> 3htdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH6_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH6_REV[c]  -> 3htdcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 ENO_REVNo1	pep_c[c] + h2o_c[c] + 1.7956e-05 prot_P0A6P9[c]  -> 2pg_c[c] 	b2779	  0.00	   Inf	  0.00
 arm_FBA_REV	dhap_c[c] + g3p_c[c]  -> pmet_FBA_REV[c] 	b2925 or b2097	  0.00	   Inf	  0.00
@@ -4486,11 +4486,11 @@ GLUR_REVNo1	glu__L_c[c] + 2.2844e-05 prot_P22634[c]  -> glu__D_c[c] 	b3967	  0.0
 UAG2E_REVNo1	uacmam_c[c] + 3.9124e-05 prot_P27828[c]  -> uacgam_c[c] 	b3786	  0.00	   Inf	  0.00
 arm_HACD5_REV	nad_c[c] + 3hddcoa_c[c]  -> pmet_HACD5_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD5_REVNo1	0.069444 prot_P21177[c] + pmet_HACD5_REV[c]  -> h_c[c] + 3oddcoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD5_REVNo2	0.069444 prot_P77399[c] + pmet_HACD5_REV[c]  -> h_c[c] + 3oddcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD5_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD5_REV[c]  -> h_c[c] + 3oddcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 GHMT2r_REVNo1	mlthf_c[c] + h2o_c[c] + gly_c[c] + 5.5556e-05 prot_P0A825[c]  -> ser__L_c[c] + thf_c[c] 	b2551	  0.00	   Inf	  0.00
 ADK4_REVNo1	adp_c[c] + idp_c[c] + 3.5476e-07 prot_P69441[c]  -> itp_c[c] + amp_c[c] 	b0474	  0.00	   Inf	  0.00
-KARA1_REVNo1	h_c[c] + alac__S_c[c] + nadph_c[c] + 0.0023148 prot_P05793[c]  -> 23dhmb_c[c] + nadp_c[c] 	b3774	  0.00	   Inf	  0.00
-KARA2_REVNo1	nadp_c[c] + 23dhmp_c[c] + 1.0684e-05 prot_P05793[c]  -> h_c[c] + 2ahbut_c[c] + nadph_c[c] 	b3774	  0.00	   Inf	  0.00
+KARA1_REVNo1	h_c[c] + alac__S_c[c] + nadph_c[c] + 1.06838e-05 prot_P05793[c]  -> 23dhmb_c[c] + nadp_c[c] 	b3774	  0.00	   Inf	  0.00
+KARA2_REVNo1	nadp_c[c] + 23dhmp_c[c] + 1.06838e-05 prot_P05793[c]  -> h_c[c] + 2ahbut_c[c] + nadph_c[c] 	b3774	  0.00	   Inf	  0.00
 ICHORS_copy2_REVNo1	ichor_c[c] + 0.00015432 prot_P38051[c]  -> chor_c[c] 	b2265	  0.00	   Inf	  0.00
 DHBD_REVNo1	h_c[c] + 23dhb_c[c] + nadh_c[c] + 3.003e-06 prot_P15047[c]  -> nad_c[c] + 23ddhb_c[c] 	b0596	  0.00	   Inf	  0.00
 arm_RBP4E_REV	xu5p__D_c[c]  -> pmet_RBP4E_REV[c] 	b4198 or b0061 or b3583	  0.00	   Inf	  0.00
@@ -4499,15 +4499,15 @@ RBP4E_REVNo2	7.6104e-06 prot_P08203[c] + pmet_RBP4E_REV[c]  -> ru5p__L_c[c] 	b00
 RBP4E_REVNo3	7.6104e-06 prot_P37680[c] + pmet_RBP4E_REV[c]  -> ru5p__L_c[c] 	b3583	  0.00	   Inf	  0.00
 arm_HACD6_REV	nad_c[c] + 3htdcoa_c[c]  -> pmet_HACD6_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD6_REVNo1	0.069444 prot_P21177[c] + pmet_HACD6_REV[c]  -> h_c[c] + 3otdcoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD6_REVNo2	0.069444 prot_P77399[c] + pmet_HACD6_REV[c]  -> h_c[c] + 3otdcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD6_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD6_REV[c]  -> h_c[c] + 3otdcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_ECOAH1_REV	h2o_c[c] + b2coa_c[c]  -> pmet_ECOAH1_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH1_REVNo1	1.462e-05 prot_P77399[c] + pmet_ECOAH1_REV[c]  -> 3hbcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH1_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH1_REV[c]  -> 3hbcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH1_REVNo2	1.462e-05 prot_P21177[c] + pmet_ECOAH1_REV[c]  -> 3hbcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_ECOAH2_REV	hx2coa_c[c] + h2o_c[c]  -> pmet_ECOAH2_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH2_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH2_REV[c]  -> 3hhcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH2_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH2_REV[c]  -> 3hhcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH2_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH2_REV[c]  -> 3hhcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_ECOAH3_REV	h2o_c[c] + oc2coa_c[c]  -> pmet_ECOAH3_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH3_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH3_REV[c]  -> 3hocoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH3_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH3_REV[c]  -> 3hocoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH3_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH3_REV[c]  -> 3hocoa_c[c] 	b3846	  0.00	   Inf	  0.00
 UGLT_REVNo1	udpgal_c[c] + g1p_c[c] + 3.5613e-07 prot_P09148[c]  -> gal1p_c[c] + udpg_c[c] 	b0758	  0.00	   Inf	  0.00
 XYLI2_REVNo1	fru_c[c] + 1.355e-05 prot_P00944[c]  -> glc__D_c[c] 	b3565	  0.00	   Inf	  0.00
@@ -4528,9 +4528,9 @@ MANAO_REVNo1	h_c[c] + fruur_c[c] + nadh_c[c] + 3.8052e-07 prot_P39160[c]  -> nad
 TAGURr_REVNo1	h_c[c] + tagur_c[c] + nadh_c[c] + 3.8052e-07 prot_P0A6L7[c]  -> nad_c[c] + altrn_c[c] 	b1521	  0.00	   Inf	  0.00
 arm_HACD4_REV	nad_c[c] + 3hdcoa_c[c]  -> pmet_HACD4_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD4_REVNo1	0.069444 prot_P21177[c] + pmet_HACD4_REV[c]  -> h_c[c] + 3odcoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD4_REVNo2	0.069444 prot_P77399[c] + pmet_HACD4_REV[c]  -> h_c[c] + 3odcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD4_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD4_REV[c]  -> h_c[c] + 3odcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_HACD7_REV	nad_c[c] + 3hhdcoa_c[c]  -> pmet_HACD7_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-HACD7_REVNo1	0.069444 prot_P77399[c] + pmet_HACD7_REV[c]  -> h_c[c] + 3ohdcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD7_REVNo1	3.51339e-08 prot_P77399[c] + pmet_HACD7_REV[c]  -> h_c[c] + 3ohdcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 HACD7_REVNo2	0.069444 prot_P21177[c] + pmet_HACD7_REV[c]  -> h_c[c] + 3ohdcoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
 ADK1_REVNo1	2 adp_c[c] + 7.0952e-07 prot_P69441[c]  -> atp_c[c] + amp_c[c] 	b0474	  0.00	   Inf	  0.00
 SERASr_REVNo1	ppi_c[c] + seramp_c[c] + 8.9606e-05 prot_P11454[c]  -> h_c[c] + ser__L_c[c] + atp_c[c] 	b0586	  0.00	   Inf	  0.00
@@ -4540,10 +4540,10 @@ CYTK2_REVNo1	adp_c[c] + dcdp_c[c] + 2.5484e-06 prot_P0A6I0[c]  -> atp_c[c] + dcm
 GK1_REVNo1	adp_c[c] + gdp_c[c] + 1.3291e-06 prot_P60546[c]  -> atp_c[c] + gmp_c[c] 	b3648	  0.00	   Inf	  0.00
 arm_HACD1_REV	nad_c[c] + 3hbcoa_c[c]  -> pmet_HACD1_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD1_REVNo1	0.069444 prot_P21177[c] + pmet_HACD1_REV[c]  -> h_c[c] + aacoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD1_REVNo2	0.069444 prot_P77399[c] + pmet_HACD1_REV[c]  -> h_c[c] + aacoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD1_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD1_REV[c]  -> h_c[c] + aacoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_HACD2_REV	nad_c[c] + 3hhcoa_c[c]  -> pmet_HACD2_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD2_REVNo1	0.069444 prot_P21177[c] + pmet_HACD2_REV[c]  -> h_c[c] + 3ohcoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD2_REVNo2	0.069444 prot_P77399[c] + pmet_HACD2_REV[c]  -> h_c[c] + 3ohcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD2_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD2_REV[c]  -> h_c[c] + 3ohcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_NDPK7_REV	adp_c[c] + dctp_c[c]  -> pmet_NDPK7_REV[c] 	b0474 or b2518	  0.00	   Inf	  0.00
 NDPK7_REVNo1	3.5476e-07 prot_P69441[c] + pmet_NDPK7_REV[c]  -> atp_c[c] + dcdp_c[c] 	b0474	  0.00	   Inf	  0.00
 NDPK7_REVNo2	1.0522e-06 prot_P0A763[c] + pmet_NDPK7_REV[c]  -> atp_c[c] + dcdp_c[c] 	b2518	  0.00	   Inf	  0.00
@@ -4595,7 +4595,7 @@ FCLPA_REVNo2	1.4393e-05 prot_P0AB87[c] + pmet_FCLPA_REV[c]  -> fc1p_c[c] 	b2800	
 UAGAAT_REVNo1	u3aga_c[c] + ACP_c[c] + 2.6455e-05 prot_P0A6A8[c] + 2.6455e-05 prot_P0A722[c]  -> uacgam_c[c] + 3hmrsACP_c[c] 	b1094 and b0181	  0.00	   Inf	  0.00
 PRPPS_REVNo1	h_c[c] + prpp_c[c] + amp_c[c] + 4.5777e-06 prot_P0A717[c]  -> r5p_c[c] + atp_c[c] 	b1207	  0.00	   Inf	  0.00
 PRMICI_REVNo1	prlp_c[c] + 1.9425e-05 prot_P10371[c]  -> prfp_c[c] 	b2024	  0.00	   Inf	  0.00
-SERAT_REVNo1	acser_c[c] + coa_c[c] + 0.004085 prot_P0A9D4[c]  -> ser__L_c[c] + accoa_c[c] 	b3607	  0.00	   Inf	  0.00
+SERAT_REVNo1	acser_c[c] + coa_c[c] + 1.38889e-06 prot_P0A9D4[c]  -> ser__L_c[c] + accoa_c[c] 	b3607	  0.00	   Inf	  0.00
 arm_ASPK_REV	adp_c[c] + 4pasp_c[c]  -> pmet_ASPK_REV[c] 	b3940 or b0002 or b4024	  0.00	   Inf	  0.00
 ASPK_REVNo1	4.8991e-06 prot_P00562[c] + pmet_ASPK_REV[c]  -> asp__L_c[c] + atp_c[c] 	b3940	  0.00	   Inf	  0.00
 ASPK_REVNo2	4.8991e-06 prot_P00561[c] + pmet_ASPK_REV[c]  -> asp__L_c[c] + atp_c[c] 	b0002	  0.00	   Inf	  0.00
@@ -4651,10 +4651,10 @@ arm_ATPS4rpp_REV	3 h_c[c] + atp_c[c] + h2o_c[c]  -> pmet_ATPS4rpp_REV[c] 	(b3734
 ATPS4rpp_REVNo1	9.7466e-07 prot_P0A6E6[c] + 9.7466e-07 prot_P0AB98[c] + 9.7466e-07 prot_P0ABA0[c] + 9.7466e-07 prot_P0ABA4[c] + 9.7466e-07 prot_P0ABA6[c] + 9.7466e-07 prot_P0ABB0[c] + 9.7466e-07 prot_P0ABB4[c] + 9.7466e-07 prot_P0ABC0[c] + 9.7466e-07 prot_P68699[c] + pmet_ATPS4rpp_REV[c]  -> 4 h_p[p] + adp_c[c] + pi_c[c] 	b3734 and b3733 and b3731 and b3735 and b3732 and b3739 and b3737 and b3738 and b3736	  0.00	   Inf	  0.00
 ATPS4rpp_REVNo2	9.7466e-07 prot_P0A6E6[c] + 9.7466e-07 prot_P0AB98[c] + 9.7466e-07 prot_P0ABA0[c] + 9.7466e-07 prot_P0ABA4[c] + 9.7466e-07 prot_P0ABA6[c] + 9.7466e-07 prot_P0ABB0[c] + 9.7466e-07 prot_P0ABB4[c] + 9.7466e-07 prot_P68699[c] + pmet_ATPS4rpp_REV[c]  -> 4 h_p[p] + adp_c[c] + pi_c[c] 	b3732 and b3735 and b3731 and b3733 and b3734 and b3737 and b3738 and b3736	  0.00	   Inf	  0.00
 arm_ECOAH8_REV	od2coa_c[c] + h2o_c[c]  -> pmet_ECOAH8_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH8_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH8_REV[c]  -> 3hodcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH8_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH8_REV[c]  -> 3hodcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH8_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH8_REV[c]  -> 3hodcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_ECOAH5_REV	h2o_c[c] + dd2coa_c[c]  -> pmet_ECOAH5_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH5_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH5_REV[c]  -> 3hddcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH5_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH5_REV[c]  -> 3hddcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH5_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH5_REV[c]  -> 3hddcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 arm_TRSARr_REV	nad_c[c] + glyc__R_c[c]  -> pmet_TRSARr_REV[c] 	b0509 or b3125	  0.00	   Inf	  0.00
 TRSARr_REVNo1	1.1431e-06 prot_P77161[c] + pmet_TRSARr_REV[c]  -> h_c[c] + 2h3oppan_c[c] + nadh_c[c] 	b0509	  0.00	   Inf	  0.00
@@ -4683,7 +4683,7 @@ GLUDy_REVNo1	9.6956e-09 prot_P00370[c] + pmet_GLUDy_REV[c]  -> nadp_c[c] + glu__
 GLUDy_REVNo2	9.0188e-06 prot_P09831[c] + 9.0188e-06 prot_P09832[c] + pmet_GLUDy_REV[c]  -> nadp_c[c] + glu__L_c[c] + h2o_c[c] 	b3213 and b3212	  0.00	   Inf	  0.00
 arm_HACD3_REV	nad_c[c] + 3hocoa_c[c]  -> pmet_HACD3_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD3_REVNo1	0.069444 prot_P21177[c] + pmet_HACD3_REV[c]  -> h_c[c] + 3oocoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD3_REVNo2	0.069444 prot_P77399[c] + pmet_HACD3_REV[c]  -> h_c[c] + 3oocoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD3_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD3_REV[c]  -> h_c[c] + 3oocoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 arm_E4PD_REV	2 h_c[c] + nadh_c[c] + 4per_c[c]  -> pmet_E4PD_REV[c] 	b2927 or b1779	  0.00	   Inf	  0.00
 E4PD_REVNo1	1.3889e-06 prot_P0A9B6[c] + pmet_E4PD_REV[c]  -> nad_c[c] + e4p_c[c] + h2o_c[c] 	b2927	  0.00	   Inf	  0.00
 E4PD_REVNo2	3.7742e-06 prot_P0A9B2[c] + pmet_E4PD_REV[c]  -> nad_c[c] + e4p_c[c] + h2o_c[c] 	b1779	  0.00	   Inf	  0.00
@@ -4729,7 +4729,7 @@ MLTP1_REVNo1	g1p_c[c] + maltttr_c[c] + 4.6296e-05 prot_P00490[c]  -> pi_c[c] + m
 IPDDI_REVNo1	dmpp_c[c] + 1.5518e-05 prot_Q46822[c]  -> ipdp_c[c] 	b2889	  0.00	   Inf	  0.00
 DURADx_REVNo1	h_c[c] + ura_c[c] + nadh_c[c] + 0.00043403 prot_P25889[c] + 0.00043403 prot_P76440[c]  -> nad_c[c] + 56dura_c[c] 	b2147 and b2146	  0.00	   Inf	  0.00
 arm_ECOAH7_REV	h2o_c[c] + hdd2coa_c[c]  -> pmet_ECOAH7_REV[c] 	b2341 or b3846	  0.00	   Inf	  0.00
-ECOAH7_REVNo1	4.0784e-08 prot_P77399[c] + pmet_ECOAH7_REV[c]  -> 3hhdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
+ECOAH7_REVNo1	3.51339e-08 prot_P77399[c] + pmet_ECOAH7_REV[c]  -> 3hhdcoa_c[c] 	b2341	  0.00	   Inf	  0.00
 ECOAH7_REVNo2	4.4092e-06 prot_P21177[c] + pmet_ECOAH7_REV[c]  -> 3hhdcoa_c[c] 	b3846	  0.00	   Inf	  0.00
 LDH_D_REVNo1	h_c[c] + pyr_c[c] + nadh_c[c] + 3.8052e-07 prot_P52643[c]  -> nad_c[c] + lac__D_c[c] 	b1380	  0.00	   Inf	  0.00
 T2DECAI_REVNo1	cdec3eACP_c[c] + 1.4378e-07 prot_P0A6Q3[c]  -> tdec2eACP_c[c] 	b0954	  0.00	   Inf	  0.00
@@ -4784,7 +4784,7 @@ POR5_REVNo1	2.5484e-06 prot_P52647[c] + 2.5484e-06 prot_P61949[c] + pmet_POR5_RE
 POR5_REVNo2	2.5484e-06 prot_P52647[c] + 2.5484e-06 prot_P0ABY4[c] + pmet_POR5_REV[c]  -> 2 flxso_c[c] + pyr_c[c] + coa_c[c] 	b1378 and b2895	  0.00	   Inf	  0.00
 arm_HACD8_REV	3hodcoa_c[c] + nad_c[c]  -> pmet_HACD8_REV[c] 	b3846 or b2341	  0.00	   Inf	  0.00
 HACD8_REVNo1	0.069444 prot_P21177[c] + pmet_HACD8_REV[c]  -> h_c[c] + 3ohodcoa_c[c] + nadh_c[c] 	b3846	  0.00	   Inf	  0.00
-HACD8_REVNo2	0.069444 prot_P77399[c] + pmet_HACD8_REV[c]  -> h_c[c] + 3ohodcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
+HACD8_REVNo2	3.51339e-08 prot_P77399[c] + pmet_HACD8_REV[c]  -> h_c[c] + 3ohodcoa_c[c] + nadh_c[c] 	b2341	  0.00	   Inf	  0.00
 CTECOAI8_REVNo1	od2coa_c[c] + 4.4092e-06 prot_P21177[c]  -> odecoa_c[c] 	b3846	  0.00	   Inf	  0.00
 CTECOAI6_REVNo1	td2coa_c[c] + 4.4092e-06 prot_P21177[c]  -> tdecoa_c[c] 	b3846	  0.00	   Inf	  0.00
 REPHACCOAI_REVNo1	2oxpaccoa_c[c] + 4.4092e-06 prot_P77467[c]  -> rephaccoa_c[c] 	b1394	  0.00	   Inf	  0.00

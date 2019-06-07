@@ -2,7 +2,8 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 % changeMedia_batch
 %
 % function that modifies the ecModel and makes it suitable for batch growth
-% simulations on different carbon sources.
+% simulations on different carbon sources. Script designed for iML1515
+% metabolic network of E. coli metabolism.
 %
 % model:  An enzyme constrained model
 % meadia: Media type ('MAA' minimal with Aminoacids,
@@ -13,12 +14,13 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
 % usage: [model,pos] = changeMedia_batch(model,c_source,media,flux)
 %
-% Ivan Domenzain        2019-06-01
+% Ivan Domenzain        2019-06-05
 
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange (reversible)'
 
 if nargin<3
+    %Minimal medium based on M9 formulation
     media = 'Min';
 end
 %first block any uptake
@@ -35,6 +37,7 @@ pos = getComponentIndexes(model,c_source);
 
 %Block O2 and glucose production (avoids multiple solutions):
 model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
+%model.ub(strcmp(model.rxnNames,'D-glucose exchange (reversible)')) = 0;
 model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
 %Find substrate production rxn and block it:
 pos_rev = strcmpi(model.rxnNames,c_source(1:strfind(c_source,' (reversible)')-1));
@@ -66,24 +69,36 @@ for i = 1:N
 end
 model.ub(find(model.c)) = Inf;
 %Allow uptake of essential components
+model = setParam(model, 'ub', 'EX_o2_e_REV', Inf); % 'sodium exchange';
+%Ions
 model = setParam(model, 'ub', 'EX_na1_e_REV', Inf); % 'sodium exchange';
-model = setParam(model, 'ub', 'EX_pi_e_REV', Inf); % phosphate exchange';
-model = setParam(model, 'ub', 'EX_so4_e_REV', Inf); % sulphate exchange';
 model = setParam(model, 'ub', 'EX_k_e_REV', Inf); % potassium exchange';
-model = setParam(model, 'ub', 'EX_cl_e_REV', Inf); % chloride exchange';
-model = setParam(model, 'ub', 'EX_nh4_e_REV', Inf); % ammonia exchange';
 model = setParam(model, 'ub', 'EX_zn2_e_REV', Inf); % zinc exchange';
 model = setParam(model, 'ub', 'EX_cu_e_REV', Inf); % Cu+ exchange';
 model = setParam(model, 'ub', 'EX_cu2_e_REV', Inf); % Cu2+ exchange';
 model = setParam(model, 'ub', 'EX_ni2_e_REV', Inf); % Ni2+ exchange';
-model = setParam(model, 'ub', 'EX_mobd_e_REV', Inf); % Molybdate exchange';
 model = setParam(model, 'ub', 'EX_mn2_e_REV', Inf); % Mn2+ exchange';
 model = setParam(model, 'ub', 'EX_mg2_e_REV', Inf); % Mg exchange';
 model = setParam(model, 'ub', 'EX_cobalt2_e_REV', Inf); % cobalt exchange';
 model = setParam(model, 'ub', 'EX_ca2_e_REV', Inf); % calcium exchange';
-model = setParam(model, 'ub', 'EX_thm_e_REV', Inf); % thiamine exchange';
+model = setParam(model, 'ub', 'EX_mobd_e_REV', Inf); % Molybdate exchange';
 model = setParam(model, 'ub', 'EX_fe2_e_REV', Inf); % Fe2+ exchange';
 model = setParam(model, 'ub', 'EX_fe3_e_REV', Inf); % Fe3+ exchange';
+%Others
+model = setParam(model, 'ub', 'EX_pi_e_REV', Inf); % phosphate exchange';
+model = setParam(model, 'ub', 'EX_so4_e_REV', Inf); % sulphate exchange';
+model = setParam(model, 'ub', 'EX_so3_e_REV', Inf); % sulphite exchange';
+model = setParam(model, 'ub', 'EX_so2_e_REV', Inf); % Sulfur dioxide
+model = setParam(model, 'ub', 'EX_h2o_e_REV', Inf); % Water exchange
+model = setParam(model, 'ub', 'EX_h_e_REV', Inf); % H+ exchange
+%Nitrogen source
+model = setParam(model, 'ub', 'EX_nh4_e_REV', Inf); % ammonia exchange';
+%Inorganic compounds
+model = setParam(model, 'ub', 'EX_cl_e_REV', Inf); % chloride exchange';
+%Vitamins
+model = setParam(model, 'ub', 'EX_thm_e_REV', Inf); % thiamine exchange';
+model = setParam(model, 'ub', 'EX_btn_e_REV', Inf); % Biotin exchange';
+model = setParam(model, 'ub', 'EX_thym_e_REV', Inf); % Thymine exchange
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos = getComponentIndexes(model,c_source)

@@ -1,9 +1,2 @@
 Unicode,enz_pos,rxn_pos,Organism,Modified,Parameter,oldValue,newValue,error,ControlCoeff
-P15254,2556,2638,escherichia coli,1,SA*Mw,0.05,5.06748,-58.5467,0.599693
-P05793,2154,4491,salmonella enterica subsp. enterica serovar typhimurium,1,K_cat,0.120001,78.3,-49.1075,0.227855
-P77399,1921,2104,cupriavidus necator,1,K_cat,0.189003,45500,-44.4401,0.091611
-P77399,1921,2232,cupriavidus necator,1,K_cat,0.189003,45500,-38.8302,0.100861
-P77399,1921,2290,cupriavidus necator,1,K_cat,0.189003,45500,-31.9601,0.112187
-P77399,1921,3195,cupriavidus necator,1,K_cat,0.189003,45500,-23.3516,0.126379
-P05793,2154,2130,salmonella enterica subsp. enterica serovar typhimurium,1,K_cat,0.120001,78.3,-13.4941,0.128684
-P77399,1921,2234,cupriavidus necator,1,K_cat,0.189003,45500,-2.63101,0.125436
+P15254,2556,2638,escherichia coli,1,SA*Mw,0.05,5.06748,21.2459,2.31583

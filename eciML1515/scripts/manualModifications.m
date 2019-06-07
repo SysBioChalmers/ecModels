@@ -1,67 +1,69 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [model,modifications] = manualModificationsGeneral(model)
-% 
-% Ivan Domenzain.      Last edited: 2019-05-28
+%
+% Ivan Domenzain.      Last edited: 2019-06-06
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function [model,modifications] = manualModifications(model)
+%Read manual data:
+fID    = fopen('../../databases/manual_data.txt');
+data   = textscan(fID,'%s %s %s %s %f %f','delimiter','\t');
+rxnIDs = data{1};
+kcats  = data{5}.*3600;
+SpActs = data{6};
+fclose(fID);
+modifications{1} = [];
+modifications{2} = [];
+for i = 1:length(model.rxns)
+    reaction = model.rxnNames{i};
+    %Find set of proteins present in rxn:
+    S        = full(model.S);
+    subs_pos = find(S(:,i) < 0);
+    prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
+    int_pos  = intersect(subs_pos,prot_pos);
+    prot_set = cell(size(int_pos));
+    MW_set   = 0;
+    for j = 1:length(int_pos)
+        met_name    = model.mets{int_pos(j)};
+        prot_set{j} = met_name(6:end);
+        MW_set      = MW_set + model.MWs(strcmp(model.enzymes,prot_set{j}));
+    end
+    %Update int_pos:
+    S        = full(model.S);
+    subs_pos = find(S(:,i) < 0);
+    %Get the proteins that are part of the i-th rxn
+    prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
+    int_pos  = intersect(subs_pos,prot_pos)';
+    dataIndx = find(strcmpi(rxnIDs,reaction));
+    %For each enzymatic subunit matched to reaction
+    for j = 1:length(int_pos)
+        enzName = model.mets(int_pos(j));
+        if ~isempty(dataIndx)
+            kcat  = kcats{dataIndx};
+            if ~isempty(kcat)
+                newValue = -(kcat)^-1;
+                disp(kcat)
+            else
+                SpAct    = SpActs{dataIndx};
+                newValue = -(SpAct*MW_set*0.06)^-1; % [1/h]
+                disp(SpAct)
+            end
+        else
+            [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications);
+        end
+        %Assign kinetic value in stoichoimetric matrix
+        if ~isempty(newValue)
+            model.S(int_pos(j),i) = newValue;
+        end
+    end
+    disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+end
 
- modifications{1} = [];
- modifications{2} = [];
-
-%  for i = 1:length(model.rxns)
-%      reaction = model.rxnNames{i};
-%      %Find set of proteins present in rxn:
-%      S        = full(model.S);
-%      subs_pos = find(S(:,i) < 0);
-%      prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
-%      int_pos  = intersect(subs_pos,prot_pos);
-%      prot_set = cell(size(int_pos));
-%      MW_set   = 0;
-%      for j = 1:length(int_pos)
-%          met_name    = model.mets{int_pos(j)};
-%          prot_set{j} = met_name(6:end);
-%          MW_set      = MW_set + model.MWs(strcmp(model.enzymes,prot_set{j}));
-%      end
-% 
-%      %Update int_pos:
-%      S        = full(model.S);
-%      subs_pos = find(S(:,i) < 0);
-%      %Get the proteins that are part of the i-th rxn
-%      prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
-%      int_pos  = intersect(subs_pos,prot_pos)';
-%  %%%%%%%%%%%%%%%%%%%%%%%%%%%  Individual Changes:  %%%%%%%%%%%%%%%%%%%%%%%%
-%      for j = 1:length(int_pos)
-%          enzName = model.mets(int_pos(j));
-%          %%%%%%%%%%%%%%%%%% MANUAL CURATION FOR TOP GROWTH LIMITING ENZYMES:  
-%          [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_set,modifications);
-%          if ~isempty(newValue)
-%              model.S(int_pos(j),i) = newValue;
-%          else
-%              %%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR CARBON SOURCES
-%              [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications);
-%              if ~isempty(newValue)
-%                  model.S(int_pos(j),i) = newValue;
-%              else
-%                  %%%%%%%%%%%%%%% MANUAL CURATION FOR TOP USED ENZYMES:
-%                  [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_set,modifications);
-%                  if ~isempty(newValue)
-%                      model.S(int_pos(j),i) = newValue;
-%                  end
-%              end
-%          end          
-%       end
-%      disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
-% end
-
-%model = otherChanges(model);
-
-% Remove repeated reactions (2017-01-16):
+%Remove repeated reactions (2017-01-16):
 rem_rxn = false(size(model.rxns));
 for i = 1:length(model.rxns)-1
     for j = i+1:length(model.rxns)
         if isequal(model.S(:,i),model.S(:,j)) && model.lb(i) == model.lb(j) && ...
-           model.ub(i) == model.ub(j) 
+                model.ub(i) == model.ub(j)
             rem_rxn(j) = true;
             disp(['Removing repeated rxn: ' model.rxns{i} ' & ' model.rxns{j}])
         end
@@ -112,51 +114,57 @@ end
 modifications = mapModifiedRxns(modifications,model);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Modify the top growth limiting enzymes that were detected by the
-% modifyKcats.m script in a preliminary run. 
-function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_set,modifications)  
-        newValue = [];
-        reaction = string(reaction);       
-        % 3-hydroxy-3-methylglutaryl coenzyme A reductase (W0TEE1/EC1.1.1.34): 
-        % Only kcat available in BRENDA was for Rattus Norvegicus. Value 
-        % corrected with max. s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa]
-        % from BRENDA (2018-01-27)
-%           if (strcmpi('prot_W0TEE1',enzName)) && (~isempty(strfind(reaction,'(R)-Mevalonate:NADP+ oxidoreductase (CoA acylating)')))
-%              newValue         = -(0.03*226000*0.06)^-1;
-%              modifications{1} = [modifications{1}; string('W0TEE1')];
-%              modifications{2} = [modifications{2}; reaction];
-%           end
+% Simulation for the model growing on minimal glucose media yielded a list 
+% of the top used enzymes (mass-wise), those that were taking more than 5% 
+% of the total proteome mass are chosen for manual curation
+function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW,modifications)
+newValue = [];
+reaction = string(reaction);
+%prot_P0A9D4 (EC2.3.1.30) Value reported for E. coli resulted to be smaller
+%in orders of magnitude than the rest of Kcat values for prokaryotes, the
+%enzyme was using 14% of the proteome, therefore the highest reported value
+%is used instead (salmonella enterica)
+if (strcmpi('prot_P0A9D4',enzName)) && contains(reaction,'Serine O-acetyltransferase')
+    newValue         = -(200*3600)^-1;
+    modifications{1} = [modifications{1}; string('P0A9D4')];
+    modifications{2} = [modifications{2}; reaction];
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Modify those kcats involved in extreme misspredictions for growth on 
-% several carbon sources. This values were obtained by specific searches on
-% the involved pathways for the identification of the ec numbers and then
-% its associated Kcat values were gotten from BRENDA.
-function [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_set,modifications)
-        newValue = [];
-        reaction = string(reaction);
+%N-acetylglutamate synthase (P0A6C5//E.C.2.3.1.1), enzyme used 9% of the
+%proteome, the highest reported value is chosen
+if (strcmpi('prot_P0A6C5',enzName)) && contains(reaction,'N-acetylglutamate synthase')
+    newValue         = -(0.78*3600)^-1;
+    modifications{1} = [modifications{1}; string('P0A6C5')];
+    modifications{2} = [modifications{2}; reaction];
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% After the growth limiting Kcats analysis and the curation for several
-% carbon sources, a simulation for the model growing on minimal glucose
-% media yielded a list of the top used enzymes (mass-wise), those that were
-% taking more than 10% of the total proteome are chosen for manual curation
-function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications)
-        newValue = [];
-        reaction = string(reaction);
+% (P21151//E.C.2.3.1.16) Enzyme used 7% of proteome mass, Kcat was
+% substituted by the highest one
+if (strcmpi('prot_P0A6C5',enzName)) && contains(reaction,'Acetyl-CoA C-acyltransferase')
+    newValue         = -(14.8*3600)^-1;
+    modifications{1} = [modifications{1}; string('P0A6C5')];
+    modifications{2} = [modifications{2}; reaction];
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = otherChanges(model)
-
+if (strcmpi('prot_P77399',enzName)) && (contains(reaction,'3-hydroxyacyl-CoA dehydratase') || contains(reaction,'3-hydroxyacyl-CoA dehydrogenase'))
+    newValue         = -(6155*MW*60)^-1;
+    modifications{1} = [modifications{1}; string('P77399')];
+    modifications{2} = [modifications{2}; reaction];
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%(P05793//E.C.1.1.1.86) There are several values reported  for E. coli and
+%this specific E.C. number. The highest reported value is used instead 26
+%(1/s) for 3-hydroxypyruvate
+if (strcmpi('prot_P05793',enzName)) && (contains(reaction,'Ketol-acid reductoisomerase') || contains(reaction,'2-dehydropantoate 2-reductase'))
+    newValue         = -(26*3600)^-1;
+    modifications{1} = [modifications{1}; string('P05793')];
+    modifications{2} = [modifications{2}; reaction];
+end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function modified = mapModifiedRxns(modifications,model)
-    modified = [];
-    if ~isempty(modifications)
-        for i=1:length(modifications{1})
-            rxnIndex = find(strcmp(model.rxnNames,modifications{2}(i)),1);
-            str      = {horzcat(modifications{1}{i},'_',num2str(rxnIndex))};
-            modified = [modified; str];
-        end
+modified = [];
+if ~isempty(modifications)
+    for i=1:length(modifications{1})
+        rxnIndex = find(strcmp(model.rxnNames,modifications{2}(i)),1);
+        str      = {horzcat(modifications{1}{i},'_',num2str(rxnIndex))};
+        modified = [modified; str];
     end
+end
 end
