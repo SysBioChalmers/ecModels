@@ -1,6 +1,6 @@
 % eciML1515Update
 %
-%  Ivan Domenzain.  2019-06-05
+%  Ivan Domenzain.  2019-06-07
 %
 
 %Clone the necessary repos:
@@ -19,7 +19,7 @@ GECKOver = git('describe --tags');
 [ecModel,ecModel_batch,version] = enhanceGEM(model,'COBRA');
 cd ../..
 %Move model files:
-movefile GECKO/models/eciML1515 model
+moveModelFiles(name)
 save('model/eciML1515.mat','ecModel')
 save('model/eciML1515_batch.mat','ecModel_batch')
 %Save associated versions:
@@ -39,6 +39,20 @@ for i = 1:length(fileNames)
         GECKO_path = dir([path fileName]);
         GECKO_path = GECKO_path.folder;
         copyfile(fullName,GECKO_path)
+    end
+end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function moveModelFiles(name)
+cd GECKO/models
+fileNames = dir(name);
+cd ../..
+for i=1:length(fileNames)
+    fileName = fileNames(i).name;
+    if ~strcmp(fileName,'.') && ~strcmp(fileName,'..') && ~strcmp(fileName,'.DS_Store')
+        source      = ['GECKO/models/eciML1515/' fileName];
+        destination = ['model/' fileName];
+        movefile (source,destination);
     end
 end
 end
