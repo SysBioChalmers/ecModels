@@ -148,6 +148,14 @@ if (strcmpi('prot_P77399',enzName)) && (contains(reaction,'3-hydroxyacyl-CoA deh
     modifications{1} = [modifications{1}; string('P77399')];
     modifications{2} = [modifications{2}; reaction];
 end
+%(P05793//E.C.1.1.1.86) There are several values reported  for E. coli and
+%this specific E.C. number. The highest reported value is used instead 26
+%(1/s) for 3-hydroxypyruvate
+if (strcmpi('prot_P05793',enzName)) && (contains(reaction,'Ketol-acid reductoisomerase') || contains(reaction,'2-dehydropantoate 2-reductase'))
+    newValue         = -(26*3600)^-1;
+    modifications{1} = [modifications{1}; string('P05793')];
+    modifications{2} = [modifications{2}; reaction];
+end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function modified = mapModifiedRxns(modifications,model)
