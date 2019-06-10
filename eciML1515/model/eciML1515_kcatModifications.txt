@@ -1,0 +1,2 @@
+Unicode,enz_pos,rxn_pos,Organism,Modified,Parameter,oldValue,newValue,error,ControlCoeff
+P15254,2556,2638,escherichia coli,1,SA*Mw,0.05,5.06748,21.2459,2.31583
