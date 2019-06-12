@@ -8,8 +8,9 @@ git('clone https://github.com/SysBioChalmers/GECKO.git')
 git('clone https://github.com/SysBioChalmers/Human-GEM.git')
 mkdir model
 %Load kmar model:
-model = load('Human-GEM/ModelFiles/mat/humanGEM.mat');
-model = model.ihuman;
+model    = load('Human-GEM/ModelFiles/mat/humanGEM.mat');
+model    = model.ihuman;
+humanVer = ['v_' model.version{1}];
 %Replace scripts in GECKO:
 replaceFiles('scripts','GECKO/**/');
 %Replace databases in GECKO:
@@ -31,6 +32,7 @@ save('model/ecHumanGEM.mat','ecModel_batch')
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
 fprintf(fid,['GECKO\t' GECKOver '\n']);
+fprintf(fid,['Human-GEM\t' humanVer '\n']);
 fclose(fid);
 
 %Remove the cloned repos:
