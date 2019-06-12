@@ -13,11 +13,13 @@
 % OUTPUT:
 %   - model: The ECmodel with
 %
-% Ivan Domenzain        2018-09-27
+% Ivan Domenzain        2019-06-12
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,pos] = changeMedia_batch(model,c_source,media,flux)
-
+if nargin<3
+    media = 'Min';
+end
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange (reversible)'
 
