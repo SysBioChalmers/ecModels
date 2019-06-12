@@ -45,9 +45,6 @@ to_swap=model.lb < 0 & model.ub == 0;
 model.S(:,to_swap)=-model.S(:,to_swap);
 model.ub(to_swap)=-model.lb(to_swap);
 model.lb(to_swap)=0;
-%Delete blocked rxns (LB = UB = 0):
-to_remove = intersect(model.lb == 0,model.ub == 0);
-model     = removeReactions(model,model.rxns(to_remove),true,true,true);
 %Correct rev vector: true if LB < 0 & UB > 0, or it is an exchange reaction:
 model.rev = false(size(model.rxns));
 for i = 1:length(model.rxns)
