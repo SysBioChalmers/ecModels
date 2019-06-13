@@ -10,7 +10,7 @@ mkdir model
 %Load kmar model:
 model    = load('Human-GEM/ModelFiles/mat/humanGEM.mat');
 model    = model.ihuman;
-humanVer = ['v_' model.version{1}];
+humanVer = model.version;
 %Replace scripts in GECKO:
 replaceFiles('scripts','GECKO/**/');
 %Replace databases in GECKO:
@@ -20,7 +20,7 @@ delete('GECKO/databases/prot_abundance.txt')
 %Run GECKO pipeline:
 cd GECKO/geckomat
 GECKOver = git('describe --tags');
-[ecModel,ecModel_batch] = enhanceGEM(model,'ecHumanGEM');
+[ecModel,ecModel_batch] = enhanceGEM(model,'ecHumanGEM',version);
 cd ../..
 
 %Move model files:
