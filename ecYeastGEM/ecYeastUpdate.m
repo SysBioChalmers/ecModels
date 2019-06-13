@@ -30,7 +30,7 @@ end
 cd GECKO
 GECKOver = git('describe --tags');
 cd geckomat/get_enzyme_data
-updateDatabases;
+updateDatabases('sce');
 cd ..
 [ecModel,ecModel_batch] = enhanceGEM(model,'COBRA');
 cd ../..
