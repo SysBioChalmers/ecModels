@@ -13,16 +13,16 @@
 % OUTPUT:
 %   - model: The ECmodel with
 %
-% Ivan Domenzain        2019-06-12
+% Ivan Domenzain        2018-09-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,pos] = changeMedia_batch(model,c_source,media,flux)
+
+% Give the carbon source (c_source) input variable with the following
+% format: c_source  = 'D-glucose exchange (reversible)'
 if nargin<3
     media = 'Min';
 end
-% Give the carbon source (c_source) input variable with the following
-% format: c_source  = 'D-glucose exchange (reversible)'
-
 %first block any uptake
 [rxnIDs,exchange]  = getExchangeRxns(model);
 exchange           = exchange(find(contains(rxnIDs,'_REV')));
@@ -77,8 +77,18 @@ model = setParam(model, 'ub', 'r_1992_REV', Inf); % 'oxygen exchange';
 model = setParam(model, 'ub', 'r_2005_REV', Inf); % 'phosphate exchange';
 model = setParam(model, 'ub', 'r_2060_REV', Inf); % 'sulphate exchange';
 model = setParam(model, 'ub', 'r_1832_REV', Inf); % 'H+ exchange' ;
-%Block bicarbonate uptake
-model = setParam(model, 'ub', 'r_1663', 0); % 'bicarbonate uptake' ;
+model = setParam(model, 'ub', 'r_4593_REV', Inf); % 'chloride exchange' ;
+model = setParam(model, 'ub', 'r_4595_REV', Inf); % 'Mn(2+) exchange' ;
+model = setParam(model, 'ub', 'r_4596_REV', Inf); % 'Zn(2+) exchange' ;
+model = setParam(model, 'ub', 'r_4597_REV', Inf); % 'Mg(2+) exchange' ;
+model = setParam(model, 'ub', 'r_2049_REV', Inf); % 'Sodium exchange' ;
+model = setParam(model, 'ub', 'r_4594_REV', Inf); % 'Cu(2+) exchange' ;
+model = setParam(model, 'ub', 'r_4600_REV', Inf); % 'Ca(2+) exchange' ;
+model = setParam(model, 'ub', 'r_2020_REV', Inf); % 'Potassium exchange' ;
+%Blocked exchanges
+model = setParam(model, 'ub', 'r_1663', 0); % 'bicarbonate exchange' ;
+model = setParam(model, 'ub', 'r_4062', 0); % % lipid backbone exchange
+model = setParam(model, 'ub', 'r_4064', 0); % % lipid chain exchange
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
