@@ -19,7 +19,10 @@ delete('GECKO/databases/prot_abundance.txt')
 %Run GECKO pipeline:
 cd GECKO/geckomat
 GECKOver = git('describe --tags');
-[ecModel,ecModel_batch] = enhanceGEM(model,'COBRA','ecKmarx');
+cd get_enzyme_data
+updateDatabases('kmx')
+cd ..
+[ecModel,ecModel_batch,version] = enhanceGEM(model,'COBRA','ecKmarx');
 cd ../..
 
 %Move model files:
@@ -31,6 +34,7 @@ save('model/ecKmarx_batch.mat','ecModel_batch')
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
 fprintf(fid,['GECKO\t' GECKOver '\n']);
+fprintf(fid,['Kmarx\t' version '\n']);
 fclose(fid);
 
 %Remove the cloned repos:
