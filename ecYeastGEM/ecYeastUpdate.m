@@ -32,14 +32,12 @@ GECKOver = git('describe --tags');
 cd geckomat/get_enzyme_data
 updateDatabases;
 cd ..
-[ecModel,ecModel_batch] = enhanceGEM(model,'COBRA');
+enhanceGEM(model,'COBRA');
 cd ../..
 
 %Move model files:
 rmdir('model', 's')
 movefile GECKO/models/ecYeastGEM model
-save('model/ecYeastGEM.mat','ecModel')
-save('model/ecYeastGEM_batch.mat','ecModel_batch')
 
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
