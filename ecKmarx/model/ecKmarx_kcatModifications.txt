@@ -1,3 +1,0 @@
-Unicode,enz_pos,rxn_pos,Organism,Modified,Parameter,oldValue,newValue,error,ControlCoeff
-W0TF60,1831,1936,arabidopsis thaliana,1,K_cat,0.015,0.17,-19.4856,0.402053
-W0TBC7,2000,2237,escherichia coli,1,SA*Mw,0.05,5.06748,1.06884,0.25529
