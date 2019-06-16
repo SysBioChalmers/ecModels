@@ -19,20 +19,20 @@ delete('GECKO/databases/prot_abundance.txt')
 %Run GECKO pipeline:
 cd GECKO/geckomat
 GECKOver = git('describe --tags');
-[ecModel,ecModel_batch] = enhanceGEM(model,'COBRA','ecKmarx');
+cd get_enzyme_data
+updateDatabases('kmx')
+cd ..
+[ecModel,ecModel_batch,version] = enhanceGEM(model,'COBRA','ecKmarx');
 cd ../..
-
 %Move model files:
-rmdir('model', 's')
-movefile GECKO/models/ecKmarx model
+moveModelFiles('ecKmarx')
 save('model/ecKmarx.mat','ecModel')
 save('model/ecKmarx_batch.mat','ecModel_batch')
-
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
 fprintf(fid,['GECKO\t' GECKOver '\n']);
+fprintf(fid,['Kmarx\t' version '\n']);
 fclose(fid);
-
 %Remove the cloned repos:
  rmdir('GECKO', 's')
  rmdir('Kluyveromyces_marxianus-GEM', 's')
@@ -46,6 +46,20 @@ for i = 1:length(fileNames)
         GECKO_path = dir([path fileName]);
         GECKO_path = GECKO_path.folder;
         copyfile(fullName,GECKO_path)
+    end
+end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function moveModelFiles(name)
+cd GECKO/models
+fileNames = dir(name);
+cd ../..
+for i=1:length(fileNames)
+    fileName = fileNames(i).name;
+    if ~strcmp(fileName,'.') && ~strcmp(fileName,'..') && ~strcmp(fileName,'.DS_Store')
+        source      = ['GECKO/models/ecKmarx/' fileName];
+        destination = ['model/' fileName];
+        movefile (source,destination);
     end
 end
 end

@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = manualModifications(model)
 %
-% Benjamin J. Sanchez. Last edited: 2017-10-29
-% Ivan Domenzain.      Last edited: 2019-02-14
+% Ivan Domenzain.      Last edited: 2019-06-14
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,modifications] = manualModifications(model)
@@ -196,6 +195,15 @@ end
 function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications)
 newValue = [];
 reaction = string(reaction);
+%(W0T9E0//E.C.1.2.1.12) D-glyceraldehyde-3-phosphate:NAD+ oxidoreductase
+%Majorly used protein, the highest value reported for NAD+ and Eukaryote is
+%used instead (hsa)
+if strcmpi('prot_W0T9E0',enzName) && (contains(reaction,'D-glyceraldehyde-3-phosphate:NAD+'))
+    newValue         = -(199*3600)^-1;
+    modifications{1} = [modifications{1}; string('W0T9E0')];
+    modifications{2} = [modifications{2}; reaction];
+end
+
 % S-Adenosyl-L-methionine:zymosterol C-methyltransferase [W0TAZ1/EC2.1.1.41]
 % No Kcat reported on BRENDA for the organism, the maximum Kcat for the
 % same substrate is used (E. coli)
