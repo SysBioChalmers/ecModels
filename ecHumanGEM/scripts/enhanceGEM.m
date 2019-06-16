@@ -1,4 +1,4 @@
-function [ecModel,ecModel_batch] = enhanceGEM(model,cellName)
+function [ecModel,ecModel_batch] = enhanceGEM(model,cellName,version)
 %enhanceGEM_cellLine
 % 
 % Function that loads a cell-line or tissue specific human metabolism model
@@ -16,11 +16,11 @@ function [ecModel,ecModel_batch] = enhanceGEM(model,cellName)
 %
 % Usage: [ecModel,ecModel_batch] = enhanceGEM_cellLine(cellName)
 %
-% Ivan Domenzain.      Last edited: 2019-06-10
+% Ivan Domenzain.      Last edited: 2019-06-16
 
 current = pwd;
 cd change_model
-model_modified = preprocessModel(model);
+model_modified = preprocessModel(model,[],version);
 % Retrieve kcats & MWs for each rxn in the model from Uniprot database:
 cd ../get_enzyme_data
 model_data = getEnzymeCodes(model_modified);
@@ -40,6 +40,8 @@ Ptotal       = 0.609; %HepG2 total protein content [g prot/gDw]
 protCoverage = 0.5;
 sigma        = 0.5;
 [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptotal,sigma,protCoverage);
+cd ../change_model
+ecModel_batch = manualModifications(ecModel_batch);
 %Save output models:
 cd ../../models
 ecModel = saveECmodel(ecModel,'COBRA',cellName,version);
