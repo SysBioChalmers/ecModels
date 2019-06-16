@@ -38,9 +38,9 @@ save(['models/' modelName '/' modelName '.mat'],'ecModel')
 save(['models/' modelName '/' modelName '_batch.mat'],'ecModel_batch')
 
 %Save associated versions:
-fid = fopen('dependencies.txt','wt');
+fid = fopen(['models/' modelName '/dependencies.txt'],'wt');
 fprintf(fid,['GECKO\t' GECKOver '\n']);
-fprintf(fid,['Human-GEM\t' humanVer '\n']);
+fprintf(fid,[modelName '\t' humanVer '\n']);
 fclose(fid);
 
 %Remove the cloned repos:
