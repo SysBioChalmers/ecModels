@@ -37,14 +37,15 @@ model = modifyMetNames(model);
 model = substituteBiomassRxns(model);
 
 %Open all exchange rxns
-[~, exchange] = getExchangeRxns(model);
-model.ub(exchange) = +1000;
-model.lb(exchange) = -1000;
+%[~, exchange] = getExchangeRxns(model);
+%model.ub(exchange) = +1000;
+%model.lb(exchange) = -1000;
 %Swap direction of only reactions that are defined to only carry negative flux
-to_swap=model.lb < 0 & model.ub == 0;
-model.S(:,to_swap)=-model.S(:,to_swap);
-model.ub(to_swap)=-model.lb(to_swap);
-model.lb(to_swap)=0;
+%to_swap=model.lb < 0 & model.ub == 0;
+%model.S(:,to_swap)=-model.S(:,to_swap);
+%model.ub(to_swap)=-model.lb(to_swap);
+%model.lb(to_swap)=0;
+
 %Correct rev vector: true if LB < 0 & UB > 0, or it is an exchange reaction:
 model.rev = false(size(model.rxns));
 for i = 1:length(model.rxns)
@@ -52,6 +53,7 @@ for i = 1:length(model.rxns)
         model.rev(i) = true;
     end
 end
+
 if isfield(model,'name')
     name = model.name;
 end
@@ -108,7 +110,7 @@ for i=1:length(metList)
     model.metNames{i} = met;
 end
 end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function Modified_model = substituteBiomassRxns(model)
 % Substitute the original biomass associated reactions on humanGEM with a
 % modularized set of reactions for biomass production in HepG2 cell lines
@@ -209,7 +211,7 @@ temp_model.c(ismember(temp_model.rxns,'humanGrowthOut')) = 1;
 % assign output
 Modified_model = temp_model;
 end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = removeFields(model)
 if isfield(model,'rxnFrom')
     model = rmfield(model,'rxnFrom');
