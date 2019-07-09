@@ -1,3 +1,9 @@
+cobratoolbox/
+RAVEN/
+GECKO/
+libSBML/
+
+
 # Compiled source #
 ###################
 *.com
@@ -6,6 +12,7 @@
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############
@@ -41,7 +48,7 @@ Thumbs.db
 *.asv
 *.m~
 *.mex*
-*.mlappinstall 
+*.mlappinstall
 *.mltbx
 helpsearch*/
 
