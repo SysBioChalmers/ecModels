@@ -4,13 +4,14 @@ from sys import exit
 import errno
 import logging
 
-
+# Constants
 CONFIGFILE = 'config.ini'
 URL = 'url'
 IDIR = 'install_dir'
 ODIR = 'output_dir'
 SCRIPTSDIR = 'scripts'
 DBSDIR = 'databases'
+PR_TARGET = 'develop'
 
 l = logging.getLogger(__name__)
 
@@ -18,6 +19,7 @@ l = logging.getLogger(__name__)
 class GECKO_VM:
     """Interact with configuration variables."""
 
+    HAS_CHANGES = False
     config = ConfigParser()
 
     def __init__(self):
@@ -47,7 +49,7 @@ class GECKO_VM:
 
     def cleanup(self, section, subdir=''):
         sp.check_call(['rm', '-rf', self.install_dir(section) + subdir])
-        l.info('Have removed {}'.format(section))
+        l.info('Have removed {}'.format(self.install_dir(section) + subdir))
 
     def output_dir(self, gem):
         return self.base_dir() + self.config[gem][ODIR]
@@ -77,11 +79,43 @@ class GECKO_VM:
             sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('WILL PUSH AND PR')
             # sp.check_call(['git', 'push', '--set-upstream', 'origin', self.__branch_name(gem)])
-            # sp.check_call(['git', 'request-pull', self.__branch_name(gem), self.configp['BASE'][URL], 'master'])
+            # sp.check_call(['git', 'request-pull', self.__branch_name(gem), self.config['BASE'][URL], PR_TARGET])
         except sp.CalledProcessError:
-            l.warning('While upgrading {} to {} no changes were detected. Checking out master and deleting temporrary branch.'.format(gem, self.version(gem)))
-            sp.check_call(['git', 'checkout', 'master'], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporrary branch'.format(gem, self.version(gem)))
+            sp.check_call(['git', 'checkout', PR_TARGET], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
             sp.check_call(['git', 'branch', '-D', self.__branch_name(gem)], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
+
+    def check_dependencies(self):
+        # Check Matlab version
+        cmd = sp.check_output(['matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
+        m_version = ' '.join(cmd.decode('utf-8').split()[-3:-1])
+        if m_version != system.version('MATLAB'):
+            CONFIG_HAS_UPDATES = True
+            l.warning('MATLAB changed from {} to {}'.format(system.version('MATLAB'), m_version))
+            system.version('MATLAB', m_version)
+        # Check libSBML, Gurobi version; these version files have been manually created
+        for tool in ['libSBML', 'Gurobi']:
+            with open(system.install_dir(tool) + 'VERSION.txt') as f:
+                tool_version = f.readline().strip()
+                if system.version(tool) != tool_version:
+                    CONFIG_HAS_UPDATES = True
+                    l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
+                    system.version(tool, tool_version)
+        # Check COBRA, RAVEN, GECKO versions
+        system.cleanup('GECKO')
+        system.git_clone('GECKO')
+        for tool in ['COBRA', 'RAVEN', 'GECKO']:
+            tool_version = system.git_tag(tool)
+            if tool_version != system.version(tool):
+                l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
+                CONFIG_HAS_UPDATES = True
+                system.version(tool, tool_version)
+        Cleanup dummy GECKO install
+        system.cleanup('GECKO')
+
+    def save_config(self):
+        with open(CONFIGFILE, 'w') as configfile:
+            self.config.write(configfile)
 
     def __branch_name(self, gem):
         return 'update/{}/{}'.format(gem, self.version(gem))
