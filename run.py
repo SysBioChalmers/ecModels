@@ -67,10 +67,10 @@ for gem in system.gems():
 
         l.info('Going to run GECKO on {}, saving config file before running'.format(gem))
         system.version(gem, git_version)
-        self.save_config()
+        system.save_config()
 
         setup_and_run_GECKO(gem)
         l.info('Reverting changes on config file made for {}, proceeding to next gem'.format(gem))
         system.version(gem, old_version)
-        self.save_config()
+        system.save_config()
     system.cleanup(gem)

@@ -96,7 +96,7 @@ class GECKO_VM:
             l.info('MATLAB is still {}'.format(m_version))
         # Check libSBML, Gurobi version; these version files have been manually created
         for tool in ['libSBML', 'Gurobi']:
-            with open(system.install_dir(tool) + 'VERSION.txt') as f:
+            with open(self.install_dir(tool) + 'VERSION.txt') as f:
                 tool_version = f.readline().strip()
                 if self.version(tool) != tool_version:
                     self.HAS_CHANGES = True
@@ -105,8 +105,8 @@ class GECKO_VM:
                 else:
                     l.info('{} is still {}'.format(tool, tool_version))
         # Check COBRA, RAVEN, GECKO versions
-        system.cleanup('GECKO')
-        system.git_clone('GECKO')
+        self.cleanup('GECKO')
+        self.git_clone('GECKO')
         for tool in ['COBRA', 'RAVEN', 'GECKO']:
             tool_version = self.git_tag(tool)
             if tool_version != self.version(tool):
@@ -116,7 +116,7 @@ class GECKO_VM:
             else:
                 l.info('{} is still {}'.format(tool, tool_version))
         # Cleanup dummy GECKO install
-        system.cleanup('GECKO')
+        self.cleanup('GECKO')
 
     def save_config(self):
         with open(CONFIGFILE, 'w') as configfile:
