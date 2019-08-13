@@ -38,11 +38,11 @@ def setup_and_run_GECKO(gem):
 
     system.git_checkout(gem)
     l.info('Running MATLAB command')
-    matlab_output = sp.check_output(['matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
+    matlab_output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
     l.info(matlab_output.decode('utf-8'))
 
     l.info('Copying resulting model files from the GECKO output folder into the current repository')
-    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'models/' + gem, gem + '/model']
+    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'models/' + gem, gem + '/model'])
     # TODO
     # system.git_add_and_pr(gem)
     # system.cleanup('GECKO')

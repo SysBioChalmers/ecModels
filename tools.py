@@ -86,7 +86,7 @@ class GECKO_VM:
 
     def check_dependencies(self):
         # Check Matlab version
-        cmd = sp.check_output(['matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
+        cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
         m_version = ' '.join(cmd.decode('utf-8').split()[-3:-1])
         if m_version != system.version('MATLAB'):
             CONFIG_HAS_UPDATES = True
@@ -109,7 +109,7 @@ class GECKO_VM:
                 l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
                 CONFIG_HAS_UPDATES = True
                 system.version(tool, tool_version)
-        Cleanup dummy GECKO install
+        # Cleanup dummy GECKO install
         system.cleanup('GECKO')
 
     def save_config(self):
