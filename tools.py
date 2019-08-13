@@ -8,7 +8,6 @@ import logging
 CONFIGFILE = 'config.ini'
 URL = 'url'
 IDIR = 'install_dir'
-ODIR = 'output_dir'
 SCRIPTSDIR = 'scripts'
 DBSDIR = 'databases'
 PR_TARGET = 'develop'
@@ -51,14 +50,14 @@ class GECKO_VM:
         sp.check_call(['rm', '-rf', self.install_dir(section) + subdir])
         l.info('Have removed {}'.format(self.install_dir(section) + subdir))
 
-    def output_dir(self, gem):
-        return self.base_dir() + self.config[gem][ODIR]
-
     def scripts(self, gem):
-        return self.base_dir() + self.config[gem][ODIR] + SCRIPTSDIR
+        return '{}/{}'.format(gem, SCRIPTSDIR)
 
     def databases(self, gem):
-        return self.base_dir() + self.config[gem][ODIR] + DBSDIR
+        return '{}/{}'.format(gem, DBSDIR)
+
+    def mat_file_location(self, gem):
+        return self.base_dir() + "/ModelFiles/mat/" + self.config[gem]['mat_filename']
 
     def git_clone(self, section):
         sp.check_call(['git', 'clone', '--depth=1', self.config[section][URL], self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
@@ -72,8 +71,8 @@ class GECKO_VM:
         sp.check_call(['git', 'checkout', '-b', self.__branch_name(gem)], cwd=self.base_dir())
 
     def git_add_and_pr(self, gem):
-        sp.check_call(['git', 'add', self.output_dir(gem)], cwd=self.base_dir())
-        sp.check_call(['git', 'add', 'config.ini'], cwd=self.base_dir())
+        sp.check_call(['git', 'add', gem])
+        sp.check_call(['git', 'add', 'config.ini'])
         try:
             # If nothing was addded (no changes) the commit will exit with an error so we can delete the branch
             sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)

@@ -16,10 +16,8 @@ def matlab_command(gem):
         model = model.model;
         modelname = '{}'
         [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname);
-        movefile GECKO/models/ecYeastGEM model
-        cd
-        save([modelname '.mat'], 'ecModel')
-        save([modelname '_batch.mat'], 'ecModel_batch')
+        save([modelname '/model/' modelname '.mat']','ecModel')
+        save([modelname '/model/' modelname '_batch.mat'], 'ecModel_batch')
         """.format(system.mat_file_location(gem), gem)
 
 
@@ -28,32 +26,36 @@ def setup_and_run_GECKO(gem):
     if os.path.exists(system.scripts(gem)) and os.path.exists(system.databases(gem)):
         # Merge scripts folder if it exists
         sp.check_call(['cp', '-Rf', system.scripts(gem), system.install_dir('GECKO') + 'scripts'])
-        # Remove prot_abundance file from the databases in GECKO
-        system.cleanup('GECKO', 'databases/prot_abundance.txt')
+        # Remove the databases in GECKO
+        system.cleanup('GECKO', 'databases')
         # Merge databases folder if it exists
         sp.check_call(['cp', '-Rf', system.databases(gem), system.install_dir('GECKO') + 'databases'])
         # Rm the currently stored ecYeastGEM in the models directory
         system.cleanup('GECKO', 'models')
-
-        system.git_checkout(gem)
-        l.critical('running matlab here')
-        also copy the output models from gecko to the right gem folder
-
-        system.git_add_and_pr(gem)
     else:
-        l.critical('Expected folders for {} are missing, skipping' gem)
+        l.critical('Expected folders for {} are missing, check:\n{}\n{}'.format(gem, system.scripts(gem), system.databases(gem)))
         return
-    system.cleanup('GECKO')
+
+    system.git_checkout(gem)
+    l.info('Running MATLAB command')
+    matlab_output = sp.check_output(['matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
+    l.info(matlab_output.decode('utf-8'))
+
+    l.info('Copying resulting model files from the GECKO output folder into the current repository')
+    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'models/' + gem, gem + '/model']
+    # TODO
+    # system.git_add_and_pr(gem)
+    # system.cleanup('GECKO')
 
 
-l.info("It has begun")
-
-# Check all dependencies listed in config.ini of type not gem
+l.info('It has begun')
+l.info('Checking all dependencies listed in config.ini of type not gem')
 system.check_dependencies()
 
 # Run GECKO wherever needed
 for gem in system.gems():
     system.cleanup(gem)
+    # TODO clone or download
     system.git_clone(gem)
     old_version = system.version(gem)
     git_version = system.git_tag(gem)
@@ -62,12 +64,13 @@ for gem in system.gems():
             l.warning('System config has changed, running GECKO on {} {}'.format(gem, git_version))
         else:
             l.warning('{} changed from {} to {}'.format(gem, old_version, git_version))
-        # Make sure to save the config for each branch before adding it to the repo
+
+        l.info('Going to run GECKO on {}, saving config file before running'.format(gem))
         system.version(gem, git_version)
         self.save_config()
 
         setup_and_run_GECKO(gem)
-        # Revert gem version to not affect PR of the next gem
+        l.info('Reverting changes on config file made for {}, proceeding to next gem'.format(gem))
         system.version(gem, old_version)
         self.save_config()
     system.cleanup(gem)
