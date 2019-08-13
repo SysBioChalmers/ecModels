@@ -90,25 +90,31 @@ class GECKO_VM:
         m_version = ' '.join(cmd.decode('utf-8').split()[-3:-1])
         if m_version != self.version('MATLAB'):
             self.HAS_CHANGES = True
-            l.warning('MATLAB changed from {} to {}'.format(system.version('MATLAB'), m_version))
-            system.version('MATLAB', m_version)
+            l.warning('MATLAB changed from {} to {}'.format(self.version('MATLAB'), m_version))
+            self.version('MATLAB', m_version)
+        else:
+            l.info('MATLAB is still {}'.format(m_version))
         # Check libSBML, Gurobi version; these version files have been manually created
         for tool in ['libSBML', 'Gurobi']:
             with open(system.install_dir(tool) + 'VERSION.txt') as f:
                 tool_version = f.readline().strip()
-                if system.version(tool) != tool_version:
+                if self.version(tool) != tool_version:
                     self.HAS_CHANGES = True
-                    l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
-                    system.version(tool, tool_version)
+                    l.warning('{} changed from {} to {}'.format(tool, self.version(tool), tool_version))
+                    self.version(tool, tool_version)
+                else:
+                    l.info('{} is still {}'.format(tool, tool_version))
         # Check COBRA, RAVEN, GECKO versions
         system.cleanup('GECKO')
         system.git_clone('GECKO')
         for tool in ['COBRA', 'RAVEN', 'GECKO']:
-            tool_version = system.git_tag(tool)
-            if tool_version != system.version(tool):
-                l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
+            tool_version = self.git_tag(tool)
+            if tool_version != self.version(tool):
+                l.warning('{} changed from {} to {}'.format(tool, self.version(tool), tool_version))
                 self.HAS_CHANGES = True
-                system.version(tool, tool_version)
+                self.version(tool, tool_version)
+            else:
+                l.info('{} is still {}'.format(tool, tool_version))
         # Cleanup dummy GECKO install
         system.cleanup('GECKO')
 
