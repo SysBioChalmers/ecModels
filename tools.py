@@ -88,8 +88,8 @@ class GECKO_VM:
         # Check Matlab version
         cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
         m_version = ' '.join(cmd.decode('utf-8').split()[-3:-1])
-        if m_version != system.version('MATLAB'):
-            CONFIG_HAS_UPDATES = True
+        if m_version != self.version('MATLAB'):
+            self.HAS_CHANGES = True
             l.warning('MATLAB changed from {} to {}'.format(system.version('MATLAB'), m_version))
             system.version('MATLAB', m_version)
         # Check libSBML, Gurobi version; these version files have been manually created
@@ -97,7 +97,7 @@ class GECKO_VM:
             with open(system.install_dir(tool) + 'VERSION.txt') as f:
                 tool_version = f.readline().strip()
                 if system.version(tool) != tool_version:
-                    CONFIG_HAS_UPDATES = True
+                    self.HAS_CHANGES = True
                     l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
                     system.version(tool, tool_version)
         # Check COBRA, RAVEN, GECKO versions
@@ -107,7 +107,7 @@ class GECKO_VM:
             tool_version = system.git_tag(tool)
             if tool_version != system.version(tool):
                 l.warning('{} changed from {} to {}'.format(tool, system.version(tool), tool_version))
-                CONFIG_HAS_UPDATES = True
+                self.HAS_CHANGES = True
                 system.version(tool, tool_version)
         # Cleanup dummy GECKO install
         system.cleanup('GECKO')
