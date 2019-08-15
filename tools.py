@@ -57,7 +57,7 @@ class GECKO_VM:
         return '{}/{}'.format(gem, DBSDIR)
 
     def mat_file_location(self, gem):
-        return self.base_dir() + "/ModelFiles/mat/" + self.config[gem]['mat_filename']
+        return self.install_dir(gem) + "/ModelFiles/mat/" + self.config[gem]['mat_filename']
 
     def git_clone(self, section):
         sp.check_call(['git', 'clone', '--depth=1', self.config[section][URL], self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
@@ -68,21 +68,21 @@ class GECKO_VM:
         return tool_version.decode('utf-8').strip()
 
     def git_checkout(self, gem):
-        sp.check_call(['git', 'checkout', '-b', self.__branch_name(gem)], cwd=self.base_dir())
+        sp.check_call(['git', 'checkout', '-B', self.__branch_name(gem)])
 
     def git_add_and_pr(self, gem):
         sp.check_call(['git', 'add', gem])
         sp.check_call(['git', 'add', 'config.ini'])
         try:
             # If nothing was addded (no changes) the commit will exit with an error so we can delete the branch
-            sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('WILL PUSH AND PR')
             # sp.check_call(['git', 'push', '--set-upstream', 'origin', self.__branch_name(gem)])
             # sp.check_call(['git', 'request-pull', self.__branch_name(gem), self.config['BASE'][URL], PR_TARGET])
         except sp.CalledProcessError:
             l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporrary branch'.format(gem, self.version(gem)))
-            sp.check_call(['git', 'checkout', PR_TARGET], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
-            sp.check_call(['git', 'branch', '-D', self.__branch_name(gem)], cwd=self.base_dir(), stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_call(['git', 'checkout', PR_TARGET], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_call(['git', 'branch', '-D', self.__branch_name(gem)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
         # Check Matlab version

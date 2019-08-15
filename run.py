@@ -12,14 +12,17 @@ system = GECKO_VM()
 
 def matlab_command(gem):
     cmd = """
-        model = load({});
+        model = load('{}');
         model = model.model;
-        modelname = '{}'
-        [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname);
-        save([modelname '/model/' modelname '.mat']','ecModel')
-        save([modelname '/model/' modelname '_batch.mat'], 'ecModel_batch')
-        """.format(system.mat_file_location(gem), gem)
-
+        modelname = '{}';
+        [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname, '{}');
+        save([modelname '/model/' modelname '.mat']','ecModel');
+        save([modelname '/model/' modelname '_batch.mat'], 'ecModel_batch');
+        quit
+        """.format(system.mat_file_location(gem), gem, system.version(gem))
+    print(cmd)
+    output = sp.check_call(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO') + 'geckomat'))
+    return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
     system.git_clone('GECKO')
@@ -27,22 +30,21 @@ def setup_and_run_GECKO(gem):
         # Merge scripts folder if it exists
         sp.check_call(['cp', '-Rf', system.scripts(gem), system.install_dir('GECKO') + 'scripts'])
         # Remove the databases in GECKO
-        system.cleanup('GECKO', 'databases')
+        # system.cleanup('GECKO', 'databases')
         # Merge databases folder if it exists
         sp.check_call(['cp', '-Rf', system.databases(gem), system.install_dir('GECKO') + 'databases'])
         # Rm the currently stored ecYeastGEM in the models directory
         system.cleanup('GECKO', 'models')
     else:
-        l.critical('Expected folders for {} are missing, check:\n{}\n{}'.format(gem, system.scripts(gem), system.databases(gem)))
+        l.critical('Expected folders for {} are missing, check:\n\t{}\n\t{}'.format(gem, system.scripts(gem), system.databases(gem)))
         return
 
     system.git_checkout(gem)
     l.info('Running MATLAB command')
-    matlab_output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
-    l.info(matlab_output.decode('utf-8'))
+    l.info(matlab_command(gem))
 
     l.info('Copying resulting model files from the GECKO output folder into the current repository')
-    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'models/' + gem, gem + '/model'])
+    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'model/ .'])
     # TODO
     # system.git_add_and_pr(gem)
     # system.cleanup('GECKO')
