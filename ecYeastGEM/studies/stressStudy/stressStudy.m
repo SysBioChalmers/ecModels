@@ -29,9 +29,21 @@ model    = load('./ModelFiles/mat/yeastGEM.mat');
 model    = model.model;
 cd ./..
 
+%Limit excretions of undetected products:
+model.ub(strcmp(model.rxnNames,'pyruvate exchange'))             = 0;
+model.ub(strcmp(model.rxnNames,'acetaldehyde exchange'))         = 0;
+model.ub(strcmp(model.rxnNames,'(R,R)-2,3-butanediol exchange')) = 0;
+model.ub(strcmp(model.rxnNames,'bicarbonate exchange'))          = 0;
+model.ub(strcmp(model.rxnNames,'3-methylbutanal exchange'))      = 0;
+model.ub(strcmp(model.rxnNames,'isobutyraldehyde exchange'))     = 0;
+model.ub(strcmp(model.rxnNames,'glycine exchange'))              = 0; %L-glycine from 8.3.0 onwards
+model.ub(strcmp(model.rxnNames,'ethyl acetate exchange'))        = 0;
+model.ub(strcmp(model.rxnNames,'2-oxoglutarate exchange'))       = 0;
+model.ub(strcmp(model.rxnNames,'L-alanine exchange'))            = 0;
+model.ub(strcmp(model.rxnNames,'acetate exchange'))              = 0.14;
 
 %Load and process flux data:
-%TODO: switch to csv. [flux_data,samples] = loadFluxData;
+%TODO: switch to .csv [flux_data,samples] = loadFluxData;
 cd exp_data
 exp_data{1} = xlsread('Sce_stress_chemostats_merged.xlsx',1,'B2:G5');     %Temp
 exp_data{2} = xlsread('Sce_stress_chemostats_merged.xlsx',1,'B7:G15');    %Osmotic Stress
@@ -73,6 +85,7 @@ protResults.mModel = model;
 %Initialize variables:
 M     = length(exp_data);
 [m,n] = size(exp_data{2});
+protResults.exp_data  = exp_data;
 protResults.free      = cell(1,M);
 protResults.wMC       = cell(1,M);
 protResults.wProt     = cell(1,M);

@@ -116,6 +116,7 @@ corrCond(Elevels,prot.useP(:,[1 12:14]),prot.names);
 %Correlation usage/concentrations:
 figure('position', [0,0,600,600])
 plotCorr(prot.conc,prot.use,'Enzyme concentration [nmol/gDW]',10.^(-2:3))
+%TODO: 10^6 fmol/gDW = 1 nmol/gDW
 prot.corrProts = corrCond(prot.conc,prot.use,prot.names);
 
 %PCA for conditions:

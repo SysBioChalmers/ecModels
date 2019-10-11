@@ -9,9 +9,9 @@ for i = 1:m
     for j = 1:n
         if ~isempty(ecModels_wProt{i,j})
             disp(['Model ' num2str(i) ' - ' num2str(j) ':'])
-            vgluc = +100;
+            vgluc = protResults.exp_data{i}(j,1);
             if i == 3
-                veth = +100;
+                veth = protResults.exp_data{i}(j,4);
             else
                 veth = -1;
             end
