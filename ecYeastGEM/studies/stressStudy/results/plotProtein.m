@@ -6,7 +6,7 @@ function plotProtein(results,condition)
 proteins{1} = {'P07251','P00830','P38077','Q12165','P21306','P05626', ...
                'P30902','Q12349','P61829','P00854','P00856','Q06405', ...
                'P09457','P81450','P81451','Q12233','P81449'};
-protein_names{1} = 'Complex V';
+protein_names{1} = 'ATP synthase';
 
 %Complex IV:
 proteins{2} = {'P00401','Q01519','P32799','P00410','P00420','P04037', ...
@@ -19,7 +19,7 @@ proteins{3} = {'P00127','P00128','P00163','P07143','P07256','P07257', ...
 protein_names{3} = 'Complex III';
 
 %Complex II:
-proteins{4} = {'P37298','P33421'};      %Cytosolic one: Q00711 + P21801
+proteins{4} = {'P21801','P37298','P33421','P47052'};      %Cytosolic one: Q00711 + P21801
 protein_names{4} = 'Complex II';
 
 %Settings depending on the condition:
@@ -100,6 +100,7 @@ end
 
 %Various options:
 text_size = 15;
+xlim([0,ceil(max(max(values))/5)*5])
 ylim([0.5,length(proteins) + 0.5])
 set(gca,'YTick',1:length(proteins),'YTickLabel',protein_names)
 xlabel('mg/gDW','FontSize',text_size);
@@ -127,6 +128,9 @@ if sum(pos) == 0
 end
 usage = flux(pos)*MW*1000;
 ub    = model.ub(pos)*MW*1000;
+if isinf(ub)
+    ub = 0;
+end
 
 end
 

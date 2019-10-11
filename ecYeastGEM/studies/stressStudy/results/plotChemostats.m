@@ -22,7 +22,7 @@ elseif strcmp(condition,'EtOH')
     color    = color(4,:);
     cond     = 3;
     levels   = [0,20,40,60];
-    x_label  = 'Etanol [g/L]';
+    x_label  = 'Ethanol [g/L]';
     ethanol  = 'Ethanol consumption';
     exp_data = xlsread('Sce_stress_chemostats_merged.xlsx',1,'B17:G20');
 end
@@ -35,7 +35,7 @@ mod_wMC   = protResults.wMC{cond}(1:length(levels),2:5);
 mod_wProt = protResults.wProt{cond}(1:length(levels),2:5);
 
 %Exp data figure:
-figure('position', [100,100,700,400])
+figure('position', [100,100,600,500])
 plotData(levels,exp_data,'exp2',color,x_label,ethanol,'');
 
 %Metabolic model:

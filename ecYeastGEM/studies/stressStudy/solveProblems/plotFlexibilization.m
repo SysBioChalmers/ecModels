@@ -36,7 +36,7 @@ data(sum(data,2) == 0,:)  = [];
 is_flex = data > 0;
 order   = zeros(size(enzymes));
 k       = 1;
-for i = 1:length(data)
+for i = 1:length(data(1,:))
     pos = find(is_flex(:,i));
     for j = 1:length(pos)
         order(k) = pos(j);

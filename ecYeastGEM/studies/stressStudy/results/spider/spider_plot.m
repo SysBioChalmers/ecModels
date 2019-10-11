@@ -69,7 +69,7 @@ polar_increments = 2*pi/num_points;
 
 % Calculate max limit of axes
 max_value = max(max(P));
-axes_limit = ceil(max_value);
+axes_limit = ceil(max_value/20)*20;
 
 % Polar points
 radius = [0; axes_limit];

@@ -80,7 +80,7 @@ histPlot(useP_means,10,'Average usage [%]','enzymes')
 
 %Plot top 10 used enzymes among all conditions:
 yellow  = [254 210 24]./255;
-topPlot(useP_means,useP_stds,prot.names,10,'Average usage [%]',[0 107],yellow,true)
+topPlot(useP_means,useP_stds,prot.names,22,'Average usage [%]',[0 107],yellow,true)
 
 %Correlation of percentual usage and 1.Kcats, 2.MWs, 3.Activities 4.Concentrations:
 figure('position', [0,0,700,700])
