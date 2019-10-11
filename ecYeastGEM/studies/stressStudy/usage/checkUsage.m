@@ -129,6 +129,20 @@ clusterStuff(log10(fluxes),'flux','Reactions',10,3,3,[])
 figure('position', [0,0,800,800])
 clusterStuff(log10(prot.useP),'useP','Enzymes',10,1,1,[])
 
+%Tryptophan story:
+TRP_names = {'TRP1','TRP2','TRP3','TRP4','TRP5'};
+TRP_table = zeros(length(TRP_names),4);
+for i = 1:length(TRP_names)
+    pos = strcmp(prot.names,TRP_names{i});
+    if sum(pos) == 1
+        TRP_table(i,:) = prot.useP(pos,1:4);
+    end
+end
+map = flipud(sampleCVDmap(100));
+colormap(map)
+imagesc(TRP_table)
+colorbar
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
