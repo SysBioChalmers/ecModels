@@ -1,9 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
+function [ecModel,ecModel_batch,version] = enhanceGEM(model,toolbox,name)
+%enhanceGEM
 %
-% Ivan Domenzain. Last edited: 2019-06-02
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,ecModel_batch,version] = enhanceGEM(model,toolbox)
+%   Usage: [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
+%
+% Ivan Domenzain. Last edited: 2019-10-14
+%
 
 %Provide your organism scientific name
 org_name = 'escherichia coli';
@@ -15,7 +16,7 @@ if isfield(model,'rules')
 end
 %Remove blocked rxns + correct model.rev:
 cd change_model
-[model,name,version] = preprocessModel(model);
+[model,~,version] = preprocessModel(model,name);
 %Retrieve kcats & MWs for each rxn in model:
 cd ../get_enzyme_data
 model_data = getEnzymeCodes(model);
@@ -38,4 +39,3 @@ ecModel = saveECmodel(ecModel,toolbox,name,version);
 ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../geckomat
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

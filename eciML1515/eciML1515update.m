@@ -1,14 +1,16 @@
 % eciML1515Update
 %
-%  Ivan Domenzain.  2019-06-07
+%  Ivan Domenzain.  2019-10-14
 %
 
+name    = 'eciML1515';
 %Clone the necessary repos:
-% git('clone https://github.com/SysBioChalmers/GECKO.git')
-% %Load iML1515 model:
-% cd model
-% model    = importModel('iML1515.xml');
-% cd ..
+git('clone https://github.com/SysBioChalmers/GECKO.git --depth 1')
+clc
+%Load iML1515 model:
+cd model
+model = importModel('iML1515.xml');
+cd ..
 %Replace scripts in GECKO:
 replaceFiles('scripts','GECKO/**/');
 %Replace databases in GECKO:
@@ -16,7 +18,7 @@ replaceFiles('databases','GECKO/databases/');
 %Run GECKO pipeline:
 cd GECKO/geckomat
 GECKOver = git('describe --tags');
-%[ecModel,ecModel_batch,version] = enhanceGEM(model,'COBRA');
+[ecModel,ecModel_batch,version] = enhanceGEM(model,'COBRA',name);
 cd ../..
 %Move model files:
 moveModelFiles(name)

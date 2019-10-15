@@ -1,5 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [model,name,version] = preprocessModel(model,name,version)
+function [model,name,version] = preprocessModel(model,name,version)
+%preprocessModel
+%
 % Performs some preliminary modifications to the metabolic model & 
 % retrieves the model's name & version (either by parsing model.id or by
 % asking the user to input it), if they were not already defined.
@@ -12,9 +13,8 @@
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2019-06-02
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,name,version] = preprocessModel(model,name,version)
+% Ivan Domenzain.      Last edited: 2019-10-14
+
 if nargin< 3
     version = [];
     if nargin <2
@@ -32,24 +32,24 @@ index = find(strcmpi(model.rxnNames,'O2 exchange'));
 model.rxnNames{index}  = 'oxygen exchange';
 index = find(strcmpi(model.rxnNames,'CO2 exchange'));
 model.rxnNames{index}  = 'carbon dioxide exchange';
-% %Introduce biomass pseudometabolite
-% pseudoMet              = 'biomass';
-% metsToAdd.metNames     = {pseudoMet};
-% metsToAdd.mets         = {pseudoMet};
-% metsToAdd.compartments = {'c'};
-% metsToAdd.b            = 0;
-% model                  = addMets(model,metsToAdd,false);
-% %Incorporate biomass pseudometabolite into biomass pseudoreaction
-% model.S(end,index)     = 1;
-% %Introduce exchange reaction for biomass and set as an objective
-% [model,bioIndex]       = addExchRxn(model,pseudoMet,true);
-% model.c(bioIndex)      = 1;
+%Introduce biomass pseudometabolite
+pseudoMet              = 'biomass';
+metsToAdd.metNames     = {pseudoMet};
+metsToAdd.mets         = {pseudoMet};
+metsToAdd.compartments = {'c'};
+metsToAdd.b            = 0;
+model                  = addMets(model,metsToAdd,false);
+%Incorporate biomass pseudometabolite into biomass pseudoreaction
+model.S(end,index)     = 1;
+%Introduce exchange reaction for biomass and set as an objective
+[model,bioIndex]       = addExchRxn(model,pseudoMet,true);
+model.c(bioIndex)      = 1;
 %standardize gene-rxn associations
 [grRules,rxnGeneMat] = standardizeGrRules(model);
 model.grRules        = grRules;
 model.rxnGeneMat     = rxnGeneMat;
 %Convert biomass reaction to a modular type
-%model = createPoolsForBiomass(model);
+model = createPoolsForBiomass(model);
 %Remove gene rules from pseudoreactions (if any):
 % for i = 1:length(model.rxns)
 %     if endsWith(model.rxnNames{i},' pseudoreaction')
@@ -107,7 +107,6 @@ while isempty(version)
 end
 
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = createPoolsForBiomass(model)
 % createPoolsForBiomass
@@ -153,7 +152,7 @@ for i=1:length(Pseudometabolites)
     %add pseudoreaction for pool production
     rxnName = [Pseudometabolites{i} ' pseudoreaction'];
     rxnsToAdd.rxnNames     = {rxnName};
-    rxnsToAdd.rxns         = {rxnName};
+    rxnsToAdd.rxns         = {[Pseudometabolites{i} '_pool']};
     rxnsToAdd.mets         = [model.mets(BmMets(IA)); Pseudometabolites{i}];
     rxnsToAdd.stoichCoeffs = coefficients;
     rxnsToAdd.stoichCoeffs = [rxnsToAdd.stoichCoeffs, 1];
