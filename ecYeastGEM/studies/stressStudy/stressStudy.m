@@ -23,7 +23,7 @@ cd ./..
 git clone https://github.com/SysBioChalmers/yeast-GEM.git
 cd ./yeast-GEM
 git fetch --all --tags --prune
-git checkout v8.3.1
+git checkout v8.0.0
 modelVer = git('describe --tags');
 model    = load('./ModelFiles/mat/yeastGEM.mat');
 model    = model.model;
