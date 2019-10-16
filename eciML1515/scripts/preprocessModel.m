@@ -13,7 +13,7 @@ function [model,name,version] = preprocessModel(model,name,version)
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2019-10-14
+% Ivan Domenzain.      Last edited: 2019-10-15
 
 if nargin< 3
     version = [];
@@ -51,12 +51,12 @@ model.rxnGeneMat     = rxnGeneMat;
 %Convert biomass reaction to a modular type
 model = createPoolsForBiomass(model);
 %Remove gene rules from pseudoreactions (if any):
-% for i = 1:length(model.rxns)
-%     if endsWith(model.rxnNames{i},' pseudoreaction')
-%         model.grRules{i}      = '';
-%         model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
-%     end
-% end
+for i = 1:length(model.rxns)
+    if endsWith(model.rxnNames{i},' pseudoreaction')
+        model.grRules{i}      = '';
+        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
+    end
+end
 
 %Open all exchange rxns
 [~, exchange]      = getExchangeRxns(model);
@@ -81,6 +81,7 @@ for i = 1:length(model.rxns)
     end
 end
 
+%Add name and version as model fields
 if isfield(model,'name')
     name = model.name;
 end
@@ -136,7 +137,8 @@ model                  = addMets(model,metsToAdd,false);
 %find biomass reaction components
 BmPos   = find(strcmpi(model.rxnNames,'biomass pseudoreaction'));
 BmMets  = find(model.S(:,BmPos));
-Biomass = find(strcmpi(model.metNames,'biomass'));
+%Keep the index for "cytosolic biomass only"
+Biomass = find(strcmpi(model.metNames,'biomass'),1);
 %Add biomass as a product in biomass pseudoreaction
 model.S(Biomass,BmPos) = 1;
 for i=1:length(Pseudometabolites)
@@ -182,7 +184,7 @@ rxnsToAdd.lb        = [0 0];
 rxnsToAdd.ub        = [1000 1000];
 model.c(:)          = 0;
 newModel            = addRxns(model,rxnsToAdd,3);
-rxnIndex            = find(newModel.c);
+rxnIndex            = find(strcmpi(model.rxns,[metName ' exchange']));
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = modifyMetNames(model)

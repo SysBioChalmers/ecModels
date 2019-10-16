@@ -1,13 +1,14 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [X,P] = sumBioMass(model)
+function [X,P,C,L,D,R] = sumBioMass(model)
+%sumBioMass
+%
 % Calculates breakdown of biomass for the iML1515 model:
 % X -> Biomass fraction without lipids [g/gDW]
 % P -> Protein fraction [g/gDW]
 %
-% Ivan Domenzain. Last update: 2019-05-28
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usage: [X,P] = sumBioMass(model)
+%
+% Ivan Domenzain. Last update: 2019-10-16
 
-function [X,P,C,L,D,R] = sumBioMass(model)
 %Components of biomass:
 %        id         MW [g/mol]  class     name
 comps = {'ala__L_c'	  89.09      'P'     % A     Alanine         ala
@@ -32,7 +33,7 @@ comps = {'ala__L_c'	  89.09      'P'     % A     Alanine         ala
          'tyr__L_c'  181.19      'P'     % Y     Tyrosine        tyr
                                      };     
 %Get main fractions:
-[P,X] = getFraction(model,comps,'P',0);
+[P,X] = getFraction(model,comps,'P',0,'protein');
 %Add up any remaining components:
 bioPos = find(strcmp(model.rxnNames,'biomass pseudoreaction'));
 for i = 1:length(model.mets)
@@ -48,9 +49,9 @@ D = 0;
 R = 0;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [F,X] = getFraction(model,comps,compType,X)
+function [F,X] = getFraction(model,comps,compType,X,component)
 %Define pseudoreaction name:
-rxnName = 'biomass pseudoreaction';
+rxnName = [component ' pseudoreaction'];
 %Add up fraction:
 fractionPos = strcmpi(model.rxnNames,rxnName);
 comps = comps(strcmp(comps(:,3),compType),:);
