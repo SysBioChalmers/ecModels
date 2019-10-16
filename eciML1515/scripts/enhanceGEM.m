@@ -3,7 +3,7 @@ function [ecModel,ecModel_batch,version] = enhanceGEM(model,toolbox,name)
 %
 %   Usage: [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
 %
-% Ivan Domenzain. Last edited: 2019-10-14
+% Ivan Domenzain. Last edited: 2019-10-16
 %
 
 %Provide your organism scientific name
@@ -31,6 +31,7 @@ Ptot     = 0.5793;      %Assumed constant
 gR_exp   = 0.58;     %[g/gDw h] Max batch gRate on minimal glucose media
 c_source = 'D-glucose exchange (reversible)'; %Rxn name for the glucose uptake reaction
 cd ../limit_proteins
+mkdir (['../../models/' name]);
 [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gR_exp,modifications,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 %Save output models:
