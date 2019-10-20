@@ -1,142 +1,142 @@
 Rxn name	Formula	Gene-reaction association	LB	UB	Objective
-EX_acgam_e	acgam_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cellb_e	cellb_e[e]  -> 		  0.00	   Inf	  0.00
-EX_chol_e	chol_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pi_e	pi_e[e]  -> 		  0.00	   Inf	  0.00
-EX_h_e	h_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ade_e	ade_e[e]  -> 		  0.00	   Inf	  0.00
-EX_4abut_e	4abut_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ac_e	ac_e[e]  -> 		  0.00	   Inf	  0.00
-EX_akg_e	akg_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ala__L_e	ala__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_arg__L_e	arg__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_asp__L_e	asp__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cytd_e	cytd_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dcyt_e	dcyt_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fum_e	fum_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glu__L_e	glu__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gua_e	gua_e[e]  -> 		  0.00	   Inf	  0.00
-EX_met__L_e	met__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_metsox_S__L_e	metsox_S__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_crn_e	crn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fe3_e	fe3_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glcn_e	glcn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gln__L_e	gln__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyc_e	glyc_e[e]  -> 		  0.00	   Inf	  0.00
-EX_man_e	man_e[e]  -> 		  0.00	   Inf	  0.00
-EX_mn2_e	mn2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_rib__D_e	rib__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_sbt__D_e	sbt__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ura_e	ura_e[e]  -> 		  0.00	   Inf	  0.00
-EX_val__L_e	val__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_xan_e	xan_e[e]  -> 		  0.00	   Inf	  0.00
+EX_acgam_e	acgam_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cellb_e	cellb_e[e]  -> 		  0.00	1000.00	  0.00
+EX_chol_e	chol_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pi_e	pi_e[e]  -> 		  0.00	1000.00	  0.00
+EX_h_e	h_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ade_e	ade_e[e]  -> 		  0.00	1000.00	  0.00
+EX_4abut_e	4abut_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ac_e	ac_e[e]  -> 		  0.00	1000.00	  0.00
+EX_akg_e	akg_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ala__L_e	ala__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_arg__L_e	arg__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_asp__L_e	asp__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cytd_e	cytd_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dcyt_e	dcyt_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fum_e	fum_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glu__L_e	glu__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gua_e	gua_e[e]  -> 		  0.00	1000.00	  0.00
+EX_met__L_e	met__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_metsox_S__L_e	metsox_S__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_crn_e	crn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fe3_e	fe3_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glcn_e	glcn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gln__L_e	gln__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyc_e	glyc_e[e]  -> 		  0.00	1000.00	  0.00
+EX_man_e	man_e[e]  -> 		  0.00	1000.00	  0.00
+EX_mn2_e	mn2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_rib__D_e	rib__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_sbt__D_e	sbt__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ura_e	ura_e[e]  -> 		  0.00	1000.00	  0.00
+EX_val__L_e	val__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_xan_e	xan_e[e]  -> 		  0.00	1000.00	  0.00
 CDPPH	h2o_c[c] + cdp_c[c]  -> h_c[c] + pi_c[c] + cmp_c[c] 	b3614	  0.00	   Inf	  0.00
 NDP7	h2o_c[c] + udp_c[c]  -> h_c[c] + ump_c[c] + pi_c[c] 	b3614	  0.00	   Inf	  0.00
-EX_co2_e	co2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_hxan_e	hxan_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ile__L_e	ile__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_lac__L_e	lac__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_leu__L_e	leu__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_no3_e	no3_e[e]  -> 		  0.00	   Inf	  0.00
-EX_orn_e	orn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pro__L_e	pro__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pyr_e	pyr_e[e]  -> 		  0.00	   Inf	  0.00
-EX_succ_e	succ_e[e]  -> 		  0.00	   Inf	  0.00
-EX_thymd_e	thymd_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tyr__L_e	tyr__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_btn_e	btn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ptrc_e	ptrc_e[e]  -> 		  0.00	   Inf	  0.00
-EX_spmd_e	spmd_e[e]  -> 		  0.00	   Inf	  0.00
-EX_thym_e	thym_e[e]  -> 		  0.00	   Inf	  0.00
-EX_xtsn_e	xtsn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fe2_e	fe2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_co2_e	co2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_hxan_e	hxan_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ile__L_e	ile__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_lac__L_e	lac__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_leu__L_e	leu__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_no3_e	no3_e[e]  -> 		  0.00	1000.00	  0.00
+EX_orn_e	orn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pro__L_e	pro__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pyr_e	pyr_e[e]  -> 		  0.00	1000.00	  0.00
+EX_succ_e	succ_e[e]  -> 		  0.00	1000.00	  0.00
+EX_thymd_e	thymd_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tyr__L_e	tyr__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_btn_e	btn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ptrc_e	ptrc_e[e]  -> 		  0.00	1000.00	  0.00
+EX_spmd_e	spmd_e[e]  -> 		  0.00	1000.00	  0.00
+EX_thym_e	thym_e[e]  -> 		  0.00	1000.00	  0.00
+EX_xtsn_e	xtsn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fe2_e	fe2_e[e]  -> 		  0.00	1000.00	  0.00
 EX_glc__D_e	glc__D_e[e]  -> 		  0.00	  0.00	  0.00
-EX_alltn_e	alltn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dgsn_e	dgsn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_arab__L_e	arab__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fru_e	fru_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gal_e	gal_e[e]  -> 		  0.00	   Inf	  0.00
-EX_xyl__D_e	xyl__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_duri_e	duri_e[e]  -> 		  0.00	   Inf	  0.00
-EX_for_e	for_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gly_e	gly_e[e]  -> 		  0.00	   Inf	  0.00
-EX_h2_e	h2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_lys__L_e	lys__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ser__L_e	ser__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_thm_e	thm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_trp__L_e	trp__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_din_e	din_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fmn_e	fmn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gthox_e	gthox_e[e]  -> 		  0.00	   Inf	  0.00
-EX_acald_e	acald_e[e]  -> 		  0.00	   Inf	  0.00
-EX_melib_e	melib_e[e]  -> 		  0.00	   Inf	  0.00
-EX_sucr_e	sucr_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tre_e	tre_e[e]  -> 		  0.00	   Inf	  0.00
-EX_zn2_e	zn2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_alltn_e	alltn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dgsn_e	dgsn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_arab__L_e	arab__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fru_e	fru_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gal_e	gal_e[e]  -> 		  0.00	1000.00	  0.00
+EX_xyl__D_e	xyl__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_duri_e	duri_e[e]  -> 		  0.00	1000.00	  0.00
+EX_for_e	for_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gly_e	gly_e[e]  -> 		  0.00	1000.00	  0.00
+EX_h2_e	h2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_lys__L_e	lys__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ser__L_e	ser__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_thm_e	thm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_trp__L_e	trp__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_din_e	din_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fmn_e	fmn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gthox_e	gthox_e[e]  -> 		  0.00	1000.00	  0.00
+EX_acald_e	acald_e[e]  -> 		  0.00	1000.00	  0.00
+EX_melib_e	melib_e[e]  -> 		  0.00	1000.00	  0.00
+EX_sucr_e	sucr_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tre_e	tre_e[e]  -> 		  0.00	1000.00	  0.00
+EX_zn2_e	zn2_e[e]  -> 		  0.00	1000.00	  0.00
 DNMPPA	dhpmp_c[c] + h2o_c[c]  -> pi_c[c] + dhnpt_c[c] 		  0.00	   Inf	  0.00
 HEX4	atp_c[c] + man_c[c]  -> h_c[c] + adp_c[c] + man6p_c[c] 		  0.00	   Inf	  0.00
 CMPN	h2o_c[c] + cmp_c[c]  -> r5p_c[c] + csn_c[c] 		  0.00	   Inf	  0.00
 ALDD4	btal_c[c] + nad_c[c] + h2o_c[c]  -> 2 h_c[c] + but_c[c] + nadh_c[c] 		  0.00	   Inf	  0.00
 URIC	o2_c[c] + 2 h2o_c[c] + urate_c[c]  -> h2o2_c[c] + co2_c[c] + alltn_c[c] 		  0.00	   Inf	  0.00
-EX_tmao_e	tmao_e[e]  -> 		  0.00	   Inf	  0.00
-EX_26dap__M_e	26dap__M_e[e]  -> 		  0.00	   Inf	  0.00
-EX_acnam_e	acnam_e[e]  -> 		  0.00	   Inf	  0.00
-EX_amp_e	amp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dha_e	dha_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fuc__L_e	fuc__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyald_e	glyald_e[e]  -> 		  0.00	   Inf	  0.00
-EX_rmn_e	rmn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ttdca_e	ttdca_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyclt_e	glyclt_e[e]  -> 		  0.00	   Inf	  0.00
-EX_g6p_e	g6p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_2ddglcn_e	2ddglcn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_galct__D_e	galct__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_idon__L_e	idon__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_indole_e	indole_e[e]  -> 		  0.00	   Inf	  0.00
-EX_3hcinnm_e	3hcinnm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_acmana_e	acmana_e[e]  -> 		  0.00	   Inf	  0.00
-EX_galur_e	galur_e[e]  -> 		  0.00	   Inf	  0.00
-EX_but_e	but_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cbl1_e	cbl1_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gbbtn_e	gbbtn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tma_e	tma_e[e]  -> 		  0.00	   Inf	  0.00
-EX_malttr_e	malttr_e[e]  -> 		  0.00	   Inf	  0.00
-EX_hdcea_e	hdcea_e[e]  -> 		  0.00	   Inf	  0.00
+EX_tmao_e	tmao_e[e]  -> 		  0.00	1000.00	  0.00
+EX_26dap__M_e	26dap__M_e[e]  -> 		  0.00	1000.00	  0.00
+EX_acnam_e	acnam_e[e]  -> 		  0.00	1000.00	  0.00
+EX_amp_e	amp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dha_e	dha_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fuc__L_e	fuc__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyald_e	glyald_e[e]  -> 		  0.00	1000.00	  0.00
+EX_rmn_e	rmn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ttdca_e	ttdca_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyclt_e	glyclt_e[e]  -> 		  0.00	1000.00	  0.00
+EX_g6p_e	g6p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_2ddglcn_e	2ddglcn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_galct__D_e	galct__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_idon__L_e	idon__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_indole_e	indole_e[e]  -> 		  0.00	1000.00	  0.00
+EX_3hcinnm_e	3hcinnm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_acmana_e	acmana_e[e]  -> 		  0.00	1000.00	  0.00
+EX_galur_e	galur_e[e]  -> 		  0.00	1000.00	  0.00
+EX_but_e	but_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cbl1_e	cbl1_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gbbtn_e	gbbtn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tma_e	tma_e[e]  -> 		  0.00	1000.00	  0.00
+EX_malttr_e	malttr_e[e]  -> 		  0.00	1000.00	  0.00
+EX_hdcea_e	hdcea_e[e]  -> 		  0.00	1000.00	  0.00
 AOBUTDs	h_c[c] + 2aobut_c[c]  -> aact_c[c] + co2_c[c] 	s0001	  0.00	   Inf	  0.00
 NADN	nad_c[c] + h2o_c[c]  -> h_c[c] + adprib_c[c] + ncam_c[c] 		  0.00	   Inf	  0.00
-EX_nmn_e	nmn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_urea_e	urea_e[e]  -> 		  0.00	   Inf	  0.00
-EX_f6p_e	f6p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_lac__D_e	lac__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ttdcea_e	ttdcea_e[e]  -> 		  0.00	   Inf	  0.00
-EX_h2s_e	h2s_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gthrd_e	gthrd_e[e]  -> 		  0.00	   Inf	  0.00
-EX_met__D_e	met__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tartr__L_e	tartr__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_taur_e	taur_e[e]  -> 		  0.00	   Inf	  0.00
-EX_maltpt_e	maltpt_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glcur_e	glcur_e[e]  -> 		  0.00	   Inf	  0.00
-EX_mmet_e	mmet_e[e]  -> 		  0.00	   Inf	  0.00
-DM_amob_c	amob_c[c]  -> 		  0.00	   Inf	  0.00
-EX_mg2_e	mg2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_nmn_e	nmn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_urea_e	urea_e[e]  -> 		  0.00	1000.00	  0.00
+EX_f6p_e	f6p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_lac__D_e	lac__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ttdcea_e	ttdcea_e[e]  -> 		  0.00	1000.00	  0.00
+EX_h2s_e	h2s_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gthrd_e	gthrd_e[e]  -> 		  0.00	1000.00	  0.00
+EX_met__D_e	met__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tartr__L_e	tartr__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_taur_e	taur_e[e]  -> 		  0.00	1000.00	  0.00
+EX_maltpt_e	maltpt_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glcur_e	glcur_e[e]  -> 		  0.00	1000.00	  0.00
+EX_mmet_e	mmet_e[e]  -> 		  0.00	1000.00	  0.00
+DM_amob_c	amob_c[c]  -> 		  0.00	1000.00	  0.00
+EX_mg2_e	mg2_e[e]  -> 		  0.00	1000.00	  0.00
 G5SADs	glu5sa_c[c]  -> h_c[c] + 1pyr5c_c[c] + h2o_c[c] 	s0001	  0.00	   Inf	  0.00
 H2SO	2 o2_c[c] + h2s_c[c]  -> 2 h_c[c] + so4_c[c] 		  0.00	   Inf	  0.00
-EX_acac_e	acac_e[e]  -> 		  0.00	   Inf	  0.00
-EX_adn_e	adn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ins_e	ins_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyc3p_e	glyc3p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_lcts_e	lcts_e[e]  -> 		  0.00	   Inf	  0.00
-EX_nac_e	nac_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ocdca_e	ocdca_e[e]  -> 		  0.00	   Inf	  0.00
+EX_acac_e	acac_e[e]  -> 		  0.00	1000.00	  0.00
+EX_adn_e	adn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ins_e	ins_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyc3p_e	glyc3p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_lcts_e	lcts_e[e]  -> 		  0.00	1000.00	  0.00
+EX_nac_e	nac_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ocdca_e	ocdca_e[e]  -> 		  0.00	1000.00	  0.00
 FTHFLi	atp_c[c] + thf_c[c] + for_c[c]  -> 10fthf_c[c] + adp_c[c] + pi_c[c] 		  0.00	   Inf	  0.00
-EX_dad_2_e	dad_2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ser__D_e	ser__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gam6p_e	gam6p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_15dap_e	15dap_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ocdcea_e	ocdcea_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cynt_e	cynt_e[e]  -> 		  0.00	   Inf	  0.00
-EX_galctn__D_e	galctn__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyb_e	glyb_e[e]  -> 		  0.00	   Inf	  0.00
+EX_dad_2_e	dad_2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ser__D_e	ser__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gam6p_e	gam6p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_15dap_e	15dap_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ocdcea_e	ocdcea_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cynt_e	cynt_e[e]  -> 		  0.00	1000.00	  0.00
+EX_galctn__D_e	galctn__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyb_e	glyb_e[e]  -> 		  0.00	1000.00	  0.00
 NMNt7pp	nmn_p[p] + h2o_c[c]  -> h_c[c] + r5p_c[c] + ncam_c[c] 		  0.00	   Inf	  0.00
 GLUtex	glu__L_e[e]  -> glu__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GLYtex	gly_e[e]  -> gly_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -167,25 +167,25 @@ SUCCt2_2pp	2 h_p[p] + succ_p[p]  -> 2 h_c[c] + succ_c[c] 	b3528 or b0010	  0.00	
 SUCFUMtpp	fum_p[p] + succ_c[c]  -> succ_p[p] + fum_c[c] 	b0621 or b4123 or b4138	  0.00	   Inf	  0.00
 TARTRt7pp	tartr__L_p[p] + succ_c[c]  -> tartr__L_c[c] + succ_p[p] 	b3063	  0.00	   Inf	  0.00
 THMDt2pp_copy1	h_p[p] + thymd_p[p]  -> h_c[c] + thymd_c[c] 	b2964 or b2393	  0.00	   Inf	  0.00
-EX_ca2_e	ca2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_so3_e	so3_e[e]  -> 		  0.00	   Inf	  0.00
+EX_ca2_e	ca2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_so3_e	so3_e[e]  -> 		  0.00	1000.00	  0.00
 Kt2pp	h_p[p] + k_p[p]  -> h_c[c] + k_c[c] 	(b1363 and b1291 and b3290) or (b1291 and b3849 and b3290) or b1250 or b3747	  0.00	   Inf	  0.00
 AKGt2rpp	h_p[p] + akg_p[p]  -> h_c[c] + akg_c[c] 	b2587	  0.00	   Inf	  0.00
 XYLt2pp	h_p[p] + xyl__D_p[p]  -> h_c[c] + xyl__D_c[c] 	b4031	  0.00	   Inf	  0.00
-EX_ascb__L_e	ascb__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ala_B_e	ala_B_e[e]  -> 		  0.00	   Inf	  0.00
-EX_agm_e	agm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_minohp_e	minohp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ppt_e	ppt_e[e]  -> 		  0.00	   Inf	  0.00
-EX_hxa_e	hxa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_lyx__L_e	lyx__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_acmum_e	acmum_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dca_e	dca_e[e]  -> 		  0.00	   Inf	  0.00
-EX_all__D_e	all__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_octa_e	octa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_xylu__L_e	xylu__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gdp_e	gdp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gtp_e	gtp_e[e]  -> 		  0.00	   Inf	  0.00
+EX_ascb__L_e	ascb__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ala_B_e	ala_B_e[e]  -> 		  0.00	1000.00	  0.00
+EX_agm_e	agm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_minohp_e	minohp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ppt_e	ppt_e[e]  -> 		  0.00	1000.00	  0.00
+EX_hxa_e	hxa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_lyx__L_e	lyx__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_acmum_e	acmum_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dca_e	dca_e[e]  -> 		  0.00	1000.00	  0.00
+EX_all__D_e	all__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_octa_e	octa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_xylu__L_e	xylu__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gdp_e	gdp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gtp_e	gtp_e[e]  -> 		  0.00	1000.00	  0.00
 THRabcpp	atp_c[c] + thr__L_p[p] + h2o_c[c]  -> h_c[c] + thr__L_c[c] + adp_c[c] + pi_c[c] 	b3457 and b3455 and b3456 and b3460 and b3454	  0.00	   Inf	  0.00
 TRPt2rpp	h_p[p] + trp__L_p[p]  -> h_c[c] + trp__L_c[c] 	b3709 or b3161 or b0112	  0.00	   Inf	  0.00
 TYRt2rpp	tyr__L_p[p] + h_p[p]  -> h_c[c] + tyr__L_c[c] 	b1907 or b0112	  0.00	   Inf	  0.00
@@ -194,7 +194,7 @@ VALabcpp	val__L_p[p] + atp_c[c] + h2o_c[c]  -> h_c[c] + adp_c[c] + pi_c[c] + val
 XTSNt2rpp	h_p[p] + xtsn_p[p]  -> h_c[c] + xtsn_c[c] 	b2406	  0.00	   Inf	  0.00
 XYLUt2pp	h_p[p] + xylu__L_p[p]  -> h_c[c] + xylu__L_c[c] 	b3578 and b3577 and b3579	  0.00	   Inf	  0.00
 THRt4pp	na1_p[p] + thr__L_p[p]  -> thr__L_c[c] + na1_c[c] 	b3089	  0.00	   Inf	  0.00
-EX_fruur_e	fruur_e[e]  -> 		  0.00	   Inf	  0.00
+EX_fruur_e	fruur_e[e]  -> 		  0.00	1000.00	  0.00
 GALtex	gal_e[e]  -> gal_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GALCTtex	galct__D_e[e]  -> galct__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GALCTNtex	galctn__D_e[e]  -> galctn__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -202,7 +202,7 @@ GALTtex	galt_e[e]  -> galt_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	
 GALURtex	galur_e[e]  -> galur_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ACACt2pp	h_p[p] + acac_p[p]  -> h_c[c] + acac_c[c] 	b2223	  0.00	   Inf	  0.00
 ACNAMt2pp	acnam_p[p] + h_p[p]  -> h_c[c] + acnam_c[c] 	b3224	  0.00	   Inf	  0.00
-EX_ch4_e	ch4_e[e]  -> 		  0.00	   Inf	  0.00
+EX_ch4_e	ch4_e[e]  -> 		  0.00	1000.00	  0.00
 GAMtex	gam_e[e]  -> gam_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GBBTNtex	gbbtn_e[e]  -> gbbtn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ARBt2rpp	h_p[p] + arab__L_p[p]  -> h_c[c] + arab__L_c[c] 	b2841	  0.00	   Inf	  0.00
@@ -224,22 +224,22 @@ INStex	ins_e[e]  -> ins_p[p] 	b0411	  0.00	   Inf	  0.00
 Ktex	k_e[e]  -> k_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 D_LACtex	lac__D_e[e]  -> lac__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FRULYStex	frulys_e[e]  -> frulys_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_fad_e	fad_e[e]  -> 		  0.00	   Inf	  0.00
+EX_fad_e	fad_e[e]  -> 		  0.00	1000.00	  0.00
 GALCTt2rpp	h_p[p] + galct__D_p[p]  -> h_c[c] + galct__D_c[c] 	b2789 or b3127	  0.00	   Inf	  0.00
 GALt2pp	h_p[p] + gal_p[p]  -> h_c[c] + gal_c[c] 	b2943	  0.00	   Inf	  0.00
 ASPtex	asp__L_e[e]  -> asp__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ABUTt2pp	h_p[p] + 4abut_p[p]  -> h_c[c] + 4abut_c[c] 	b2663	  0.00	   Inf	  0.00
 ACALDtpp	acald_p[p]  -> acald_c[c] 	s0001	  0.00	   Inf	  0.00
 ACt2rpp	h_p[p] + ac_p[p]  -> h_c[c] + ac_c[c] 	b0010	  0.00	   Inf	  0.00
-EX_fe3dcit_e	fe3dcit_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fe3hox_e	fe3hox_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fecrm_e	fecrm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_feenter_e	feenter_e[e]  -> 		  0.00	   Inf	  0.00
-EX_feoxam_e	feoxam_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cbi_e	cbi_e[e]  -> 		  0.00	   Inf	  0.00
-EX_arbtn_fe3_e	arbtn_fe3_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cpgn_e	cpgn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_adocbl_e	adocbl_e[e]  -> 		  0.00	   Inf	  0.00
+EX_fe3dcit_e	fe3dcit_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fe3hox_e	fe3hox_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fecrm_e	fecrm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_feenter_e	feenter_e[e]  -> 		  0.00	1000.00	  0.00
+EX_feoxam_e	feoxam_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cbi_e	cbi_e[e]  -> 		  0.00	1000.00	  0.00
+EX_arbtn_fe3_e	arbtn_fe3_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cpgn_e	cpgn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_adocbl_e	adocbl_e[e]  -> 		  0.00	1000.00	  0.00
 INDOLEtex	indole_e[e]  -> indole_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 L_LACtex	lac__L_e[e]  -> lac__L_p[p] 	b2215 or b0929 or b1377 or b0241	  0.00	   Inf	  0.00
 ACt4pp	na1_p[p] + ac_p[p]  -> ac_c[c] + na1_c[c] 	b4067	  0.00	   Inf	  0.00
@@ -256,13 +256,13 @@ GLCNtex	glcn_e[e]  -> glcn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	
 GLCURtex	glcur_e[e]  -> glcur_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GLNtex	gln__L_e[e]  -> gln__L_p[p] 	b2215 or b0929 or b1377 or b0241	  0.00	   Inf	  0.00
 O2tex	o2_e[e]  -> o2_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_ppa_e	ppa_e[e]  -> 		  0.00	   Inf	  0.00
+EX_ppa_e	ppa_e[e]  -> 		  0.00	1000.00	  0.00
 OCTAtex	octa_e[e]  -> octa_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ORNtex	orn_e[e]  -> orn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 CITt7pp	cit_p[p] + succ_c[c]  -> succ_p[p] + cit_c[c] 	b0612	  0.00	   Inf	  0.00
 CRNt7pp	gbbtn_c[c] + crn_p[p]  -> gbbtn_p[p] + crn_c[c] 	b0040	  0.00	   Inf	  0.00
-EX_ni2_e	ni2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_no_e	no_e[e]  -> 		  0.00	   Inf	  0.00
+EX_ni2_e	ni2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_no_e	no_e[e]  -> 		  0.00	1000.00	  0.00
 DGSNt2pp	h_p[p] + dgsn_p[p]  -> h_c[c] + dgsn_c[c] 	b2964	  0.00	   Inf	  0.00
 DINSt2pp	din_p[p] + h_p[p]  -> h_c[c] + din_c[c] 	b2964	  0.00	   Inf	  0.00
 DURIt2pp	h_p[p] + duri_p[p]  -> h_c[c] + duri_c[c] 	b2393 or b2964	  0.00	   Inf	  0.00
@@ -278,7 +278,7 @@ DADNt2pp	h_p[p] + dad_2_p[p]  -> h_c[c] + dad_2_c[c] 	b2393 or b2964	  0.00	   I
 DCYTt2pp	dcyt_p[p] + h_p[p]  -> h_c[c] + dcyt_c[c] 	b2393 or b2964	  0.00	   Inf	  0.00
 DDGLCNt2rpp	h_p[p] + 2ddglcn_p[p]  -> h_c[c] + 2ddglcn_c[c] 	b3909	  0.00	   Inf	  0.00
 RMNtex	rmn_e[e]  -> rmn_p[p] 	b0929 or b0241 or b2215 or b1377	  0.00	   Inf	  0.00
-EX_meoh_e	meoh_e[e]  -> 		  0.00	   Inf	  0.00
+EX_meoh_e	meoh_e[e]  -> 		  0.00	1000.00	  0.00
 MALTTRtexi	malttr_e[e]  -> malttr_p[p] 	b4036	  0.00	   Inf	  0.00
 MALTTTRtexi	maltttr_e[e]  -> maltttr_p[p] 	b4036	  0.00	   Inf	  0.00
 MALTPTtexi	maltpt_e[e]  -> maltpt_p[p] 	b4036	  0.00	   Inf	  0.00
@@ -287,9 +287,9 @@ GLCtex_copy1	glc__D_e[e]  -> glc__D_p[p] 	b4036	  0.00	   Inf	  0.00
 FE3DCITtonex	h_p[p] + fe3dcit_e[e]  -> h_c[c] + fe3dcit_p[p] 	b3006 and b1252 and b3005 and b4291	  0.00	   Inf	  0.00
 PHEtex	phe__L_e[e]  -> phe__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 PItex	pi_e[e]  -> pi_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_cu2_e	cu2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cu2_e	cu2_e[e]  -> 		  0.00	1000.00	  0.00
 CYSabc2pp	cys__L_c[c] + atp_c[c] + h2o_c[c]  -> h_c[c] + adp_c[c] + pi_c[c] + cys__L_p[p] 	b0887 and b0886	  0.00	   Inf	  0.00
-EX_pheme_e	pheme_e[e]  -> 		  0.00	   Inf	  0.00
+EX_pheme_e	pheme_e[e]  -> 		  0.00	1000.00	  0.00
 PNTOtex	pnto__R_e[e]  -> pnto__R_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 PPPNtex	pppn_e[e]  -> pppn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 PPTtex	ppt_e[e]  -> ppt_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -333,7 +333,7 @@ MAN6Ptex	man6p_e[e]  -> man6p_p[p] 	b0929 or b2215 or b0241 or b1377	  0.00	   I
 MELIBtex	melib_e[e]  -> melib_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 DMSOtex	dmso_e[e]  -> dmso_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 DURItex	duri_e[e]  -> duri_p[p] 	b0411	  0.00	   Inf	  0.00
-EX_mal__D_e	mal__D_e[e]  -> 		  0.00	   Inf	  0.00
+EX_mal__D_e	mal__D_e[e]  -> 		  0.00	1000.00	  0.00
 FRUtex	fru_e[e]  -> fru_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FUCtex	fuc__L_e[e]  -> fuc__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FUMtex	fum_e[e]  -> fum_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -343,7 +343,7 @@ NO2tex	no2_e[e]  -> no2_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0
 BUTt2rpp	h_p[p] + but_p[p]  -> h_c[c] + but_c[c] 	b2223	  0.00	   Inf	  0.00
 CADVtpp	h_p[p] + 15dap_c[c] + lys__L_p[p]  -> h_c[c] + 15dap_p[p] + lys__L_c[c] 	b4132	  0.00	   Inf	  0.00
 GDPtex	gdp_e[e]  -> gdp_p[p] 	b2215 or b0929 or b1377 or b0241	  0.00	   Inf	  0.00
-EX_cobalt2_e	cobalt2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cobalt2_e	cobalt2_e[e]  -> 		  0.00	1000.00	  0.00
 TMAtex	tma_e[e]  -> tma_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 TMAOtex	tmao_e[e]  -> tmao_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 TREtex	tre_e[e]  -> tre_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -359,17 +359,17 @@ XYLtex	xyl__D_e[e]  -> xyl__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   I
 ABUTtex	4abut_e[e]  -> 4abut_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FORtppi	for_c[c]  -> for_p[p] 	b0904 or b2492	  0.00	   Inf	  0.00
 DATPHs	h_c[c] + datp_c[c] + h2o_c[c]  -> nh4_c[c] + ditp_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_mso3_e	mso3_e[e]  -> 		  0.00	   Inf	  0.00
-EX_23camp_e	23camp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_23cgmp_e	23cgmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_23cump_e	23cump_e[e]  -> 		  0.00	   Inf	  0.00
-EX_3amp_e	3amp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_3gmp_e	3gmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_3ump_e	3ump_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyc__R_e	glyc__R_e[e]  -> 		  0.00	   Inf	  0.00
-EX_eca4colipa_e	eca4colipa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_sel_e	sel_e[e]  -> 		  0.00	   Inf	  0.00
-EX_hg2_e	hg2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_mso3_e	mso3_e[e]  -> 		  0.00	1000.00	  0.00
+EX_23camp_e	23camp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_23cgmp_e	23cgmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_23cump_e	23cump_e[e]  -> 		  0.00	1000.00	  0.00
+EX_3amp_e	3amp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_3gmp_e	3gmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_3ump_e	3ump_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyc__R_e	glyc__R_e[e]  -> 		  0.00	1000.00	  0.00
+EX_eca4colipa_e	eca4colipa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_sel_e	sel_e[e]  -> 		  0.00	1000.00	  0.00
+EX_hg2_e	hg2_e[e]  -> 		  0.00	1000.00	  0.00
 O16GLCT1	udpg_c[c] + aragund_c[c]  -> h_c[c] + garagund_c[c] + udp_c[c] 	b2032	  0.00	   Inf	  0.00
 DHBSH	h2o_c[c] + 23dhbzs_c[c]  -> ser__L_c[c] + 23dhb_c[c] 		  0.00	   Inf	  0.00
 ENTERES	3 h2o_c[c] + enter_c[c]  -> 3 h_c[c] + 3 23dhbzs_c[c] 	b0585	  0.00	   Inf	  0.00
@@ -399,9 +399,9 @@ FE3HOXR3	2 fe3hox_c[c] + rbflvrd_c[c]  -> 2 h_c[c] + 2 fe3hox_un_c[c] + 2 fe2_c[
 FEENTERR1	fadh2_c[c] + 2 feenter_c[c]  -> 2 h_c[c] + 2 fe2_c[c] + 2 enter_c[c] + fad_c[c] 		  0.00	   Inf	  0.00
 FEENTERR3	rbflvrd_c[c] + 2 feenter_c[c]  -> 2 h_c[c] + 2 fe2_c[c] + ribflv_c[c] + 2 enter_c[c] 		  0.00	   Inf	  0.00
 SULFACtex	sulfac_e[e]  -> sulfac_p[p] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
-EX_sulfac_e	sulfac_e[e]  -> 		  0.00	   Inf	  0.00
-EX_butso3_e	butso3_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ethso3_e	ethso3_e[e]  -> 		  0.00	   Inf	  0.00
+EX_sulfac_e	sulfac_e[e]  -> 		  0.00	1000.00	  0.00
+EX_butso3_e	butso3_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ethso3_e	ethso3_e[e]  -> 		  0.00	1000.00	  0.00
 NOtex	no_e[e]  -> no_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 NOtpp	no_p[p]  -> no_c[c] 	s0001	  0.00	   Inf	  0.00
 N2Otpp	n2o_p[p]  -> n2o_c[c] 	s0001	  0.00	   Inf	  0.00
@@ -425,8 +425,8 @@ METSOX2tex	metsox_R__L_e[e]  -> metsox_R__L_p[p] 	b1377 or b0241 or b0929 or b22
 3UMPtex	3ump_e[e]  -> 3ump_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 3GMPtex	3gmp_e[e]  -> 3gmp_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FALDtpp	fald_p[p]  -> fald_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_tym_e	tym_e[e]  -> 		  0.00	   Inf	  0.00
-EX_imp_e	imp_e[e]  -> 		  0.00	   Inf	  0.00
+EX_tym_e	tym_e[e]  -> 		  0.00	1000.00	  0.00
+EX_imp_e	imp_e[e]  -> 		  0.00	1000.00	  0.00
 DOPAtex	dopa_e[e]  -> dopa_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 4HOXPACDtex	4hoxpacd_e[e]  -> 4hoxpacd_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ETHAtex	etha_e[e]  -> etha_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -489,7 +489,7 @@ HDCAtexi	hdca_e[e]  -> hdca_p[p] 	b2344	  0.00	   Inf	  0.00
 GUACYC	gtp_c[c]  -> ppi_c[c] + 35cgmp_c[c] 		  0.00	   Inf	  0.00
 ATPHs	h_c[c] + atp_c[c] + h2o_c[c]  -> nh4_c[c] + itp_c[c] 	s0001	  0.00	   Inf	  0.00
 GTPHs	h_c[c] + h2o_c[c] + gtp_c[c]  -> xtp_c[c] + nh4_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_cd2_e	cd2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cd2_e	cd2_e[e]  -> 		  0.00	1000.00	  0.00
 IDONt2rpp	h_p[p] + idon__L_p[p]  -> h_c[c] + idon__L_c[c] 	b4265	  0.00	   Inf	  0.00
 ILEabcpp	atp_c[c] + ile__L_p[p] + h2o_c[c]  -> h_c[c] + adp_c[c] + pi_c[c] + ile__L_c[c] 	b3457 and b3455 and b3456 and b3460 and b3454	  0.00	   Inf	  0.00
 INDOLEt2pp	h_c[c] + indole_c[c]  -> h_p[p] + indole_p[p] 	b3265 and b3266 and b3035	  0.00	   Inf	  0.00
@@ -507,8 +507,8 @@ MALt2_2pp	2 h_p[p] + mal__L_p[p]  -> 2 h_c[c] + mal__L_c[c] 	b3528	  0.00	   Inf
 MALt2_3pp	3 h_p[p] + mal__L_p[p]  -> 3 h_c[c] + mal__L_c[c] 	b4123 or b4138	  0.00	   Inf	  0.00
 MAN6Pt6_2pp	man6p_p[p] + 2 pi_c[c]  -> man6p_c[c] + 2 pi_p[p] 	b3666	  0.00	   Inf	  0.00
 MELIBt2pp	h_p[p] + melib_p[p]  -> h_c[c] + melib_c[c] 	b4120 or b0343	  0.00	   Inf	  0.00
-EX_fe3hox_un_e	fe3hox_un_e[e]  -> 		  0.00	   Inf	  0.00
-EX_23dappa_e	23dappa_e[e]  -> 		  0.00	   Inf	  0.00
+EX_fe3hox_un_e	fe3hox_un_e[e]  -> 		  0.00	1000.00	  0.00
+EX_23dappa_e	23dappa_e[e]  -> 		  0.00	1000.00	  0.00
 RMNtpp	h_p[p] + rmn_p[p]  -> h_c[c] + rmn_c[c] 	b3907	  0.00	   Inf	  0.00
 SERt4pp	na1_p[p] + ser__L_p[p]  -> ser__L_c[c] + na1_c[c] 	b3089	  0.00	   Inf	  0.00
 SUCCt2_3pp	3 h_p[p] + succ_p[p]  -> 3 h_c[c] + succ_c[c] 	b4123 or b4138	  0.00	   Inf	  0.00
@@ -523,14 +523,14 @@ PROt2rpp	h_p[p] + pro__L_p[p]  -> h_c[c] + pro__L_c[c] 	b4111 or b0402	  0.00	  
 PROt4pp	na1_p[p] + pro__L_p[p]  -> pro__L_c[c] + na1_c[c] 	b1015	  0.00	   Inf	  0.00
 FECRMtonex	h_p[p] + fecrm_e[e]  -> h_c[c] + fecrm_p[p] 	b3006 and b1252 and b3005 and b0150	  0.00	   Inf	  0.00
 ARBTNtonex	h_p[p] + arbtn_fe3_e[e]  -> h_c[c] + arbtn_fe3_p[p] 		  0.00	   Inf	  0.00
-EX_enter_e	enter_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fecrm_un_e	fecrm_un_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cgly_e	cgly_e[e]  -> 		  0.00	   Inf	  0.00
-EX_chtbs_e	chtbs_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gmp_e	gmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_h2o2_e	h2o2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ump_e	ump_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pydam_e	pydam_e[e]  -> 		  0.00	   Inf	  0.00
+EX_enter_e	enter_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fecrm_un_e	fecrm_un_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cgly_e	cgly_e[e]  -> 		  0.00	1000.00	  0.00
+EX_chtbs_e	chtbs_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gmp_e	gmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_h2o2_e	h2o2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ump_e	ump_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pydam_e	pydam_e[e]  -> 		  0.00	1000.00	  0.00
 H2O2tex	h2o2_e[e]  -> h2o2_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ADEtex	ade_e[e]  -> ade_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ADNtex	adn_e[e]  -> adn_p[p] 	b0411	  0.00	   Inf	  0.00
@@ -553,7 +553,7 @@ GLUABUTt7pp	4abut_c[c] + glu__L_p[p]  -> 4abut_p[p] + glu__L_c[c] 	b1492	  0.00	
 GLUt2rpp	h_p[p] + glu__L_p[p]  -> h_c[c] + glu__L_c[c] 	b4077	  0.00	   Inf	  0.00
 GLUt4pp	na1_p[p] + glu__L_p[p]  -> glu__L_c[c] + na1_c[c] 	b3653	  0.00	   Inf	  0.00
 GLYALDtpp	glyald_p[p]  -> glyald_c[c] 	b3927	  0.00	   Inf	  0.00
-EX_etha_e	etha_e[e]  -> 		  0.00	   Inf	  0.00
+EX_etha_e	etha_e[e]  -> 		  0.00	1000.00	  0.00
 LCTSt3ipp	lcts_c[c] + h_p[p]  -> h_c[c] + lcts_p[p] 	b2170 or b1528 or b0070	  0.00	   Inf	  0.00
 ARBt3ipp	h_p[p] + arab__L_c[c]  -> h_c[c] + arab__L_p[p] 	b1528	  0.00	   Inf	  0.00
 14GLUCANtexi	14glucan_e[e]  -> 14glucan_p[p] 	b4036	  0.00	   Inf	  0.00
@@ -562,7 +562,7 @@ NADPHQR3	h_c[c] + mqn8_c[c] + nadph_c[c]  -> nadp_c[c] + mql8_c[c] 	b3028	  0.00
 NADPHQR4	h_c[c] + 2dmmq8_c[c] + nadph_c[c]  -> nadp_c[c] + 2dmmql8_c[c] 	b3028	  0.00	   Inf	  0.00
 ASO3tex	aso3_e[e]  -> aso3_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 MANGLYCtex	manglyc_e[e]  -> manglyc_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_frulys_e	frulys_e[e]  -> 		  0.00	   Inf	  0.00
+EX_frulys_e	frulys_e[e]  -> 		  0.00	1000.00	  0.00
 METOX1s	met__L_c[c] + h2o2_c[c]  -> h2o_c[c] + metsox_S__L_c[c] 	s0001	  0.00	   Inf	  0.00
 METOX2s	met__L_c[c] + h2o2_c[c]  -> h2o_c[c] + metsox_R__L_c[c] 	s0001	  0.00	   Inf	  0.00
 FRUURt2rpp	h_p[p] + fruur_p[p]  -> h_c[c] + fruur_c[c] 	b4321	  0.00	   Inf	  0.00
@@ -572,8 +572,8 @@ O16GLCT2	udpg_c[c] + gfgaragund_c[c]  -> h_c[c] + o16aund_c[c] + udp_c[c] 		  0.
 O16AUNDtpp	o16aund_c[c]  -> o16aund_p[p] 	b2037	  0.00	   Inf	  0.00
 GLYCAt2rpp	h_p[p] + glyc__R_p[p]  -> h_c[c] + glyc__R_c[c] 	b3127 or b2789	  0.00	   Inf	  0.00
 GLYCAtex	glyc__R_e[e]  -> glyc__R_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_enlipa_e	enlipa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_hacolipa_e	hacolipa_e[e]  -> 		  0.00	   Inf	  0.00
+EX_enlipa_e	enlipa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_hacolipa_e	hacolipa_e[e]  -> 		  0.00	1000.00	  0.00
 GLYC3Pt6pp	pi_c[c] + glyc3p_p[p]  -> glyc3p_c[c] + pi_p[p] 	b2240	  0.00	   Inf	  0.00
 GLYCLTt4pp	na1_p[p] + glyclt_p[p]  -> glyclt_c[c] + na1_c[c] 	b4067	  0.00	   Inf	  0.00
 GLYCtpp	glyc_c[c]  -> glyc_p[p] 	s0001 or b3927	  0.00	   Inf	  0.00
@@ -588,11 +588,11 @@ GLCNt2rpp	h_p[p] + glcn_p[p]  -> h_c[c] + glcn_c[c] 	b3415 or b4321 or b4476 or 
 GLCRt2rpp	h_p[p] + glcr_p[p]  -> h_c[c] + glcr_c[c] 	b3127 or b2789	  0.00	   Inf	  0.00
 GLCt2pp	h_p[p] + glc__D_p[p]  -> h_c[c] + glc__D_c[c] 	b2943	  0.00	   Inf	  0.00
 GLCURt2rpp	h_p[p] + glcur_p[p]  -> h_c[c] + glcur_c[c] 	b3909 or b3093	  0.00	   Inf	  0.00
-EX_h2o_e	h2o_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ala__D_e	ala__D_e[e]  -> 		  0.00	   Inf	  0.00
+EX_h2o_e	h2o_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ala__D_e	ala__D_e[e]  -> 		  0.00	1000.00	  0.00
 XTSNtex	xtsn_e[e]  -> xtsn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_hdca_e	hdca_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glcr_e	glcr_e[e]  -> 		  0.00	   Inf	  0.00
+EX_hdca_e	hdca_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glcr_e	glcr_e[e]  -> 		  0.00	1000.00	  0.00
 HYPOE	pyam5p_c[c] + h2o_c[c]  -> pydam_c[c] + pi_c[c] 		  0.00	   Inf	  0.00
 UREAtpp	urea_p[p]  -> urea_c[c] 	b3927	  0.00	   Inf	  0.00
 XANt2pp	h_p[p] + xan_p[p]  -> h_c[c] + xan_c[c] 	b3654 or b2882 or b2888	  0.00	   Inf	  0.00
@@ -601,63 +601,63 @@ PTRCORNt7pp	ptrc_p[p] + orn_c[c]  -> orn_p[p] + ptrc_c[c] 	b0692	  0.00	   Inf	 
 HG2tex	hg2_e[e]  -> hg2_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ATPM	atp_c[c] + h2o_c[c]  -> h_c[c] + adp_c[c] + pi_c[c] 		  6.86	   Inf	  0.00
 NADPPPS	nadp_c[c] + h2o_c[c]  -> nad_c[c] + pi_c[c] 		  0.00	   Inf	  0.00
-EX_mnl_e	mnl_e[e]  -> 		  0.00	   Inf	  0.00
+EX_mnl_e	mnl_e[e]  -> 		  0.00	1000.00	  0.00
 DADNtex	dad_2_e[e]  -> dad_2_p[p] 	b0411	  0.00	   Inf	  0.00
 DHAtex	dha_e[e]  -> dha_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ETOHtex	etoh_e[e]  -> etoh_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_asn__L_e	asn__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_mal__L_e	mal__L_e[e]  -> 		  0.00	   Inf	  0.00
+EX_asn__L_e	asn__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_mal__L_e	mal__L_e[e]  -> 		  0.00	1000.00	  0.00
 NMNN	h2o_c[c] + nmn_c[c]  -> h_c[c] + r5p_c[c] + ncam_c[c] 		  0.00	   Inf	  0.00
-EX_no2_e	no2_e[e]  -> 		  0.00	   Inf	  0.00
+EX_no2_e	no2_e[e]  -> 		  0.00	1000.00	  0.00
 ACACtex	acac_e[e]  -> acac_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ACNAMtex	acnam_e[e]  -> acnam_p[p] 	b0929 or b4311 or b2215	  0.00	   Inf	  0.00
 ASO3t8pp	aso3_c[c] + atp_c[c] + h2o_c[c]  -> h_c[c] + adp_c[c] + pi_c[c] + aso3_p[p] 	b3502	  0.00	   Inf	  0.00
 H2Stex	h2s_e[e]  -> h2s_p[p] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
 OMCDC	h_c[c] + 3c4mop_c[c]  -> 4mop_c[c] + co2_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_nh4_e	nh4_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ddca_e	ddca_e[e]  -> 		  0.00	   Inf	  0.00
+EX_nh4_e	nh4_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ddca_e	ddca_e[e]  -> 		  0.00	1000.00	  0.00
 FORt2pp	h_p[p] + for_p[p]  -> h_c[c] + for_c[c] 	b0904 or b2492	  0.00	   Inf	  0.00
-EX_r5p_e	r5p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_glyc2p_e	glyc2p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_malt_e	malt_e[e]  -> 		  0.00	   Inf	  0.00
+EX_r5p_e	r5p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_glyc2p_e	glyc2p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_malt_e	malt_e[e]  -> 		  0.00	1000.00	  0.00
 4PEPTtex	LalaDgluMdapDala_e[e]  -> LalaDgluMdapDala_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_pnto__R_e	pnto__R_e[e]  -> 		  0.00	   Inf	  0.00
+EX_pnto__R_e	pnto__R_e[e]  -> 		  0.00	1000.00	  0.00
 GLYCLTt2rpp	h_p[p] + glyclt_p[p]  -> h_c[c] + glyclt_c[c] 	b3603 or b2975	  0.00	   Inf	  0.00
 GUAt2pp	h_p[p] + gua_p[p]  -> h_c[c] + gua_c[c] 	b3654	  0.00	   Inf	  0.00
 HPPPNt2rpp	h_p[p] + 3hpppn_p[p]  -> h_c[c] + 3hpppn_c[c] 	b0353	  0.00	   Inf	  0.00
-EX_cit_e	cit_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gam_e	gam_e[e]  -> 		  0.00	   Inf	  0.00
-EX_inost_e	inost_e[e]  -> 		  0.00	   Inf	  0.00
-EX_mobd_e	mobd_e[e]  -> 		  0.00	   Inf	  0.00
-EX_so4_e	so4_e[e]  -> 		  0.00	   Inf	  0.00
-EX_phe__L_e	phe__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_thr__L_e	thr__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_uri_e	uri_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cit_e	cit_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gam_e	gam_e[e]  -> 		  0.00	1000.00	  0.00
+EX_inost_e	inost_e[e]  -> 		  0.00	1000.00	  0.00
+EX_mobd_e	mobd_e[e]  -> 		  0.00	1000.00	  0.00
+EX_so4_e	so4_e[e]  -> 		  0.00	1000.00	  0.00
+EX_phe__L_e	phe__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_thr__L_e	thr__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_uri_e	uri_e[e]  -> 		  0.00	1000.00	  0.00
 H2St1pp	h2s_c[c]  -> h2s_p[p] 	s0001	  0.00	   Inf	  0.00
-EX_halipa_e	halipa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cmp_e	cmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_malthx_e	malthx_e[e]  -> 		  0.00	   Inf	  0.00
-EX_csn_e	csn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_etoh_e	etoh_e[e]  -> 		  0.00	   Inf	  0.00
-EX_his__L_e	his__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_k_e	k_e[e]  -> 		  0.00	   Inf	  0.00
-EX_na1_e	na1_e[e]  -> 		  0.00	   Inf	  0.00
+EX_halipa_e	halipa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cmp_e	cmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_malthx_e	malthx_e[e]  -> 		  0.00	1000.00	  0.00
+EX_csn_e	csn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_etoh_e	etoh_e[e]  -> 		  0.00	1000.00	  0.00
+EX_his__L_e	his__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_k_e	k_e[e]  -> 		  0.00	1000.00	  0.00
+EX_na1_e	na1_e[e]  -> 		  0.00	1000.00	  0.00
 ARGORNt7pp	orn_c[c] + arg__L_p[p]  -> arg__L_c[c] + orn_p[p] 	b1605	  0.00	   Inf	  0.00
-EX_dmso_e	dmso_e[e]  -> 		  0.00	   Inf	  0.00
-EX_12ppd__S_e	12ppd__S_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pppn_e	pppn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_acgam1p_e	acgam1p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_galt_e	galt_e[e]  -> 		  0.00	   Inf	  0.00
+EX_dmso_e	dmso_e[e]  -> 		  0.00	1000.00	  0.00
+EX_12ppd__S_e	12ppd__S_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pppn_e	pppn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_acgam1p_e	acgam1p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_galt_e	galt_e[e]  -> 		  0.00	1000.00	  0.00
 CU2tex	cu2_e[e]  -> cu2_p[p] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
 FECRMUtex	h_p[p] + fecrm_un_p[p]  -> h_c[c] + fecrm_un_e[e] 		  0.00	   Inf	  0.00
 CLtex	cl_e[e]  -> cl_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_glcur1p_e	glcur1p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_thrp_e	thrp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pydxn_e	pydxn_e[e]  -> 		  0.00	   Inf	  0.00
+EX_glcur1p_e	glcur1p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_thrp_e	thrp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pydxn_e	pydxn_e[e]  -> 		  0.00	1000.00	  0.00
 Kt3pp	h_p[p] + k_c[c]  -> h_c[c] + k_p[p] 	b1216 or b3350 or b0047 or b0842	  0.00	   Inf	  0.00
-EX_cys__L_e	cys__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gsn_e	gsn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_orot_e	orot_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cys__L_e	cys__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gsn_e	gsn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_orot_e	orot_e[e]  -> 		  0.00	1000.00	  0.00
 G6Pt6_2pp	g6p_p[p] + 2 pi_c[c]  -> g6p_c[c] + 2 pi_p[p] 	b3666	  0.00	   Inf	  0.00
 PROtex	pro__L_e[e]  -> pro__L_p[p] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
 SBTtex	sbt__D_e[e]  -> sbt__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -665,29 +665,29 @@ AKGtex	akg_e[e]  -> akg_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0
 ALLTNtex	alltn_e[e]  -> alltn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ASNtex	asn__L_e[e]  -> asn__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 EX_o2_e	o2_e[e]  -> 		  0.00	  0.00	  0.00
-EX_gal_bD_e	gal_bD_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dump_e	dump_e[e]  -> 		  0.00	   Inf	  0.00
-EX_o2s_e	o2s_e[e]  -> 		  0.00	   Inf	  0.00
-EX_gal1p_e	gal1p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dcmp_e	dcmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_23ccmp_e	23ccmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_3cmp_e	3cmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_skm_e	skm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ag_e	ag_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cys__D_e	cys__D_e[e]  -> 		  0.00	   Inf	  0.00
-EX_acser_e	acser_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cu_e	cu_e[e]  -> 		  0.00	   Inf	  0.00
-EX_arbtn_e	arbtn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dopa_e	dopa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_hom__L_e	hom__L_e[e]  -> 		  0.00	   Inf	  0.00
+EX_gal_bD_e	gal_bD_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dump_e	dump_e[e]  -> 		  0.00	1000.00	  0.00
+EX_o2s_e	o2s_e[e]  -> 		  0.00	1000.00	  0.00
+EX_gal1p_e	gal1p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dcmp_e	dcmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_23ccmp_e	23ccmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_3cmp_e	3cmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_skm_e	skm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ag_e	ag_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cys__D_e	cys__D_e[e]  -> 		  0.00	1000.00	  0.00
+EX_acser_e	acser_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cu_e	cu_e[e]  -> 		  0.00	1000.00	  0.00
+EX_arbtn_e	arbtn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dopa_e	dopa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_hom__L_e	hom__L_e[e]  -> 		  0.00	1000.00	  0.00
 THRt2pp	thr__L_c[c] + h_p[p]  -> h_c[c] + thr__L_p[p] 	b0813 or b3823	  0.00	   Inf	  0.00
-EX_LalaDgluMdapDala_e	LalaDgluMdapDala_e[e]  -> 		  0.00	   Inf	  0.00
-EX_LalaDgluMdap_e	LalaDgluMdap_e[e]  -> 		  0.00	   Inf	  0.00
-EX_anhgm_e	anhgm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fald_e	fald_e[e]  -> 		  0.00	   Inf	  0.00
+EX_LalaDgluMdapDala_e	LalaDgluMdapDala_e[e]  -> 		  0.00	1000.00	  0.00
+EX_LalaDgluMdap_e	LalaDgluMdap_e[e]  -> 		  0.00	1000.00	  0.00
+EX_anhgm_e	anhgm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fald_e	fald_e[e]  -> 		  0.00	1000.00	  0.00
 TYMtex	tym_e[e]  -> tym_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_g3pe_e	g3pe_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pacald_e	pacald_e[e]  -> 		  0.00	   Inf	  0.00
+EX_g3pe_e	g3pe_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pacald_e	pacald_e[e]  -> 		  0.00	1000.00	  0.00
 CMPtex	cmp_e[e]  -> cmp_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 DUMPtex	dump_e[e]  -> dump_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 XMPtex	xmp_e[e]  -> xmp_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -697,33 +697,33 @@ ULA4Ntppi	uLa4n_c[c]  -> uLa4n_p[p] 	b2258 and b4544	  0.00	   Inf	  0.00
 FALDtex	fald_e[e]  -> fald_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 CYSDtex	cys__D_e[e]  -> cys__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 CYSDabcpp	atp_c[c] + h2o_c[c] + cys__D_p[p]  -> h_c[c] + adp_c[c] + pi_c[c] + cys__D_c[c] 		  0.00	   Inf	  0.00
-EX_acgal_e	acgal_e[e]  -> 		  0.00	   Inf	  0.00
-EX_so2_e	so2_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dms_e	dms_e[e]  -> 		  0.00	   Inf	  0.00
+EX_acgal_e	acgal_e[e]  -> 		  0.00	1000.00	  0.00
+EX_so2_e	so2_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dms_e	dms_e[e]  -> 		  0.00	1000.00	  0.00
 G3PItex	g3pi_e[e]  -> g3pi_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 G3PGtex	g3pg_e[e]  -> g3pg_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 G3PEtex	g3pe_e[e]  -> g3pe_p[p] 	b2215 or b0929 or b1377 or b0241	  0.00	   Inf	  0.00
 G3PCtex	g3pc_e[e]  -> g3pc_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_acgal1p_e	acgal1p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cyan_e	cyan_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tyrp_e	tyrp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_uacgam_e	uacgam_e[e]  -> 		  0.00	   Inf	  0.00
-EX_udpacgal_e	udpacgal_e[e]  -> 		  0.00	   Inf	  0.00
-EX_udpg_e	udpg_e[e]  -> 		  0.00	   Inf	  0.00
-EX_udpgal_e	udpgal_e[e]  -> 		  0.00	   Inf	  0.00
-EX_udpglcur_e	udpglcur_e[e]  -> 		  0.00	   Inf	  0.00
-EX_14glucan_e	14glucan_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pser__L_e	pser__L_e[e]  -> 		  0.00	   Inf	  0.00
-EX_aso3_e	aso3_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tcynt_e	tcynt_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fe3dhbzs_e	fe3dhbzs_e[e]  -> 		  0.00	   Inf	  0.00
-EX_feoxam_un_e	feoxam_un_e[e]  -> 		  0.00	   Inf	  0.00
-EX_g3pc_e	g3pc_e[e]  -> 		  0.00	   Inf	  0.00
-EX_g3pg_e	g3pg_e[e]  -> 		  0.00	   Inf	  0.00
-EX_g3pi_e	g3pi_e[e]  -> 		  0.00	   Inf	  0.00
-EX_g3ps_e	g3ps_e[e]  -> 		  0.00	   Inf	  0.00
-EX_peamn_e	peamn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_34dhpac_e	34dhpac_e[e]  -> 		  0.00	   Inf	  0.00
+EX_acgal1p_e	acgal1p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cyan_e	cyan_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tyrp_e	tyrp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_uacgam_e	uacgam_e[e]  -> 		  0.00	1000.00	  0.00
+EX_udpacgal_e	udpacgal_e[e]  -> 		  0.00	1000.00	  0.00
+EX_udpg_e	udpg_e[e]  -> 		  0.00	1000.00	  0.00
+EX_udpgal_e	udpgal_e[e]  -> 		  0.00	1000.00	  0.00
+EX_udpglcur_e	udpglcur_e[e]  -> 		  0.00	1000.00	  0.00
+EX_14glucan_e	14glucan_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pser__L_e	pser__L_e[e]  -> 		  0.00	1000.00	  0.00
+EX_aso3_e	aso3_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tcynt_e	tcynt_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fe3dhbzs_e	fe3dhbzs_e[e]  -> 		  0.00	1000.00	  0.00
+EX_feoxam_un_e	feoxam_un_e[e]  -> 		  0.00	1000.00	  0.00
+EX_g3pc_e	g3pc_e[e]  -> 		  0.00	1000.00	  0.00
+EX_g3pg_e	g3pg_e[e]  -> 		  0.00	1000.00	  0.00
+EX_g3pi_e	g3pi_e[e]  -> 		  0.00	1000.00	  0.00
+EX_g3ps_e	g3ps_e[e]  -> 		  0.00	1000.00	  0.00
+EX_peamn_e	peamn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_34dhpac_e	34dhpac_e[e]  -> 		  0.00	1000.00	  0.00
 DAMPtex	damp_e[e]  -> damp_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 DCMPtex	dcmp_e[e]  -> dcmp_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 DGMPtex	dgmp_e[e]  -> dgmp_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -739,10 +739,10 @@ MNt2pp	h_p[p] + mn2_p[p]  -> h_c[c] + mn2_c[c] 	b2392	  0.00	   Inf	  0.00
 MNtex	mn2_e[e]  -> mn2_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GAL1Ptex	gal1p_e[e]  -> gal1p_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 O2Stex	o2s_e[e]  -> o2s_p[p] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
-EX_xmp_e	xmp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_damp_e	damp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dimp_e	dimp_e[e]  -> 		  0.00	   Inf	  0.00
-EX_isetac_e	isetac_e[e]  -> 		  0.00	   Inf	  0.00
+EX_xmp_e	xmp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_damp_e	damp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dimp_e	dimp_e[e]  -> 		  0.00	1000.00	  0.00
+EX_isetac_e	isetac_e[e]  -> 		  0.00	1000.00	  0.00
 HOMt2pp	h_p[p] + hom__L_c[c]  -> h_c[c] + hom__L_p[p] 	b0813 or b3824	  0.00	   Inf	  0.00
 HOMtex	hom__L_e[e]  -> hom__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 SO2tex	so2_e[e]  -> so2_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -775,48 +775,48 @@ CLPNH161pp	clpn161_p[p] + h2o_p[p]  -> h_p[p] + pa161_p[p] + pg161_p[p] 		  0.00
 CLPNH181pp	h2o_p[p] + clpn181_p[p]  -> h_p[p] + pg181_p[p] + pa181_p[p] 		  0.00	   Inf	  0.00
 FE3HOXUtex	h_p[p] + fe3hox_un_c[c]  -> h_c[c] + fe3hox_un_p[p] 		  0.00	   Inf	  0.00
 ACGAM1PPpp	h2o_p[p] + acgam1p_p[p]  -> acgam_p[p] + pi_p[p] 		  0.00	   Inf	  0.00
-EX_dgmp_e	dgmp_e[e]  -> 		  0.00	   Inf	  0.00
+EX_dgmp_e	dgmp_e[e]  -> 		  0.00	1000.00	  0.00
 GSNt2pp	h_p[p] + gsn_p[p]  -> h_c[c] + gsn_c[c] 	b2964	  0.00	   Inf	  0.00
-EX_4hoxpacd_e	4hoxpacd_e[e]  -> 		  0.00	   Inf	  0.00
+EX_4hoxpacd_e	4hoxpacd_e[e]  -> 		  0.00	1000.00	  0.00
 GSNtex	gsn_e[e]  -> gsn_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FORtex	for_e[e]  -> for_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 D_LACt2pp	h_p[p] + lac__D_p[p]  -> h_c[c] + lac__D_c[c] 	b3603 or b2975	  0.00	   Inf	  0.00
 RIBtex	rib__D_e[e]  -> rib__D_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 THMtex	thm_e[e]  -> thm_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 XYLUtex	xylu__L_e[e]  -> xylu__L_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_manglyc_e	manglyc_e[e]  -> 		  0.00	   Inf	  0.00
+EX_manglyc_e	manglyc_e[e]  -> 		  0.00	1000.00	  0.00
 ALLtex	all__D_e[e]  -> all__D_p[p] 	b1377 or b0929 or b0241 or b2215	  0.00	   Inf	  0.00
-EX_metsox_R__L_e	metsox_R__L_e[e]  -> 		  0.00	   Inf	  0.00
+EX_metsox_R__L_e	metsox_R__L_e[e]  -> 		  0.00	1000.00	  0.00
 34dhpactex	34dhpac_e[e]  -> 34dhpac_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 MALTHXtexi	malthx_e[e]  -> malthx_p[p] 	b4036	  0.00	   Inf	  0.00
 12PPDStpp	12ppd__S_p[p]  -> 12ppd__S_c[c] 		  0.00	   Inf	  0.00
-EX_cl_e	cl_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cl_e	cl_e[e]  -> 		  0.00	1000.00	  0.00
 FE3DHBZStonex	h_p[p] + fe3dhbzs_e[e]  -> h_c[c] + fe3dhbzs_p[p] 	(b3006 and b1252 and b3005 and b0805) or (b3006 and b1252 and b3005 and b2155)	  0.00	   Inf	  0.00
 AACTOOR	o2_c[c] + aact_c[c] + h2o_c[c]  -> nh4_c[c] + mthgxl_c[c] + h2o2_c[c] 		  0.00	   Inf	  0.00
 H2tpp	h2_p[p]  -> h2_c[c] 	s0001	  0.00	   Inf	  0.00
 23DAPPAtex	23dappa_e[e]  -> 23dappa_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 FEOXAMtonex	h_p[p] + feoxam_e[e]  -> h_c[c] + feoxam_p[p] 	b0150 and b3006 and b1252 and b3005	  0.00	   Inf	  0.00
-EX_3hpppn_e	3hpppn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_man6p_e	man6p_e[e]  -> 		  0.00	   Inf	  0.00
-EX_tsul_e	tsul_e[e]  -> 		  0.00	   Inf	  0.00
+EX_3hpppn_e	3hpppn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_man6p_e	man6p_e[e]  -> 		  0.00	1000.00	  0.00
+EX_tsul_e	tsul_e[e]  -> 		  0.00	1000.00	  0.00
 PHEt2rpp	h_p[p] + phe__L_p[p]  -> h_c[c] + phe__L_c[c] 	b0576 or b0112	  0.00	   Inf	  0.00
-EX_n2o_e	n2o_e[e]  -> 		  0.00	   Inf	  0.00
-EX_maltttr_e	maltttr_e[e]  -> 		  0.00	   Inf	  0.00
+EX_n2o_e	n2o_e[e]  -> 		  0.00	1000.00	  0.00
+EX_maltttr_e	maltttr_e[e]  -> 		  0.00	1000.00	  0.00
 OXAMTC	pi_c[c] + oxur_c[c]  -> oxam_c[c] + cbp_c[c] 		  0.00	   Inf	  0.00
 UDCPPtppi	udcpp_p[p]  -> udcpp_c[c] 		  0.00	   Inf	  0.00
 MELIBt3ipp	h_p[p] + melib_c[c]  -> h_c[c] + melib_p[p] 	b1528	  0.00	   Inf	  0.00
-EX_lipoate_e	lipoate_e[e]  -> 		  0.00	   Inf	  0.00
-EX_pydx_e	pydx_e[e]  -> 		  0.00	   Inf	  0.00
-EX_g1p_e	g1p_e[e]  -> 		  0.00	   Inf	  0.00
+EX_lipoate_e	lipoate_e[e]  -> 		  0.00	1000.00	  0.00
+EX_pydx_e	pydx_e[e]  -> 		  0.00	1000.00	  0.00
+EX_g1p_e	g1p_e[e]  -> 		  0.00	1000.00	  0.00
 NAt3pp	h_p[p] + na1_c[c]  -> h_c[c] + na1_p[p] 	b0842 or b1216	  0.00	   Inf	  0.00
 DHORDfum	dhor__S_c[c] + fum_c[c]  -> orot_c[c] + succ_c[c] 		  0.00	   Inf	  0.00
 DSBGGT	dsbgox_p[p] + 2 gthrd_p[p]  -> gthox_p[p] + dsbgrd_p[p] 	b0604	  0.00	   Inf	  0.00
-DM_oxam_c	oxam_c[c]  -> 		  0.00	   Inf	  0.00
+DM_oxam_c	oxam_c[c]  -> 		  0.00	1000.00	  0.00
 PDX5PO2	nad_c[c] + pdx5p_c[c]  -> h_c[c] + pydx5p_c[c] + nadh_c[c] 		  0.00	   Inf	  0.00
 HG2t3pp	h_p[p] + hg2_c[c]  -> h_c[c] + hg2_p[p] 	b3915	  0.00	   Inf	  0.00
-EX_alaala_e	alaala_e[e]  -> 		  0.00	   Inf	  0.00
-EX_dtmp_e	dtmp_e[e]  -> 		  0.00	   Inf	  0.00
-DM_5drib_c	5drib_c[c]  -> 		  0.00	   Inf	  0.00
+EX_alaala_e	alaala_e[e]  -> 		  0.00	1000.00	  0.00
+EX_dtmp_e	dtmp_e[e]  -> 		  0.00	1000.00	  0.00
+DM_5drib_c	5drib_c[c]  -> 		  0.00	1000.00	  0.00
 MINOHPtexi	minohp_e[e]  -> minohp_p[p] 		  0.00	   Inf	  0.00
 12PPDRtpp	12ppd__R_p[p]  -> 12ppd__R_c[c] 		  0.00	   Inf	  0.00
 SO4t2pp	h_p[p] + so4_p[p]  -> h_c[c] + so4_c[c] 	b2413	  0.00	   Inf	  0.00
@@ -832,13 +832,13 @@ ACONIs	acon_T_c[c]  -> acon_C_c[c] 	s0001	  0.00	   Inf	  0.00
 F6Pt6_2pp	2 pi_c[c] + f6p_p[p]  -> f6p_c[c] + 2 pi_p[p] 	b3666	  0.00	   Inf	  0.00
 PPALtpp	ppal_c[c]  -> ppal_p[p] 		  0.00	   Inf	  0.00
 PROGLYtex	progly_e[e]  -> progly_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_progly_e	progly_e[e]  -> 		  0.00	   Inf	  0.00
+EX_progly_e	progly_e[e]  -> 		  0.00	1000.00	  0.00
 12DGR140tipp	12dgr140_p[p]  -> 12dgr140_c[c] 		  0.00	   Inf	  0.00
 12DGR160tipp	12dgr160_p[p]  -> 12dgr160_c[c] 		  0.00	   Inf	  0.00
 12DGR180tipp	12dgr180_p[p]  -> 12dgr180_c[c] 		  0.00	   Inf	  0.00
 CLPNH120pp	clpn120_p[p] + h2o_p[p]  -> h_p[p] + pa120_p[p] + pg120_p[p] 		  0.00	   Inf	  0.00
 CLPNH140pp	h2o_p[p] + clpn140_p[p]  -> h_p[p] + pg140_p[p] + pa140_p[p] 		  0.00	   Inf	  0.00
-EX_12ppd__R_e	12ppd__R_e[e]  -> 		  0.00	   Inf	  0.00
+EX_12ppd__R_e	12ppd__R_e[e]  -> 		  0.00	1000.00	  0.00
 12DGR120tipp	12dgr120_p[p]  -> 12dgr120_c[c] 		  0.00	   Inf	  0.00
 CGLYtex	cgly_e[e]  -> cgly_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 2AGPE181tipp	2agpe181_p[p]  -> 2agpe181_c[c] 	b2835	  0.00	   Inf	  0.00
@@ -846,7 +846,7 @@ CGLYtex	cgly_e[e]  -> cgly_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	
 2AGPA160tipp	2hdecg3p_p[p]  -> 2hdecg3p_c[c] 	b2835	  0.00	   Inf	  0.00
 2AGPA180tipp	2odecg3p_p[p]  -> 2odecg3p_c[c] 	b2835	  0.00	   Inf	  0.00
 2AGPA141tipp	2tdec7eg3p_p[p]  -> 2tdec7eg3p_c[c] 	b2835	  0.00	   Inf	  0.00
-EX_urate_e	urate_e[e]  -> 		  0.00	   Inf	  0.00
+EX_urate_e	urate_e[e]  -> 		  0.00	1000.00	  0.00
 2AGPE140tipp	2agpe140_p[p]  -> 2agpe140_c[c] 	b2835	  0.00	   Inf	  0.00
 2AGPE160tipp	2agpe160_p[p]  -> 2agpe160_c[c] 	b2835	  0.00	   Inf	  0.00
 2AGPE180tipp	2agpe180_p[p]  -> 2agpe180_c[c] 	b2835	  0.00	   Inf	  0.00
@@ -862,25 +862,25 @@ CGLYabcpp	atp_c[c] + cgly_p[p] + h2o_c[c]  -> h_c[c] + cgly_c[c] + adp_c[c] + pi
 CLPNH180pp	h2o_p[p] + clpn180_p[p]  -> h_p[p] + pg180_p[p] + pa180_p[p] 		  0.00	   Inf	  0.00
 12DGR161tipp	12dgr161_p[p]  -> 12dgr161_c[c] 		  0.00	   Inf	  0.00
 12DGR181tipp	12dgr181_p[p]  -> 12dgr181_c[c] 		  0.00	   Inf	  0.00
-EX_cpgn_un_e	cpgn_un_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cpgn_un_e	cpgn_un_e[e]  -> 		  0.00	1000.00	  0.00
 GTHRDtex	gthrd_e[e]  -> gthrd_p[p] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 GTHRDabc2pp	gthrd_c[c] + atp_c[c] + h2o_c[c]  -> h_c[c] + adp_c[c] + pi_c[c] + gthrd_p[p] 	b0886 and b0887	  0.00	   Inf	  0.00
 OMMBLHX3	nad_c[c] + 2 atp_c[c] + 3 h2o_c[c] + 2ommbl_c[c]  -> 3 h_c[c] + 2 adp_c[c] + 2 pi_c[c] + 2omhmbl_c[c] + nadh_c[c] 		  0.00	   Inf	  0.00
-EX_tartr__D_e	tartr__D_e[e]  -> 		  0.00	   Inf	  0.00
+EX_tartr__D_e	tartr__D_e[e]  -> 		  0.00	1000.00	  0.00
 GLYBt2pp	h_p[p] + glyb_p[p]  -> h_c[c] + glyb_c[c] 	b1801 or b4111	  0.00	   Inf	  0.00
 DSERt2pp	h_p[p] + ser__D_p[p]  -> h_c[c] + ser__D_c[c] 	b4208	  0.00	   Inf	  0.00
 ALAt4pp	na1_p[p] + ala__L_p[p]  -> ala__L_c[c] + na1_c[c] 	b0007	  0.00	   Inf	  0.00
 LYSt3pp	h_p[p] + lys__L_c[c]  -> h_c[c] + lys__L_p[p] 	b2923 or b0874	  0.00	   Inf	  0.00
-EX_tungs_e	tungs_e[e]  -> 		  0.00	   Inf	  0.00
-EX_crn__D_e	crn__D_e[e]  -> 		  0.00	   Inf	  0.00
+EX_tungs_e	tungs_e[e]  -> 		  0.00	1000.00	  0.00
+EX_crn__D_e	crn__D_e[e]  -> 		  0.00	1000.00	  0.00
 OPHHX3	nad_c[c] + 2 atp_c[c] + 2oph_c[c] + 3 h2o_c[c]  -> 3 h_c[c] + 2 adp_c[c] + 2 pi_c[c] + 2ohph_c[c] + nadh_c[c] 		  0.00	   Inf	  0.00
 CHLt2pp	h_p[p] + chol_p[p]  -> h_c[c] + chol_c[c] 	b0314 or b1801	  0.00	   Inf	  0.00
 GLYt4pp	na1_p[p] + gly_p[p]  -> gly_c[c] + na1_c[c] 	b0007	  0.00	   Inf	  0.00
 FRULYSt2pp	h_p[p] + frulys_p[p]  -> h_c[c] + frulys_c[c] 	b3370	  0.00	   Inf	  0.00
-EX_psclys_e	psclys_e[e]  -> 		  0.00	   Inf	  0.00
+EX_psclys_e	psclys_e[e]  -> 		  0.00	1000.00	  0.00
 TUNGStex	tungs_e[e]  -> tungs_p[p] 	b1377 or b0929 or b2215 or b0241	  0.00	   Inf	  0.00
 COBALT2tpp	cobalt2_p[p]  -> cobalt2_c[c] 	b3040 or b3816	  0.00	   Inf	  0.00
-DM_aacald_c	aacald_c[c]  -> 		  0.00	   Inf	  0.00
+DM_aacald_c	aacald_c[c]  -> 		  0.00	1000.00	  0.00
 ZN2tpp	zn2_p[p]  -> zn2_c[c] 	b3040	  0.00	   Inf	  0.00
 NI2tpp	ni2_p[p]  -> ni2_c[c] 	b3816	  0.00	   Inf	  0.00
 COBALT2t3pp	h_p[p] + cobalt2_c[c]  -> h_c[c] + cobalt2_p[p] 	b0752 or b3915	  0.00	   Inf	  0.00
@@ -889,7 +889,7 @@ CAt6pp	na1_p[p] + ca2_c[c]  -> ca2_p[p] + na1_c[c] 	b3196	  0.00	   Inf	  0.00
 5DGLCNt2rpp	h_p[p] + 5dglcn_p[p]  -> h_c[c] + 5dglcn_c[c] 	b4265	  0.00	   Inf	  0.00
 GALCTNt2pp	h_p[p] + galctn__D_p[p]  -> h_c[c] + galctn__D_c[c] 	b3691	  0.00	   Inf	  0.00
 GALCTNLtex	galctn__L_e[e]  -> galctn__L_p[p] 	b0929 or b2215 or b1377 or b0241	  0.00	   Inf	  0.00
-EX_galctn__L_e	galctn__L_e[e]  -> 		  0.00	   Inf	  0.00
+EX_galctn__L_e	galctn__L_e[e]  -> 		  0.00	1000.00	  0.00
 CA2t3pp	h_p[p] + ca2_c[c]  -> h_c[c] + ca2_p[p] 	b1216	  0.00	   Inf	  0.00
 ARGt3pp	arg__L_c[c] + h_p[p]  -> h_c[c] + arg__L_p[p] 	b2923	  0.00	   Inf	  0.00
 MALDtex	mal__D_e[e]  -> mal__D_p[p] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
@@ -898,7 +898,7 @@ PPAt4pp	na1_p[p] + ppa_p[p]  -> ppa_c[c] + na1_c[c] 	b1015	  0.00	   Inf	  0.00
 OROTt2_2pp	2 h_p[p] + orot_p[p]  -> 2 h_c[c] + orot_c[c] 	b3528	  0.00	   Inf	  0.00
 MALDt2_2pp	2 h_p[p] + mal__D_p[p]  -> 2 h_c[c] + mal__D_c[c] 	b3528	  0.00	   Inf	  0.00
 5DGLCNtex	5dglcn_e[e]  -> 5dglcn_p[p] 	b0929 or b1377 or b0241 or b2215	  0.00	   Inf	  0.00
-EX_5dglcn_e	5dglcn_e[e]  -> 		  0.00	   Inf	  0.00
+EX_5dglcn_e	5dglcn_e[e]  -> 		  0.00	1000.00	  0.00
 PSCLYSt2pp	h_p[p] + psclys_p[p]  -> h_c[c] + psclys_c[c] 	b3370	  0.00	   Inf	  0.00
 LYSt2pp	h_p[p] + lys__L_p[p]  -> h_c[c] + lys__L_c[c] 	b2156	  0.00	   Inf	  0.00
 GLYt2pp	h_p[p] + gly_p[p]  -> h_c[c] + gly_c[c] 	b1801 or b4208	  0.00	   Inf	  0.00
@@ -922,11 +922,11 @@ CD2tpp	cd2_p[p]  -> cd2_c[c] 	b3040	  0.00	   Inf	  0.00
 ETHAt2pp	h_p[p] + etha_p[p]  -> h_c[c] + etha_c[c] 		  0.00	   Inf	  0.00
 FE3abcpp	atp_c[c] + h2o_c[c] + fe3_p[p]  -> h_c[c] + adp_c[c] + pi_c[c] + fe3_c[c] 		  0.00	   Inf	  0.00
 CLt3_2pp	h_c[c] + 2 cl_p[p]  -> h_p[p] + 2 cl_c[c] 	b0155	  0.00	   Inf	  0.00
-EX_ppal_e	ppal_e[e]  -> 		  0.00	   Inf	  0.00
+EX_ppal_e	ppal_e[e]  -> 		  0.00	1000.00	  0.00
 MTHTHFSs	mdhdhf_c[c] + h2o_c[c]  -> mththf_c[c] 	s0001	  0.00	   Inf	  0.00
 SELGTHR	2 h_c[c] + 4 gthrd_c[c] + slnt_c[c]  -> dgslnt_c[c] + 3 h2o_c[c] + gthox_c[c] 		  0.00	   Inf	  0.00
 SELGTHR3	gslnt_c[c] + nadph_c[c]  -> gthrd_c[c] + nadp_c[c] + seln_c[c] 		  0.00	   Inf	  0.00
-EX_slnt_e	slnt_e[e]  -> 		  0.00	   Inf	  0.00
+EX_slnt_e	slnt_e[e]  -> 		  0.00	1000.00	  0.00
 CMtpp	h_p[p] + cm_p[p]  -> h_c[c] + cm_e[e] 	(b3035 and b0463 and b2470) or (b3035 and b0463 and b0462)	  0.00	   Inf	  0.00
 FUSAtpp	fusa_p[p] + h_p[p]  -> h_c[c] + fusa_e[e] 	(b3035 and b0463 and b0462) or (b3035 and b0463 and b2470)	  0.00	   Inf	  0.00
 RFAMPtex	rfamp_e[e]  -> rfamp_p[p] 	s0001	  0.00	   Inf	  0.00
@@ -948,31 +948,31 @@ S4FE4ST	4 h_c[c] + sufbcd_4fe4s_c[c]  -> sufbcd_c[c] + 4fe4s_c[c] 	b1684 and b16
 LALADGLUtex	LalaDglu_e[e]  -> LalaDglu_p[p] 	b0241 or b2215 or b1377 or b0929	  0.00	   Inf	  0.00
 LALALGLUtpp	h_p[p] + LalaLglu_p[p]  -> h_c[c] + LalaLglu_c[c] 	b4130 or b1634 or b3496 or b0709	  0.00	   Inf	  0.00
 3HPPtex	3hpp_e[e]  -> 3hpp_p[p] 	b2215 or b1377 or b0929 or b0241	  0.00	   Inf	  0.00
-EX_LalaDglu_e	LalaDglu_e[e]  -> 		  0.00	   Inf	  0.00
+EX_LalaDglu_e	LalaDglu_e[e]  -> 		  0.00	1000.00	  0.00
 CBMD	2 h_c[c] + cbm_c[c]  -> nh4_c[c] + co2_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_LalaLglu_e	LalaLglu_e[e]  -> 		  0.00	   Inf	  0.00
-EX_ttrcyc_e	ttrcyc_e[e]  -> 		  0.00	   Inf	  0.00
-EX_mincyc_e	mincyc_e[e]  -> 		  0.00	   Inf	  0.00
-DM_4crsol_c	4crsol_c[c]  -> 		  0.00	   Inf	  0.00
+EX_LalaLglu_e	LalaLglu_e[e]  -> 		  0.00	1000.00	  0.00
+EX_ttrcyc_e	ttrcyc_e[e]  -> 		  0.00	1000.00	  0.00
+EX_mincyc_e	mincyc_e[e]  -> 		  0.00	1000.00	  0.00
+DM_4crsol_c	4crsol_c[c]  -> 		  0.00	1000.00	  0.00
 FESD1s	2 h_c[c] + h2o2_c[c] + 2 4fe4s_c[c]  -> 2 fe3_c[c] + 2 h2o_c[c] + 2 3fe4s_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_doxrbcn_e	doxrbcn_e[e]  -> 		  0.00	   Inf	  0.00
-EX_fusa_e	fusa_e[e]  -> 		  0.00	   Inf	  0.00
-EX_cm_e	cm_e[e]  -> 		  0.00	   Inf	  0.00
-EX_novbcn_e	novbcn_e[e]  -> 		  0.00	   Inf	  0.00
+EX_doxrbcn_e	doxrbcn_e[e]  -> 		  0.00	1000.00	  0.00
+EX_fusa_e	fusa_e[e]  -> 		  0.00	1000.00	  0.00
+EX_cm_e	cm_e[e]  -> 		  0.00	1000.00	  0.00
+EX_novbcn_e	novbcn_e[e]  -> 		  0.00	1000.00	  0.00
 FUSAtex	fusa_e[e]  -> fusa_p[p] 	b1377 or b2215 or b0929 or b0241	  0.00	   Inf	  0.00
 NOVBCNtex	novbcn_e[e]  -> novbcn_p[p] 	s0001	  0.00	   Inf	  0.00
-EX_rfamp_e	rfamp_e[e]  -> 		  0.00	   Inf	  0.00
+EX_rfamp_e	rfamp_e[e]  -> 		  0.00	1000.00	  0.00
 QUIN2tex	quin_e[e]  -> quin_p[p] 	b0241 or b2215 or b1377 or b0929	  0.00	   Inf	  0.00
-EX_quin_e	quin_e[e]  -> 		  0.00	   Inf	  0.00
+EX_quin_e	quin_e[e]  -> 		  0.00	1000.00	  0.00
 DHPTDCs2	dhptd_c[c]  -> mdhdhf_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_3hpp_e	3hpp_e[e]  -> 		  0.00	   Inf	  0.00
-DM_mththf_c	mththf_c[c]  -> 		  0.00	   Inf	  0.00
+EX_3hpp_e	3hpp_e[e]  -> 		  0.00	1000.00	  0.00
+DM_mththf_c	mththf_c[c]  -> 		  0.00	1000.00	  0.00
 FESD2s	2 h_c[c] + 2 no_c[c] + 2 4fe4s_c[c]  -> n2o_c[c] + 2 fe3_c[c] + h2o_c[c] + 2 3fe4s_c[c] 	s0001	  0.00	   Inf	  0.00
 MEOHtrpp	meoh_p[p]  -> meoh_c[c] 	s0001	  0.00	   Inf	  0.00
 S4FE4SR	2 h_c[c] + fadh2_c[c] + sufbcd_2fe2s2_c[c]  -> sufbcd_4fe4s_c[c] + fad_c[c] 	b1681 and b1682 and b1683	  0.00	   Inf	  0.00
 SELtex	sel_e[e]  -> sel_p[p] 	b2215 or b1377 or b0929 or b0241	  0.00	   Inf	  0.00
 MEOHtex	meoh_e[e]  -> meoh_p[p] 	b2215 or b0929 or b1377 or b0241	  0.00	   Inf	  0.00
-EX_5mtr_e	5mtr_e[e]  -> 		  0.00	   Inf	  0.00
+EX_5mtr_e	5mtr_e[e]  -> 		  0.00	1000.00	  0.00
 CDGS	h_c[c] + cph4_c[c]  -> nh4_c[c] + cdg_c[c] 		  0.00	   Inf	  0.00
 5MTRtpp	h_c[c] + 5mtr_c[c]  -> 5mtr_p[p] + h_p[p] 		  0.00	   Inf	  0.00
 TTRCYCtex	ttrcyc_e[e]  -> ttrcyc_p[p] 	b1377 or b0929 or b0241 or b2215	  0.00	   Inf	  0.00
@@ -987,7 +987,7 @@ TARTRDtex	tartr__D_e[e]  -> tartr__D_p[p] 	b0241 or b1377 or b2215 or b0929	  0.
 BTNt2ipp	h_p[p] + btn_p[p]  -> h_c[c] + btn_c[c] 		  0.00	   Inf	  0.00
 BTNtex	btn_e[e]  -> btn_p[p] 	b0241 or b2215 or b1377 or b0929	  0.00	   Inf	  0.00
 ARBTtex	arbt_e[e]  -> arbt_p[p] 	b1377 or b2215 or b0929 or b0241	  0.00	   Inf	  0.00
-EX_arbt_e	arbt_e[e]  -> 		  0.00	   Inf	  0.00
+EX_arbt_e	arbt_e[e]  -> 		  0.00	1000.00	  0.00
 DMSOtpp	dmso_p[p]  -> dmso_c[c] 	s0001	  0.00	   Inf	  0.00
 PYDXtex	pydx_e[e]  -> pydx_p[p] 	b1377 or b2215 or b0929 or b0241	  0.00	   Inf	  0.00
 PYDXtpp	pydx_p[p]  -> pydx_c[c] 		  0.00	   Inf	  0.00
@@ -1024,9 +1024,9 @@ DHPStr	dhps_c[c]  -> dhps_p[p] 	b3877	  0.00	   Inf	  0.00
 SQtr	sq_p[p]  -> sq_c[c] 	b3876	  0.00	   Inf	  0.00
 DHPStex	dhps_e[e]  -> dhps_p[p] 	b3875	  0.00	   Inf	  0.00
 FMNtex	fmn_p[p]  -> fmn_e[e] 	b2215 or b0929 or b0241 or b1377	  0.00	   Inf	  0.00
-EX_dxylnt_e	dxylnt_e[e]  -> 		  0.00	   Inf	  0.00
+EX_dxylnt_e	dxylnt_e[e]  -> 		  0.00	1000.00	  0.00
 CLBtex	cellb_e[e]  -> cellb_p[p] 	b0929 or b0241 or b1377 or b2215	  0.00	   Inf	  0.00
-EX_mththf_e	mththf_e[e]  -> 		  0.00	   Inf	  0.00
+EX_mththf_e	mththf_e[e]  -> 		  0.00	1000.00	  0.00
 CHOLATEtpp	h_p[p] + cholate_c[c]  -> h_c[c] + cholate_p[p] 	b4337	  0.00	   Inf	  0.00
 4ABZGLUtr	h_p[p] + 4abzglu_p[p]  -> h_c[c] + 4abzglu_c[c] 	b1336	  0.00	   Inf	  0.00
 CYSItpp	cysi__L_c[c]  -> cysi__L_p[p] 	b3943	  0.00	   Inf	  0.00
@@ -1048,28 +1048,28 @@ FADtex	fad_p[p]  -> fad_e[e] 	b1377 or b0241 or b2215 or b0929	  0.00	   Inf	  0
 4HBZt3pp	h_p[p] + 4hbz_c[c]  -> h_c[c] + 4hbz_p[p] 	b3240 and b3241	  0.00	   Inf	  0.00
 2DGLCtex	2dglc_e[e]  -> 2dglc_p[p] 	b2215 or b1377 or b0241 or b0929	  0.00	   Inf	  0.00
 SQtex	sq_e[e]  -> sq_p[p] 	b3875	  0.00	   Inf	  0.00
-EX_dhps_e	dhps_e[e]  -> 		  0.00	   Inf	  0.00
+EX_dhps_e	dhps_e[e]  -> 		  0.00	1000.00	  0.00
 MOX	mal__L_c[c] + o2_c[c]  -> h2o2_c[c] + oaa_c[c] 		  0.00	   Inf	  0.00
 URATEtex	urate_e[e]  -> urate_p[p] 	b0929 or b2215 or b0241 or b1377	  0.00	   Inf	  0.00
-EX_cs1_e	cs1_e[e]  -> 		  0.00	   Inf	  0.00
+EX_cs1_e	cs1_e[e]  -> 		  0.00	1000.00	  0.00
 CBL1tonex	h_p[p] + cbl1_e[e]  -> h_c[c] + cbl1_p[p] 	b3006 and b1252 and b3005 and b3966	  0.00	   Inf	  0.00
 CBItonex	h_p[p] + cbi_e[e]  -> h_c[c] + cbi_p[p] 	b3006 and b1252 and b3005 and b3966	  0.00	   Inf	  0.00
-EX_mepn_e	mepn_e[e]  -> 		  0.00	   Inf	  0.00
+EX_mepn_e	mepn_e[e]  -> 		  0.00	1000.00	  0.00
 CH4t2pp	ch4_c[c]  -> ch4_p[p] 		  0.00	   Inf	  0.00
 INOSTO	o2_c[c] + inost_c[c]  -> h_c[c] + glcur_c[c] + h2o_c[c] 	b3488	  0.00	   Inf	  0.00
 Ftex	f_p[p]  -> f_e[e] 	b2215 or b0241 or b0929 or b1377	  0.00	   Inf	  0.00
 CYSItex	cysi__L_e[e]  -> cysi__L_p[p] 	b1377 or b0929 or b0241 or b2215	  0.00	   Inf	  0.00
 SERtpp	ser__L_c[c]  -> ser__L_p[p] 	b1533	  0.00	   Inf	  0.00
 DHGLYH	h_c[c] + h2o_c[c] + dhgly_c[c]  -> glx_c[c] + nh4_c[c] 	s0001	  0.00	   Inf	  0.00
-EX_sq_e	sq_e[e]  -> 		  0.00	   Inf	  0.00
+EX_sq_e	sq_e[e]  -> 		  0.00	1000.00	  0.00
 URATEtpp	h_p[p] + urate_p[p]  -> h_c[c] + urate_c[c] 	b2888	  0.00	   Inf	  0.00
 CS1tex	cs1_e[e]  -> cs1_p[p] 	b0241 or b0929 or b2215 or b1377	  0.00	   Inf	  0.00
 ADOCBLtonex	adocbl_e[e] + h_p[p]  -> h_c[c] + adocbl_p[p] 	b3006 and b1252 and b3005 and b3966	  0.00	   Inf	  0.00
 MEPNtex	mepn_e[e]  -> mepn_p[p] 	b2215 or b0929 or b0241 or b1377	  0.00	   Inf	  0.00
-EX_4abzglu_e	4abzglu_e[e]  -> 		  0.00	   Inf	  0.00
+EX_4abzglu_e	4abzglu_e[e]  -> 		  0.00	1000.00	  0.00
 4ABZGLUtex	4abzglu_e[e]  -> 4abzglu_p[p] 	b2215 or b0241 or b1377 or b0929	  0.00	   Inf	  0.00
 2HPTCOAT	2hptcoa_c[c] + h2o_c[c]  -> 2hptcl_c[c] + coa_c[c] 	b1400	  0.00	   Inf	  0.00
-EX_metglcur_e	metglcur_e[e]  -> 		  0.00	   Inf	  0.00
+EX_metglcur_e	metglcur_e[e]  -> 		  0.00	1000.00	  0.00
 VALt2rpp	val__L_p[p] + h_p[p]  -> h_c[c] + val__L_c[c] 	b0401	  0.00	   Inf	  0.00
 VALt3pp	h_p[p] + val__L_c[c]  -> h_c[c] + val__L_p[p] 	(b2683 and b2682) or b4141	  0.00	   Inf	  0.00
 MN2tipp	mn2_c[c]  -> mn2_p[p] 	b1821	  0.00	   Inf	  0.00
@@ -1079,20 +1079,21 @@ METGLCURtex	metglcur_e[e]  -> metglcur_p[p] 	b2215 or b1377 or b0241 or b0929	  
 FMNt	fmn_c[c]  -> fmn_p[p] 	b1985	  0.00	   Inf	  0.00
 AI2tex	mththf_e[e]  -> mththf_p[p] 	b0241 or b2215 or b0929 or b1377	  0.00	   Inf	  0.00
 CUt2pp	cu_c[c]  -> cu_p[p] 	b2924 or b0577 or b0465 or b3291 or b1330 or b4159 or b0808	  0.00	   Inf	  0.00
-EX_2dglc_e	2dglc_e[e]  -> 		  0.00	   Inf	  0.00
+EX_2dglc_e	2dglc_e[e]  -> 		  0.00	1000.00	  0.00
 THRt2rpp	h_p[p] + thr__L_p[p]  -> h_c[c] + thr__L_c[c] 	b3116	  0.00	   Inf	  0.00
 SERt2rpp	h_p[p] + ser__L_p[p]  -> h_c[c] + ser__L_c[c] 	b2796 or b3116	  0.00	   Inf	  0.00
 URAtpp	ura_c[c]  -> ura_p[p] 		  0.00	   Inf	  0.00
 ASPtpp	asp__L_p[p]  -> asp__L_c[c] 	b1206	  0.00	   Inf	  0.00
 FUMt1pp	fum_p[p]  -> fum_c[c] 	b1206	  0.00	   Inf	  0.00
 SUCCt1pp	succ_p[p]  -> succ_c[c] 	b1206	  0.00	   Inf	  0.00
-BIOMASS_Ec_iML1515_core_75p37M	0.000691 mn2_c[c] + 0.000223 10fthf_c[c] + 0.000223 pydx5p_c[c] + 0.253687 thr__L_c[c] + 0.000223 thmpp_c[c] + 0.000323 ni2_c[c] + 0.215792 ser__L_c[c] + 0.000223 sheme_c[c] + 0.133508 ctp_c[c] + 0.295792 arg__L_c[c] + 0.001831 nad_c[c] + 0.008675 mg2_c[c] + 0.241055 asp__L_c[c] + 0.153686 met__L_c[c] + 0.000223 amet_c[c] + 0.013013 nh4_c[c] + 0.000341 zn2_c[c] + 0.137896 tyr__L_c[c] + 0.09158 cys__L_c[c] + 75.5522 atp_c[c] + 0.000223 thf_c[c] + 0.063814 pe160_p[p] + 0.026166 dttp_c[c] + 0.056843 trp__L_c[c] + 0.343161 lys__L_c[c] + 0.027017 dctp_c[c] + 0.144104 utp_c[c] + 0.195193 k_c[c] + 0.026166 datp_c[c] + 2.5e-05 cobalt2_c[c] + 0.006715 fe2_c[c] + 0.000447 nadp_c[c] + 0.26316 glu__L_c[c] + 0.290529 ile__L_c[c] + 0.26316 gln__L_c[c] + 0.007808 fe3_c[c] + 5.5e-05 udcpdp_c[c] + 0.513689 ala__L_c[c] + 0.185265 phe__L_c[c] + 0.000223 mlthf_c[c] + 0.019456 kdo2lipid4_e[e] + 70.0288 h2o_c[c] + 0.612638 gly_c[c] + 0.000709 cu2_c[c] + 0.005205 ca2_c[c] + 0.005205 cl_c[c] + 0.013894 murein5px4p_p[p] + 0.000223 pheme_c[c] + 0.000223 2ohph_c[c] + 7e-06 mobd_c[c] + 0.094738 his__L_c[c] + 0.000223 ribflv_c[c] + 0.004338 so4_c[c] + 0.075214 pe161_p[p] + 2.6e-05 2fe2s_c[c] + 0.215096 gtp_c[c] + 2e-06 btn_c[c] + 0.423162 val__L_c[c] + 0.221055 pro__L_c[c] + 0.000576 coa_c[c] + 0.241055 asn__L_c[c] + 0.450531 leu__L_c[c] + 0.00026 4fe4s_c[c] + 0.027017 dgtp_c[c] + 0.000223 fad_c[c] + 9.8e-05 succoa_c[c]  -> 75.3772 h_c[c] + 75.3772 adp_c[c] + 75.3732 pi_c[c] + 0.773903 ppi_c[c] 		  0.00	   Inf	  1.00
+BIOMASS_Ec_iML1515_core_75p37M	0.000691 mn2_c[c] + 0.000223 10fthf_c[c] + 0.000223 pydx5p_c[c] + 0.000223 thmpp_c[c] + 0.000323 ni2_c[c] + 0.000223 sheme_c[c] + 0.133508 ctp_c[c] + 0.001831 nad_c[c] + 0.008675 mg2_c[c] + 0.000223 amet_c[c] + 0.013013 nh4_c[c] + 0.000341 zn2_c[c] + 75.5522 atp_c[c] + 0.000223 thf_c[c] + 0.063814 pe160_p[p] + 0.026166 dttp_c[c] + 0.027017 dctp_c[c] + 0.144104 utp_c[c] + 0.195193 k_c[c] + 0.026166 datp_c[c] + 2.5e-05 cobalt2_c[c] + 0.006715 fe2_c[c] + 0.000447 nadp_c[c] + 0.007808 fe3_c[c] + 5.5e-05 udcpdp_c[c] + 0.000223 mlthf_c[c] + 0.019456 kdo2lipid4_e[e] + 70.0288 h2o_c[c] + 0.000709 cu2_c[c] + 0.005205 ca2_c[c] + 0.005205 cl_c[c] + 0.013894 murein5px4p_p[p] + 0.000223 pheme_c[c] + 0.000223 2ohph_c[c] + 7e-06 mobd_c[c] + 0.000223 ribflv_c[c] + 0.004338 so4_c[c] + 0.075214 pe161_p[p] + 2.6e-05 2fe2s_c[c] + 0.215096 gtp_c[c] + 2e-06 btn_c[c] + 0.000576 coa_c[c] + 0.00026 4fe4s_c[c] + 0.027017 dgtp_c[c] + 0.000223 fad_c[c] + 9.8e-05 succoa_c[c] + protein[c]  -> 75.3772 h_c[c] + 75.3772 adp_c[c] + 75.3732 pi_c[c] + 0.773903 ppi_c[c] 		  0.00	1000.00	  1.00
 BIOMASS_Ec_iML1515_WT_75p37M	0.000223 gthrd_c[c] + 0.000658 mn2_c[c] + 7e-06 mocogdp_c[c] + 0.000223 10fthf_c[c] + 0.000223 pydx5p_c[c] + 0.000605 murein3px4p_p[p] + 0.246506 thr__L_c[c] + 0.00229 clpn161_p[p] + 0.000223 thmpp_c[c] + 0.000307 ni2_c[c] + 0.209684 ser__L_c[c] + 0.000223 adocbl_c[c] + 0.000223 sheme_c[c] + 0.129799 ctp_c[c] + 0.000279 accoa_c[c] + 0.28742 arg__L_c[c] + 0.001787 nad_c[c] + 0.008253 mg2_c[c] + 0.234232 asp__L_c[c] + 0.149336 met__L_c[c] + 0.000223 amet_c[c] + 0.001345 murein3p3p_p[p] + 0.000223 5mthf_c[c] + 0.000223 chor_c[c] + 0.000223 q8h2_c[c] + 0.012379 nh4_c[c] + 0.000324 zn2_c[c] + 0.133993 tyr__L_c[c] + 0.088988 cys__L_c[c] + 75.5522 atp_c[c] + 0.000223 thf_c[c] + 0.044164 pe160_p[p] + 0.024805 dttp_c[c] + 0.002944 clpn160_p[p] + 0.00118 clpn181_p[p] + 0.008151 colipa_e[e] + 0.017704 pe181_p[p] + 0.055234 trp__L_c[c] + 0.333448 lys__L_c[c] + 0.010599 pg160_p[p] + 0.025612 dctp_c[c] + 0.140101 utp_c[c] + 0.18569 k_c[c] + 0.024805 datp_c[c] + 0.154187 glycogen_c[c] + 2.4e-05 cobalt2_c[c] + 0.006388 fe2_c[c] + 0.000112 nadp_c[c] + 0.255712 glu__L_c[c] + 0.006744 spmd_c[c] + 0.282306 ile__L_c[c] + 0.255712 gln__L_c[c] + 0.000223 hemeO_c[c] + 0.005381 murein4p4p_p[p] + 0.004249 pg181_p[p] + 0.007428 fe3_c[c] + 5.5e-05 udcpdp_c[c] + 7e-06 mococdp_c[c] + 0.499149 ala__L_c[c] + 0.180021 phe__L_c[c] + 0.000223 mlthf_c[c] + 0.000223 2dmmql8_c[c] + 70.0288 h2o_c[c] + 0.595297 gly_c[c] + 3.1e-05 malcoa_c[c] + 0.000674 cu2_c[c] + 3e-06 lipopb_c[c] + 0.004952 ca2_c[c] + 0.005448 murein4px4p_p[p] + 0.004952 cl_c[c] + 0.000223 mql8_c[c] + 0.008244 pg161_p[p] + 0.000223 pheme_c[c] + 7e-06 mobd_c[c] + 0.092056 his__L_c[c] + 0.000223 ribflv_c[c] + 0.004126 so4_c[c] + 0.03435 pe161_p[p] + 2.5e-05 2fe2s_c[c] + 0.03327 ptrc_c[c] + 0.209121 gtp_c[c] + 2e-06 btn_c[c] + 0.411184 val__L_c[c] + 0.000335 nadph_c[c] + 0.214798 pro__L_c[c] + 0.000168 coa_c[c] + 0.234232 asn__L_c[c] + 0.437778 leu__L_c[c] + 0.000248 4fe4s_c[c] + 0.000673 murein4px4px4p_p[p] + 0.025612 dgtp_c[c] + 4.5e-05 nadh_c[c] + 0.000223 enter_c[c] + 0.000223 fad_c[c] + 9.8e-05 succoa_c[c]  -> 75.3772 h_c[c] + 75.3772 adp_c[c] + 75.3732 pi_c[c] + 0.749831 ppi_c[c] 		  0.00	   Inf	  0.00
+protein pseudoreaction	0.253673 thr__L_c[c] + 0.215776 ser__L_c[c] + 0.29577 arg__L_c[c] + 0.241034 asp__L_c[c] + 0.15368 met__L_c[c] + 0.137891 tyr__L_c[c] + 0.0915739 cys__L_c[c] + 0.0568392 trp__L_c[c] + 0.343137 lys__L_c[c] + 0.263142 glu__L_c[c] + 0.290511 ile__L_c[c] + 0.263142 gln__L_c[c] + 0.513656 ala__L_c[c] + 0.185258 phe__L_c[c] + 0.612599 gly_c[c] + 0.0947317 his__L_c[c] + 0.423132 val__L_c[c] + 0.221045 pro__L_c[c] + 0.241034 asn__L_c[c] + 0.4505 leu__L_c[c]  -> protein[c] 		  0.00	   Inf	  0.00
 EX_acgam_e_REV	 -> acgam_e[e] 		  0.00	  0.00	  0.00
 EX_cellb_e_REV	 -> cellb_e[e] 		  0.00	  0.00	  0.00
 EX_chol_e_REV	 -> chol_e[e] 		  0.00	  0.00	  0.00
-EX_pi_e_REV	 -> pi_e[e] 		  0.00	   Inf	  0.00
-EX_h_e_REV	 -> h_e[e] 		  0.00	   Inf	  0.00
+EX_pi_e_REV	 -> pi_e[e] 		  0.00	1000.00	  0.00
+EX_h_e_REV	 -> h_e[e] 		  0.00	1000.00	  0.00
 EX_ade_e_REV	 -> ade_e[e] 		  0.00	  0.00	  0.00
 EX_4abut_e_REV	 -> 4abut_e[e] 		  0.00	  0.00	  0.00
 EX_ac_e_REV	 -> ac_e[e] 		  0.00	  0.00	  0.00
@@ -1108,12 +1109,12 @@ EX_gua_e_REV	 -> gua_e[e] 		  0.00	  0.00	  0.00
 EX_met__L_e_REV	 -> met__L_e[e] 		  0.00	  0.00	  0.00
 EX_metsox_S__L_e_REV	 -> metsox_S__L_e[e] 		  0.00	  0.00	  0.00
 EX_crn_e_REV	 -> crn_e[e] 		  0.00	  0.00	  0.00
-EX_fe3_e_REV	 -> fe3_e[e] 		  0.00	   Inf	  0.00
+EX_fe3_e_REV	 -> fe3_e[e] 		  0.00	1000.00	  0.00
 EX_glcn_e_REV	 -> glcn_e[e] 		  0.00	  0.00	  0.00
 EX_gln__L_e_REV	 -> gln__L_e[e] 		  0.00	  0.00	  0.00
 EX_glyc_e_REV	 -> glyc_e[e] 		  0.00	  0.00	  0.00
 EX_man_e_REV	 -> man_e[e] 		  0.00	  0.00	  0.00
-EX_mn2_e_REV	 -> mn2_e[e] 		  0.00	   Inf	  0.00
+EX_mn2_e_REV	 -> mn2_e[e] 		  0.00	1000.00	  0.00
 EX_rib__D_e_REV	 -> rib__D_e[e] 		  0.00	  0.00	  0.00
 EX_sbt__D_e_REV	 -> sbt__D_e[e] 		  0.00	  0.00	  0.00
 EX_ura_e_REV	 -> ura_e[e] 		  0.00	  0.00	  0.00
@@ -1131,13 +1132,13 @@ EX_pyr_e_REV	 -> pyr_e[e] 		  0.00	  0.00	  0.00
 EX_succ_e_REV	 -> succ_e[e] 		  0.00	  0.00	  0.00
 EX_thymd_e_REV	 -> thymd_e[e] 		  0.00	  0.00	  0.00
 EX_tyr__L_e_REV	 -> tyr__L_e[e] 		  0.00	  0.00	  0.00
-EX_btn_e_REV	 -> btn_e[e] 		  0.00	   Inf	  0.00
+EX_btn_e_REV	 -> btn_e[e] 		  0.00	1000.00	  0.00
 EX_ptrc_e_REV	 -> ptrc_e[e] 		  0.00	  0.00	  0.00
 EX_spmd_e_REV	 -> spmd_e[e] 		  0.00	  0.00	  0.00
-EX_thym_e_REV	 -> thym_e[e] 		  0.00	   Inf	  0.00
+EX_thym_e_REV	 -> thym_e[e] 		  0.00	1000.00	  0.00
 EX_xtsn_e_REV	 -> xtsn_e[e] 		  0.00	  0.00	  0.00
-EX_fe2_e_REV	 -> fe2_e[e] 		  0.00	   Inf	  0.00
-EX_glc__D_e_REV	 -> glc__D_e[e] 		  0.00	   Inf	  0.00
+EX_fe2_e_REV	 -> fe2_e[e] 		  0.00	1000.00	  0.00
+EX_glc__D_e_REV	 -> glc__D_e[e] 		  0.00	1000.00	  0.00
 EX_alltn_e_REV	 -> alltn_e[e] 		  0.00	  0.00	  0.00
 EX_dgsn_e_REV	 -> dgsn_e[e] 		  0.00	  0.00	  0.00
 EX_arab__L_e_REV	 -> arab__L_e[e] 		  0.00	  0.00	  0.00
@@ -1150,7 +1151,7 @@ EX_gly_e_REV	 -> gly_e[e] 		  0.00	  0.00	  0.00
 EX_h2_e_REV	 -> h2_e[e] 		  0.00	  0.00	  0.00
 EX_lys__L_e_REV	 -> lys__L_e[e] 		  0.00	  0.00	  0.00
 EX_ser__L_e_REV	 -> ser__L_e[e] 		  0.00	  0.00	  0.00
-EX_thm_e_REV	 -> thm_e[e] 		  0.00	   Inf	  0.00
+EX_thm_e_REV	 -> thm_e[e] 		  0.00	1000.00	  0.00
 EX_trp__L_e_REV	 -> trp__L_e[e] 		  0.00	  0.00	  0.00
 EX_din_e_REV	 -> din_e[e] 		  0.00	  0.00	  0.00
 EX_fmn_e_REV	 -> fmn_e[e] 		  0.00	  0.00	  0.00
@@ -1159,7 +1160,7 @@ EX_acald_e_REV	 -> acald_e[e] 		  0.00	  0.00	  0.00
 EX_melib_e_REV	 -> melib_e[e] 		  0.00	  0.00	  0.00
 EX_sucr_e_REV	 -> sucr_e[e] 		  0.00	  0.00	  0.00
 EX_tre_e_REV	 -> tre_e[e] 		  0.00	  0.00	  0.00
-EX_zn2_e_REV	 -> zn2_e[e] 		  0.00	   Inf	  0.00
+EX_zn2_e_REV	 -> zn2_e[e] 		  0.00	1000.00	  0.00
 EX_tmao_e_REV	 -> tmao_e[e] 		  0.00	  0.00	  0.00
 EX_26dap__M_e_REV	 -> 26dap__M_e[e] 		  0.00	  0.00	  0.00
 EX_acnam_e_REV	 -> acnam_e[e] 		  0.00	  0.00	  0.00
@@ -1198,7 +1199,7 @@ EX_maltpt_e_REV	 -> maltpt_e[e] 		  0.00	  0.00	  0.00
 EX_glcur_e_REV	 -> glcur_e[e] 		  0.00	  0.00	  0.00
 EX_mmet_e_REV	 -> mmet_e[e] 		  0.00	  0.00	  0.00
 DM_amob_c_REV	 -> amob_c[c] 		  0.00	  0.00	  0.00
-EX_mg2_e_REV	 -> mg2_e[e] 		  0.00	   Inf	  0.00
+EX_mg2_e_REV	 -> mg2_e[e] 		  0.00	1000.00	  0.00
 EX_acac_e_REV	 -> acac_e[e] 		  0.00	  0.00	  0.00
 EX_adn_e_REV	 -> adn_e[e] 		  0.00	  0.00	  0.00
 EX_ins_e_REV	 -> ins_e[e] 		  0.00	  0.00	  0.00
@@ -1240,8 +1241,8 @@ ACALDtex_REV	acald_p[p]  -> acald_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	
 ACMANAtex_REV	acmana_p[p]  -> acmana_e[e] 	b0929 or b2215 or b0241 or b1377	  0.00	   Inf	  0.00
 SUCFUMtpp_REV	succ_p[p] + fum_c[c]  -> fum_p[p] + succ_c[c] 	b0621 or b4123 or b4138	  0.00	   Inf	  0.00
 TARTRt7pp_REV	tartr__L_c[c] + succ_p[p]  -> tartr__L_p[p] + succ_c[c] 	b3063	  0.00	   Inf	  0.00
-EX_ca2_e_REV	 -> ca2_e[e] 		  0.00	   Inf	  0.00
-EX_so3_e_REV	 -> so3_e[e] 		  0.00	   Inf	  0.00
+EX_ca2_e_REV	 -> ca2_e[e] 		  0.00	1000.00	  0.00
+EX_so3_e_REV	 -> so3_e[e] 		  0.00	1000.00	  0.00
 AKGt2rpp_REV	h_c[c] + akg_c[c]  -> h_p[p] + akg_p[p] 	b2587	  0.00	   Inf	  0.00
 EX_ascb__L_e_REV	 -> ascb__L_e[e] 		  0.00	  0.00	  0.00
 EX_ala_B_e_REV	 -> ala_B_e[e] 		  0.00	  0.00	  0.00
@@ -1316,7 +1317,7 @@ O2tex_REV	o2_p[p]  -> o2_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  
 EX_ppa_e_REV	 -> ppa_e[e] 		  0.00	  0.00	  0.00
 OCTAtex_REV	octa_p[p]  -> octa_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ORNtex_REV	orn_p[p]  -> orn_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_ni2_e_REV	 -> ni2_e[e] 		  0.00	   Inf	  0.00
+EX_ni2_e_REV	 -> ni2_e[e] 		  0.00	1000.00	  0.00
 EX_no_e_REV	 -> no_e[e] 		  0.00	  0.00	  0.00
 FUCtpp_REV	h_c[c] + fuc__L_c[c]  -> h_p[p] + fuc__L_p[p] 	b2801	  0.00	   Inf	  0.00
 CYTDt2pp_copy2_REV	h_c[c] + cytd_c[c]  -> h_p[p] + cytd_p[p] 	b2406	  0.00	   Inf	  0.00
@@ -1325,7 +1326,7 @@ RMNtex_REV	rmn_p[p]  -> rmn_e[e] 	b0929 or b0241 or b2215 or b1377	  0.00	   Inf
 EX_meoh_e_REV	 -> meoh_e[e] 		  0.00	  0.00	  0.00
 PHEtex_REV	phe__L_p[p]  -> phe__L_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 PItex_REV	pi_p[p]  -> pi_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_cu2_e_REV	 -> cu2_e[e] 		  0.00	   Inf	  0.00
+EX_cu2_e_REV	 -> cu2_e[e] 		  0.00	1000.00	  0.00
 EX_pheme_e_REV	 -> pheme_e[e] 		  0.00	  0.00	  0.00
 PNTOtex_REV	pnto__R_p[p]  -> pnto__R_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 PPPNtex_REV	pppn_p[p]  -> pppn_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -1379,7 +1380,7 @@ NMNtex_REV	nmn_p[p]  -> nmn_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf
 NO2tex_REV	no2_p[p]  -> no2_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 BUTt2rpp_REV	h_c[c] + but_c[c]  -> h_p[p] + but_p[p] 	b2223	  0.00	   Inf	  0.00
 GDPtex_REV	gdp_p[p]  -> gdp_e[e] 	b2215 or b0929 or b1377 or b0241	  0.00	   Inf	  0.00
-EX_cobalt2_e_REV	 -> cobalt2_e[e] 		  0.00	   Inf	  0.00
+EX_cobalt2_e_REV	 -> cobalt2_e[e] 		  0.00	1000.00	  0.00
 TMAtex_REV	tma_p[p]  -> tma_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 TMAOtex_REV	tmao_p[p]  -> tmao_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 TREtex_REV	tre_p[p]  -> tre_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -1519,7 +1520,7 @@ GALURt2rpp_REV	h_c[c] + galur_c[c]  -> h_p[p] + galur_p[p] 	b3093	  0.00	   Inf	
 GLCNt2rpp_REV	h_c[c] + glcn_c[c]  -> h_p[p] + glcn_p[p] 	b3415 or b4321 or b4476 or b4265	  0.00	   Inf	  0.00
 GLCRt2rpp_REV	h_c[c] + glcr_c[c]  -> h_p[p] + glcr_p[p] 	b3127 or b2789	  0.00	   Inf	  0.00
 GLCURt2rpp_REV	h_c[c] + glcur_c[c]  -> h_p[p] + glcur_p[p] 	b3909 or b3093	  0.00	   Inf	  0.00
-EX_h2o_e_REV	 -> h2o_e[e] 		  0.00	   Inf	  0.00
+EX_h2o_e_REV	 -> h2o_e[e] 		  0.00	1000.00	  0.00
 EX_ala__D_e_REV	 -> ala__D_e[e] 		  0.00	  0.00	  0.00
 XTSNtex_REV	xtsn_p[p]  -> xtsn_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 EX_hdca_e_REV	 -> hdca_e[e] 		  0.00	  0.00	  0.00
@@ -1538,7 +1539,7 @@ EX_no2_e_REV	 -> no2_e[e] 		  0.00	  0.00	  0.00
 ACACtex_REV	acac_p[p]  -> acac_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ACNAMtex_REV	acnam_p[p]  -> acnam_e[e] 	b0929 or b4311 or b2215	  0.00	   Inf	  0.00
 H2Stex_REV	h2s_p[p]  -> h2s_e[e] 	b0241 or b1377 or b2215 or b0929	  0.00	   Inf	  0.00
-EX_nh4_e_REV	 -> nh4_e[e] 		  0.00	   Inf	  0.00
+EX_nh4_e_REV	 -> nh4_e[e] 		  0.00	1000.00	  0.00
 EX_ddca_e_REV	 -> ddca_e[e] 		  0.00	  0.00	  0.00
 EX_r5p_e_REV	 -> r5p_e[e] 		  0.00	  0.00	  0.00
 EX_glyc2p_e_REV	 -> glyc2p_e[e] 		  0.00	  0.00	  0.00
@@ -1550,8 +1551,8 @@ HPPPNt2rpp_REV	h_c[c] + 3hpppn_c[c]  -> h_p[p] + 3hpppn_p[p] 	b0353	  0.00	   In
 EX_cit_e_REV	 -> cit_e[e] 		  0.00	  0.00	  0.00
 EX_gam_e_REV	 -> gam_e[e] 		  0.00	  0.00	  0.00
 EX_inost_e_REV	 -> inost_e[e] 		  0.00	  0.00	  0.00
-EX_mobd_e_REV	 -> mobd_e[e] 		  0.00	   Inf	  0.00
-EX_so4_e_REV	 -> so4_e[e] 		  0.00	   Inf	  0.00
+EX_mobd_e_REV	 -> mobd_e[e] 		  0.00	1000.00	  0.00
+EX_so4_e_REV	 -> so4_e[e] 		  0.00	1000.00	  0.00
 EX_phe__L_e_REV	 -> phe__L_e[e] 		  0.00	  0.00	  0.00
 EX_thr__L_e_REV	 -> thr__L_e[e] 		  0.00	  0.00	  0.00
 EX_uri_e_REV	 -> uri_e[e] 		  0.00	  0.00	  0.00
@@ -1561,8 +1562,8 @@ EX_malthx_e_REV	 -> malthx_e[e] 		  0.00	  0.00	  0.00
 EX_csn_e_REV	 -> csn_e[e] 		  0.00	  0.00	  0.00
 EX_etoh_e_REV	 -> etoh_e[e] 		  0.00	  0.00	  0.00
 EX_his__L_e_REV	 -> his__L_e[e] 		  0.00	  0.00	  0.00
-EX_k_e_REV	 -> k_e[e] 		  0.00	   Inf	  0.00
-EX_na1_e_REV	 -> na1_e[e] 		  0.00	   Inf	  0.00
+EX_k_e_REV	 -> k_e[e] 		  0.00	1000.00	  0.00
+EX_na1_e_REV	 -> na1_e[e] 		  0.00	1000.00	  0.00
 ARGORNt7pp_REV	arg__L_c[c] + orn_p[p]  -> orn_c[c] + arg__L_p[p] 	b1605	  0.00	   Inf	  0.00
 EX_dmso_e_REV	 -> dmso_e[e] 		  0.00	  0.00	  0.00
 EX_12ppd__S_e_REV	 -> 12ppd__S_e[e] 		  0.00	  0.00	  0.00
@@ -1582,7 +1583,7 @@ SBTtex_REV	sbt__D_p[p]  -> sbt__D_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	
 AKGtex_REV	akg_p[p]  -> akg_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ALLTNtex_REV	alltn_p[p]  -> alltn_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 ASNtex_REV	asn__L_p[p]  -> asn__L_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
-EX_o2_e_REV	 -> o2_e[e] 		  0.00	   Inf	  0.00
+EX_o2_e_REV	 -> o2_e[e] 		  0.00	1000.00	  0.00
 EX_gal_bD_e_REV	 -> gal_bD_e[e] 		  0.00	  0.00	  0.00
 EX_dump_e_REV	 -> dump_e[e] 		  0.00	  0.00	  0.00
 EX_o2s_e_REV	 -> o2s_e[e] 		  0.00	  0.00	  0.00
@@ -1594,7 +1595,7 @@ EX_skm_e_REV	 -> skm_e[e] 		  0.00	  0.00	  0.00
 EX_ag_e_REV	 -> ag_e[e] 		  0.00	  0.00	  0.00
 EX_cys__D_e_REV	 -> cys__D_e[e] 		  0.00	  0.00	  0.00
 EX_acser_e_REV	 -> acser_e[e] 		  0.00	  0.00	  0.00
-EX_cu_e_REV	 -> cu_e[e] 		  0.00	   Inf	  0.00
+EX_cu_e_REV	 -> cu_e[e] 		  0.00	1000.00	  0.00
 EX_arbtn_e_REV	 -> arbtn_e[e] 		  0.00	  0.00	  0.00
 EX_dopa_e_REV	 -> dopa_e[e] 		  0.00	  0.00	  0.00
 EX_hom__L_e_REV	 -> hom__L_e[e] 		  0.00	  0.00	  0.00
@@ -1613,7 +1614,7 @@ ANHGMtex_REV	anhgm_p[p]  -> anhgm_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	
 FALDtex_REV	fald_p[p]  -> fald_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 CYSDtex_REV	cys__D_p[p]  -> cys__D_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 EX_acgal_e_REV	 -> acgal_e[e] 		  0.00	  0.00	  0.00
-EX_so2_e_REV	 -> so2_e[e] 		  0.00	   Inf	  0.00
+EX_so2_e_REV	 -> so2_e[e] 		  0.00	1000.00	  0.00
 EX_dms_e_REV	 -> dms_e[e] 		  0.00	  0.00	  0.00
 G3PItex_REV	g3pi_p[p]  -> g3pi_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 G3PGtex_REV	g3pg_p[p]  -> g3pg_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
@@ -1676,7 +1677,7 @@ ALLtex_REV	all__D_p[p]  -> all__D_e[e] 	b1377 or b0929 or b0241 or b2215	  0.00	
 EX_metsox_R__L_e_REV	 -> metsox_R__L_e[e] 		  0.00	  0.00	  0.00
 34dhpactex_REV	34dhpac_p[p]  -> 34dhpac_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 12PPDStpp_REV	12ppd__S_c[c]  -> 12ppd__S_p[p] 		  0.00	   Inf	  0.00
-EX_cl_e_REV	 -> cl_e[e] 		  0.00	   Inf	  0.00
+EX_cl_e_REV	 -> cl_e[e] 		  0.00	1000.00	  0.00
 H2tpp_REV	h2_c[c]  -> h2_p[p] 	s0001	  0.00	   Inf	  0.00
 23DAPPAtex_REV	23dappa_p[p]  -> 23dappa_e[e] 	b1377 or b0241 or b0929 or b2215	  0.00	   Inf	  0.00
 EX_3hpppn_e_REV	 -> 3hpppn_e[e] 		  0.00	  0.00	  0.00
