@@ -1,9 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [model,GAM] = scaleBioMass(model,Ptot,GAM,scale_comp)
+%scaleBioMass
+%
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
-% Ivan Domenzain.   Last update: 2019-06-02
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,GAM] = scaleBioMass(model,Ptot,GAM,scale_comp)
+% Ivan Domenzain.   Last update: 2019-10-20
+
 if nargin < 3
     GAM = [];
 end

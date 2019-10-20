@@ -7,7 +7,8 @@ function [X,P,C,L,D,R] = sumBioMass(model)
 %
 % Usage: [X,P] = sumBioMass(model)
 %
-% Ivan Domenzain. Last update: 2019-10-16
+% Ivan Domenzain. Last update: 2019-10-20
+
 
 %Components of biomass:
 %        id         MW [g/mol]  class     name
@@ -33,7 +34,7 @@ comps = {'ala__L_c'	  89.09      'P'     % A     Alanine         ala
          'tyr__L_c'  181.19      'P'     % Y     Tyrosine        tyr
                                      };     
 %Get main fractions:
-[P,X] = getFraction(model,comps,'P',0,'protein');
+[P,X] = getFraction(model,comps,'P',0);
 %Add up any remaining components:
 bioPos = find(strcmp(model.rxnNames,'biomass pseudoreaction'));
 for i = 1:length(model.mets)
@@ -49,9 +50,9 @@ D = 0;
 R = 0;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [F,X] = getFraction(model,comps,compType,X,component)
+function [F,X] = getFraction(model,comps,compType,X)
 %Define pseudoreaction name:
-rxnName = [component ' pseudoreaction'];
+rxnName = 'protein pseudoreaction';
 %Add up fraction:
 fractionPos = strcmpi(model.rxnNames,rxnName);
 comps = comps(strcmp(comps(:,3),compType),:);

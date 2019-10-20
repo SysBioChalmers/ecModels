@@ -1,9 +1,8 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [model,modifications] = manualModificationsGeneral(model)
-%
-% Ivan Domenzain.      Last edited: 2019-06-06
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [model,modifications] = manualModifications(model)
+%manualModifications
+%
+% Ivan Domenzain.      Last edited: 2019-10-20
+
 %Read manual data:
 fID    = fopen('../../databases/manual_data.txt');
 data   = textscan(fID,'%s %s %s %s %f %f','delimiter','\t');
@@ -13,6 +12,7 @@ SpActs = data{6};
 fclose(fID);
 modifications{1} = [];
 modifications{2} = [];
+disp('Improving model with curated data')
 for i = 1:length(model.rxns)
     reaction = model.rxnNames{i};
     %Find set of proteins present in rxn:

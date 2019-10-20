@@ -1,6 +1,5 @@
-function [model,name,version] = preprocessModel(model,name,version)
-%preprocessModel
-%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [model,name,version] = preprocessModel(model,name,version)
 % Performs some preliminary modifications to the metabolic model & 
 % retrieves the model's name & version (either by parsing model.id or by
 % asking the user to input it), if they were not already defined.
@@ -13,8 +12,9 @@ function [model,name,version] = preprocessModel(model,name,version)
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2019-10-15
-
+% Ivan Domenzain.      Last edited: 2019-06-02
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [model,name,version] = preprocessModel(model,name,version)
 if nargin< 3
     version = [];
     if nargin <2
@@ -32,32 +32,12 @@ index = find(strcmpi(model.rxnNames,'O2 exchange'));
 model.rxnNames{index}  = 'oxygen exchange';
 index = find(strcmpi(model.rxnNames,'CO2 exchange'));
 model.rxnNames{index}  = 'carbon dioxide exchange';
-%Introduce biomass pseudometabolite
-pseudoMet              = 'biomass';
-metsToAdd.metNames     = {pseudoMet};
-metsToAdd.mets         = {pseudoMet};
-metsToAdd.compartments = {'c'};
-metsToAdd.b            = 0;
-model                  = addMets(model,metsToAdd,false);
-%Incorporate biomass pseudometabolite into biomass pseudoreaction
-model.S(end,index)     = 1;
-%Introduce exchange reaction for biomass and set as an objective
-[model,bioIndex]       = addExchRxn(model,pseudoMet,true);
-model.c(bioIndex)      = 1;
 %standardize gene-rxn associations
 [grRules,rxnGeneMat] = standardizeGrRules(model);
 model.grRules        = grRules;
 model.rxnGeneMat     = rxnGeneMat;
 %Convert biomass reaction to a modular type
 model = createPoolsForBiomass(model);
-%Remove gene rules from pseudoreactions (if any):
-for i = 1:length(model.rxns)
-    if endsWith(model.rxnNames{i},' pseudoreaction')
-        model.grRules{i}      = '';
-        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
-    end
-end
-
 %Open all exchange rxns
 [~, exchange]      = getExchangeRxns(model);
 model.ub(exchange) = +1000;
@@ -81,7 +61,6 @@ for i = 1:length(model.rxns)
     end
 end
 
-%Add name and version as model fields
 if isfield(model,'name')
     name = model.name;
 end
@@ -106,7 +85,6 @@ end
 while isempty(version)
     version = input('Please enter the model version: ','s');
 end
-
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = createPoolsForBiomass(model)
@@ -137,10 +115,9 @@ model                  = addMets(model,metsToAdd,false);
 %find biomass reaction components
 BmPos   = find(strcmpi(model.rxnNames,'biomass pseudoreaction'));
 BmMets  = find(model.S(:,BmPos));
-%Keep the index for "cytosolic biomass only"
-Biomass = find(strcmpi(model.metNames,'biomass'),1);
+%Biomass = find(strcmpi(model.metNames,'biomass'));
 %Add biomass as a product in biomass pseudoreaction
-model.S(Biomass,BmPos) = 1;
+%model.S(Biomass,BmPos) = 1;
 for i=1:length(Pseudometabolites)
     PmetIndex = find(strcmpi(model.metNames,Pseudometabolites{i}));
     %Identify pool components in metNames
@@ -154,7 +131,7 @@ for i=1:length(Pseudometabolites)
     %add pseudoreaction for pool production
     rxnName = [Pseudometabolites{i} ' pseudoreaction'];
     rxnsToAdd.rxnNames     = {rxnName};
-    rxnsToAdd.rxns         = {[Pseudometabolites{i} '_pool']};
+    rxnsToAdd.rxns         = {rxnName};
     rxnsToAdd.mets         = [model.mets(BmMets(IA)); Pseudometabolites{i}];
     rxnsToAdd.stoichCoeffs = coefficients;
     rxnsToAdd.stoichCoeffs = [rxnsToAdd.stoichCoeffs, 1];
@@ -164,27 +141,6 @@ for i=1:length(Pseudometabolites)
     model = addRxns(model,rxnsToAdd,1,'',false);
 end
 model.S = sparse(model.S);
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [newModel,rxnIndex] = addExchRxn(model,metName,metFlag)
-
-if metFlag
-    %Add extracellular metabolite
-    metsToAdd.mets          = {[metName '_[e]']};
-    metsToAdd.metNames      = {metName};
-    metsToAdd.compartments  = {'e'};
-    model                   = addMets(model,metsToAdd);
-end
-%Add transport and exchange reactions
-rxnsToAdd.rxns      = {[metName ' transport'];[metName ' exchange']};
-rxnsToAdd.rxnNames  = rxnsToAdd.rxns;
-rxnsToAdd.equations = {[metName '[c] => ' metName '[e]'];[metName '[e] => ']};
-rxnsToAdd.c         = [0 1];
-rxnsToAdd.lb        = [0 0];
-rxnsToAdd.ub        = [1000 1000];
-model.c(:)          = 0;
-newModel            = addRxns(model,rxnsToAdd,3);
-rxnIndex            = find(strcmpi(model.rxns,[metName ' exchange']));
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = modifyMetNames(model)
