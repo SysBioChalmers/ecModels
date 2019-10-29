@@ -11,6 +11,8 @@ system = GECKO_VM()
 
 
 def matlab_command(gem):
+    # Temporary fix, use the devel branch of GECKO
+    sp.check_call(['git', 'checkout', '-b', 'devel'], cwd=(system.install_dir('GECKO')))
     cmd = """
         model = load('{}');
         model = model.model;
@@ -21,7 +23,7 @@ def matlab_command(gem):
         quit
         """.format(system.mat_file_location(gem), gem, system.version(gem))
     print(cmd)
-    output = sp.check_call(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO') + 'geckomat'))
+    output = sp.check_call(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO') + 'geckomat'))
     return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
@@ -63,7 +65,7 @@ for gem in system.gems():
     git_version = system.git_tag(gem)
     if system.HAS_CHANGES or git_version != old_version:
         if system.HAS_CHANGES:
-            l.warning('System config has changed, running GECKO on {} {}'.format(gem, git_version))
+            l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, git_version))
         else:
             l.warning('{} changed from {} to {}'.format(gem, old_version, git_version))
 
@@ -72,6 +74,7 @@ for gem in system.gems():
         system.save_config()
 
         setup_and_run_GECKO(gem)
+
         l.info('Reverting changes on config file made for {}, proceeding to next gem'.format(gem))
         system.version(gem, old_version)
         system.save_config()

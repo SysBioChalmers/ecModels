@@ -86,7 +86,7 @@ class GECKO_VM:
 
     def check_dependencies(self):
         # Check Matlab version
-        cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nojvm -nosplash -nodesktop -r', '"disp(version); quit"'])
+        cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"disp(version); quit"'])
         m_version = ' '.join(cmd.decode('utf-8').split()[-3:-1])
         if m_version != self.version('MATLAB'):
             self.HAS_CHANGES = True
