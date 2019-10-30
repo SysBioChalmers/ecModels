@@ -14,6 +14,7 @@ def matlab_command(gem):
     # Temporary fix, use the devel branch of GECKO
     sp.check_call(['git', 'checkout', '-b', 'devel'], cwd=(system.install_dir('GECKO')))
     cmd = """
+        cd geckomat
         model = load('{}');
         model = model.model;
         modelname = '{}';
@@ -23,7 +24,7 @@ def matlab_command(gem):
         quit
         """.format(system.mat_file_location(gem), gem, system.version(gem))
     print(cmd)
-    output = sp.check_call(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO') + 'geckomat'))
+    output = sp.check_call(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO')))
     return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
