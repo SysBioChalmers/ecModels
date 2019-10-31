@@ -37,7 +37,7 @@ def setup_and_run_GECKO(gem):
         # Merge databases folder if it exists
         sp.check_call(['cp', '-Rf', system.databases(gem), system.install_dir('GECKO') + 'databases'])
         # Rm the currently stored ecYeastGEM in the models directory
-        system.cleanup('GECKO', 'models')
+        # system.cleanup('GECKO', 'models')
     else:
         l.critical('Expected folders for {} are missing, check:\n\t{}\n\t{}'.format(gem, system.scripts(gem), system.databases(gem)))
         return
