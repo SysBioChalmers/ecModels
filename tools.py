@@ -22,7 +22,7 @@ class GECKO_VM:
 
     HAS_CHANGES = False
     config = ConfigParser()
-    JENKINS_WORKSPACE = getcwd()
+    JENKINS_WORKSPACE = getcwd() + "/"
 
     def __init__(self):
         self.config.read(CONFIGFILE)
@@ -79,7 +79,7 @@ class GECKO_VM:
         try:
             # If nothing was addded (no changes) the commit will exit with an error so we can delete the branch
             sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
-            l.critical('WILL PUSH AND PR')
+            l.critical('Will push and create PR')
             # Create PR and also push
             sp.check_call(['hub', 'pull-request', '--no-edit', '-b', PR_TARGET, '-p'])
         except sp.CalledProcessError:
