@@ -6,9 +6,11 @@ pipeline {
 //        branch 'develop'
 //      }
       steps {
-        sh '''
-          python3 run.py
+        withCredentials([string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')]) {
+          sh '''
+            python3 run.py
           '''
+        }
       }
     }
   }
