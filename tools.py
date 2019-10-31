@@ -3,6 +3,8 @@ import subprocess as sp
 from sys import exit
 import errno
 import logging
+from os import getcwd
+
 
 # Constants
 CONFIGFILE = 'config.ini'
@@ -10,7 +12,7 @@ URL = 'url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
 DBSDIR = 'databases'
-PR_TARGET = 'develop'
+PR_TARGET = 'devel'
 
 l = logging.getLogger(__name__)
 
@@ -20,6 +22,7 @@ class GECKO_VM:
 
     HAS_CHANGES = False
     config = ConfigParser()
+    JENKINS_WORKSPACE = getcwd()
 
     def __init__(self):
         self.config.read(CONFIGFILE)
@@ -77,8 +80,8 @@ class GECKO_VM:
             # If nothing was addded (no changes) the commit will exit with an error so we can delete the branch
             sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('WILL PUSH AND PR')
-            # sp.check_call(['git', 'push', '--set-upstream', 'origin', self.__branch_name(gem)])
-            # sp.check_call(['git', 'request-pull', self.__branch_name(gem), self.config['BASE'][URL], PR_TARGET])
+            # Create PR and also push
+            sp.check_call(['hub', 'pull-request', '--no-edit', '-b', PR_TARGET, '-p'])
         except sp.CalledProcessError:
             l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporrary branch'.format(gem, self.version(gem)))
             sp.check_call(['git', 'checkout', PR_TARGET], stdout=sp.DEVNULL, stderr=sp.STDOUT)
