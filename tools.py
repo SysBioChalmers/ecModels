@@ -3,7 +3,7 @@ import subprocess as sp
 from sys import exit
 import errno
 import logging
-from os import getcwd
+from os import getcwd, environ
 
 
 # Constants
@@ -82,12 +82,13 @@ class GECKO_VM:
             l.critical('Will push and create PR')
             # Create PR and also push
             pr_filename = "/tmp/githubpr"
-            with (pr_filename, "w") as f:
+            with open(pr_filename, "w") as f:
                 f.write("update {} based on {}\n".format(gem, self.version(gem)))
                 f.write(matlab_output)
-            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', PR_TARGET, '-p'])
+            my_env = environ.copy()
+            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', PR_TARGET, '-p'], env=my_env)
         except sp.CalledProcessError:
-            l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporrary branch'.format(gem, self.version(gem)))
+            l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporary branch'.format(gem, self.version(gem)))
             sp.check_call(['git', 'checkout', PR_TARGET], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             sp.check_call(['git', 'branch', '-D', self.__branch_name(gem)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
