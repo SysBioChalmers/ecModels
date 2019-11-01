@@ -25,7 +25,7 @@ def matlab_command(gem):
         quit
         """.format(system.mat_file_location(gem), gem, system.version(gem), system.JENKINS_WORKSPACE)
     print(cmd)
-    output = sp.check_call(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO')))
+    output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO')))
     return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
@@ -45,12 +45,12 @@ def setup_and_run_GECKO(gem):
 
     system.git_checkout(gem)
     l.info('Running MATLAB command')
-    l.info(matlab_command(gem))
+    matlab_output = matlab_command(gem)
 
     l.info('Copying resulting model files from the GECKO output folder into the current repository')
     sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'model/ .'])
     # TODO
-    system.git_add_and_pr(gem)
+    system.git_add_and_pr(gem, matlab_output)
     system.cleanup('GECKO')
 
 

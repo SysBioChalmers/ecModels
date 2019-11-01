@@ -73,7 +73,7 @@ class GECKO_VM:
     def git_checkout(self, gem):
         sp.check_call(['git', 'checkout', '-B', self.__branch_name(gem)])
 
-    def git_add_and_pr(self, gem):
+    def git_add_and_pr(self, gem, matlab_output):
         sp.check_call(['git', 'add', gem])
         sp.check_call(['git', 'add', 'config.ini'])
         try:
@@ -81,7 +81,11 @@ class GECKO_VM:
             sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('Will push and create PR')
             # Create PR and also push
-            sp.check_call(['hub', 'pull-request', '--no-edit', '-b', PR_TARGET, '-p'])
+            pr_filename = "/tmp/githubpr"
+            with (pr_filename, "w") as f:
+                f.write("update {} based on {}\n".format(gem, self.version(gem)))
+                f.write(matlab_output)
+            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', PR_TARGET, '-p'])
         except sp.CalledProcessError:
             l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporrary branch'.format(gem, self.version(gem)))
             sp.check_call(['git', 'checkout', PR_TARGET], stdout=sp.DEVNULL, stderr=sp.STDOUT)
