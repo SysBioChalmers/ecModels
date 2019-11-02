@@ -12,7 +12,6 @@ URL = 'url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
 DBSDIR = 'databases'
-PR_TARGET = 'devel'
 
 l = logging.getLogger(__name__)
 
@@ -62,6 +61,9 @@ class GECKO_VM:
     def mat_file_location(self, gem):
         return self.install_dir(gem) + "/ModelFiles/mat/" + self.config[gem]['mat_filename']
 
+    def pr_target(self):
+        return self.config['BASE']['pull_request_target']
+
     def git_clone(self, section):
         sp.check_call(['git', 'clone', '--depth=1', self.config[section][URL], self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
@@ -86,10 +88,10 @@ class GECKO_VM:
                 f.write("update {} based on {}\n\n".format(gem, self.version(gem)))
                 f.write(matlab_output)
             my_env = environ.copy()
-            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', PR_TARGET, '-p'], env=my_env)
+            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
         except sp.CalledProcessError:
-            l.warning('While upgrading {} to {} no changes were detected; checking out develop and deleting temporary branch'.format(gem, self.version(gem)))
-            sp.check_call(['git', 'checkout', PR_TARGET], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            l.warning('While upgrading {} to {} no changes were detected; checking out {} and deleting temporary branch'.format(gem, self.version(gem), self.pr_target()))
+            sp.check_call(['git', 'checkout', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             sp.check_call(['git', 'branch', '-D', self.__branch_name(gem)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
