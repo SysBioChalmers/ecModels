@@ -92,7 +92,7 @@ class GECKO_VM:
             my_env = environ.copy()
             sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target()], env=my_env)
         except sp.CalledProcessError:
-            l.warning('While upgrading {} to {} no changes were detected; checking out {} and deleting temporary branch'.format(gem, self.version(gem), self.pr_target()))
+            l.warning('While upgrading {} to {} no changes were detected, checking out {}'.format(gem, self.version(gem), self.pr_target()))
             sp.check_call(['git', 'checkout', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
