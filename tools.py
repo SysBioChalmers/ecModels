@@ -93,7 +93,7 @@ class GECKO_VM:
             sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
         except sp.CalledProcessError:
             l.warning('While upgrading {} to {} no changes were detected, checking out {}'.format(gem, self.version(gem), self.pr_target()))
-            sp.check_call(['git', 'checkout', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_call(['git', 'checkout', '-f', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
         # Check Matlab version
