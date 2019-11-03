@@ -4,6 +4,8 @@ from sys import exit
 import errno
 import logging
 from os import getcwd, environ
+import time
+import datetime
 
 
 # Constants
@@ -88,11 +90,10 @@ class GECKO_VM:
                 f.write("update {} based on {}\n\n".format(gem, self.version(gem)))
                 f.write(matlab_output)
             my_env = environ.copy()
-            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target()], env=my_env)
         except sp.CalledProcessError:
             l.warning('While upgrading {} to {} no changes were detected; checking out {} and deleting temporary branch'.format(gem, self.version(gem), self.pr_target()))
             sp.check_call(['git', 'checkout', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
-            sp.check_call(['git', 'branch', '-D', self.__branch_name(gem)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
         # Check Matlab version
@@ -133,4 +134,6 @@ class GECKO_VM:
             self.config.write(configfile)
 
     def __branch_name(self, gem):
-        return 'update/{}/{}'.format(gem, self.version(gem))
+        time_seconds = time.time()
+        timestamp = datetime.datetime.fromtimestamp(time_seconds).strftime('%Y-%m-%d-%H-%M-%S')
+        return 'update/{}/{}/{}'.format(gem, self.version(gem), timestamp)
