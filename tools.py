@@ -82,7 +82,7 @@ class GECKO_VM:
         sp.check_call(['git', 'add', 'config.ini'])
         try:
             # If nothing was addded (no changes) the commit will exit with an error so we can delete the branch
-            sp.check_call(['git', 'commit', '-m', '"chore: update {} based on {}"'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_call(['git', 'commit', '-m', 'chore: update {} based on {}'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('Will push and create PR')
             # Create PR and also push
             pr_filename = "/tmp/githubpr"
@@ -92,7 +92,9 @@ class GECKO_VM:
             my_env = environ.copy()
             sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
         except sp.CalledProcessError:
-            l.warning('While upgrading {} to {} no changes were detected, checking out {}'.format(gem, self.version(gem), self.pr_target()))
+            l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
+        finally:
+            l.info('Checking out {}'.format(gem, self.version(gem), self.pr_target()))
             sp.check_call(['git', 'checkout', '-f', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
