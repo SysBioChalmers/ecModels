@@ -94,7 +94,7 @@ class GECKO_VM:
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
         finally:
-            l.info('Checking out {}'.format(gem, self.version(gem), self.pr_target()))
+            l.info('Checking out {}'.format(self.pr_target()))
             sp.check_call(['git', 'checkout', '-f', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
