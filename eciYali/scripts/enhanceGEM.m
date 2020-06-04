@@ -50,7 +50,7 @@ ecModel                 = readKcatData(model_data,kcats);
 [ecModel,modifications] = manualModifications(ecModel);
 
 %For a functional model, save upper bounds as +1000:
-model.ub(isinf(model.ub)) = 1000;
+ecModel.ub(isinf(ecModel.ub)) = 1000;
 
 %For ready to simulate model, modify bounds to minimal media:
 cd ../kcat_sensitivity_analysis
