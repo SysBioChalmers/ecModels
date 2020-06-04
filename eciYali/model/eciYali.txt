@@ -890,9 +890,9 @@ y300079	m1652[mm]  -> glyc[c] 		  0.00	   Inf	  0.00
 y300080	m1803[e]  -> 		  0.00	   Inf	  0.00
 y300081	m1826[e]  -> 		  0.00	   Inf	  0.00
 y300082	m1824[e]  -> 		  0.00	   Inf	  0.00
-carbohydrate pseudoreaction	0.4068 chtn[c] + 0.0032 tre[c] + 0.4415 13BDglcn[c] + 0.1104 mannan[c]  -> carbohydrate[c] 		  0.00	   Inf	  0.00
-RNA pseudoreaction	0.0757 amp[c] + 0.0578 cmp[c] + 0.093 gmp[c] + 0.0623 ump[c]  -> RNA[c] 		  0.00	   Inf	  0.00
-DNA pseudoreaction	0.0383 damp[c] + 0.0377 dcmp[c] + 0.0377 dgmp[c] + 0.0383 dtmp[c]  -> DNA[c] 		  0.00	   Inf	  0.00
+carbohydrate_pseudoreaction	0.4068 chtn[c] + 0.0032 tre[c] + 0.4415 13BDglcn[c] + 0.1104 mannan[c]  -> carbohydrate[c] 		  0.00	   Inf	  0.00
+RNA_pseudoreaction	0.0757 amp[c] + 0.0578 cmp[c] + 0.093 gmp[c] + 0.0623 ump[c]  -> RNA[c] 		  0.00	   Inf	  0.00
+DNA_pseudoreaction	0.0383 damp[c] + 0.0377 dcmp[c] + 0.0377 dgmp[c] + 0.0383 dtmp[c]  -> DNA[c] 		  0.00	   Inf	  0.00
 xPOOL_AC_EM_REV	0.951 m567[erm]  -> 0.003 ddcacoa[erm] + 0.002 tdcoa[erm] + 0.19 pmtcoa[erm] + 0.042 stcoa[erm] + 0.515 ocdce9coa[erm] + 0.199 m1731[erm] 		  0.00	   Inf	  0.00
 xPOOL_AC_LP_REV	0.951 m570[lp]  -> 0.003 ddcacoa[lp] + 0.002 tdcoa[lp] + 0.19 pmtcoa[lp] + 0.042 stcoa[lp] + 0.515 ocdce9coa[lp] + 0.199 m1735[lp] 		  0.00	   Inf	  0.00
 xPOOL_AC_MM_REV	0.951 m790[mm]  -> 0.515 ocdce9coa[mm] + 0.199 m1743[mm] + 0.003 m1738[mm] + 0.002 m1739[mm] + 0.19 m1741[mm] + 0.042 m1742[mm] 		  0.00	   Inf	  0.00

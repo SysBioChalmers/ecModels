@@ -132,7 +132,7 @@ for i=1:length(Pseudometabolites)
     %add pseudoreaction for pool production
     rxnName = [Pseudometabolites{i} ' pseudoreaction'];
     rxnsToAdd.rxnNames     = {rxnName};
-    rxnsToAdd.rxns         = {rxnName};
+    rxnsToAdd.rxns         = strrep({rxnName},' ','_');
     rxnsToAdd.mets         = [model.mets(BmMets(IA)); Pseudometabolites{i}];
     rxnsToAdd.stoichCoeffs = coefficients;
     rxnsToAdd.stoichCoeffs = [rxnsToAdd.stoichCoeffs, 1];
