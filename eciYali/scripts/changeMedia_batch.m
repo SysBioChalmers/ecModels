@@ -27,7 +27,7 @@ end
 protIndex = find(contains(model.rxnNames,'prot_'));
 exchange  = setdiff(exchange,protIndex);
 %First allow any exchange (uptakes and secretions)
-model.ub(exchange) = Inf;
+model.ub(exchange) = +1000;
 %Then block all uptakes
 uptakes            = exchange(find(contains(rxnIDs,'_REV')));
 model.ub(uptakes)  = 0;
@@ -66,7 +66,7 @@ end
 for i = 1:N
     model.ub(pos(i)) = flux(i);
 end
-model.ub(find(model.c)) = Inf;
+model.ub(find(model.c)) = +1000;
 %Allow uptake of essential components
 model = setParam(model, 'ub', 'y001654_REV', +1000);      % ammonium exchange
 model = setParam(model, 'ub', 'EX_h2o_e_REV', +1000);     % water exchange
