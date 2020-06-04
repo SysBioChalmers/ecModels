@@ -18,6 +18,23 @@ model.lb(4) = 0.7;
 org_name = 'yarrowia lipolytica';
 mkdir (['../models/' name])
 
+%Take out underscores from gene ids (better coverage in GECKO):
+model.genes = strrep(model.genes,'YALI0_','YALI0');
+
+% Remove compartment redundancy in metabolite ids/names (TODO: fix this in the RAVEN wrapper):
+for i = 1:length(model.comps)
+    comp = model.comps{i};
+    model.mets = strrep(model.mets,['_' comp '[' comp ']'],['[' comp ']']);
+    model.metNames = strrep(model.metNames,[' [' model.compNames{i} ']'],'');
+end
+
+%Convert model to RAVEN for easier visualization later on:
+format short e
+if isfield(model,'rules')
+    initCobraToolbox
+    model = ravenCobraWrapper(model);
+end
+
 %Remove blocked rxns + correct model.rev:
 cd change_model
 [model,name,version] = preprocessModel(model);
@@ -32,21 +49,24 @@ cd ../change_model
 ecModel                 = readKcatData(model_data,kcats);
 [ecModel,modifications] = manualModifications(ecModel);
 
-%Constrain model to batch conditions:
-cd ../limit_proteins
-sigma    = 0.5;      
-Ptot     = sumProtein(model);
-gR_exp   = 0.278;     %[g/gDw h] Max batch gRate on minimal glucose media (CHASSY measurements)
-c_source = 'D-glucose exchange (reversible)'; %Rxn name for the glucose uptake reaction
+%For a functional model, save upper bounds as +1000:
+model.ub(isinf(model.ub)) = 1000;
 
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gR_exp,modifications,name);
-disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
+%For ready to simulate model, modify bounds to minimal media:
+cd ../kcat_sensitivity_analysis
+[ecModel,~] = changeMedia_batch(ecModel,'D-glucose exchange (reversible)','Min',+1);
+
+%Put back in underscores in gene ids (for visualization in caffeine):
+ecModel = ravenCobraWrapper(ecModel);
+ecModel.genes = strrep(ecModel.genes,'YALI0','YALI0_');
+ecModel = ravenCobraWrapper(ecModel);
 
 %Save output models:
 cd ../../models
 ecModel = saveECmodel(ecModel,toolbox,name,version);
-ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../geckomat
+
+ecModel_batch = [];
 
 end
 

@@ -4,12 +4,12 @@
 %
 
 %Clone the necessary repos:
-git('clone https://github.com/SysBioChalmers/GECKO.git')
-git('clone https://github.com/SysBioChalmers/Yarrowia_lipolytica_W29-GEM.git')
+git('clone https://github.com/SysBioChalmers/GECKO.git --branch v1.3.5')
+git('clone https://github.com/BenjaSanchez/notebooks.git')
 
-%Load kmar model:
-model    = load('Yarrowia_lipolytica_W29-GEM/ModelFiles/mat/iYali.mat');
-model    = model.model;
+%Load iyali model:
+model = readCbModel('notebooks/caffeine-fix-yarrowia/iYali-model.xml');
+
 modelVer = model.description(strfind(model.description,'_v')+1:end);
 
 %Replace scripts in GECKO:
@@ -27,8 +27,6 @@ cd ../..
 %Move model files:
 rmdir('model', 's')
 movefile GECKO/models/eciYali model
-save('model/eciYali.mat','ecModel')
-save('model/eciYali_batch.mat','ecModel_batch')
 
 %Save associated versions:
 fid = fopen('dependencies.txt','wt');
@@ -38,7 +36,7 @@ fclose(fid);
 
 %Remove the cloned repos:
  rmdir('GECKO', 's')
- rmdir('Yarrowia_lipolytica_W29-GEM', 's')
+ rmdir('notebooks', 's')
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function replaceFiles(fileType,path)
 fileNames = dir(fileType);

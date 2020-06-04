@@ -60,7 +60,7 @@ if nargin < 4   %Limited protein
            flux(22:25) = c;
        end
     end
-    flux(1) = Inf;
+    flux(1) = +1000;
 end
 %Fix values as UBs:
 for i = 1:N
@@ -68,22 +68,22 @@ for i = 1:N
 end
 model.ub(find(model.c)) = Inf;
 %Allow uptake of essential components
-model = setParam(model, 'ub', 'y001654_REV', Inf); % 'ammonium exchange';
-model = setParam(model, 'ub', 'y002100_REV', Inf); % 'water exchange' ;
-model = setParam(model, 'ub', 'y001861_REV', Inf); % 'iron(2+) exchange';
-model = setParam(model, 'ub', 'y001992_REV', Inf); % 'oxygen exchange';
-model = setParam(model, 'ub', 'y002005_REV', Inf); % 'phosphate exchange';
-model = setParam(model, 'ub', 'y002060_REV', Inf); % 'sulphate exchange';
-model = setParam(model, 'ub', 'y001832_REV', Inf); % 'H+ exchange' ;
-model = setParam(model, 'ub', 'y001671_REV', Inf); % Biotin . exchange
-model = setParam(model, 'ub', 'y001548_REV', Inf); % pantothenate exchange
-model = setParam(model, 'ub', 'y001967_REV', Inf); % Niconitate exchange
-model = setParam(model, 'ub', 'y001947_REV', Inf); % Myo-inositol
-model = setParam(model, 'ub', 'y002067_REV', Inf); % Thiamin (1+) exchange
-model = setParam(model, 'ub', 'y002028_REV', Inf); % Pyridoxine exchange
-model = setParam(model, 'ub', 'y001604_REV', Inf); % Aminobenzoic acid
+model = setParam(model, 'ub', 'y001654_REV', +1000);      % ammonium exchange
+model = setParam(model, 'ub', 'EX_h2o_e_REV', +1000);     % water exchange
+model = setParam(model, 'ub', 'EX_fe2_e_REV', +1000);      % iron(2+) exchange
+model = setParam(model, 'ub', 'EX_o2_e_REV', +1000);     % oxygen exchange
+model = setParam(model, 'ub', 'EX_pi_e_REV', +1000);      % phosphate exchange
+model = setParam(model, 'ub', 'EX_so4_e_REV', +1000);     % sulphate exchange
+model = setParam(model, 'ub', 'EX_h_e_REV', +1000);       % H+ exchange
+model = setParam(model, 'ub', 'EX_btn_e_REV', +1000);     % Biotin exchange
+model = setParam(model, 'ub', 'EX_pnto__R_e_REV', +1000); % pantothenate exchange
+model = setParam(model, 'ub', 'EX_nac_e_REV', +1000);     % Niconitate exchange
+model = setParam(model, 'ub', 'EX_inost_e_REV', +1000);   % Myo-inositol exchange
+model = setParam(model, 'ub', 'EX_thm_e_REV', +1000);     % Thiamin (1+) exchange
+model = setParam(model, 'ub', 'y002028_REV', +1000);      % Pyridoxine exchange
+model = setParam(model, 'ub', 'EX_4abz_e_REV', +1000);    % Aminobenzoic acid
 %Block bicarbonate uptake
-model = setParam(model, 'ub', 'y001663', 0); % 'bicarbonate uptake' ;
+model = setParam(model, 'ub', 'y001663', 0);            % bicarbonate uptake
 
 
 end
