@@ -15,8 +15,8 @@ IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
 DBSDIR = 'databases'
 
+logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
-
 
 class GECKO_VM:
     """Interact with configuration variables."""
@@ -100,9 +100,8 @@ class GECKO_VM:
     def check_dependencies(self):
         # Check Matlab version
         cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"disp(version); quit"'])
-        m_version = ' '.join(cmd.decode('utf-8').split()[-2:-1])
+        m_version = ' '.join(cmd.decode('utf-8').split()[-1:]).replace('(','').replace(')','')
         if m_version != self.version('MATLAB'):
-            self.HAS_CHANGES = True
             l.warning('MATLAB changed from {} to {}'.format(self.version('MATLAB'), m_version))
             self.version('MATLAB', m_version)
         else:

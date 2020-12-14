@@ -1,0 +1,25 @@
+name: automation
+
+on:
+  push:
+    branches:
+      - feat/auto-run
+
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: self-hosted
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+    - name: Clone repository
+      run: |
+        rm -rf latest-ecModels
+        git clone https://github.com/MetabolicAtlas/ecModels latest-ecModels
+
+    - name: Run the pipeline
+      run: |
+        cd latest-ecModels
+        python3 run.py
