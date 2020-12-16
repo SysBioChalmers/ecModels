@@ -1,0 +1,2 @@
+GECKO	v1.1.1-490-g9fa91f6
+ecHumanGEM	1.5.0
