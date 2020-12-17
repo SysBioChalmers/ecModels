@@ -13,7 +13,6 @@ CONFIGFILE = 'config.ini'
 URL = 'url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
-DBSDIR = 'databases'
 
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
@@ -56,9 +55,6 @@ class GECKO_VM:
 
     def scripts(self, gem):
         return '{}/{}'.format(gem, SCRIPTSDIR)
-
-    def databases(self, gem):
-        return '{}/{}'.format(gem, DBSDIR)
 
     def mat_file_location(self, gem):
         return self.install_dir(gem) + "/model/" + self.config[gem]['mat_filename']

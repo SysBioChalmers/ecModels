@@ -30,16 +30,14 @@ def matlab_command(gem):
 
 def setup_and_run_GECKO(gem):
     system.git_clone('GECKO')
-    if os.path.exists(system.scripts(gem)) and os.path.exists(system.databases(gem)):
+    if os.path.exists(system.scripts(gem)):
         # Merge scripts folder if it exists
         sp.check_call(['cp', '-Rf', system.scripts(gem), system.install_dir('GECKO') + 'scripts'])
-        # Merge databases folder if it exists
-        sp.check_call(['cp', '-Rf', system.databases(gem), system.install_dir('GECKO') + 'databases'])
         # Rm the currently stored ecYeastGEM in the models directory
         system.cleanup('GECKO', 'models/' + gem)
         sp.check_call(['mkdir', system.install_dir('GECKO') + 'models/' + gem])
     else:
-        l.critical('Expected folders for {} are missing, check:\n\t{}\n\t{}'.format(gem, system.scripts(gem), system.databases(gem)))
+        l.critical('Expected folders for {} are missing, check:\n\t{}'.format(gem, system.scripts(gem)))
         return
 
     system.git_checkout(gem)
