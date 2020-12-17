@@ -38,6 +38,7 @@ cd ../..
 %Move model files:
 rmdir('model', 's')
 movefile GECKO/models/ecYeastGEM model
+USE ABSOLUTE PATH or CD
 save('model/ecYeastGEM.mat','ecModel')
 save('model/ecYeastGEM_batch.mat','ecModel_batch')
 
