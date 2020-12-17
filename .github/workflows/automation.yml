@@ -10,8 +10,6 @@ on:
 jobs:
   pipeline:
     runs-on: self-hosted
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - name: Clone repository

@@ -61,7 +61,7 @@ class GECKO_VM:
         return '{}/{}'.format(gem, DBSDIR)
 
     def mat_file_location(self, gem):
-        return self.install_dir(gem) + "/ModelFiles/mat/" + self.config[gem]['mat_filename']
+        return self.install_dir(gem) + "/model/" + self.config[gem]['mat_filename']
 
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
