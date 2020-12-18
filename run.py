@@ -1,4 +1,4 @@
-from tools import GECKO_VM
+import tools
 import subprocess as sp
 from sys import exit
 import logging
@@ -7,14 +7,14 @@ import os
 
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
-system = GECKO_VM()
+system = tools.GECKO_VM()
 
 
 def matlab_command(gem):
     # Temporary fix, use the devel branch of GECKO
-    # sp.check_call(['git', 'checkout', '-b', 'feat/ecModels-jenkins'], cwd=(system.install_dir('GECKO')))
+    # sp.check_call(['git', 'checkout', '-b', 'feat/ecModels-jenkins'], cwd`=(system.install_dir('GECKO')))
     cmd = """
-        cd geckomat
+        cd {}geckomat
         model = load('{}');
         model = model.model;
         modelname = '{}';
@@ -23,22 +23,31 @@ def matlab_command(gem):
         save([modelname '/' modelname '.mat']','ecModel');
         save([modelname '/' modelname '_batch.mat'], 'ecModel_batch');
         quit
-        """.format(system.mat_file_location(gem), gem, system.version(gem))
+        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), gem, system.version(gem))
     l.info(cmd)
-    output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)], cwd=(system.install_dir('GECKO')))
+    output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
     return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
     system.git_clone('GECKO')
-    if os.path.exists(system.scripts(gem)):
-        # Merge scripts folder if it exists
-        sp.check_call(['cp', '-Rf', system.scripts(gem), system.install_dir('GECKO') + 'scripts'])
-        # Rm the currently stored ecYeastGEM in the models directory
-        system.cleanup('GECKO', 'models/' + gem)
-        sp.check_call(['mkdir', system.install_dir('GECKO') + 'models/' + gem])
-    else:
-        l.critical('Expected folders for {} are missing, check:\n\t{}'.format(gem, system.scripts(gem)))
-        return
+    l.info('Merge scripts folder if it exists')
+    cmd = """
+        fileNames = dir('{}');
+        for i = 1:length(fileNames)
+            fileName = fileNames(i).name;
+            if ~strncmp(fileName, '.', 1) 
+                fullName   = ['{}/' fileName];
+                GECKO_path = dir(['{}/**/' fileName]);
+                GECKO_path = GECKO_path.folder;
+                copyfile(fullName,GECKO_path)
+            end
+        end
+    """.format(system.scripts(gem), system.scripts(gem), system.install_dir('GECKO'))
+    l.info(cmd)
+    output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
+    l.info(output.decode('utf-8'))
+    system.cleanup('GECKO', 'models/' + gem)
+    sp.check_call(['mkdir', system.install_dir('GECKO') + 'models/' + gem])
 
     system.git_checkout(gem)
     l.info('Running MATLAB command')
