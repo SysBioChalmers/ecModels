@@ -12,7 +12,7 @@ system = tools.GECKO_VM()
 
 def matlab_command(gem):
     # Temporary fix, use the devel branch of GECKO
-    # sp.check_call(['git', 'checkout', '-b', 'feat/ecModels-jenkins'], cwd`=(system.install_dir('GECKO')))
+    sp.check_call(['git', 'checkout', '-b', 'feat/allowEmpty_protAbundance_file'], cwd=system.install_dir('GECKO'))
     cmd = """
         cd {}geckomat
         model = load('{}');
