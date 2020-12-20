@@ -37,7 +37,7 @@ def setup_and_run_GECKO(gem):
             fileName = fileNames(i).name;
             if ~strncmp(fileName, '.', 1) 
                 fullName   = ['{}/' fileName];
-                GECKO_path = dir(['{}/**/' fileName]);
+                GECKO_path = dir(['{}**/' fileName]);
                 GECKO_path = GECKO_path.folder;
                 copyfile(fullName,GECKO_path)
             end
