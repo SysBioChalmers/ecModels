@@ -10,7 +10,7 @@ on:
 jobs:
   pipeline:
     runs-on: self-hosted
-    timeout-minutes: 720
+    timeout-minutes: 1200
 
     steps:
     - name: Clone repository
