@@ -16,14 +16,14 @@ def matlab_command(gem):
     cmd = """
         cd {}geckomat
         model = load('{}');
-        model = model.ihuman;
+        model = model.{};
         modelname = '{}';
         [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname, '{}');
         cd ../models
         save([modelname '/' modelname '.mat']','ecModel');
         save([modelname '/' modelname '_batch.mat'], 'ecModel_batch');
         quit
-        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), gem, system.version(gem))
+        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), system.mat_model(gem), gem, system.version(gem))
     l.info(cmd)
     output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
     return output.decode('utf-8')
