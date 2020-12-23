@@ -12,18 +12,18 @@ system = tools.GECKO_VM()
 
 def matlab_command(gem):
     # Temporary fix, use the devel branch of GECKO
-    # sp.check_call(['git', 'checkout', '-b', 'feat/ecModels-jenkins'], cwd`=(system.install_dir('GECKO')))
+    sp.check_call(['git', 'checkout', '-b', 'feat/allowEmpty_protAbundance_file'], cwd=system.install_dir('GECKO'))
     cmd = """
         cd {}geckomat
         model = load('{}');
-        model = model.model;
+        model = model.{};
         modelname = '{}';
         [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname, '{}');
         cd ../models
         save([modelname '/' modelname '.mat']','ecModel');
         save([modelname '/' modelname '_batch.mat'], 'ecModel_batch');
         quit
-        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), gem, system.version(gem))
+        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), system.mat_model(gem), gem, system.version(gem))
     l.info(cmd)
     output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
     return output.decode('utf-8')
@@ -37,7 +37,7 @@ def setup_and_run_GECKO(gem):
             fileName = fileNames(i).name;
             if ~strncmp(fileName, '.', 1) 
                 fullName   = ['{}/' fileName];
-                GECKO_path = dir(['{}/**/' fileName]);
+                GECKO_path = dir(['{}**/' fileName]);
                 GECKO_path = GECKO_path.folder;
                 copyfile(fullName,GECKO_path)
             end
@@ -54,7 +54,7 @@ def setup_and_run_GECKO(gem):
     matlab_output = matlab_command(gem)
     l.info(matlab_output)
     l.info('Copying resulting model files from the GECKO output folder into the current repository')
-    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'models/' + gem, system.JENKINS_WORKSPACE + gem + '/model/ '])
+    sp.check_call(['cp', '-Rf', system.install_dir('GECKO') + 'models/' + gem + '/.', system.JENKINS_WORKSPACE + gem + '/model/'])
     system.git_add_and_pr(gem, matlab_output)
     system.cleanup('GECKO')
 

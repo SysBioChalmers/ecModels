@@ -59,6 +59,9 @@ class GECKO_VM:
     def mat_file_location(self, gem):
         return self.install_dir(gem) + self.config[gem]['mat_filename']
 
+    def mat_model(self, gem):
+        return self.config[gem]['mat_model']
+
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
