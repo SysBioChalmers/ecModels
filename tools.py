@@ -65,8 +65,8 @@ class GECKO_VM:
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section):
-        sp.check_call(['git', 'clone', '--depth=1', self.config[section][URL], self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+    def git_clone(self, section, branch='master'):
+        sp.check_call(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def git_tag(self, thing):
         cmd = sp.Popen(['git', 'describe', '--tags'], cwd=self.install_dir(thing), stdout=sp.PIPE)
