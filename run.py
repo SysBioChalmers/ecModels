@@ -27,7 +27,7 @@ def matlab_command(gem):
     return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
-    system.git_clone('GECKO', 'fix/remove-met-notes')
+    system.git_clone('GECKO', system.config['GECKO']['branch'])
     l.info('Merge scripts folder if it exists')
     cmd = """
         fileNames = dir('{}');
