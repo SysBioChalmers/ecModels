@@ -3,7 +3,7 @@ name: automation
 on:
   push:
     branches:
-      - feat/kmarx
+      - feat/updated-models
 
   workflow_dispatch:
 
@@ -21,5 +21,5 @@ jobs:
     - name: Run the pipeline
       run: |
         cd latest-ecModels
-        git checkout feat/kmarx
+        git checkout feat/updated-models
         python3 run.py

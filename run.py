@@ -64,18 +64,16 @@ system.check_dependencies()
 # Run GECKO wherever needed
 for gem in system.gems():
     system.cleanup(gem)
-    # TODO clone or download
-    system.git_clone(gem)
+    new_version = system.download(gem)
     old_version = system.version(gem)
-    git_version = system.git_tag(gem)
     if system.HAS_CHANGES or git_version != old_version:
         if system.HAS_CHANGES:
-            l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, git_version))
+            l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, new_version))
         else:
-            l.warning('{} changed from {} to {}'.format(gem, old_version, git_version))
+            l.warning('{} changed from {} to {}'.format(gem, old_version, new_version))
 
         l.info('Going to run GECKO on {}, saving config file before running'.format(gem))
-        system.version(gem, git_version)
+        system.version(gem, new_version)
         system.save_config()
 
         setup_and_run_GECKO(gem)
