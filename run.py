@@ -14,7 +14,7 @@ def matlab_command(gem):
     cmd = """
         cd {}geckomat
         model = load('{}');
-        model = model.{};
+        model = model{};
         modelname = '{}';
         [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname, '{}');
         cd ../models
