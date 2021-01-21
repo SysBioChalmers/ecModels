@@ -9,6 +9,8 @@ model            = removeRxns(model,'r_1913_REV');
 modifications{1} = [];
 modifications{2} = [];
 
+fprintf('Improving model with curated data...')
+
 for i = 1:length(model.rxns)
     reaction = model.rxnNames{i};
     %Find set of proteins present in rxn:
@@ -44,8 +46,11 @@ for i = 1:length(model.rxns)
             end
         end
     end
-    disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+    if rem(i,100) == 0 || i == length(model.rxns)
+        fprintf('.')
+    end
 end
+fprintf(' Done!\n')
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %model = otherChanges(model);
 % Remove repeated reactions (2017-01-16):
