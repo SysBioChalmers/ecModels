@@ -1,13 +1,10 @@
 function [model,modifications] = manualModifications(model)
-% manualModifications
-%
-% Ivan Domenzain.      Last edited: 2020-11-30
-
-
+fprintf('Improving model with curated data...')
 modifications = [];
 [grRules,rxnGeneMat] = standardizeGrRules(model);
 model.grRules        = grRules;
 model.rxnGeneMat     = rxnGeneMat;
+fprintf(' Done!\n')
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Remove repeated reactions (2017-01-16):
 rem_rxn = false(size(model.rxns));

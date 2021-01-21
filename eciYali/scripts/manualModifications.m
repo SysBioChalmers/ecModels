@@ -1,10 +1,5 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = manualModifications(model)
-%
-% Benjamin J. Sanchez. Last edited: 2017-10-29
-% Ivan Domenzain.      Last edited: 2018-01-24
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [model,modifications] = manualModifications(model)
+fprintf('Improving model with curated data...')
 %Remove reversible growth
 model            = removeRxns(model,'y002111_REV');
 modifications{1} = [];
@@ -39,8 +34,11 @@ for i = 1:length(model.rxns)
             model.S(int_pos(j),i) = newValue;
         end
     end
-    disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+    if rem(i,100) == 0 || i == length(model.rxns)
+        fprintf('.')
+    end
 end
+fprintf(' Done!\n')
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %model = otherChanges(model);
 % Remove repeated reactions (2017-01-16):
