@@ -2,8 +2,10 @@ name: automation
 
 on:
   push:
-    branches:
-      - feat/updated-models
+    branches-ignore:
+      - 'master'
+      - 'main'
+      - 'update/**'
 
   workflow_dispatch:
 
@@ -13,13 +15,12 @@ jobs:
     timeout-minutes: 1200
 
     steps:
-    - name: Clone repository
+    - name: Clone repository on current branch
       run: |
-        rm -rf latest-ecModels
-        git clone https://github.com/MetabolicAtlas/ecModels latest-ecModels
+        rm -rf *
+        git clone https://github.com/MetabolicAtlas/ecModels --depth 1 --branch ${GITHUB_REF#refs/heads/} latest-ecModels
 
     - name: Run the pipeline
       run: |
         cd latest-ecModels
-        git checkout feat/updated-models
         python3 run.py
