@@ -3,7 +3,7 @@ import subprocess as sp
 from sys import exit
 import errno
 import logging
-from os import getcwd, environ
+from os import getcwd, environ, mkdir
 import time
 import datetime
 
@@ -11,6 +11,7 @@ import datetime
 # Constants
 CONFIGFILE = 'config.ini'
 URL = 'url'
+DURL = 'download_url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
 
@@ -59,11 +60,25 @@ class GECKO_VM:
     def mat_file_location(self, gem):
         return self.install_dir(gem) + self.config[gem]['mat_filename']
 
+    def mat_model(self, gem):
+        return self.config[gem]['mat_model']
+
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section):
-        sp.check_call(['git', 'clone', '--depth=1', self.config[section][URL], self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+    def git_clone(self, section, branch='master'):
+        sp.check_call(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+
+    def download(self, gem):
+        if self.config[gem][DURL]:
+            mkdir(self.install_dir(gem))
+            sp.check_call(['curl', self.config[gem][DURL] , '-O'], cwd=self.install_dir(gem), stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            time_seconds = time.time()
+            timestamp = datetime.datetime.fromtimestamp(time_seconds).strftime('%Y-%m-%d-%H-%M')
+            return timestamp
+        else:
+            self.git_clone(gem)
+            return self.git_tag(gem)
 
     def git_tag(self, thing):
         cmd = sp.Popen(['git', 'describe', '--tags'], cwd=self.install_dir(thing), stdout=sp.PIPE)

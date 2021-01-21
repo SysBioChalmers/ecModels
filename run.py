@@ -11,25 +11,23 @@ system = tools.GECKO_VM()
 
 
 def matlab_command(gem):
-    # Temporary fix, use the devel branch of GECKO
-    sp.check_call(['git', 'checkout', '-b', 'feat/allowEmpty_protAbundance_file'], cwd=system.install_dir('GECKO'))
     cmd = """
         cd {}geckomat
         model = load('{}');
-        model = model.model;
+        model = model{};
         modelname = '{}';
         [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname, '{}');
         cd ../models
         save([modelname '/' modelname '.mat']','ecModel');
         save([modelname '/' modelname '_batch.mat'], 'ecModel_batch');
         quit
-        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), gem, system.version(gem))
+        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), system.mat_model(gem), gem, system.version(gem))
     l.info(cmd)
     output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
     return output.decode('utf-8')
 
 def setup_and_run_GECKO(gem):
-    system.git_clone('GECKO')
+    system.git_clone('GECKO', system.config['GECKO']['branch'])
     l.info('Merge scripts folder if it exists')
     cmd = """
         fileNames = dir('{}');
@@ -37,7 +35,7 @@ def setup_and_run_GECKO(gem):
             fileName = fileNames(i).name;
             if ~strncmp(fileName, '.', 1) 
                 fullName   = ['{}/' fileName];
-                GECKO_path = dir(['{}/**/' fileName]);
+                GECKO_path = dir(['{}**/' fileName]);
                 GECKO_path = GECKO_path.folder;
                 copyfile(fullName,GECKO_path)
             end
@@ -66,18 +64,16 @@ system.check_dependencies()
 # Run GECKO wherever needed
 for gem in system.gems():
     system.cleanup(gem)
-    # TODO clone or download
-    system.git_clone(gem)
+    new_version = system.download(gem)
     old_version = system.version(gem)
-    git_version = system.git_tag(gem)
     if system.HAS_CHANGES or git_version != old_version:
         if system.HAS_CHANGES:
-            l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, git_version))
+            l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, new_version))
         else:
-            l.warning('{} changed from {} to {}'.format(gem, old_version, git_version))
+            l.warning('{} changed from {} to {}'.format(gem, old_version, new_version))
 
         l.info('Going to run GECKO on {}, saving config file before running'.format(gem))
-        system.version(gem, git_version)
+        system.version(gem, new_version)
         system.save_config()
 
         setup_and_run_GECKO(gem)
