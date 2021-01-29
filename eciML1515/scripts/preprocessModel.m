@@ -15,7 +15,7 @@
 % Ivan Domenzain.      Last edited: 2019-06-02
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [model,name,modelVer] = preprocessModel(model,name,modelVer)
-
+model = ravenCobraWrapper(model);
 %Modify some metNames for compatibility with substrate names in the BRENDA
 %kinetic data file
 model = modifyMetNames(model);
