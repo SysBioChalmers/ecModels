@@ -36,7 +36,10 @@ comps = {'ala__L_c'	  89.09      'P'     % A     Alanine         ala
 %Get main fractions:
 [P,X] = getFraction(model,comps,'P',0);
 %Add up any remaining components:
-bioPos = find(strcmp(model.rxnNames,'biomass pseudoreaction'));
+cd ..
+parameters = getModelParameters;
+cd limit_proteins
+bioPos = strcmp(model.rxns,parameters.bioRxn);
 for i = 1:length(model.mets)
     pos = strcmp(comps(:,1),model.mets{i});
     if sum(pos) == 1
