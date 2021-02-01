@@ -24,18 +24,19 @@ fP = Ptot/Pbase;
 if scale_comp
 	model = rescalePseudoReaction(model,parameters.bio_comp{1},fP);
 end
-%Change GAM:
-xr_pos = strcmp(model.rxns,parameters.bioRxn);
-for i = 1:length(model.mets)
-    S_ix  = model.S(i,xr_pos);
-    isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
-    if S_ix ~= 0 && isGAM
+%Retrieve GAM from biomass pseudoreaction
+if isempty(GAM)
+    xr_pos  = strcmp(model.rxns,parameters.bioRxn);
+    S_ix    = find(model.S(:,xr_pos));
+    bioMets = model.metNames(S_ix);
+    index   = S_ix(strcmpi(bioMets,'ATP'));
+    if S_ix ~= 0 & ~isempty(index)
         GAMpol = 0;
         if isfield(parameters,'pol_cost')
             cost   = parameters.pol_cost;
             GAMpol = Ptot*cost(1) + Ctot*cost(2) + R*cost(3) + D*cost(4);
         end
-        model.S(i,xr_pos) = sign(S_ix)*(GAM + GAMpol);
+        GAM = abs(model.S(index,xr_pos))+GAMpol;
     end
 end
 end
