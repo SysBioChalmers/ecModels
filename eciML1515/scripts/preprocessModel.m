@@ -14,13 +14,8 @@
 %
 % Ivan Domenzain.      Last edited: 2019-06-02
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,name,version] = preprocessModel(model,name,version)
-if nargin< 3
-    version = [];
-    if nargin <2
-        name = [];
-    end
-end
+function [model,name,modelVer] = preprocessModel(model,name,modelVer)
+model = ravenCobraWrapper(model);
 %Modify some metNames for compatibility with substrate names in the BRENDA
 %kinetic data file
 model = modifyMetNames(model);
@@ -32,6 +27,15 @@ index = find(strcmpi(model.rxnNames,'O2 exchange'));
 model.rxnNames{index}  = 'oxygen exchange';
 index = find(strcmpi(model.rxnNames,'CO2 exchange'));
 model.rxnNames{index}  = 'carbon dioxide exchange';
+
+%Remove gene rules from pseudoreactions (if any):
+for i = 1:length(model.rxns)
+    if endsWith(model.rxnNames{i},' pseudoreaction')
+        model.grRules{i}      = '';
+        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
+    end
+end
+
 %standardize gene-rxn associations
 [grRules,rxnGeneMat] = standardizeGrRules(model);
 model.grRules        = grRules;
@@ -61,19 +65,15 @@ for i = 1:length(model.rxns)
     end
 end
 
-if isfield(model,'name')
-    name = model.name;
-end
-if isfield(model,'version')
-    version = model.version;
-end
-if isempty(name) && isempty(version) && isfield(model,'id')
+if isfield(model,'id')
     try
         id = strsplit(model.id,'_v');
-        if length(id) == 2
-            name    = id{1};
-            name    = ['ec' upper(name(1)) name(2:end)];
-            version = id{2};
+        if isempty(name)
+            name = id{1};
+            name = ['ec' name];
+        end
+        if isempty(modelVer)
+            modelVer = id{2};
         end
     catch
         disp('Not possible to parse name & version. Input manually')
@@ -82,8 +82,8 @@ end
 while isempty(name)
     name = input('Please enter the desired ecModel name: ','s');
 end
-while isempty(version)
-    version = input('Please enter the model version: ','s');
+while isempty(modelVer)
+    modelVer = '1.0';
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

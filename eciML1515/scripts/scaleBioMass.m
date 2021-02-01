@@ -12,21 +12,31 @@ end
 if nargin < 4
     scale_comp = true;
 end
+%Get biomass pseudoreaction ID and biomass components pseudoreactions names
+cd ..
+parameters = getModelParameters;
+cd limit_proteins
+
 [~,Pbase,~,~,~,~] = sumBioMass(model);
 %Compute rescaling fractions:
 fP = Ptot/Pbase;
 %Change compositions:
 if scale_comp
-    model = rescalePseudoReaction(model,'protein',fP);
+	model = rescalePseudoReaction(model,parameters.bio_comp{1},fP);
 end
-%Fit GAM if not available:
+%Retrieve GAM from biomass pseudoreaction
 if isempty(GAM)
-    xr_pos  = strcmp(model.rxnNames,'biomass pseudoreaction');
+    xr_pos  = strcmp(model.rxns,parameters.bioRxn);
     S_ix    = find(model.S(:,xr_pos));
     bioMets = model.metNames(S_ix);
     index   = S_ix(strcmpi(bioMets,'ATP'));
-    if ~isempty(index)
-        GAM = abs(model.S(index,xr_pos));
+    if S_ix ~= 0 & ~isempty(index)
+        GAMpol = 0;
+        if isfield(parameters,'pol_cost')
+            cost   = parameters.pol_cost;
+            GAMpol = Ptot*cost(1) + Ctot*cost(2) + R*cost(3) + D*cost(4);
+        end
+        GAM = abs(model.S(index,xr_pos))+GAMpol;
     end
 end
 end
@@ -44,4 +54,3 @@ if sum(rxnPos) == 1
     end
 end
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

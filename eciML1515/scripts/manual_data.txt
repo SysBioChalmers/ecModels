@@ -1,0 +1,37 @@
+rxns	rxnNames	grRules	EC number	kcat (1/s)	S.A. (µmol/min/mg)
+GLCptsppNo1	D-glucose transport via PEP:Pyr PTS (periplasm)	b2415 and b1101 and b2416 and b2417	EC2.7.1.199; EC2.7.3.9		27
+GLCptsppNo2	D-glucose transport via PEP:Pyr PTS (periplasm)	b2417 and b1621 and b2415 and b2416	EC2.7.1.208; EC2.7.3.9		27
+GLCptsppNo3	D-glucose transport via PEP:Pyr PTS (periplasm)	b1817 and b2415 and b1819 and b1818 and b2416	EC2.7.1.191; EC2.7.3.9		27
+PGINo1	Glucose-6-phosphate isomerase	b4025	EC5.3.1.9		69
+PFKNo1	Phosphofructokinase	b3916	EC2.7.1.11	62	197
+PFKNo2	Phosphofructokinase	b1723	EC2.7.1.11	62	197
+FBANo1	Fructose-bisphosphate aldolase	b2925	EC4.1.2.13	14.2	24
+FBANo2	Fructose-bisphosphate aldolase	b2097	EC4.1.2.13	14.2	24
+TPINo1	Triose-phosphate isomerase	b3919	EC5.3.1.1		161
+GAPDNo1	Glyceraldehyde-3-phosphate dehydrogenase	b1779	EC1.2.1.12		48
+PGKNo1	Phosphoglycerate kinase	b2926	EC2.7.2.3		61
+PGMNo1	Phosphoglycerate mutase	b0755	EC5.4.2.11		128
+PGMNo2	Phosphoglycerate mutase	b3612	EC5.4.2.12		128
+ENONo1	Enolase	b2779	EC4.2.1.11		31
+PDHNo1	Pyruvate dehydrogenase	b0116 and b0115 and b0114	EC1.8.1.4; EC2.3.1.12; EC1.2.4.1	37.9	18
+arm_ATPS4rpp_REV	ATP synthase (four protons for one ATP) (periplasm)	b3732 and b3735 and b3731 and b3733 and b3734 and b3737 and b3738 and b3736	EC3.6.3.14	20	106
+arm_ATPS4rpp	ATP synthase (four protons for one ATP) (periplasm)	b3732 and b3735 and b3731 and b3733 and b3734 and b3737 and b3738 and b3736	EC3.6.3.14	20	106
+NADH16ppNo1	NADH dehydrogenase (ubiquinone-8 & 3 protons) (periplasm)	b2280 and b2281 and b2287 and b2288 and b2282 and b2277 and b2279 and b2284 and b2278 and b2276 and b2283 and b2286 and b2285	EC1.6.5.11		794
+CSNo1	Citrate synthase	b0720	EC2.3.3.16	81	36
+ACONTaNo1	"Aconitase (half-reaction A, Citrate hydro-lyase)"	b0118	EC4.2.1.3; EC4.2.1.99		39
+ACONTaNo2	"Aconitase (half-reaction A, Citrate hydro-lyase)"	b1276	EC4.2.1.3		39
+ACONTbNo1	"Aconitase (half-reaction B, Isocitrate hydro-lyase)"	b0118	EC4.2.1.3; EC4.2.1.99		39
+ACONTbNo2	"Aconitase (half-reaction B, Isocitrate hydro-lyase)"	b1276	EC4.2.1.3		39
+ICDHyrNo1	Isocitrate dehydrogenase (NADP)	b1136	EC1.1.1.42	106.4	14
+AKGDHNo1	2-Oxogluterate dehydrogenase	b0116 and b0727 and b0726	EC1.8.1.4; EC2.3.1.61; EC1.2.4.2		11
+SUCOASNo1	Succinyl-CoA synthetase (ADP-forming)	b0729 and b0728	EC6.2.1.5		23
+FUMNo1	Fumarase	b4122	EC4.2.1.2; EC4.2.1.81	1150	279
+FUMNo2	Fumarase	b1612	EC4.2.1.2; EC5.3.2.2	1150	279
+FUMNo3	Fumarase	b1611	EC4.2.1.2	1150	279
+MDHNo1	Malate dehydrogenase	b3236	EC1.1.1.37		13
+SUCDiNo1	Succinate dehydrogenase (irreversible)	b0723 and b0721 and b0722 and b0724	EC1.3.5.1	217	60
+NADTRHDNo1	NAD transhydrogenase	b3962	EC1.6.1.1	167.9	
+ACKrNo1	Acetate kinase	b1849	EC2.1.2.-		
+ACKrNo2	Acetate kinase	b2296	EC2.7.2.1	3600	
+ACKrNo3	Acetate kinase	b3115	EC2.7.2.15		
+PTArNo1	Phosphotransacetylase	b2297	EC2.3.1.8	120	
