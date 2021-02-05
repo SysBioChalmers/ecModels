@@ -10,7 +10,7 @@ import datetime
 
 # Constants
 CONFIGFILE = 'config.ini'
-URL = 'url'
+URL  = 'url'
 DURL = 'download_url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
@@ -57,8 +57,8 @@ class GECKO_VM:
     def scripts(self, gem):
         return '{}/{}'.format(gem, SCRIPTSDIR)
 
-    def mat_file_location(self, gem):
-        return self.install_dir(gem) + self.config[gem]['mat_filename']
+    def model_file_location(self, gem):
+        return self.install_dir(gem) + self.config[gem]['model_filename']
 
     def mat_model(self, gem):
         return self.config[gem]['mat_model']
