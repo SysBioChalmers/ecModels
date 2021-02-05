@@ -3,6 +3,8 @@ function [model,modifications] = manualModifications(model)
 %
 % Ivan Domenzain.      Last edited: 2019-10-20
 
+fprintf('Improving model with curated data...')
+
 %Read manual data:
 fID    = fopen('../../databases/manual_data.txt');
 data   = textscan(fID,'%s %s %s %s %f %f','delimiter','\t');
@@ -55,8 +57,11 @@ for i = 1:length(model.rxns)
             model.S(int_pos(j),i) = newValue;
         end
     end
-    disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+    if rem(i,100) == 0 || i == length(model.rxns)
+        fprintf('.')
+    end
 end
+fprintf(' Done!\n')
 
 %Remove repeated reactions (2017-01-16):
 rem_rxn = false(size(model.rxns));

@@ -15,6 +15,8 @@ function [model,name,modelVer] = preprocessModel(model,name,modelVer)
 %
 % 
 
+fprintf('Getting genome-scale model ready...')
+
 %Modify some metNames for compatibility with substrate names in the BRENDA
 %kinetic data file
 model = modifyMetNames(model);
@@ -84,6 +86,7 @@ end
 while isempty(modelVer)
     modelVer = '1.0';
 end
+fprintf(' Done!\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = createPoolsForBiomass(model)
