@@ -13,9 +13,9 @@ system = tools.GECKO_VM()
 def matlab_command(gem):
     cmd = """
         cd {}geckomat
-        if endsWith({},'.xml')
-            model = importModel({});
-        elseif  endsWith({},'.mat')
+        if endsWith('{}','.xml')
+            model = importModel('{}');
+        elseif  endsWith('{}','.mat')
             model = load('{}');
         else
             disp('Model file format is not compatible with GECKO')
