@@ -1,5 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [model,name,version] = preprocessModel(model,name,version)
+function [model,name,modelVer] = preprocessModel(model,name,modelVer)
+%preprocessModel
+%
 % Performs some preliminary modifications to the metabolic model & 
 % retrieves the model's name & version (either by parsing model.id or by
 % asking the user to input it), if they were not already defined.
@@ -12,10 +13,8 @@
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2019-06-02
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,name,modelVer] = preprocessModel(model,name,modelVer)
-model = ravenCobraWrapper(model);
+% 
+
 %Modify some metNames for compatibility with substrate names in the BRENDA
 %kinetic data file
 model = modifyMetNames(model);
