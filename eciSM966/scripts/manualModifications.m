@@ -9,6 +9,8 @@ model            = removeRxns(model,'r_1913_REV');
 modifications{1} = [];
 modifications{2} = [];
 
+fprintf('Improving model with curated data...')
+
 for i = 1:length(model.rxns)
     reaction = model.rxnNames{i};
     %Find set of proteins present in rxn:
@@ -44,8 +46,11 @@ for i = 1:length(model.rxns)
             end
         end
     end
-    disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+    if rem(i,100) == 0 || i == length(model.rxns)
+        fprintf('.')
+    end
 end
+fprintf(' Done!\n')
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %model = otherChanges(model);
 % Remove repeated reactions (2017-01-16):
@@ -163,18 +168,18 @@ end
 %Enzyme consumed 20% of the total protein mass. All kcats reported for
 %Eukaryotes are many orders of magnitude that the ones for microorganisms.
 %The highest value for the same substrate (l-serine) is used instead (48.21
-%1/s, for mycobacterium tuberculosis) 
-if strcmpi('prot_W0T8T6',enzName) 
+%1/s, for mycobacterium tuberculosis)
+if strcmpi('prot_W0T8T6',enzName)
     newValue         = -(48.21*3600)^-1;
     modifications{1} = [modifications{1}; "W0T8T6"];
     modifications{2} = [modifications{2}; reaction];
 end
 %Ketol-acid reductoisomerase, mitochondrial [W0TAV6/EC1.1.1.86]
-%Enzyme consumed 15% of the total protein mass. The enzyme participates in 
-%several reactions but the highest value reported in BRENDA for the rxn 
-%substrates is 18.3 [s^1] for 2-acetolactate and salmonella enterica subsp. 
+%Enzyme consumed 15% of the total protein mass. The enzyme participates in
+%several reactions but the highest value reported in BRENDA for the rxn
+%substrates is 18.3 [s^1] for 2-acetolactate and salmonella enterica subsp.
 %enterica serovar typhimurium
-if strcmpi('prot_W0TAV6',enzName) 
+if strcmpi('prot_W0TAV6',enzName)
     newValue         = -(18.3*3600)^-1;
     modifications{1} = [modifications{1}; "W0TAV6"];
     modifications{2} = [modifications{2}; reaction];
