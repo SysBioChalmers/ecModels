@@ -1,5 +1,6 @@
 function [model,name,version] = preprocessModel(model,name,version)
-% [model,name,version] = preprocessModel(model,name,version)
+%preprocessModel
+%
 % Performs some preliminary modifications to the metabolic model & 
 % retrieves the model's name & version (either by parsing model.id or by
 % asking the user to input it), if they were not already defined.
@@ -12,7 +13,9 @@ function [model,name,version] = preprocessModel(model,name,version)
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2020-09-04
+% Usage: [model,name,version] = preprocessModel(model,name,version)
+
+fprintf('Getting genome-scale model ready...')
 
 if nargin< 3
     version = [];
@@ -74,7 +77,7 @@ if isempty(name) && isempty(version) && isfield(model,'id')
             version = id{2};
         end
     catch
-        disp('Not possible to parse name & version. Input manually')
+        fprintf('\nNot possible to parse name & version. Input manually\n')
     end
 end
 while isempty(name)
@@ -83,6 +86,7 @@ end
 while isempty(version)
     version = input('Please enter the model version: ','s');
 end
+fprintf(' Done!\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = modifyMetNames(model)

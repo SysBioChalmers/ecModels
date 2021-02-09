@@ -65,7 +65,7 @@ end
 data = cleanDataset(data);
 %Assign concentrations as UBs [mmol/gDW]:
 model.concs = nan(size(model.enzymes));      %OBS: min value is zero!!
-disp('Matching data to enzymes in model...')
+fprintf('Matching data to enzymes in model...')
 for i = 1:length(model.enzymes)
     match = false;
     for j = 1:length(pIDs)
@@ -98,6 +98,7 @@ end
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
     model = constrainPool(model,~measured,full(fs*Pbase));
 end
+fprintf(' Done!\n')
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
 disp(['Total enzymes measured = '            num2str(sum(measured))          ' enzymes'])
