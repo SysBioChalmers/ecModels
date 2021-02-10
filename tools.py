@@ -10,7 +10,7 @@ import datetime
 
 # Constants
 CONFIGFILE = 'config.ini'
-URL  = 'url'
+URL = 'url'
 DURL = 'download_url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
