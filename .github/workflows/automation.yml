@@ -18,7 +18,7 @@ jobs:
     - name: Clone repository on current branch
       run: |
         rm -rf *
-        git clone https://github.com/SysBioChalmers/ecModels --branch ${GITHUB_REF#refs/heads/} latest-ecModels
+        git clone https://github.com/$GITHUB_REPOSITORY --branch ${GITHUB_REF#refs/heads/} latest-ecModels
 
     - name: Run the pipeline
       run: |
