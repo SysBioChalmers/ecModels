@@ -23,8 +23,8 @@ class GECKO_VM:
 
     HAS_CHANGES = False
     config = ConfigParser()
-    JENKINS_WORKSPACE = getcwd() + "/"
-
+    RUNNER_WORKSPACE = getcwd() + "/"
+    
     def __init__(self):
         self.config.read(CONFIGFILE)
         if len(self.config.sections()) == 0:
