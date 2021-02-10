@@ -13,7 +13,13 @@ system = tools.GECKO_VM()
 def matlab_command(gem):
     cmd = """
         cd {}geckomat
-        model = load('{}');
+        if endsWith('{}','.xml')
+            model = importModel('{}');
+        elseif  endsWith('{}','.mat')
+            model = load('{}');
+        else
+            error('Model file format is not compatible with GECKO')
+        end
         model = model{};
         modelname = '{}';
         [ecModel, ecModel_batch] = enhanceGEM(model,'COBRA', modelname, '{}');
@@ -21,7 +27,7 @@ def matlab_command(gem):
         save([modelname '/' modelname '.mat']','ecModel');
         save([modelname '/' modelname '_batch.mat'], 'ecModel_batch');
         quit
-        """.format(system.install_dir('GECKO'), system.mat_file_location(gem), system.mat_model(gem), gem, system.version(gem))
+        """.format(system.install_dir('GECKO'), system.model_file_location(gem), system.model_file_location(gem), system.model_file_location(gem), system.model_file_location(gem), system.mat_model(gem), gem, system.version(gem))
     l.info(cmd)
     output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
     return output.decode('utf-8')
