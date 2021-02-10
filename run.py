@@ -18,7 +18,7 @@ def matlab_command(gem):
         elseif  endsWith('{}','.mat')
             model = load('{}');
         else
-            disp('Model file format is not compatible with GECKO')
+            error('Model file format is not compatible with GECKO')
         end
         model = model{};
         modelname = '{}';
