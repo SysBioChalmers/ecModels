@@ -1,10 +1,10 @@
 function exchModel = changeMedia_batch(model,cSource,irrev,measuredMets,fluxes)
 % changeMedia_batch
 %
-% Set a Hams culture medium for a humanGEM based model. This function works
+% Set a Hams culture medium for a Human-GEM based model. This function works
 % for either standard or enzyme constrained-GEMs
 %
-%   model           An ihuman-based GEM
+%   model           An Human-GEM based model
 %   irrev           (logical) TRUE if model comes in an irreversible format.
 %                   Default = false
 %   measuredMets    (string) metNames for measured compounds. Optional
