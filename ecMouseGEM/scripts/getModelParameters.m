@@ -23,7 +23,7 @@ parameters.org_name = 'mus musculus';
 parameters.keggID = 'mmu';
 
 %The name of the exchange reaction that supplies the model with carbon (rxnNames)
-parameters.c_source = 'HMR_9034'; 
+parameters.c_source = 'MA_09034'; 
 
 %Experimental carbon source uptake (optional)
 parameters.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines
