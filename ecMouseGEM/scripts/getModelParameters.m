@@ -17,10 +17,10 @@ parameters.Ptot = 0.505717472;  %Average across NCI60 cell lines
 parameters.gR_exp = 0.020663429; %[g/gDw h]/Average across NCI60 cell lines
 
 %Provide your organism scientific name
-parameters.org_name = 'homo sapiens';
+parameters.org_name = 'mus musculus';
 
 %Provide your organism KEGG ID
-parameters.keggID = 'hsa';
+parameters.keggID = 'mmu';
 
 %The name of the exchange reaction that supplies the model with carbon (rxnNames)
 parameters.c_source = 'HMR_9034'; 
