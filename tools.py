@@ -99,7 +99,9 @@ class GECKO_VM:
             pr_filename = "/tmp/githubpr"
             with open(pr_filename, "w") as f:
                 f.write("update {} based on {}\n\n".format(gem, self.version(gem)))
+                f.write("```matlab\n")
                 f.write(matlab_output)
+                f.write("\n```\n")
             my_env = environ.copy()
             sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
         except sp.CalledProcessError:
