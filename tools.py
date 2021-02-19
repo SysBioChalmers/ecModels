@@ -113,11 +113,7 @@ class GECKO_VM:
     def check_dependencies(self):
         # Check Matlab version
         cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -batch', '"disp(version); quit"'])
-        l.info(cmd)
-        cmd = cmd.decode('utf-8').replace('MATLAB is selecting SOFTWARE OPENGL rendering.','').replace('\n','')
-        l.info(cmd)
-        m_version = ' '.join(cmd.split()[0])
-        l.info(m_version)
+        m_version = cmd.decode('utf-8').replace('MATLAB is selecting SOFTWARE OPENGL rendering.','').replace('\n','')
         if m_version != self.version('MATLAB'):
             l.warning('MATLAB changed from {} to {}'.format(self.version('MATLAB'), m_version))
             self.version('MATLAB', m_version)
