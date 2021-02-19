@@ -46,6 +46,7 @@ def setup_and_run_GECKO(gem):
                 copyfile(fullName,GECKO_path)
             end
         end
+        quit
     """.format(system.scripts(gem), system.scripts(gem), system.install_dir('GECKO'))
     l.info(cmd)
     output = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -r', '"{}"'.format(cmd)])
