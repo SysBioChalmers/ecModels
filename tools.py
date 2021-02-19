@@ -114,9 +114,9 @@ class GECKO_VM:
         # Check Matlab version
         cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -batch', '"disp(version); quit"'])
         l.info(cmd)
-        cmd = cmd.decode('utf-8').replace('MATLAB is selecting SOFTWARE OPENGL rendering.','')
+        cmd = cmd.decode('utf-8').replace('MATLAB is selecting SOFTWARE OPENGL rendering.','').replace('\n','')
         l.info(cmd)
-        m_version = ' '.join(cmd.decode('utf-8').split()[0]).replace('\n','').replace('\n','')
+        m_version = ' '.join(cmd.split()[0])
         l.info(m_version)
         if m_version != self.version('MATLAB'):
             l.warning('MATLAB changed from {} to {}'.format(self.version('MATLAB'), m_version))
