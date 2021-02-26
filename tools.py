@@ -51,7 +51,7 @@ class GECKO_VM:
         return gems
 
     def cleanup(self, section, subdir=''):
-        sp.check_call(['rm', '-rf', self.install_dir(section) + subdir])
+        sp.check_output(['rm', '-rf', self.install_dir(section) + subdir])
         l.info('Have removed {}'.format(self.install_dir(section) + subdir))
 
     def scripts(self, gem):
@@ -67,12 +67,12 @@ class GECKO_VM:
         return self.config['BASE']['pull_request_target']
 
     def git_clone(self, section, branch='master'):
-        sp.check_call(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+        sp.check_output(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def download(self, gem):
         if self.config[gem][DURL]:
             mkdir(self.install_dir(gem))
-            sp.check_call(['curl', self.config[gem][DURL] , '-O'], cwd=self.install_dir(gem), stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_output(['curl', self.config[gem][DURL] , '-O'], cwd=self.install_dir(gem), stdout=sp.DEVNULL, stderr=sp.STDOUT)
             time_seconds = time.time()
             timestamp = datetime.datetime.fromtimestamp(time_seconds).strftime('%Y-%m-%d-%H-%M')
             return timestamp
@@ -86,14 +86,14 @@ class GECKO_VM:
         return tool_version.decode('utf-8').strip()
 
     def git_checkout(self, gem):
-        sp.check_call(['git', 'checkout', '-B', self.__branch_name(gem)])
+        sp.check_output(['git', 'checkout', '-B', self.__branch_name(gem)])
 
     def git_add_and_pr(self, gem, matlab_output):
-        sp.check_call(['git', 'add', gem])
-        sp.check_call(['git', 'add', 'config.ini'])
+        sp.check_output(['git', 'add', gem])
+        sp.check_output(['git', 'add', 'config.ini'])
         try:
             # If nothing was addded (no changes) the commit will exit with an error so we can delete the branch
-            sp.check_call(['git', 'commit', '-m', 'chore: update {} based on {}'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_output(['git', 'commit', '-m', 'chore: update {} based on {}'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('Will push and create PR')
             # Create PR and also push
             pr_filename = "/tmp/githubpr"
@@ -103,12 +103,12 @@ class GECKO_VM:
                 f.write(matlab_output)
                 f.write("\n```\n")
             my_env = environ.copy()
-            sp.check_call(['hub', 'pull-request', '-F', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            sp.check_output(['hub', 'pull-request', '-F', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
         finally:
             l.info('Checking out {}'.format(self.pr_target()))
-            sp.check_call(['git', 'checkout', '-f', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
+            sp.check_output(['git', 'checkout', '-f', self.pr_target()], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def check_dependencies(self):
         # Check Matlab version
