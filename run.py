@@ -49,8 +49,7 @@ def setup_and_run_GECKO(gem):
         quit;
     """.format(system.scripts(gem), system.scripts(gem), system.install_dir('GECKO'))
     l.info(cmd)
-    output = sp.run(['/usr/local/bin/matlab', '"{}"'.format(cmd)], capture_output=True, timeout=None, check=True)
-    l.info(output.decode('utf-8'))
+    sp.run(['/usr/local/bin/matlab', '"{}"'.format(cmd)], capture_output=True, timeout=None, check=True)
     system.cleanup('GECKO', 'models/' + gem)
     sp.check_output(['mkdir', system.install_dir('GECKO') + 'models/' + gem])
 
