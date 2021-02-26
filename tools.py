@@ -103,7 +103,7 @@ class GECKO_VM:
                 f.write(matlab_output)
                 f.write("\n```\n")
             my_env = environ.copy()
-            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            sp.check_call(['hub', 'pull-request', '-F', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
         finally:
@@ -113,7 +113,7 @@ class GECKO_VM:
     def check_dependencies(self):
         # Check Matlab version
         cmd = sp.check_output(['/usr/local/bin/matlab', '-nodisplay -nosplash -nodesktop -batch', '"disp(version); quit;"'])
-        m_version = re.findall(r'([R]\d{4}\w+)',cmd.decode('utf-8'))[0]
+        m_version = re.findall(r'([R]\d{4}\w+)', cmd.decode('utf-8'))[0]
         if m_version != self.version('MATLAB'):
             l.warning('MATLAB changed from {} to {}'.format(self.version('MATLAB'), m_version))
             self.version('MATLAB', m_version)
