@@ -14,6 +14,7 @@ URL = 'url'
 DURL = 'download_url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
+PIPELINE_BASE_BRANCH = 'master'
 
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
@@ -111,8 +112,8 @@ class GECKO_VM:
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
         finally:
-            l.info('Checking out {}'.format(self.pr_target()))
-            cmd = sp.check_output(['git', 'checkout', '-f', self.pr_target()])
+            l.info('Checking out {}'.format(self.PIPELINE_BASE_BRANCH))
+            cmd = sp.check_output(['git', 'checkout', '-f', self.PIPELINE_BASE_BRANCH])
             l.info(cmd.decode('utf-8'))
 
     def check_dependencies(self):

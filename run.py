@@ -1,14 +1,12 @@
 import tools
 import subprocess as sp
-from sys import exit
+import sys
 import logging
 import os
-
 
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
 system = tools.GECKO_VM()
-
 
 def matlab_command(gem):
     cmd = """
@@ -63,29 +61,29 @@ def setup_and_run_GECKO(gem):
     system.git_add_and_pr(gem, matlab_output)
     system.cleanup('GECKO')
 
+if __name__ == "__main__":
+    system.PIPELINE_BASE_BRANCH = sys.argv[1]
+    l.info('Pipeline started on branch {}'.format(system.PIPELINE_BASE_BRANCH))
+    l.info('Checking all dependencies listed in config.ini of type not `gem`.')
+    system.check_dependencies()
+    # Run GECKO wherever needed
+    for gem in system.gems():
+        system.cleanup(gem)
+        new_version = system.download(gem)
+        old_version = system.version(gem)
+        if system.HAS_CHANGES or git_version != old_version:
+            if system.HAS_CHANGES:
+                l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, new_version))
+            else:
+                l.warning('{} changed from {} to {}'.format(gem, old_version, new_version))
 
-l.info('It has begun')
-l.info('Checking all dependencies listed in config.ini of type not gem')
-system.check_dependencies()
+            l.info('Going to run GECKO on {}, saving config file before running'.format(gem))
+            system.version(gem, new_version)
+            system.save_config()
 
-# Run GECKO wherever needed
-for gem in system.gems():
-    system.cleanup(gem)
-    new_version = system.download(gem)
-    old_version = system.version(gem)
-    if system.HAS_CHANGES or git_version != old_version:
-        if system.HAS_CHANGES:
-            l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, new_version))
-        else:
-            l.warning('{} changed from {} to {}'.format(gem, old_version, new_version))
+            setup_and_run_GECKO(gem)
 
-        l.info('Going to run GECKO on {}, saving config file before running'.format(gem))
-        system.version(gem, new_version)
-        system.save_config()
-
-        setup_and_run_GECKO(gem)
-
-        l.info('Reverting changes on config file made for {}, proceeding to next gem'.format(gem))
-        system.version(gem, old_version)
-        system.save_config()
-    system.cleanup(gem)
+            l.info('Reverting changes on config file made for {}, proceeding to next gem'.format(gem))
+            system.version(gem, old_version)
+            system.save_config()
+        system.cleanup(gem)
