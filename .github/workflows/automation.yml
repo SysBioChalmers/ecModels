@@ -1,6 +1,9 @@
 name: automation
 
 on:
+  schedule:
+    - cron:  '*/10 * * * *'
+    
   push:
     branches-ignore:
       - 'master'
