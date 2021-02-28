@@ -1,0 +1,2 @@
+Unicode,enz_pos,rxn_pos,Organism,Modified,Parameter,oldValue,newValue,error,ControlCoeff
+Q6C968,1850,1713,haemophilus influenzae,1,K_cat,0.120001,330,9.58141,0.130664
