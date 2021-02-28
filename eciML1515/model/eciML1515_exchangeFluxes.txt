@@ -1,0 +1,29 @@
+EXCHANGE FLUXES:
+EX_co2_e	(carbon dioxide exchange):	0.44386
+EX_h_e	(H+ exchange):	134.2408
+EX_pyr_e	(Pyruvate exchange):	128.9403
+EX_lac__D_e	(D-lactate exchange):	0.023381
+EX_glyclt_e	(Glycolate exchange):	0.00025617
+EX_h2o_e	(H2O exchange):	143.595
+EX_etoh_e	(Ethanol exchange):	0.955
+DM_5drib_c	(Sink needed to allow 5'-deoxyribose to leave system):	0.00025617
+DM_mththf_c	(Sink needed to allow (2R,4S)-2-methyl-2,3,3,4-tetrahydroxytetrahydrofuran to leave system):	0.00025617
+EX_pi_e_REV	(Phosphate exchange (reversible)):	0.55405
+EX_mn2_e_REV	(Mn2+ exchange (reversible)):	0.0003969
+EX_btn_e_REV	(Biotin exchange (reversible)):	1.1488e-06
+EX_fe2_e_REV	(Fe2+ exchange (reversible)):	0.0092251
+EX_glc__D_e_REV	(D-Glucose exchange (reversible)):	68.8033
+EX_thm_e_REV	(Thiamin exchange (reversible)):	0.00012809
+EX_zn2_e_REV	(Zinc exchange (reversible)):	0.00019586
+EX_mg2_e_REV	(Mg exchange (reversible)):	0.0049827
+EX_ca2_e_REV	(Calcium exchange (reversible)):	0.0029896
+EX_ni2_e_REV	(Ni2+ exchange (reversible)):	0.00018552
+EX_cobalt2_e_REV	(Co2+ exchange (reversible)):	1.436e-05
+EX_mobd_e_REV	(Molybdate exchange (reversible)):	4.0207e-06
+EX_so4_e_REV	(Sulfate exchange (reversible)):	0.1445
+EX_nh4_e_REV	(Ammonia exchange (reversible)):	6.2025
+EX_k_e_REV	(K+ exchange (reversible)):	0.11211
+EX_cl_e_REV	(Chloride exchange (reversible)):	0.0029896
+EX_o2_e_REV	(oxygen exchange (reversible)):	62.7339
+EX_cu_e_REV	(Cu+ exchange (reversible)):	0.00040724
+prot_pool_exchange	(prot_pool_exchange):	0.090911
