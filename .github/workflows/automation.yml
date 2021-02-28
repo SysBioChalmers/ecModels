@@ -2,7 +2,7 @@ name: automation
 
 on:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '1 * * * *'
     
   push:
     branches-ignore:
