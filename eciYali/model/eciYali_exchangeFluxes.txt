@@ -1,0 +1,14 @@
+EXCHANGE FLUXES:
+y001634	(acetate exchange):	2.3438
+y001672	(carbon dioxide exchange):	28.9909
+y001761	(ethanol exchange):	25.3251
+y002100	(water exchange):	32.4466
+y002111	(growth):	0.2761
+y001654_REV	(ammonium exchange (reversible)):	2.4691
+y001714_REV	(D-glucose exchange (reversible)):	15.8042
+y001832_REV	(H+ exchange (reversible)):	19.311
+y001947_REV	(myo-inositol exchange (reversible)):	0.00099396
+y001992_REV	(oxygen exchange (reversible)):	1.7295
+y002005_REV	(phosphate exchange (reversible)):	0.13137
+y002060_REV	(sulphate exchange (reversible)):	0.053836
+prot_pool_exchange	(prot_pool_exchange):	0.13459
