@@ -1,0 +1,49 @@
+EXCHANGE FLUXES:
+HMR_9047	():	1.9832
+HMR_9058	():	0.0069056
+HMR_9079	():	4.8252
+HMR_9242	():	4.9556
+HMR_9318	():	0.00058006
+HMR_9422	():	5.8828
+EX_hcys_L[e]	(Exchange of L-Homocysteine):	5.1065e-06
+EX_3pg[e]	(Exchange of 3-Phospho-D-Glycerate):	4.9513
+EX_Lpipecol[e]	(Exchange of L-Pipecolic Acid):	0.90606
+EX_mal_L[e]	(Exchange of L-Malate):	0.92188
+EX_nh4[e]	(Exchange of Ammonia ):	0.90515
+EX_mlthf[e]	(Exchange of 5,10-Methylenetetrahydrofolate):	0.0019922
+HMR_10024	():	0.020557
+HMR_9034_REV	( (reversible)):	0.0090076
+HMR_9035_REV	( (reversible)):	0.0015191
+HMR_9036_REV	( (reversible)):	0.006634
+HMR_9038_REV	( (reversible)):	0.0025256
+HMR_9039_REV	( (reversible)):	0.0049512
+HMR_9040_REV	( (reversible)):	0.013581
+HMR_9041_REV	( (reversible)):	0.91398
+HMR_9042_REV	( (reversible)):	0.0024778
+HMR_9043_REV	( (reversible)):	0.004188
+HMR_9044_REV	( (reversible)):	0.0062761
+HMR_9045_REV	( (reversible)):	0.0010852
+HMR_9046_REV	( (reversible)):	0.0074061
+HMR_9048_REV	( (reversible)):	2.9364
+HMR_9061_REV	( (reversible)):	0.0091906
+HMR_9062_REV	( (reversible)):	0.0041266
+HMR_9063_REV	( (reversible)):	0.0071044
+HMR_9064_REV	( (reversible)):	0.0031378
+HMR_9065_REV	( (reversible)):	0.0024274
+HMR_9066_REV	( (reversible)):	0.0056328
+HMR_9067_REV	( (reversible)):	0.0083108
+HMR_9068_REV	( (reversible)):	0.0056666
+HMR_9069_REV	( (reversible)):	0.0087654
+HMR_9070_REV	( (reversible)):	0.92963
+HMR_9071_REV	( (reversible)):	0.011081
+HMR_9072_REV	( (reversible)):	6.8123
+HMR_9083_REV	( (reversible)):	0.0025656
+HMR_9143_REV	( (reversible)):	1.7022e-06
+HMR_9145_REV	( (reversible)):	0.00023457
+HMR_9146_REV	( (reversible)):	0.001993
+HMR_9358_REV	( (reversible)):	0.92718
+HMR_9361_REV	( (reversible)):	0.00031552
+HMR_9378_REV	( (reversible)):	3.8764e-05
+HMR_9404_REV	( (reversible)):	1.1898e-05
+HMR_9423_REV	( (reversible)):	5.885
+prot_pool_exchange	(prot_pool_exchange):	0.050572
