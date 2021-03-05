@@ -2,15 +2,7 @@ name: automation
 
 on:
   schedule:
-    - cron:  '1 * * * *'
-    
-  push:
-    branches-ignore:
-      - 'master'
-      - 'main'
-      - 'update/**'
-
-  workflow_dispatch:
+    - cron: '*/30 * * * *'
 
 jobs:
   pipeline:
