@@ -23,17 +23,21 @@ if nargin< 3
         name = [];
     end
 end
-model                 = removeFields(model);
-[grRules, rxnGeneMat] = standardizeGrRules(model);
-model.grRules         = grRules;
-model.rxnGeneMat      = rxnGeneMat;
-%Remove gene rules from pseudoreactions (if any):
-for i = 1:length(model.rxns)
-    if endsWith(model.rxnNames{i},' pseudoreaction')
-        model.grRules{i}      = '';
-        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
-    end
+model = removeFields(model);
+%find conflicting grRules in model
+[~,~,conflicts] = standardizeGrRules(model);
+if ~isempty(conflicts)
+    warning(sprintf('\nConflicting grRules where found for several reactions (check the above lines). GECKO will ignore these grRules to avoid introduction of potentially wrong enzyme constrains for such cases. It is recommended to check your original GEM and fix these grRules manually with the guidance provided by the function "standardizeGrRules.m" in the RAVEN toolbox.\n'))
 end
+%delete conflicting grRules to avoid weird enzyme constraints
+model.grRules(conflicts) = {''};
+%Remove gene rules from pseudoreactions (if any):
+pseudoRxns = endsWith(model.rxnNames,' pseudoreaction');
+model.grRules(pseudoRxns) = {''};
+%standardize grRules
+[grRules,rxnGeneMat] = standardizeGrRules(model);
+model.grRules        = grRules;
+model.rxnGeneMat     = rxnGeneMat;
 % Standardizes the metabolites names
 model = modifyMetNames(model);
 
