@@ -66,7 +66,7 @@ if isfield(model,'name')
     name = model.name;
 end
 if isfield(model,'version')
-    version = model.version;
+    version = '0';
 end
 if isempty(name) && isempty(version) && isfield(model,'id')
     try
