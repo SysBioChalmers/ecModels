@@ -94,7 +94,7 @@ for i = 1:n
         if ~isempty(union_string(new_EC))
             count(1) = count(1) + isrev(i);
             if ~isempty(multGenes{1})
-                DBase = 'swissprot';
+                multGenes{3} = repelem({'swissprot'},length(multGenes(1)));
             end
         else
             %Find match in KEGG:
@@ -102,7 +102,7 @@ for i = 1:n
             if ~isempty(union_string(new_EC))
                 count(2) = count(2) + isrev(i);
                 if ~isempty(multGenes{1})
-                    DBase = 'kegg';
+                    multGenes{3} = repelem({'kegg'},length(multGenes(1)));
                 end
             else
                 %Check if rxn is an exchange/transport rxn with no GPRs:
@@ -118,11 +118,10 @@ for i = 1:n
                     count(4) = count(4) + isrev(i);
                 end
                 if ~isempty(multGenes{1})
-                    DBase = 'none';
+                    multGenes{3} = repelem({'none'},length(multGenes(1)));
                 end
             end
         end
-        multGenes{3} = repelem({DBase},length(multGenes(1)));
     
         for j = 1:length(new_uni)
             uniprots{i,j} = new_uni{j};
