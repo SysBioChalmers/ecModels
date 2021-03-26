@@ -70,13 +70,13 @@ if ~isdir(['../../models/' name])
 end
 
 %Save output models:
-fprintf('\n=============')
-fprintf('\nSaving models:')
-fprintf('\n=============\n')
-cd ../../models
-ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
-ecModel_batch = ecModel;
-ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
-cd ../geckomat
+%fprintf('\n=============')
+%fprintf('\nSaving models:')
+%fprintf('\n=============\n')
+%cd ../../models
+%ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
+%ecModel_batch = ecModel;
+%ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
+cd ..
 
 end
