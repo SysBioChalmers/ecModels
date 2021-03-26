@@ -1,4 +1,4 @@
-function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,modelVer)
+function ecModel = enhanceGEM(model,toolbox,name,modelVer)
 % enhanceGEM
 %
 %   Main function for running the GECKO pipeline. It returns an ecModel and
@@ -68,13 +68,6 @@ ecModel = readKcatData(model_data,kcats);
 if ~isdir(['../../models/' name])
     mkdir(['../../models/' name])
 end
-%Constrain model to batch conditions:
-fprintf('\n==============================================================')
-fprintf('\nGenerating ecModel with shared pool assumption (ecModel_batch):')
-fprintf('\n==============================================================\n')
-cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,modifications,name);
-disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 fprintf('\n=============')
@@ -82,7 +75,6 @@ fprintf('\nSaving models:')
 fprintf('\n=============\n')
 cd ../../models
 ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
-ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
 cd ../geckomat
 
 end
