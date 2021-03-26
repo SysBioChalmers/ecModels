@@ -23,13 +23,13 @@ parameters.org_name = 'mus musculus';
 parameters.keggID = 'mmu';
 
 %The name of the exchange reaction that supplies the model with carbon (rxnNames)
-parameters.c_source = 'MA_09034'; 
+parameters.c_source = 'MA-R09034'; 
+
+%Rxn Id for biomass pseudoreaction
+parameters.bioRxn = 'MA-R00021';
 
 %Experimental carbon source uptake (optional)
 parameters.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines
-
-%Rxn Id for non-growth associated maitenance pseudoreaction
-parameters.NGAM = 'biomass_maintenance_Recon3D';
 
 %Compartment name in which the added enzymes should be located
 parameters.enzyme_comp = 'Cytosol';

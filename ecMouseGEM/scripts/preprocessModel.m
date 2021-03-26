@@ -25,6 +25,13 @@ if nargin< 3
 end
 %correct b vector
 model.b = model.b(:,1);
+%correct cSource reaction name
+cd ..
+parameters = getModelParameters;
+cSource    = parameters.c_source;
+idx        = find(strcmpi(model.rxns,cSource));
+model.rxnNames(idx) = {cSource};
+cd change_model
 
 model = removeFields(model);
 %find conflicting grRules in model
