@@ -1,4 +1,4 @@
-function ecModel = enhanceGEM(model,toolbox,name,modelVer)
+function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,modelVer)
 % enhanceGEM
 %
 %   Main function for running the GECKO pipeline. It returns an ecModel and
@@ -75,6 +75,8 @@ fprintf('\nSaving models:')
 fprintf('\n=============\n')
 cd ../../models
 ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
+ecModel_batch = ecModel;
+ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
 cd ../geckomat
 
 end
