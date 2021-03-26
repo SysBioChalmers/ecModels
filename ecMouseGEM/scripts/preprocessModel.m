@@ -23,6 +23,9 @@ if nargin< 3
         name = [];
     end
 end
+%correct b vector
+model.b = model.b(:,1);
+
 model = removeFields(model);
 %find conflicting grRules in model
 [~,~,conflicts] = standardizeGrRules(model);
