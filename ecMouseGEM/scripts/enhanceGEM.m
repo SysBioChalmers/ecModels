@@ -75,7 +75,7 @@ end
 %fprintf('\n=============\n')
 %cd ../../models
 %ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
-%ecModel_batch = ecModel;
+ecModel_batch = ecModel;
 %ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
 cd ..
 
