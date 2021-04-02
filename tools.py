@@ -96,15 +96,13 @@ class GECKO_VM:
             sp.check_call(['git', 'commit', '-m', 'chore: update {} based on {}'.format(gem, self.version(gem))], stdout=sp.DEVNULL, stderr=sp.STDOUT)
             l.critical('Will push and create PR')
             # Create PR and also push
-            pr_filename = "/tmp/githubpr"
-            with open(pr_filename, "w") as f:
-                f.write("update {} based on {}\n\n".format(gem, self.version(gem)))
-                f.write("```matlab\n")
-                f.write(matlab_output)
-                f.write("\n```\n")
+            pr_message  = "update {} based on {}\n\n".format(gem, self.version(gem))
+            pr_message  = pr_message + "```matlab\n"
+            pr_message  = pr_message + matlab_output
+            pr_message  = pr_message + "\n```\n"
             my_env = environ.copy()
             try:
-                sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+                sp.check_call(['hub', 'pull-request', '-m', pr_message, '-b', self.pr_target(), '-p'], env=my_env)
             except sp.CalledProcessError:
                 exit('Failed to create PR for new version of {}'.format(gem))
         except sp.CalledProcessError:
