@@ -103,7 +103,10 @@ class GECKO_VM:
                 f.write(matlab_output)
                 f.write("\n```\n")
             my_env = environ.copy()
-            sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            try:
+                sp.check_call(['hub', 'pull-request', '--file', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            except sp.CalledProcessError:
+                exit('Failed to create PR for new version of {}'.format(gem))
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
         finally:
