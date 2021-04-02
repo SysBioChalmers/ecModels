@@ -23,6 +23,8 @@ if nargin< 3
         name = [];
     end
 end
+%correct default UB
+model.annotation.defaultUB = 1000;
 %correct b vector
 model.b = model.b(:,1);
 %correct cSource reaction name
