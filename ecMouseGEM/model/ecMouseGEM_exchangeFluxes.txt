@@ -1,0 +1,57 @@
+EXCHANGE FLUXES:
+MA-R09047	():	2.462
+MA-R09058	():	0.19236
+MA-R09068	():	0.0036399
+MA-R09079	():	1.7619
+MA-R09133	():	2.0649
+MA-R09217	():	0.00055174
+MA-R09318	():	0.003681
+MA-R09354	():	0.073055
+MA-R09422	():	0.00011795
+MA-R10184	(Exchange of 3- (4-Hydroxyphenyl)Lactate):	0.032079
+MA-R10196	(Exchange of Acetyl-Glycine):	0.002357
+MA-R10255	(Exchange of L-Pipecolic Acid):	0.02914
+MA-R11301	(Exchange of Homocystine):	0.0034401
+MA-R11420	(Exchange of Ammonia):	0.22679
+MA-R11953	(Exchange of 5,10-Methylenetetrahydrofolate):	0.00086495
+MA-R10024	():	0.0009829
+MA-R09034_REV	(MA-R09034 (reversible)):	0.97697
+MA-R09035_REV	( (reversible)):	0.0022837
+MA-R09036_REV	( (reversible)):	0.010538
+MA-R09038_REV	( (reversible)):	0.016709
+MA-R09039_REV	( (reversible)):	0.0068803
+MA-R09040_REV	( (reversible)):	0.10367
+MA-R09041_REV	( (reversible)):	0.06649
+MA-R09042_REV	( (reversible)):	0.025555
+MA-R09043_REV	( (reversible)):	0.018675
+MA-R09044_REV	( (reversible)):	0.022607
+MA-R09045_REV	( (reversible)):	0.0088461
+MA-R09046_REV	( (reversible)):	0.035384
+MA-R09048_REV	( (reversible)):	1.0435
+MA-R09061_REV	( (reversible)):	0.06094
+MA-R09062_REV	( (reversible)):	0.010812
+MA-R09063_REV	( (reversible)):	0.026538
+MA-R09064_REV	( (reversible)):	0.054686
+MA-R09065_REV	( (reversible)):	0.0078632
+MA-R09066_REV	( (reversible)):	0.040299
+MA-R09067_REV	( (reversible)):	0.048553
+MA-R09069_REV	( (reversible)):	0.042369
+MA-R09070_REV	( (reversible)):	0.16336
+MA-R09071_REV	( (reversible)):	0.095049
+MA-R09072_REV	( (reversible)):	0.017712
+MA-R09076_REV	( (reversible)):	0.0009829
+MA-R09083_REV	( (reversible)):	0.00099528
+MA-R09109_REV	( (reversible)):	0.0009829
+MA-R09143_REV	( (reversible)):	0.0019658
+MA-R09145_REV	( (reversible)):	0.0009829
+MA-R09146_REV	( (reversible)):	0.0018478
+MA-R09151_REV	( (reversible)):	9.829e-05
+MA-R09153_REV	( (reversible)):	9.829e-05
+MA-R09167_REV	( (reversible)):	0.0009829
+MA-R09269_REV	( (reversible)):	0.0009829
+MA-R09358_REV	( (reversible)):	0.0073914
+MA-R09361_REV	( (reversible)):	0.0010828
+MA-R09378_REV	( (reversible)):	0.0019658
+MA-R09404_REV	( (reversible)):	0.0020641
+MA-R09423_REV	( (reversible)):	0.0015726
+prot_pool_exchange	(prot_pool_exchange):	0.068272
