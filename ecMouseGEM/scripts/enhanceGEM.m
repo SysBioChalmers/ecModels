@@ -81,8 +81,8 @@ fprintf('\n=============')
 fprintf('\nSaving models:')
 fprintf('\n=============\n')
 cd ../../models
-ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
-ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
+%ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
+%ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
 cd ../geckomat
 
 end
