@@ -14,7 +14,7 @@ parameters.sigma = 0.5;
 parameters.Ptot = 0.505717472;  %Average across NCI60 cell lines
 
 %Minimum growth rate the model should grow at [1/h]
-parameters.gR_exp = 0.020663429; %[g/gDw h]/Average across NCI60 cell lines
+parameters.gR_exp = 1E-3; %[g/gDw h]/Average across NCI60 cell lines
 
 %Provide your organism scientific name
 parameters.org_name = 'mus musculus';
@@ -29,7 +29,7 @@ parameters.c_source = 'MA-R09034';
 parameters.bioRxn = 'MA-R00021';
 
 %Experimental carbon source uptake (optional)
-parameters.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines
+parameters.c_UptakeExp = 1; %[mmol/gDw h]/Average across NCI60 cell lines
 
 %Compartment name in which the added enzymes should be located
 parameters.enzyme_comp = 'Cytosol';
