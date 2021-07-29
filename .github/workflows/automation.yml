@@ -2,7 +2,7 @@ name: automation
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '3 2 1 * *'
 
 jobs:
   pipeline:
