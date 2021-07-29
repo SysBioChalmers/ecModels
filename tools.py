@@ -66,7 +66,7 @@ class GECKO_VM:
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section, branch='master'):
+    def git_clone(self, section, branch='main'):
         sp.check_call(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)], stdout=sp.DEVNULL, stderr=sp.STDOUT)
 
     def download(self, gem):
@@ -132,7 +132,7 @@ class GECKO_VM:
                     l.info('{} is still {}'.format(tool, tool_version))
         # Check COBRA, RAVEN, GECKO versions
         self.cleanup('GECKO')
-        self.git_clone('GECKO')
+        self.git_clone('GECKO', self.config['GECKO']['branch'])
         for tool in ['COBRA', 'RAVEN', 'GECKO']:
             tool_version = self.git_tag(tool)
             if tool_version != self.version(tool):
