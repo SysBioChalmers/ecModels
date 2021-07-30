@@ -71,7 +71,7 @@ if __name__ == "__main__":
         system.cleanup(gem)
         new_version = system.download(gem)
         old_version = system.version(gem)
-        if system.HAS_CHANGES or git_version != old_version:
+        if system.HAS_CHANGES or new_version != old_version:
             if system.HAS_CHANGES:
                 l.warning('System config has changed, have to run GECKO on {} {}'.format(gem, new_version))
             else:

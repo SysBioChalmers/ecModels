@@ -67,7 +67,7 @@ class GECKO_VM:
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section, branch='master'):
+    def git_clone(self, section, branch='main'):
         cmd = sp.check_output(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
         l.info(cmd.decode('utf-8'))
 
@@ -100,15 +100,16 @@ class GECKO_VM:
             l.info(cmd.decode('utf-8'))
             l.critical('Will push and create PR')
             # Create PR and also push
-            pr_filename = "/tmp/githubpr"
-            with open(pr_filename, "w") as f:
-                f.write("update {} based on {}\n\n".format(gem, self.version(gem)))
-                f.write("```matlab\n")
-                f.write(matlab_output)
-                f.write("\n```\n")
+            pr_message  = "update {} based on {}\n\n".format(gem, self.version(gem))
+            pr_message  = pr_message + "```matlab\n"
+            pr_message  = pr_message + matlab_output
+            pr_message  = pr_message + "\n```\n"
             my_env = environ.copy()
-            cmd = sp.check_output(['hub', 'pull-request', '-F', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
-            l.info(cmd.decode('utf-8'))
+            try:
+                cmd = sp.check_output(['hub', 'pull-request', '-m', pr_message, '-b', self.pr_target(), '-p'], env=my_env)
+                l.info(cmd.decode('utf-8'))
+            except sp.CalledProcessError:
+                exit('Failed to create PR for new version of {}'.format(gem))
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
         finally:
@@ -137,7 +138,7 @@ class GECKO_VM:
                     l.info('{} is still {}'.format(tool, tool_version))
         # Check COBRA, RAVEN, GECKO versions
         self.cleanup('GECKO')
-        self.git_clone('GECKO')
+        self.git_clone('GECKO', self.config['GECKO']['branch'])
         for tool in ['COBRA', 'RAVEN', 'GECKO']:
             tool_version = self.git_tag(tool)
             if tool_version != self.version(tool):
