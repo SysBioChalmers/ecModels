@@ -14,7 +14,7 @@ URL = 'url'
 DURL = 'download_url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
-PIPELINE_BASE_BRANCH = 'master'
+PIPELINE_BASE_BRANCH = 'main'
 
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
@@ -67,7 +67,7 @@ class GECKO_VM:
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section, branch='master'):
+    def git_clone(self, section, branch='main'):
         cmd = sp.check_output(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
         l.info(cmd.decode('utf-8'))
 
