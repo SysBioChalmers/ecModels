@@ -137,7 +137,7 @@ class GECKO_VM:
                     l.info('{} is still {}'.format(tool, tool_version))
         # Check COBRA, RAVEN, GECKO versions
         self.cleanup('GECKO')
-        self.git_clone('GECKO')
+        self.git_clone('GECKO', self.config['GECKO']['branch'])
         for tool in ['COBRA', 'RAVEN', 'GECKO']:
             tool_version = self.git_tag(tool)
             if tool_version != self.version(tool):
