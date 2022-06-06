@@ -80,7 +80,7 @@ class GECKO_VM:
             timestamp = datetime.datetime.fromtimestamp(time_seconds).strftime('%Y-%m-%d-%H-%M')
             return timestamp
         else:
-            self.git_clone(gem, self.config[gem]['branch'])
+            self.git_clone(gem)
             return self.git_tag(gem)
 
     def git_tag(self, thing):
