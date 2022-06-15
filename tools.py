@@ -68,7 +68,7 @@ class GECKO_VM:
         return self.config['BASE']['pull_request_target']
 
     def git_clone(self, section, branch='main'):
-        cmd = sp.check_output(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
+        cmd = sp.check_output(['hub', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
         l.info(cmd.decode('utf-8'))
 
     def download(self, gem):
