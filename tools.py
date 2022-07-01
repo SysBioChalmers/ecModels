@@ -67,7 +67,7 @@ class GECKO_VM:
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section, branch='main'):
+    def git_clone(self, section, branch=PIPELINE_BASE_BRANCH):
         cmd = sp.check_output(['hub', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
         l.info(cmd.decode('utf-8'))
 
