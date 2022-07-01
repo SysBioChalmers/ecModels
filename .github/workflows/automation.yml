@@ -1,13 +1,8 @@
 name: automation
 
 on:
-  push:
-    branches-ignore:
-      - 'master'
-      - 'main'
-      - 'update/**'
-
-  workflow_dispatch:
+  schedule:
+    - cron: '3 2 1 * *'
 
 jobs:
   pipeline:
