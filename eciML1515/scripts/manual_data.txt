@@ -1,4 +1,4 @@
-rxns	rxnNames	grRules	EC number	kcat (1/s)	S.A. (µmol/min/mg)
+rxns	rxnNames	grRules	EC number	kcat (1/s)	S.A. (Âµmol/min/mg)
 GLCptsppNo1	D-glucose transport via PEP:Pyr PTS (periplasm)	b2415 and b1101 and b2416 and b2417	EC2.7.1.199; EC2.7.3.9		27
 GLCptsppNo2	D-glucose transport via PEP:Pyr PTS (periplasm)	b2417 and b1621 and b2415 and b2416	EC2.7.1.208; EC2.7.3.9		27
 GLCptsppNo3	D-glucose transport via PEP:Pyr PTS (periplasm)	b1817 and b2415 and b1819 and b1818 and b2416	EC2.7.1.191; EC2.7.3.9		27

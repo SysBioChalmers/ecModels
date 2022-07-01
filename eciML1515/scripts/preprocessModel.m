@@ -1,5 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [model,name,version] = preprocessModel(model,name,version)
+function [model,name,modelVer] = preprocessModel(model,name,modelVer)
+%preprocessModel
+%
 % Performs some preliminary modifications to the metabolic model & 
 % retrieves the model's name & version (either by parsing model.id or by
 % asking the user to input it), if they were not already defined.
@@ -12,10 +13,10 @@
 % name      The resulting name of the model (if not specified before)
 % version   The resulting version of the model (if not specified before)
 %
-% Ivan Domenzain.      Last edited: 2019-06-02
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,name,modelVer] = preprocessModel(model,name,modelVer)
-model = ravenCobraWrapper(model);
+% 
+
+fprintf('Getting genome-scale model ready...')
+
 %Modify some metNames for compatibility with substrate names in the BRENDA
 %kinetic data file
 model = modifyMetNames(model);
@@ -36,6 +37,35 @@ for i = 1:length(model.rxns)
     end
 end
 
+%Fix problematic grRules
+model.grRules(strcmp(model.rxns,'PFL')) = {'(b0902 and b0903) or (b0902 and b3114) or (b3951 and b3952) or (b0902 and b0903 and b2579)'};
+model.grRules(strcmp(model.rxns,'RNDR1')) = {'(b2582 and b2234 and b2235) or (b3781 and b2234 and b2235)'};
+model.grRules(strcmp(model.rxns,'RNDR3')) = {'(b3781 and b2234 and b2235) or (b2582 and b2234 and b2235)'};
+model.grRules(strcmp(model.rxns,'RNDR4')) = {'(b3781 and b2234 and b2235) or (b2234 and b2235 and b2582)'};
+model.grRules(strcmp(model.rxns,'CITL'))  = {'(b0614 and b0617 and b0616 and b0615)'};
+model.grRules(strcmp(model.rxns,'NO3R1bpp')) = {'(b2205 and b2202 and b2204 and b2206 and b2203)'};
+model.grRules(strcmp(model.rxns,'NO3R2bpp')) = {'(b2206 and b2203 and b2202)'};
+model.grRules(strcmp(model.rxns,'ATPS4rpp')) = {'(b3739 and b3731 and b3733 and b3735 and b3734 and b3732 and b3738 and b3736 and b3737) or (b3731 and b3733 and b3735 and b3734 and b3732 and b3738 and b3736 and b3737)'};
+model.grRules(strcmp(model.rxns,'CPGNtonex')) = {'(b1102 and b1252 and b3005 and b3006)'};
+model.grRules(strcmp(model.rxns,'FE3DCITtonex')) = {'(b1252 and b3005 and b3006 and b4291)'};
+model.grRules(strcmp(model.rxns,'FEENTERtonex')) = {'(b0584 and b1252 and b3005 and b3006)'};
+model.grRules(strcmp(model.rxns,'RNDR3b')) = {'(b0849 and b2675 and b2676) or (b2675 and b2676 and b3610) or (b2675 and b2676 and b1064) or (b2675 and b2676 and b1654)'};
+model.grRules(strcmp(model.rxns,'RNDR4b')) = {'(b0849 and b2675 and b2676) or (b2675 and b2676 and b3610) or (b2675 and b2676 and b1654) or (b2675 and b2676 and b1064)'};
+model.grRules(strcmp(model.rxns,'RNDR1b')) = {'(b2675 and b2676 and b1064) or (b2675 and b2676 and b3610) or (b0849 and b2675 and b2676) or (b2675 and b2676 and b1654)'};
+model.grRules(strcmp(model.rxns,'RNDR2b')) = {'(b0849 and b2675 and b2676) or (b2675 and b2676 and b1064) or (b2675 and b2676 and b1654) or (b2675 and b2676 and b3610)'};
+model.grRules(strcmp(model.rxns,'INDOLEt2pp')) = {'(b3266 and b3265 and b3035)'};
+model.grRules(strcmp(model.rxns,'FECRMtonex')) = {'(b1252 and b3005 and b3006 and b0150)'};
+model.grRules(strcmp(model.rxns,'FE3HOXtonex')) = {'(b1252 and b3005 and b3006 and b0150)'};
+model.grRules(strcmp(model.rxns,'FHL')) = {'(b4079 and b2489 and b2487 and b2485 and b2482 and b2483 and b2486 and b2490 and b2488 and b2484 and b2481) or (b4079 and b2722 and b2723 and b2724 and b2720 and b2721 and b2719)'};
+model.grRules(strcmp(model.rxns,'RNDR2')) = {'(b3781 and b2234 and b2235) or (b2582 and b2234 and b2235)'};
+model.grRules(strcmp(model.rxns,'CELBpts')) = {'(b2715 and b2416 and b2415) or (b2416 and b1738 and b1737 and b1736 and b2415)'};
+model.grRules(strcmp(model.rxns,'FE3DHBZStonex')) = {'(b1252 and b3005 and b3006 and b0805) or (b1252 and b3005 and b3006 and b2155)'};
+model.grRules(strcmp(model.rxns,'FEOXAMtonex')) = {'(b0150 and b1252 and b3005 and b3006)'};
+model.grRules(strcmp(model.rxns,'OBTFL')) = {'(b0902 and b0903 and b2579) or (b0902 and b0903) or (b0902 and b3114)'};
+model.grRules(strcmp(model.rxns,'CHTBSptspp')) = {'(b1738 and b1737 and b1736 and b2415 and b2416)'};
+model.grRules(strcmp(model.rxns,'CBL1tonex')) = {'(b1252 and b3005 and b3006 and b3966)'};
+model.grRules(strcmp(model.rxns,'CBItonex')) = {'(b1252 and b3005 and b3006 and b3966)'};
+model.grRules(strcmp(model.rxns,'ADOCBLtonex')) = {'(b1252 and b3005 and b3006 and b3966)'};
 %standardize gene-rxn associations
 [grRules,rxnGeneMat] = standardizeGrRules(model);
 model.grRules        = grRules;
@@ -85,6 +115,7 @@ end
 while isempty(modelVer)
     modelVer = '1.0';
 end
+fprintf(' Done!\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = createPoolsForBiomass(model)

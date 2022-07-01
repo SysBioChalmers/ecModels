@@ -60,7 +60,11 @@ else
     plot(axes(1:2),axes(1:2),'-k','LineWidth',2)
     text(axes(2) - 0.3,0.1,['Mean error = ' num2str(round(mean_error,1)) '%'],'FontSize',s.la)
     %Axes:
-    xlabel('Experimental \mu_{max} [1/h]','FontSize',s.la)
+    if max(max(data)) < 0.3
+        xlabel('Experimental \mu_{max} [1/h]','FontSize',s.la)
+    else
+        xlabel('Rescaled experimental \mu_{max} [1/h]','FontSize',s.la)
+    end
     ylabel('Predicted \mu_{max} [1/h]','FontSize',s.la)
 end
 

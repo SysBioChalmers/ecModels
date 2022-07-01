@@ -1,6 +1,6 @@
 Unicode,enz_pos,rxn_pos,Organism,Modified,Parameter,oldValue,newValue,error,ControlCoeff
-P38604,3314,3647,bos taurus,1,SA*Mw,0.001937,4.07633,-40.7196,0.970017
-P38972,2770,2888,escherichia coli,1,SA*Mw,0.05,5.06748,-26.8912,0.235853
-P00931,3566,4051,salmonella enterica subsp. enterica serovar typhimurium,1,SA*Mw,0.022301,775.75,-18.7377,0.111406
-P48445,2792,2928,staphylococcus aureus,1,K_cat,1.22998,450000,-13.4037,0.06557
-P05694,2776,3677,escherichia coli,1,SA*Mw,0.33,3.5,-9.41454,0.051052
+P38604,3325,3657,bos taurus,1,SA*Mw,0.001937,4.07633,-42.4082,0.940936
+P38972,2781,2898,escherichia coli,1,SA*Mw,0.05,5.06748,-28.4196,0.245601
+P00931,3577,4061,salmonella enterica subsp. enterica serovar typhimurium,1,SA*Mw,0.022301,775.75,-19.119,0.129789
+P48445,2803,2938,staphylococcus aureus,1,K_cat,1.22998,450000,-13.8453,0.065134
+P05694,2787,3687,escherichia coli,1,SA*Mw,0.33,3.5,-9.90281,0.050713

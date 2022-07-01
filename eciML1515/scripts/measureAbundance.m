@@ -41,6 +41,7 @@ else
 end
 
 if ~isempty(genes)
+    fprintf('Calculating total abundance...')
     %Load swissprot data:
     data      = load('../../databases/ProtDatabase.mat');
     swissprot = data.swissprot;
@@ -66,8 +67,7 @@ if ~isempty(genes)
         end
         concs(i) = MW*abundance(i);     %g/mol(tot prot)
         if rem(i,100) == 0 || i == length(genes)
-            disp(['Calculating total abundance: Ready with ' num2str(i) '/' ...
-                num2str(length(genes)) ' genes '])
+            fprintf('.')
         end
     end
     f     = sum(concs(counter),'omitnan')/sum(concs,'omitnan');
