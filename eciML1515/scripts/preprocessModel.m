@@ -36,6 +36,7 @@ for i = 1:length(model.rxns)
         model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
     end
 end
+
 %Fix problematic grRules
 model.grRules(strcmp(model.rxns,'PFL')) = {'(b0902 and b0903) or (b0902 and b3114) or (b3951 and b3952) or (b0902 and b0903 and b2579)'};
 model.grRules(strcmp(model.rxns,'RNDR1')) = {'(b2582 and b2234 and b2235) or (b3781 and b2234 and b2235)'};
