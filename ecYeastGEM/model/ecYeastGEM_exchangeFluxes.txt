@@ -1,0 +1,24 @@
+EXCHANGE FLUXES:
+r_1672	(carbon dioxide exchange):	30.7183
+r_1761	(ethanol exchange):	27.018
+r_1793	(formate exchange):	0.054878
+r_1814	(glycolaldehyde exchange):	2.4581e-05
+r_2100	(water exchange):	15.2977
+r_2111	(growth):	0.3805
+r_4527	(diphosphate exchange):	3.801
+r_1654_REV	(ammonium exchange (reversible)):	2.8771
+r_1714_REV	(D-glucose exchange (reversible)):	16.8695
+r_1832_REV	(H+ exchange (reversible)):	2.7635
+r_1861_REV	(iron(2+) exchange (reversible)):	1.1948e-05
+r_1992_REV	(oxygen exchange (reversible)):	3.1057
+r_2005_REV	(phosphate exchange (reversible)):	7.7833
+r_2020_REV	(potassium exchange (reversible)):	0.0013812
+r_2049_REV	(sodium exchange (reversible)):	0.0015106
+r_2060_REV	(sulphate exchange (reversible)):	0.034905
+r_4593_REV	(chloride exchange (reversible)):	0.00049085
+r_4594_REV	(Cu2(+) exchange (reversible)):	0.00025075
+r_4595_REV	(Mn(2+) exchange (reversible)):	0.0010388
+r_4596_REV	(Zn(2+) exchange (reversible)):	0.00028462
+r_4597_REV	(Mg(2+) exchange (reversible)):	0.00047279
+r_4600_REV	(Ca(2+) exchange (reversible)):	8.2569e-05
+prot_pool_exchange	(prot_pool_exchange):	0.1037
