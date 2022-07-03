@@ -99,6 +99,8 @@ class GECKO_VM:
             cmd = sp.check_output(['git', 'commit', '-m', 'chore: update {} based on {}'.format(gem, self.version(gem))])
             l.info(cmd.decode('utf-8'))
             l.critical('Will push and create PR')
+            cmd = sp.check_output(['git', 'push'])
+            l.info(cmd.decode('utf-8'))
             # Create PR and also push
             pr_filename = "/tmp/githubpr"
             with open(pr_filename, "w") as f:
@@ -106,8 +108,7 @@ class GECKO_VM:
                 f.write("```matlab\n")
                 f.write(matlab_output)
                 f.write("\n```\n")
-            my_env = environ.copy()
-            cmd = sp.check_output(['hub', 'pull-request', '-F', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            cmd = sp.check_output(['gh', 'pr', 'create', '--body-file', pr_filename, '--base', self.pr_target()])
             l.info(cmd.decode('utf-8'))
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
