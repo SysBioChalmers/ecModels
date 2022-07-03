@@ -1,6 +1,9 @@
 name: automation
 
 on:
+  push:
+    branches-ignore:
+        - "update/**"
   schedule:
     - cron: '3 2 1 * *'
 
@@ -10,12 +13,12 @@ jobs:
     timeout-minutes: 1200
 
     steps:
-    - name: Clone repository on current branch
-      run: |
-        rm -rf *
-        git clone https://github.com/$GITHUB_REPOSITORY --branch ${GITHUB_REF#refs/heads/} latest-ecModels
+      - name: Clone repository on current branch
+        run: |
+          rm -rf *
+          git clone https://github.com/$GITHUB_REPOSITORY --branch ${GITHUB_REF#refs/heads/} latest-ecModels
 
-    - name: Run the pipeline
-      run: |
-        cd latest-ecModels
-        python3 run.py ${GITHUB_REF#refs/heads/}
+      - name: Run the pipeline
+        run: |
+          cd latest-ecModels
+          python3 run.py ${GITHUB_REF#refs/heads/}

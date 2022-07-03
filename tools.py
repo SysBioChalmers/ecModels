@@ -14,7 +14,7 @@ URL = 'url'
 DURL = 'download_url'
 IDIR = 'install_dir'
 SCRIPTSDIR = 'scripts'
-PIPELINE_BASE_BRANCH = 'master'
+PIPELINE_BASE_BRANCH = 'main'
 
 logging.basicConfig(level=logging.DEBUG)
 l = logging.getLogger(__name__)
@@ -67,8 +67,8 @@ class GECKO_VM:
     def pr_target(self):
         return self.config['BASE']['pull_request_target']
 
-    def git_clone(self, section, branch='master'):
-        cmd = sp.check_output(['git', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
+    def git_clone(self, section, branch=PIPELINE_BASE_BRANCH):
+        cmd = sp.check_output(['hub', 'clone', self.config[section][URL], '--depth', '1', '--branch', branch, self.install_dir(section)])
         l.info(cmd.decode('utf-8'))
 
     def download(self, gem):
@@ -99,6 +99,8 @@ class GECKO_VM:
             cmd = sp.check_output(['git', 'commit', '-m', 'chore: update {} based on {}'.format(gem, self.version(gem))])
             l.info(cmd.decode('utf-8'))
             l.critical('Will push and create PR')
+            cmd = sp.check_output(['git', 'push'])
+            l.info(cmd.decode('utf-8'))
             # Create PR and also push
             pr_filename = "/tmp/githubpr"
             with open(pr_filename, "w") as f:
@@ -106,8 +108,7 @@ class GECKO_VM:
                 f.write("```matlab\n")
                 f.write(matlab_output)
                 f.write("\n```\n")
-            my_env = environ.copy()
-            cmd = sp.check_output(['hub', 'pull-request', '-F', pr_filename, '-b', self.pr_target(), '-p'], env=my_env)
+            cmd = sp.check_output(['gh', 'pr', 'create', '--body-file', pr_filename, '--base', self.pr_target(), '--fill'])
             l.info(cmd.decode('utf-8'))
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
@@ -137,7 +138,7 @@ class GECKO_VM:
                     l.info('{} is still {}'.format(tool, tool_version))
         # Check COBRA, RAVEN, GECKO versions
         self.cleanup('GECKO')
-        self.git_clone('GECKO')
+        self.git_clone('GECKO', self.config['GECKO']['branch'])
         for tool in ['COBRA', 'RAVEN', 'GECKO']:
             tool_version = self.git_tag(tool)
             if tool_version != self.version(tool):
