@@ -116,7 +116,7 @@ else
     unusedMets = [];
     for i=1:length(mediaComps)
         %Get metabolite indx
-        metIndx = getIndexes(model,strcat(mediaComps{i},'[s]'),'metcomps');
+        metIndx = getIndexes(model,strcat(mediaComps{i},'[e]'),'metcomps');
         %Get rxns for metabolite
         metRxns = find(model.S(metIndx,:));
         %Get the uptake reaction for the metabolite
