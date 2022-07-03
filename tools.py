@@ -108,7 +108,7 @@ class GECKO_VM:
                 f.write("```matlab\n")
                 f.write(matlab_output)
                 f.write("\n```\n")
-            cmd = sp.check_output(['gh', 'pr', 'create', '--body-file', pr_filename, '--base', self.pr_target()])
+            cmd = sp.check_output(['gh', 'pr', 'create', '--body-file', pr_filename, '--base', self.pr_target(), '--fill'])
             l.info(cmd.decode('utf-8'))
         except sp.CalledProcessError:
             l.critical('While upgrading {} to {} no changes were detected'.format(gem, self.version(gem)))
