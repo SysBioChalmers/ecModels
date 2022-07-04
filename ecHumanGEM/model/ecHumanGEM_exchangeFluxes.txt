@@ -1,0 +1,51 @@
+EXCHANGE FLUXES:
+MAR09058	():	0.0069804
+MAR09079	():	1.1393
+MAR09242	():	1.2712
+MAR09318	():	0.00058634
+MAR09422	():	1.2733
+MAR09685	():	1.1781
+MAR09862	(Exchange of 3-Phospho-D-Glycerate):	1.2632
+MAR10255	(Exchange of L-Pipecolic Acid):	0.023109
+MAR10441	(Exchange of O-Phospho-L-Serine):	0.0036545
+MAR11400	(Exchange of Fumarate):	0.00041161
+MAR11420	(Exchange of Ammonia):	0.022185
+MAR11914	(Exchange of Homocysteine Thiolactone):	5.1618e-06
+MAR11953	(Exchange of 5,10-Methylenetetrahydrofolate):	0.0020138
+MAR10024	():	0.02078
+MAR09034_REV	( (reversible)):	1.1872
+MAR09035_REV	( (reversible)):	0.0015355
+MAR09036_REV	( (reversible)):	0.0067058
+MAR09038_REV	( (reversible)):	0.0025529
+MAR09039_REV	( (reversible)):	0.0050049
+MAR09040_REV	( (reversible)):	0.013728
+MAR09041_REV	( (reversible)):	0.031114
+MAR09042_REV	( (reversible)):	0.0025046
+MAR09043_REV	( (reversible)):	0.0042333
+MAR09044_REV	( (reversible)):	0.0063441
+MAR09045_REV	( (reversible)):	0.001097
+MAR09046_REV	( (reversible)):	0.0074864
+MAR09047_REV	( (reversible)):	1.0433
+MAR09048_REV	( (reversible)):	0.042584
+MAR09061_REV	( (reversible)):	0.0092901
+MAR09062_REV	( (reversible)):	0.0041713
+MAR09063_REV	( (reversible)):	0.0071814
+MAR09064_REV	( (reversible)):	0.0031718
+MAR09065_REV	( (reversible)):	0.0024537
+MAR09066_REV	( (reversible)):	0.0056939
+MAR09067_REV	( (reversible)):	0.0084008
+MAR09068_REV	( (reversible)):	0.0057279
+MAR09069_REV	( (reversible)):	0.0088603
+MAR09070_REV	( (reversible)):	0.0082524
+MAR09071_REV	( (reversible)):	0.011201
+MAR09072_REV	( (reversible)):	1.2778
+MAR09083_REV	( (reversible)):	0.0025934
+MAR09143_REV	( (reversible)):	1.7206e-06
+MAR09145_REV	( (reversible)):	0.00023711
+MAR09146_REV	( (reversible)):	0.0020146
+MAR09358_REV	( (reversible)):	0.0021215
+MAR09361_REV	( (reversible)):	0.00031894
+MAR09378_REV	( (reversible)):	3.9184e-05
+MAR09404_REV	( (reversible)):	1.2027e-05
+MAR09423_REV	( (reversible)):	1.2755
+prot_pool_exchange	(prot_pool_exchange):	0.042986
